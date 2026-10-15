@@ -300,6 +300,7 @@
     $('bookReaderTitle').textContent=entry.item.title;
     $('bookReaderProgress').value=Math.round(entry.percent||0);
     $('bookReaderProgressLabel').textContent='已读 '+Math.round(entry.percent||0)+'%';
+    renderBookmarks();
     setReaderStatus('读取本地图书…');
     setStatus(entry.item,'reading');
     try{
@@ -363,6 +364,32 @@
     if(state.mode==='txt')$('bookReaderText').style.fontSize=state.fontSize+'px';
     if(state.mode==='epub')state.rendition?.themes.fontSize(state.fontSize+'px');
   }
+  function renderBookmarks(){
+    const select=$('bookReaderBookmarks');
+    select.replaceChildren();
+    const first=document.createElement('option');first.value='';first.textContent='书签';select.append(first);
+    const entry=shelf()[state.readerId],marks=entry?.bookmarks||[];
+    marks.forEach((mark,index)=>{
+      const option=document.createElement('option');option.value=String(index);
+      option.textContent='书签 '+(index+1)+' · '+(mark.percent||0)+'%';select.append(option);
+    });
+    select.hidden=!marks.length;
+  }
+  function jumpToBookmark(index){
+    const entry=shelf()[state.readerId];
+    const mark=entry?.bookmarks?.[index];if(!mark)return;
+    if(state.mode==='epub'&&typeof mark.location==='string'&&mark.location.startsWith('epubcfi(')){
+      state.rendition?.display(mark.location).catch(()=>setReaderStatus('无法定位这个 EPUB 书签。'));
+    }else if(state.mode==='txt'){
+      const body=$('bookReaderText');
+      body.scrollTop=typeof mark.location==='number'?mark.location:(body.scrollHeight-body.clientHeight)*(mark.percent||0)/100;
+      textProgress();
+    }else if(state.mode==='pdf'){
+      progressSave({percent:mark.percent||0});
+      $('bookReaderProgress').value=mark.percent||0;
+      setReaderStatus('已恢复记录的 PDF 阅读进度。PDF 的实际页面需在浏览器内手动定位。');
+    }
+  }
   function createBookmark(){
     if(!state.readerId)return;
     const data=shelf(),entry=data[state.readerId];if(!entry)return;
@@ -370,6 +397,7 @@
     const collection=Array.isArray(entry.bookmarks)?entry.bookmarks:[];
     entry.bookmarks=[mark,...collection].slice(0,30);
     storeShelf(data);
+    renderBookmarks();
     setReaderStatus('已保存书签 · '+mark.percent+'%。再次打开会自动恢复最近阅读位置。');
   }
   function init(){
@@ -417,6 +445,7 @@
     $('bookReaderFontDown').addEventListener('click',()=>changeFont(-2));
     $('bookReaderFontUp').addEventListener('click',()=>changeFont(2));
     $('bookReaderBookmark').addEventListener('click',createBookmark);
+    $('bookReaderBookmarks').addEventListener('change',e=>{if(e.target.value!=='')jumpToBookmark(Number(e.target.value));e.target.value='';});
     $('bookReaderFinish').addEventListener('click',()=>{const entry=shelf()[state.readerId];if(entry)setStatus(entry.item,'finished');setReaderStatus('已标为读完。');});
     $('bookReaderProgress').addEventListener('input',e=>{
       const p=Number(e.target.value);
