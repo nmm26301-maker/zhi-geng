@@ -60,6 +60,26 @@
               <button class="book-action book-action-main" type="button" id="bookHubSource">配置 Z-Library 入口 ↗</button>
             </div>
           </section>
+          <section class="book-studio" id="bookStudio" hidden aria-label="图书管理与本地阅读">
+            <div class="book-studio-header">
+              <div><div class="section-kicker">MY READING SPACE</div><h3>我的阅读空间</h3><p>搜索更多书籍，也能把自己的电子书放进书架直接阅读。内容仅保存在本设备。</p></div>
+              <button class="book-action book-action-main" type="button" id="bookImportButton">＋ 导入电子书</button>
+              <input type="file" id="bookFileInput" accept=".epub,.pdf,.txt,application/epub+zip,application/pdf,text/plain" multiple hidden />
+            </div>
+            <details class="book-filter-section" id="bookFilterDetails"><summary>精准找书：语言 / 年份区间 / 在线阅读 <span class="book-filter-chevron">⌄</span></summary>
+              <div class="book-filter-grid">
+                <label>书籍语言<select id="bookLanguage"><option value="">全部语言</option><option value="chi">中文</option><option value="eng">英语</option><option value="jpn">日语</option><option value="fre">法语</option><option value="ger">德语</option><option value="spa">西班牙语</option></select></label>
+                <label>出版时间（起）<input id="bookYearFrom" type="number" min="1400" max="2100" inputmode="numeric" placeholder="不限" /></label>
+                <label>出版时间（止）<input id="bookYearTo" type="number" min="1400" max="2100" inputmode="numeric" placeholder="不限" /></label>
+                <label>可读状态<select id="bookAvailability"><option value="">全部书籍</option><option value="public">在线可读</option><option value="borrowable">可借阅</option></select></label>
+              </div>
+              <div class="book-filter-actions"><label class="book-exact-check"><input type="checkbox" id="bookExact" /> 精确短语搜索</label><button type="button" class="outline-button" id="bookFilterClear">清除条件</button><button type="button" class="primary-button" id="bookFilterApply">应用筛选</button></div>
+            </details>
+            <div class="book-history" id="bookHistory" hidden><span>最近搜索</span><div id="bookHistoryChips" class="book-history-chips"></div><button type="button" id="bookHistoryClear" class="book-link-button">清除</button></div>
+            <div class="book-shelf-header"><div><h4>我的书架 <span id="bookShelfCount">0</span></h4><p>想读、在读、已读及导入的 EPUB / PDF / TXT</p></div><div class="book-shelf-tabs" id="bookShelfTabs"><button type="button" data-shelf-filter="all" class="active">全部</button><button type="button" data-shelf-filter="want">想读</button><button type="button" data-shelf-filter="reading">在读</button><button type="button" data-shelf-filter="finished">已读</button><button type="button" data-shelf-filter="local">本地图书</button></div></div>
+            <div id="bookShelfList" class="book-shelf-list"></div>
+            <p id="bookStudioMessage" class="book-studio-message" role="status" aria-live="polite"></p>
+          </section>
           <div class="results-top"><div><h3 id="resultsHeading">灵感推荐</h3><span id="resultCount" class="result-count">连接数据源中…</span></div><div class="results-actions"><button id="refreshButton" class="text-button"><span>↻</span> 更新作品</button><button id="guideButton" class="text-button">数据说明 ↗</button></div></div>
           <div class="notice" id="notice" hidden></div>
           <div id="loading" class="work-grid loading-grid" aria-live="polite"><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div></div>
@@ -95,8 +115,36 @@
       <p id="bookCopyStatus" class="field-tip" role="status" aria-live="polite">知更不托管第三方 APK，也不提供未经授权的图书下载。</p>
     </div>
   </div>
+  <div id="bookDetailsModal" class="modal-backdrop" hidden>
+    <div class="modal book-details-dialog" role="dialog" aria-modal="true" aria-labelledby="bookDetailsTitle">
+      <div class="modal-top"><div><div class="section-kicker">BOOK DETAILS · 读书笔记</div><h2 id="bookDetailsTitle">图书详情</h2><p id="bookDetailsMeta" class="book-resource-meta"></p></div><button id="bookDetailsClose" type="button" class="modal-close" aria-label="关闭图书详情">×</button></div>
+      <div class="book-details-main"><img id="bookDetailsCover" alt="书籍封面" hidden /><div><p id="bookDetailsSummary" class="book-details-summary">正在获取图书详情…</p><p id="bookDetailsExtra" class="book-details-extra"></p></div></div>
+      <div class="book-detail-actions">
+        <button id="bookWantButton" type="button" class="outline-button" data-set-read-status="want">＋ 想读</button>
+        <button id="bookReadingButton" type="button" class="outline-button" data-set-read-status="reading">◷ 在读</button>
+        <button id="bookFinishedButton" type="button" class="outline-button" data-set-read-status="finished">✓ 已读</button>
+        <button id="bookRemoveButton" type="button" class="outline-button">移出书架</button>
+      </div>
+      <div class="book-detail-actions">
+        <button id="bookDetailsRead" type="button" class="primary-button" hidden>打开阅读器 ↗</button>
+        <button id="bookDetailsResource" type="button" class="outline-button">寻找阅读资源 ↗</button>
+      </div>
+      <p class="book-details-note">知更只提供公开图书资料或阅读你自行导入的文件，不会代为获取受版权保护的电子书。</p>
+    </div>
+  </div>
+  <div id="bookReader" class="book-reader" hidden role="dialog" aria-modal="true" aria-labelledby="bookReaderTitle">
+    <div class="book-reader-top"><button type="button" id="bookReaderClose" class="book-reader-back">← 返回书架</button><strong id="bookReaderTitle">阅读器</strong><div class="book-reader-top-actions"><button type="button" id="bookReaderPrev" aria-label="上一页">‹</button><button type="button" id="bookReaderNext" aria-label="下一页">›</button><button type="button" id="bookReaderFontDown" aria-label="缩小字体">A−</button><button type="button" id="bookReaderFontUp" aria-label="放大字体">A＋</button><button type="button" id="bookReaderBookmark">☆ 书签</button></div></div>
+    <div id="bookReaderContent" class="book-reader-content">
+      <div id="bookReaderText" class="book-reader-text" hidden></div>
+      <iframe id="bookReaderPdf" class="book-reader-pdf" title="PDF 阅读器" hidden></iframe>
+      <div id="bookReaderEpub" class="book-reader-epub" hidden></div>
+      <div id="bookReaderStatus" class="book-reader-status" role="status" aria-live="polite"></div>
+    </div>
+    <div class="book-reader-bottom"><span id="bookReaderProgressLabel">已读 0%</span><input id="bookReaderProgress" type="range" min="0" max="100" value="0" aria-label="阅读进度" /><button type="button" id="bookReaderFinish">标为已读</button><a id="bookReaderExternal" target="_blank" rel="noopener noreferrer" hidden>系统打开 ↗</a></div>
+  </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="assets/app.js" defer></script>
   <script src="assets/book-bridge.js" defer></script>
+  <script src="assets/book-library.js" defer></script>
 </body>
 </html>
