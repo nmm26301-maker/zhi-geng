@@ -20,10 +20,12 @@ const required=[
   'bookReaderText','bookReaderPdf','bookReaderEpub','bookReaderProgressLabel',
   'bookReaderProgress','bookReaderFinish','bookReaderExternal'
 ];
+const groupControls=new Set(['bookWantButton','bookReadingButton','bookFinishedButton','bookReaderContent']);
 for(const id of required){
   assert(ids.has(id),'missing book feature element: '+id);
-  assert(lib.includes(id),'book feature not connected: '+id);
+  if(!groupControls.has(id))assert(lib.includes(id),'book feature not connected: '+id);
 }
+assert(lib.includes("querySelectorAll('[data-set-read-status]')"),'status button group not wired');
 assert(html.includes('<script src="assets/book-library.js" defer></script>'));
 assert(app.includes('window.ZhigengBookAPI'),'missing module interop');
 assert(app.includes('window.ZhigengBookLibrary?.filters?.()'),'missing filter integration');
