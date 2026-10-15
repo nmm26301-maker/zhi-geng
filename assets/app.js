@@ -37,8 +37,80 @@
     catch(e){if(e.name==='AbortError')throw new Error('请求超时');throw e;}
     finally{clearTimeout(timeout);}
   }
-  function tmdbAuth(){const key=getKey();if(!key)return null;return /^[\w-]{100,}$/.test(key)||key.startsWith('eyJ')?{headers:{Authorization:`Bearer ${key}`}}:{params:{api_key:key}};}
-  async function tmdbRequest(path,params={}){const auth=tmdbAuth();if(!auth)throw new Error('尚未配置 TMDB');return request(endpoint('https://api.themoviedb.org/3/'+path,{language:'zh-CN',include_adult:'false',...params,...(auth.params||{})}),auth.headers?{headers:auth.headers}:{});}
+  // Accept the distinct TMDB credentials and common copied labels, but never silently guess an unknown credential type.
+  function parseTmdbCredential(value){
+    let text=String(value||'').trim()
+      .replace(/^(?:Authorization\s*:\s*)?Bearer\s+/i,'')
+      .replace(/^(?:API\s*Read\s*Access\s*Token|API\s*Key(?:\s*\(v3\s*auth\))?)\s*[:：]?\s*/i,'')
+      .replace(/^["'\x60]|["'\x60]$/g,'')
+      .replace(/\s+/g,'');
+    if(!text)return {value:'',type:'empty',label:'未配置'};
+    if(/^[a-fA-F0-9]{32}$/.test(text))return {value:text,type:'key',label:'API Key（v3）'};
+    if(/^eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(text))
+      return {value:text,type:'token',label:'API Read Access Token'};
+    return {value:'',type:'invalid',label:'无法识别凭证格式'};
+  }
+  function tmdbAuth(raw=getKey()){
+    const credential=parseTmdbCredential(raw);
+    if(credential.type==='empty')throw new Error('尚未填写 TMDB 密钥。请填写 API Key（v3）或 API Read Access Token。');
+    if(credential.type==='invalid')throw new Error('密钥格式无法识别：API Key 通常为 32 位十六进制字符；Read Access Token 通常以 eyJ 开头，且包含两个点。不要粘贴整页说明或申请网址。');
+    return {credential,headers:credential.type==='token'?{Authorization:'Bearer '+credential.value}:{},
+      params:credential.type==='key'?{api_key:credential.value}:{}};
+  }
+  // TMDB-specific request supplies meaningful errors without ever including the secret in visible messages.
+  async function tmdbFetch(raw,path,params={}){
+    const auth=tmdbAuth(raw);
+    const url=endpoint('https://api.themoviedb.org/3/'+path,{...params,...auth.params});
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),13500);
+    try{
+      const res=await fetch(url,{method:'GET',signal:controller.signal,headers:{Accept:'application/json',...auth.headers},cache:'no-store'});
+      const json=await res.json().catch(()=>({}));
+      if(!res.ok){
+        const code=Number(json.status_code)||0;
+        if(res.status===401)throw new Error('HTTP 401：TMDB 凭证无效、尚未激活或没有权限（TMDB 错误码 '+(code||'未知')+'）。请重新复制 API 页面对应的凭证。');
+        if(res.status===403)throw new Error('HTTP 403：TMDB 拒绝访问，可能是账户或访问权限限制。');
+        if(res.status===429)throw new Error('HTTP 429：请求过于频繁，请稍后再试。');
+        if(res.status>=500)throw new Error('TMDB 服务暂时不可用（HTTP '+res.status+'），请稍后再试。');
+        throw new Error('TMDB 返回 HTTP '+res.status+'；'+String(json.status_message||'请检查填写内容').slice(0,120));
+      }
+      return json;
+    }catch(e){
+      if(e?.name==='AbortError')throw new Error('连接 TMDB 超时：可能是网络无法连接 api.themoviedb.org，不一定是密钥错误。');
+      if(e instanceof TypeError)throw new Error('网络连接或跨域限制：浏览器未能访问 TMDB API。请检查网络或换浏览器测试，密钥未必有问题。');
+      throw e;
+    }finally{clearTimeout(timer);}
+  }
+  async function tmdbRequest(path,params={}){
+    const data=await tmdbFetch(getKey(),path,{language:'zh-CN',include_adult:'false',...params});
+    return data;
+  }
+  function setTmdbStatus(message,level='info'){
+    const el=$('#tmdbStatus');
+    if(el){el.textContent=message;el.dataset.level=level;}
+  }
+  async function verifyTmdbFromInput({save=false}={}){
+    const parsed=parseTmdbCredential($('#tmdbKey').value);
+    if(parsed.type==='empty'||parsed.type==='invalid'){
+      setTmdbStatus(parsed.type==='empty'?'请先粘贴 TMDB API Key 或 Read Access Token。':'密钥格式不正确：请复制 API 页面中完整的 API Key（v3）或 API Read Access Token。','error');
+      return;
+    }
+    const testButton=$('#testTmdb'),saveButton=$('#saveSettings');
+    testButton.disabled=true;saveButton.disabled=true;
+    setTmdbStatus('正在使用 '+parsed.label+' 测试 TMDB 官方连接…');
+    try{
+      const data=await tmdbFetch(parsed.value,'configuration');
+      if(!data||!data.images)throw new Error('TMDB 响应缺少配置数据，请稍后重试。');
+      if(save){
+        try{localStorage.setItem(STORE.key,parsed.value);}
+        catch{setTmdbStatus('TMDB 已通过测试，但浏览器禁止本地保存。请检查隐私浏览模式或存储设置。','error');return;}
+        setTmdbStatus(parsed.label+' 已验证并保存。','success');
+        closeSettings();toast('TMDB 连接成功，已保存并更新作品');resetAndLoad();
+      }else setTmdbStatus('连接成功 · '+parsed.label+' 有效。现在可以点击「验证并保存」。','success');
+    }catch(e){
+      const message=e.message||'未知错误';
+      setTmdbStatus('连接未通过：'+message+(save?' 当前输入没有覆盖此前保存的密钥。':''),'error');
+    }finally{testButton.disabled=false;saveButton.disabled=false;}
+  }
   function num(v){const n=Number(v);return Number.isFinite(n)?n:0;}
   function cleanDate(v){return /^\d{4}-\d{2}-\d{2}/.test(String(v||''))?String(v).slice(0,10):'';}
   function normalizeTmdb(item,category){const tv=category!=='movie';const date=cleanDate(tv?item.first_air_date:item.release_date);return {id:category+':'+item.id,type:category,title:item.title||item.name||item.original_title||item.original_name||'未命名作品',original:item.original_title||item.original_name||'',year:date?Number(date.slice(0,4)):null,date,score:num(item.vote_average),votes:num(item.vote_count),interest:num(item.popularity),image:item.poster_path?'https://image.tmdb.org/t/p/w500'+item.poster_path:'',summary:item.overview||'',source:'TMDB',url:`https://www.themoviedb.org/${tv?'tv':'movie'}/${item.id}`,status:'',subtype:''};}
@@ -156,7 +228,7 @@
   function resetAndLoad(){state.page=1;state.moreAvailable=false;load();}
   function changeCategory(c){state.category=c;setTitle();resetAndLoad();}
   function changeView(v){state.view=v;if(v==='latest'||v==='saved')state.year='all';else if(v==='explore'&&state.year==='all')state.year=String(CURRENT_YEAR);if(v==='saved')state.category='all';$('#yearSelect').value=state.year;setTitle();resetAndLoad();document.querySelector('#discoverySection').scrollIntoView({behavior:'smooth',block:'start'});}
-  function openSettings(){const modal=$('#settingsModal');modal.hidden=false;$('#tmdbKey').value=getKey();$('#tmdbKey').focus();}
+  function openSettings(){const modal=$('#settingsModal');modal.hidden=false;$('#tmdbKey').value=getKey();setTmdbStatus(getKey()?'已读取本机保存的凭证，点击「测试连接」确认是否有效。':'请输入 TMDB 申请页中的 API Key（v3）或 Read Access Token。');$('#tmdbKey').focus();}
   function closeSettings(){$('#settingsModal').hidden=true;}
   function updateFavorite(id){let target=state.items.find(x=>x.id===id);const saved=getSaved();if(saved[id]){delete saved[id];toast('已从清单移除');}else{target=target||saved[id]?.item;if(!target)return;saved[id]={item:target,finished:false,savedAt:new Date().toISOString()};toast('已加入我的清单 ♡');}saveList(saved);render();}
   function markFinished(id){const saved=getSaved();if(!saved[id])return;saved[id].finished=!saved[id].finished;saveList(saved);toast(saved[id].finished?'已标记完成':'已恢复为待看 / 待读');render();}
@@ -183,8 +255,10 @@
     $('#guideButton').addEventListener('click',()=>toast('数据源：TMDB / Jikan / Open Library / TVmaze；评分来自各数据源，不能直接当作同一平台评分。'));
     ['#settingsButton','#headerSettings'].forEach(sel=>$(sel).addEventListener('click',openSettings));$('#modalClose').addEventListener('click',closeSettings);
     $('#settingsModal').addEventListener('click',e=>{if(e.target===$('#settingsModal'))closeSettings();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSettings();});
-    $('#saveSettings').addEventListener('click',()=>{const key=$('#tmdbKey').value.trim();try{if(key)localStorage.setItem(STORE.key,key);else localStorage.removeItem(STORE.key);}catch{toast('浏览器不允许保存密钥');return;}closeSettings();toast('设置已保存，开始重新加载');resetAndLoad();});
-    $('#clearKey').addEventListener('click',()=>{$('#tmdbKey').value='';try{localStorage.removeItem(STORE.key);}catch{}toast('密钥已清除');});
+    $('#tmdbKey').addEventListener('input',()=>setTmdbStatus('内容已变化，点击「测试连接」进行验证。'));
+    $('#testTmdb').addEventListener('click',()=>verifyTmdbFromInput());
+    $('#saveSettings').addEventListener('click',()=>verifyTmdbFromInput({save:true}));
+    $('#clearKey').addEventListener('click',()=>{$('#tmdbKey').value='';try{localStorage.removeItem(STORE.key);}catch{}setTmdbStatus('已清除本机保存的 TMDB 凭证。');toast('密钥已清除');resetAndLoad();});
     $('#avatarButton').addEventListener('click',e=>{e.preventDefault();changeView('saved');});
     const hash=location.hash.replace('#','');if(hash==='saved'||hash==='latest')state.view=hash;updateSavedCount();setTitle();load();
   }
