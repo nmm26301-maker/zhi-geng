@@ -19,4 +19,10 @@ jobs:
         run: |
           node --check assets/app.js
           node --check assets/book-bridge.js
+          node --check assets/book-library.js
           node scripts/check-book-bridge.mjs
+          node scripts/check-book-library.mjs
+      - name: Smoke test main book interactions
+        run: |
+          npm install --no-save --no-package-lock jsdom@26
+          node scripts/test-book-ui.mjs

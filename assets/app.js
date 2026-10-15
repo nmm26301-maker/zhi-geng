@@ -132,12 +132,28 @@
     }
     const result=await request(url);return (result.data||[]).map(normalizeJikan).filter(x=>x.title);
   }
-  function normalizeOpenLibrary(item){const year=Number(item.first_publish_year)||null;const rating=num(item.ratings_average);const key=String(item.key||'');const workKey=key.startsWith('/works/')?key:'/works/'+key.replace(/^\/+/, '');return {id:'book:'+workKey,type:'book',title:item.title||'未命名图书',original:'',year,date:year?year+'-01-01':'',score:rating?rating*2:0,votes:num(item.ratings_count),interest:num(item.readinglog_count)||num(item.edition_count),image:item.cover_i?`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`:'',summary:'',source:'Open Library',url:'https://openlibrary.org'+workKey,status:item.public_scan_b?'可查看公开扫描':'',subtype:(item.author_name||[]).slice(0,2).join(' · '),ratingBase:rating?'5':'10'};}
-  async function books(){const year=state.view==='latest'?CURRENT_YEAR:state.year;const q=[];
-    if(state.query)q.push('('+state.query.replace(/[\\+\-!():^\[\]{}~*?|&]/g,' ')+')');
-    else q.push('subject:'+(GENRES[state.keyword]?.book||'fiction'));
-    if(year!=='all')q.push(`first_publish_year:[${year} TO ${year}]`);
-    const result=await request(endpoint('https://openlibrary.org/search.json',{q:q.join(' AND '),fields:'key,title,author_name,first_publish_year,cover_i,ratings_average,ratings_count,readinglog_count,edition_count,public_scan_b',limit:24,page:state.page,sort:state.sort==='new'||state.view==='latest'?'new':state.sort==='rating'?'rating':'readinglog_count desc'}));
+  function normalizeOpenLibrary(item){const year=Number(item.first_publish_year)||null;const rating=num(item.ratings_average);const key=String(item.key||'');const workKey=key.startsWith('/works/')?key:'/works/'+key.replace(/^\/+/, '');return {id:'book:'+workKey,type:'book',title:item.title||'未命名图书',original:'',year,date:year?year+'-01-01':'',score:rating?rating*2:0,votes:num(item.ratings_count),interest:num(item.readinglog_count)||num(item.edition_count),image:item.cover_i?`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`:'',summary:'',source:'Open Library',url:'https://openlibrary.org'+workKey,status:item.public_scan_b?'可查看公开扫描':'',subtype:(item.author_name||[]).slice(0,2).join(' · '),ratingBase:rating?'5':'10',isbn:(item.isbn||[])[0]||'',languages:item.language||[],editionCount:num(item.edition_count),ebookAccess:item.ebook_access||''};}
+  async function books(){
+    const opts=window.ZhigengBookLibrary?.filters?.()||{};
+    const year=state.view==='latest'?CURRENT_YEAR:state.year;
+    const q=[];
+    if(state.query){
+      const sanitized=state.query.replace(/[\\+\-!():^\[\]{}~*?|&"]/g,' ').trim();
+      if(sanitized)q.push(opts.exact?'"'+sanitized+'"':'('+sanitized+')');
+    } else q.push('subject:'+(GENRES[state.keyword]?.book||'fiction'));
+    const selectedYear=year==='all'?null:Number(year);
+    const lo=Math.max(opts.from||0, selectedYear||0) || (selectedYear||null);
+    const hi=Math.min(opts.to||9999, selectedYear||9999);
+    if(lo!==null && hi<lo)return [];
+    if(lo||hi<9999)q.push('first_publish_year:['+(lo||0)+' TO '+hi+']');
+    if(opts.language)q.push('language:'+opts.language);
+    if(opts.availability==='public'||opts.availability==='borrowable')q.push('ebook_access:'+opts.availability);
+    const result=await request(endpoint('https://openlibrary.org/search.json',{
+      q:q.join(' AND '),
+      fields:'key,title,author_name,first_publish_year,cover_i,ratings_average,ratings_count,readinglog_count,edition_count,public_scan_b,isbn,language,ebook_access',
+      limit:24,page:state.page,
+      sort:state.sort==='new'||state.view==='latest'?'new':state.sort==='rating'?'rating':'readinglog_count desc'
+    }));
     return (result.docs||[]).map(normalizeOpenLibrary);
   }
   function normalizeTvMaze(item,category){const show=item.show||item;const episodeDate=cleanDate(item.airdate);const date=episodeDate||cleanDate(show.premiered);return {id:`${category}:maze:${show.id}`,type:category,title:show.name||'未命名节目',original:'',year:date?Number(date.slice(0,4)):null,date,score:num(show.rating?.average),votes:0,interest:num(show.weight),image:show.image?.medium||show.image?.original||'',summary:plainHTML(show.summary),source:'TVmaze',url:show.url||`https://www.tvmaze.com/shows/${show.id}`,status:show.status||'',subtype:show.network?.name||show.webChannel?.name||''};}
@@ -173,7 +189,7 @@
   function unique(items){const seen=new Set();return items.filter(x=>{if(!x||seen.has(x.id))return false;seen.add(x.id);return true;});}
   function cardReason(item){if(state.keyword)return tagSentence[state.keyword]||'探索更多作品';if(item.year===CURRENT_YEAR)return '今年的新发现';if(item.score>=8.5&&item.votes>=15)return '获得较高用户评分';if(item.score>=7.5&&item.votes>=10)return '口碑值得关注';if(item.type==='book')return '打开书籍资料与合法阅读选项';if(state.view==='latest')return '关注近期更新';return item.summary?short(item.summary,46):'点开详情，了解这部作品';}
   function renderCard(item,saved){const itemSaved=!!saved[item.id];const score=item.score?`${item.ratingBase==='5'?(item.score/2).toFixed(1):item.score.toFixed(1)}/${item.ratingBase||'10'}`:'暂无评分';const star=item.score?'★':'—';const origin=item.subtype||item.source;const title=safe(item.title);const image=item.image?`<img loading="lazy" src="${safe(safeUrl(item.image))}" alt="${title} 封面" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" /><div class="cover-fallback" style="display:none">${title}</div>`:`<div class="cover-fallback">${title}</div>`;
-    return `<article class="work-card" data-id="${safe(item.id)}"><div class="cover-wrap" data-action="open" title="打开作品资料">${image}<div class="cover-shade"></div><button class="bookmark ${itemSaved?'saved':''}" data-action="save" aria-label="${itemSaved?'移出收藏':'加入收藏'}" title="${itemSaved?'移出收藏':'加入收藏'}">${itemSaved?'♥':'♡'}</button><span class="rating-pill"><span>${star}</span> ${score}</span></div><div class="card-source"><span><span class="source-dot" style="background:${SOURCE_COLOR[item.type]||'#c4f3ae'}"></span>${LABELS[item.type]||''} · ${safe(item.source)}</span><span>${item.year||'—'}</span></div><h4 class="card-title" data-action="open" title="${title}">${title}</h4><div class="card-subtitle">${safe(origin)}${item.status?' <span class="sep">·</span> '+safe(short(item.status,19)):''}</div><div class="card-reason">${safe(cardReason(item))}</div>${item.type==='book'?`<button type="button" class="card-more book-resource-trigger" data-action="resources" data-book-title="${safe(item.title)}" data-book-author="${safe(item.subtype||'')}" data-book-src="${safe(item.url||'')}">查找阅读资源 ↗</button>`:''}${state.view==='saved'?`<button class="card-more" data-action="finished">${saved[item.id]?.finished?'✓ 已完成（点此撤销）':'标记为已完成 ✓'}</button>`:''}</article>`;
+    return `<article class="work-card" data-id="${safe(item.id)}"><div class="cover-wrap" data-action="${item.type==='book'?'book-details':'open'}" data-book-id="${safe(item.id)}" title="打开作品资料">${image}<div class="cover-shade"></div><button class="bookmark ${itemSaved?'saved':''}" data-action="save" aria-label="${itemSaved?'移出收藏':'加入收藏'}" title="${itemSaved?'移出收藏':'加入收藏'}">${itemSaved?'♥':'♡'}</button><span class="rating-pill"><span>${star}</span> ${score}</span></div><div class="card-source"><span><span class="source-dot" style="background:${SOURCE_COLOR[item.type]||'#c4f3ae'}"></span>${LABELS[item.type]||''} · ${safe(item.source)}</span><span>${item.year||'—'}</span></div><h4 class="card-title" data-action="${item.type==='book'?'book-details':'open'}" data-book-id="${safe(item.id)}" title="${title}">${title}</h4><div class="card-subtitle">${safe(origin)}${item.status?' <span class="sep">·</span> '+safe(short(item.status,19)):''}</div><div class="card-reason">${safe(cardReason(item))}</div>${item.type==='book'?`<button type="button" class="card-more book-detail-trigger" data-action="book-details" data-book-id="${safe(item.id)}">详情 · 加入书架 ↗</button><button type="button" class="card-more book-resource-trigger" data-action="resources" data-book-title="${safe(item.title)}" data-book-author="${safe(item.subtype||'')}" data-book-src="${safe(item.url||'')}">查找阅读资源 ↗</button>`:''}${state.view==='saved'?`<button class="card-more" data-action="finished">${saved[item.id]?.finished?'✓ 已完成（点此撤销）':'标记为已完成 ✓'}</button>`:''}</article>`;
   }
   function updateSavedCount(){const saved=getSaved();$('#savedCount').textContent=Object.keys(saved).length;}
   function render(){const saved=getSaved();let items=state.view==='saved'?Object.values(saved).map(x=>x.item).filter(Boolean):state.items;
@@ -303,16 +319,24 @@
     try{return await originalBooks();}
     catch(primary){
       try{
+        const filters=window.ZhigengBookLibrary?.filters?.()||{};
+        if(filters.availability==='borrowable')throw new Error('借阅筛选需要 Open Library 接口，此时不可使用 Google Books 替代。');
         const lookup=state.query||('subject:'+(GENRES[state.keyword]?.book||'fiction'));
-        const result=await request(endpoint('https://www.googleapis.com/books/v1/volumes',{q:lookup,maxResults:35,startIndex:(state.page-1)*35,orderBy:state.year!=='all'||state.view==='latest'||state.sort==='new'?'newest':'relevance',printType:'books'}),{timeoutMs:7600});
+        const result=await request(endpoint('https://www.googleapis.com/books/v1/volumes',{q:lookup,maxResults:35,startIndex:(state.page-1)*35,orderBy:state.year!=='all'||state.view==='latest'||state.sort==='new'?'newest':'relevance',printType:'books',...(filters.language?{langRestrict:({'chi':'zh','eng':'en','jpn':'ja','fre':'fr','ger':'de','spa':'es'}[filters.language]||'en')}: {})}),{timeoutMs:7600});
         const year=state.view==='latest'?CURRENT_YEAR:state.year;
-        return (result.items||[]).map(v=>{
+        return (result.items||[]).filter(v=>filters.availability!=='public'||v.accessInfo?.viewability==='ALL_PAGES').map(v=>{
           const info=v.volumeInfo||{},published=String(info.publishedDate||''),date=/^\d{4}-\d{2}-\d{2}/.test(published)?published.slice(0,10):/^\d{4}$/.test(published)?published+'-01-01':'';
           const rating=num(info.averageRating);
           return {id:'book:google:'+v.id,type:'book',title:info.title||'未命名图书',original:'',year:date?Number(date.slice(0,4)):null,date,score:rating*2,votes:num(info.ratingsCount),interest:num(info.ratingsCount),image:(info.imageLinks?.thumbnail||info.imageLinks?.smallThumbnail||'').replace(/^http:/,'https:'),summary:plainHTML(info.description||''),source:'Google Books',url:info.infoLink||'https://books.google.com/books?id='+encodeURIComponent(v.id),status:'',subtype:(info.authors||[]).slice(0,2).join(' · '),ratingBase:rating?'5':'10'};
-        }).filter(v=>year==='all'||v.year===Number(year)).slice(0,24);
+        }).filter(v=>(year==='all'||v.year===Number(year))&&(!filters.from||v.year>=filters.from)&&(!filters.to||v.year<=filters.to)).slice(0,24);
       } catch(secondary){throw new Error('Open Library：'+primary.message+'；Google Books：'+secondary.message);}
     }
+  };
+  window.ZhigengBookAPI={
+    getItem(id){return state.items.find(x=>x.id===id)||getSaved()[id]?.item||null;},
+    reload(){state.page=1;resetAndLoad();},
+    showBooks(){changeView('explore');changeCategory('book');},
+    chooseYearAll(){state.year='all';$('#yearSelect').value='all';}
   };
   const sourceBeforeCache=pullSource,cachePrefix='zhigeng_source_v2:';
   function sourceCacheKey(category){
