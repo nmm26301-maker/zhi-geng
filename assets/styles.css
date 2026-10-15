@@ -116,3 +116,6 @@ body.book-reader-is-open{overflow:hidden}
  .book-reader-bottom button{padding:8px}
 }
 @media(max-width:380px){.book-shelf-item{gap:7px;padding:8px}.book-shelf-cover{width:34px;height:48px}.book-shelf-actions button{padding:6px}.book-filter-grid{grid-template-columns:1fr 1fr}}
+
+.book-reader-bottom select{max-width:102px;min-width:65px;padding:7px 4px;border-radius:8px;border:1px solid #d9ded5;background:#f8faf5;color:#465747;font-size:11px}
+@media(max-width:700px){.book-reader-bottom select{max-width:70px}.book-reader-bottom input{min-width:35px}}
