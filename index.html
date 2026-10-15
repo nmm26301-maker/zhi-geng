@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#101522" />
+  <meta name="description" content="知更：聚合电影、电视剧、动漫、综艺与书籍的年度发现雷达。" />
+  <title>知更 · 好作品不会再错过</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="alternate" type="application/rss+xml" title="知更每周新作" href="feed.xml" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="#explore" aria-label="知更首页"><span class="brand-mark">◉</span><span>知更<span class="brand-dot">.</span><small>DISCOVERY RADAR</small></span></a>
+      <div class="side-caption">发现</div>
+      <nav class="side-nav" id="sideNav">
+        <button class="nav-item active" data-page="explore"><span class="nav-icon">⌕</span> 探索发现 <span class="nav-marker"></span></button>
+        <button class="nav-item" data-page="latest"><span class="nav-icon">✦</span> 最新动向</button>
+        <button class="nav-item" data-page="saved"><span class="nav-icon">♡</span> 我的片单 <span id="savedCount" class="count-bubble">0</span></button>
+      </nav>
+      <div class="side-caption categories-caption">内容分类</div>
+      <nav class="side-nav" id="categoryNav">
+        <button class="category-nav active" data-category="all"><span class="cat-icon" style="--category:#d0b3ff">◉</span> 全部发现</button>
+        <button class="category-nav" data-category="movie"><span class="cat-icon" style="--category:#ffa982">▣</span> 电影</button>
+        <button class="category-nav" data-category="tv"><span class="cat-icon" style="--category:#8fc1ff">▤</span> 电视剧</button>
+        <button class="category-nav" data-category="anime"><span class="cat-icon" style="--category:#d2a8fa">✳</span> 动漫</button>
+        <button class="category-nav" data-category="variety"><span class="cat-icon" style="--category:#fbd086">✧</span> 综艺</button>
+        <button class="category-nav" data-category="book"><span class="cat-icon" style="--category:#a4dfbd">▥</span> 书籍</button>
+      </nav>
+      <div class="side-bottom">
+        <div class="mini-highlight"><span class="pulse"></span><div><strong>发现，不再迟到</strong><small>从新作品到遗珠之作</small></div></div>
+        <button class="settings-link" id="settingsButton">⚙ &nbsp;接口与偏好设置</button>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="mobile-brand">◉ <b>知更</b></div>
+        <div class="search-wrap"><span class="search-icon">⌕</span><input id="searchInput" type="search" aria-label="搜索作品或关键词" placeholder="搜索作品、作者、关键词..." autocomplete="off" /><button id="clearSearch" class="clear-search" title="清空搜索" hidden>×</button></div>
+        <div class="header-actions"><span class="header-date" id="headerDate"></span><button id="headerSettings" class="icon-button" aria-label="打开接口设置">⚙</button><a class="avatar" href="#saved" id="avatarButton" aria-label="查看收藏">♡</a></div>
+      </header>
+
+      <main class="content">
+        <section class="hero" aria-label="欢迎使用知更">
+          <div class="hero-content"><div class="eyebrow"><span class="eyebrow-dash"></span> YOUR CULTURE COMPASS</div><h1>好作品，<br /><em>不应该被错过。</em></h1><p>电影 · 电视剧 · 动漫 · 综艺 · 书籍<br />跨越年份与类型，把下一部心头好提前找到。</p><div class="hero-actions"><button class="primary-button" id="heroExplore">开始探索 <span>↗</span></button><button class="quiet-button" id="heroLatest">看看最近上新 <span>→</span></button></div></div>
+          <div class="hero-art" aria-hidden="true"><div class="radar-orbit orbit-one"></div><div class="radar-orbit orbit-two"></div><div class="radar-orbit orbit-three"></div><div class="radar-core">✦</div><span class="floating-label label-one">CINEMA</span><span class="floating-label label-two">STORIES</span><span class="floating-label label-three">DISCOVER</span><span class="star star-a">✳</span><span class="star star-b">+</span></div>
+        </section>
+
+        <section class="stats-row" aria-label="发现功能"><div><span class="stat-symbol">◷</span><div><b>每年都值得回看</b><small>年度好片 / 经典作品</small></div></div><div><span class="stat-symbol">✦</span><div><b>跟上新作动向</b><small>近期更新 / 季度新番</small></div></div><div><span class="stat-symbol">♡</span><div><b>建立私人清单</b><small>想看想读 / 已完成</small></div></div></section>
+
+        <section class="discovery-section" id="discoverySection">
+          <div class="section-heading"><div><div class="section-kicker">CURATED FOR YOUR CURIOSITY</div><h2 id="sectionTitle">探索好作品 <span class="heading-sparkle">✳</span></h2><p id="sectionSubtitle">从热门新作到高分遗珠，发现属于你的下一部。</p></div><div class="view-info"><span class="live-dot"></span><span id="dataMode">实时数据接口</span></div></div>
+          <div class="filters-panel"><div class="filter-line filter-line-primary"><div class="tabs" id="categoryTabs" aria-label="内容类型"><button class="tab active" data-category="all">全部</button><button class="tab" data-category="movie">电影</button><button class="tab" data-category="tv">电视剧</button><button class="tab" data-category="anime">动漫</button><button class="tab" data-category="variety">综艺</button><button class="tab" data-category="book">书籍</button></div><div class="select-area"><label><span>年份</span><select id="yearSelect" aria-label="年份"></select></label><label><span>排序</span><select id="sortSelect" aria-label="排序"><option value="popular">热门优先</option><option value="rating">口碑优先</option><option value="new">最新优先</option><option value="hidden">挖掘遗珠</option></select></label></div></div>
+          <div class="filter-line keyword-line"><span class="tag-intro">灵感关键词</span><div class="tag-list" id="keywordChips"><button data-tag="" class="keyword-chip active">为你精选</button><button data-tag="悬疑" class="keyword-chip">悬疑烧脑</button><button data-tag="科幻" class="keyword-chip">科幻宇宙</button><button data-tag="治愈" class="keyword-chip">温柔治愈</button><button data-tag="喜剧" class="keyword-chip">轻松喜剧</button><button data-tag="动作" class="keyword-chip">动作冒险</button><button data-tag="纪录" class="keyword-chip">纪实探索</button><button data-tag="爱情" class="keyword-chip">心动爱情</button><button data-tag="历史" class="keyword-chip">历史人文</button></div></div></div>
+          <div class="results-top"><div><h3 id="resultsHeading">灵感推荐</h3><span id="resultCount" class="result-count">连接数据源中…</span></div><div class="results-actions"><button id="refreshButton" class="text-button"><span>↻</span> 更新作品</button><button id="guideButton" class="text-button">数据说明 ↗</button></div></div>
+          <div class="notice" id="notice" hidden></div>
+          <div id="loading" class="work-grid loading-grid" aria-live="polite"><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div></div>
+          <div class="work-grid" id="workGrid" aria-live="polite"></div>
+          <div class="empty-state" id="emptyState" hidden><div class="empty-glyph">✧</div><h3 id="emptyTitle">暂时没有匹配的作品</h3><p id="emptyText">换个年份、关键词或内容类型再看看。</p><button class="secondary-button" id="resetButton">重置筛选</button></div>
+          <div class="results-bottom"><button id="moreButton" class="secondary-button" hidden>继续加载更多 ↓</button></div>
+        </section>
+
+        <section class="newsletter-card"><div class="newsletter-icon">✳</div><div><span class="newsletter-eyebrow">NEVER MISS A STORY</span><h3>总有好作品，值得先知道。</h3><p>支持自动生成每周新作 RSS，订阅后不用再靠偶然刷到。</p></div><a class="newsletter-link" href="feed.xml" target="_blank" rel="noopener">订阅 RSS ↗</a></section>
+        <footer class="site-footer"><span>◉ 知更 ZHIGENG · 发现那些值得你花时间的作品</span><span>数据归各来源所有 · 本站不提供未经授权的资源下载</span></footer>
+      </main>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" aria-label="手机导航"><button class="active" data-mobile="explore">⌕<small>发现</small></button><button data-mobile="latest">✦<small>上新</small></button><button data-mobile="saved">♡<small>清单</small></button><button data-mobile="settings">⚙<small>设置</small></button></nav>
+  <div class="modal-backdrop" id="settingsModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="section-kicker">DATA SOURCE SETTINGS</div><h2 id="modalTitle">接口与偏好设置</h2></div><button id="modalClose" class="modal-close" aria-label="关闭">×</button></div><div class="source-status"><div><b>Open Library / Google Books</b><small>书籍主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>Jikan / AniList</b><small>动漫主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>TVmaze</b><small>电视剧近期播出备用数据 · 无需密钥</small></div><span class="status-good">已配置</span></div><div class="source-status tmdb-source"><div><b>TMDB</b><small>完整电影、剧集、综艺检索 · 需要自己申请 API 密钥</small></div><a href="https://www.themoviedb.org/settings/api" rel="noopener" target="_blank">申请 ↗</a></div><label class="field-label" for="tmdbKey">TMDB API Read Access Token 或 API Key</label><input id="tmdbKey" class="modal-input" autocomplete="off" spellcheck="false" type="password" placeholder="填入你自己的 TMDB 密钥 / 访问令牌" /><p class="field-tip">本版本只保存在当前浏览器的本地存储中，不会上传到本站服务器。不要把密钥写进公开 GitHub 仓库；正式多人部署建议使用服务端代理。</p><div class="source-status muted-source"><div><b>Z-Library（预留）</b><small>未核实到可稳定使用的官方公开开发者 API，暂不连接下载端点</small></div><span class="status-pending">待验证</span></div><div class="modal-actions"><button id="clearKey" class="outline-button">清除密钥</button><button id="saveSettings" class="primary-button">保存设置并刷新 ↗</button></div></div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
