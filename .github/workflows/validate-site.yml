@@ -19,4 +19,6 @@ jobs:
         run: |
           node --check assets/app.js
           node --check assets/book-bridge.js
+          node --check assets/book-library.js
           node scripts/check-book-bridge.mjs
+          node scripts/check-book-library.mjs
