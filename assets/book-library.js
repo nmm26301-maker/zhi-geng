@@ -393,6 +393,8 @@
       if(!$('bookStudio').hidden)saveSearch(e.target.value);
     });
     document.addEventListener('click',e=>{
+      // Bookmark button inside a cover belongs to the existing favorites handler.
+      if(e.target.closest('[data-action="save"]'))return;
       const detail=e.target.closest('[data-action="book-details"]');
       if(detail){
         e.preventDefault();e.stopPropagation();
