@@ -113,13 +113,45 @@
     updateSavedCount();
   }
   function setTitle(){const heading=state.view==='saved'?'我的私人清单':state.view==='latest'?'最近上新':'探索好作品';const sub=state.view==='saved'?'收藏留在你的浏览器里，随时回来继续看。':state.view==='latest'?'关注近期开播、新番与新书动态。':'从热门新作到高分遗珠，发现属于你的下一部。';$('#sectionTitle').innerHTML=safe(heading)+' <span class="heading-sparkle">✳</span>';$('#sectionSubtitle').textContent=sub;$('#resultsHeading').textContent=state.view==='saved'?'你的收藏':state.view==='latest'?'近期动向':'灵感推荐';$$('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===state.view));$$('[data-mobile]').forEach(el=>el.classList.toggle('active',el.dataset.mobile===state.view));$$('[data-category]').forEach(el=>el.classList.toggle('active',el.dataset.category===state.category));$$('[data-tag]').forEach(el=>el.classList.toggle('active',el.dataset.tag===state.keyword));}
-  async function load(append=false){if(state.view==='saved'){state.loading=false;state.moreAvailable=false;setTitle();render();return;}const run=++state.lastRun;state.loading=true;if(!append){state.items=[];$('#workGrid').innerHTML='';$('#loading').hidden=false;$('#emptyState').hidden=true;}$('#notice').hidden=true;$('#moreButton').hidden=true;setTitle();
-    const sources=activeSources();const settled=await Promise.allSettled(sources.map(pullSource));if(run!==state.lastRun)return;let fresh=[];const fails=[];const missing=[];settled.forEach((result,i)=>{if(result.status==='fulfilled'){fresh.push(...result.value);if(!result.value.length&&(sources[i]==='movie'&&!getKey()))missing.push('电影需要配置 TMDB');}else fails.push(`${LABELS[sources[i]]}: ${result.reason?.message||'请求失败'}`);});
-    let fallbackUsed=false;
-    if(!fresh.length&&!append){const backup=await snapshotFallback();if(run!==state.lastRun)return;if(backup.length){fresh=backup;fallbackUsed=true;}}
-    state.items=unique(append?[...state.items,...fresh]:fresh);state.loading=false;state.moreAvailable=!fallbackUsed&&fresh.length>=19;$('#loading').hidden=true;
-    const notes=[];if(fallbackUsed)notes.push('当前展示最近一次自动更新的资料快照，并非实时数据；更新时间可在每周订阅文件中查看。');if(!getKey()&&['all','movie','tv','variety'].includes(state.category))notes.push('尚未接入 TMDB：电影、年度电视剧与综艺数据不完整。点击右上角 ⚙ 配置密钥后即可使用完整筛选。');
-    if(fails.length)notes.push('部分数据源暂不可用：'+fails.join('；')+'。可稍后重试。');if(notes.length){$('#notice').hidden=false;$('#notice').textContent=notes.join(' ');}$('#dataMode').textContent=fallbackUsed?'自动更新快照':fails.length?'部分接口暂不可用':'实时公开数据';render();
+  async function load(append=false){
+    if(state.view==='saved'){state.loading=false;state.moreAvailable=false;setTitle();render();return;}
+    const run=++state.lastRun;
+    state.loading=true;
+    if(!append){state.items=[];$('#workGrid').innerHTML='';$('#loading').hidden=false;$('#emptyState').hidden=true;}
+    $('#notice').hidden=true;$('#moreButton').hidden=true;setTitle();
+    const sources=activeSources();
+    const settled=await Promise.allSettled(sources.map(pullSource));
+    if(run!==state.lastRun)return;
+    let fresh=[],fallbackUsed=false;
+    const fails=[],failedTypes=[];
+    settled.forEach((result,i)=>{
+      if(result.status==='fulfilled'){
+        fresh.push(...result.value);
+        if(!result.value.length&&sources[i]==='movie'&&!getKey())failedTypes.push('movie');
+      }else{
+        failedTypes.push(sources[i]);
+        fails.push(LABELS[sources[i]]+': '+(result.reason?.message||'请求失败'));
+      }
+    });
+    // v0.3: never make the successful categories mask a failed category.
+    // Cached public metadata is source-backed, not fabricated.
+    if(!append&&(failedTypes.length||!fresh.length)){
+      const backup=await snapshotFallback();
+      if(run!==state.lastRun)return;
+      const usable=fresh.length?backup.filter(v=>failedTypes.includes(v.type)):backup;
+      if(usable.length){fresh.push(...usable);fallbackUsed=true;}
+    }
+    state.items=unique(append?[...state.items,...fresh]:fresh);
+    state.loading=false;
+    state.moreAvailable=!fallbackUsed&&fresh.length>=19;
+    $('#loading').hidden=true;
+    const notes=[];
+    if(fallbackUsed)notes.push('部分内容使用最近一次成功获取的公开数据快照，非实时资料。');
+    if(!getKey()&&['all','movie','tv','variety'].includes(state.category))notes.push('没有配置 TMDB：电影、电视剧及综艺数据可能不完整，点击右上角 ⚙ 设置。');
+    if(fails.length)notes.push('实时数据接口暂不可用：'+fails.join('；')+'。可稍后重试。');
+    if(notes.length){$('#notice').hidden=false;$('#notice').textContent=notes.join(' ');}
+    $('#dataMode').textContent=fallbackUsed?'实时数据 + 历史快照':fails.length?'部分接口暂不可用':'实时公开数据';
+    render();
   }
   function resetAndLoad(){state.page=1;state.moreAvailable=false;load();}
   function changeCategory(c){state.category=c;setTitle();resetAndLoad();}
