@@ -18,6 +18,16 @@
 
 免费第三方 API 存在网络、限流和 CORS 限制，不保证全球网络均可用；在首访且无缓存情况下，多路 API 都不可用可能显示空数据。
 
+## 书籍资源桥接（来自用户提供的 Z-Library APK 需求）
+
+- 点击「书籍」分类后，显示独立的「阅读资源」工具区。
+- 每本图书卡片底部都有「查找阅读资源」，可以打开 Open Library、Google Books、Project Gutenberg 对应的检索或作品页面，并复制书名与作者。
+- 在「接口与偏好设置」填写自己信任的 **HTTPS** 图书网址，即可在图书详情中打开外部 Z-Library 入口。网址可以包含 `{query}` 占位符，知更会以 URL 编码后的“书名 + 作者”替换它；没有占位符则只打开所填网址。网址保存在浏览器本地，不上传 GitHub。
+- 网站不会自动使用 APK 内的私有接口、账号、Tor 组件或下载能力，也**没有**把 APK 植入网页。网站不托管第三方程序安装包，不提供未经授权的作品下载。
+- 提供外部入口不代表我们对第三方网址真实性、安全性或内容合法性进行了认证；用户需要自行确认。
+
+关于提供的 APK 的静态检视与后续原生整合边界：参见 [docs/zlibrary-apk-review.md](docs/zlibrary-apk-review.md)。
+
 Z-Library 只预留接口位置，不接入未经核实的下载接口，本站不提供未经授权的作品下载。
 
 文档：[TMDB](https://developer.themoviedb.org/)、[AniList](https://docs.anilist.co/)、[Jikan](https://docs.api.jikan.moe/)、[Open Library](https://openlibrary.org/dev/docs/api/search)、[Google Books](https://developers.google.com/books/docs/v1/reference/volumes/list)。
