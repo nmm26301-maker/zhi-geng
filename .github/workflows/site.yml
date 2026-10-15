@@ -1,45 +1,71 @@
 name: Refresh metadata and deploy Zhigeng
+
 on:
   push:
     branches: [main]
   schedule:
     - cron: '20 23 * * *'
   workflow_dispatch:
+
 permissions:
   contents: write
   pages: write
   id-token: write
+
 concurrency:
-  group: zhigeng-pages
-  cancel-in-progress: true
+  group: zhigeng-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: false
+
 jobs:
-  publish:
+  # Update public discovery data independently. A feed/API error cannot block the site.
+  refresh:
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Refresh source-backed metadata
+      - name: Update cached public metadata
         env:
           TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/zhi-geng/
         run: node scripts/refresh.mjs
-      - name: Save refreshed snapshot
+      - name: Push metadata (safely)
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/weekly.json feed.xml
           if ! git diff --cached --quiet; then
             git commit -m 'chore: refresh discovery feed [skip ci]'
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+
+  # Only the publishing job is required for Pages. No network calls or git push.
+  deploy:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - uses: actions/deploy-pages@v4
+      - name: Deploy Pages
         id: deployment
+        uses: actions/deploy-pages@v4
