@@ -12,6 +12,12 @@ w.fetch=async (url) => {
   seen.push(String(url));
   const path=String(url);
   const json=(value)=>({ok:true,status:200,json:async()=>value});
+  if(path.includes('data/books.json'))
+    return json({updatedAt:'2026-10-15T00:00:00Z',items:[{
+      id:'book:/works/OL123W',title:'测试图书',author:'测试作者',year:2026,
+      image:'',url:'https://openlibrary.org/works/OL123W',source:'Open Library',
+      score:4.1,interest:40,language:['chi'],ebookAccess:'borrowable',subjects:['fiction']
+    }]});
   if(path.includes('openlibrary.org/search.json'))
     return json({docs:[{key:'/works/OL123W',title:'测试图书',author_name:['测试作者'],
       first_publish_year:2026,cover_i:123,ratings_average:4.1,ratings_count:35,
@@ -22,7 +28,7 @@ w.fetch=async (url) => {
   if(path.includes('data/weekly.json'))return json([]);
   return json({results:[],items:[]});
 };
-for(const script of ['assets/app.js','assets/book-bridge.js','assets/book-library.js']){
+for(const script of ['assets/books-catalog.js','assets/app.js','assets/book-bridge.js','assets/book-library.js']){
   w.eval(fs.readFileSync(script,'utf8'));
 }
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
@@ -33,6 +39,10 @@ category.click();
 await sleep(150);
 assert.equal(w.document.getElementById('bookStudio').hidden,false,'book studio appears on book tab');
 assert(w.document.querySelectorAll('.work-card').length>0,'book search returns metadata cards');
+assert.equal(seen.filter(url=>url.includes('openlibrary.org/search.json')).length,0,'default browse must prefer same-origin book catalog');
+w.document.getElementById('refreshButton').click();
+await sleep(120);
+assert(seen.some(url=>url.includes('openlibrary.org/search.json')),'manual refresh requests live source');
 const bookTitle=w.document.querySelector('.card-title');
 assert(bookTitle.textContent.includes('测试图书'),'book title rendered');
 bookTitle.click();

@@ -264,9 +264,9 @@
     $('#clearSearch').addEventListener('click',()=>{$('#searchInput').value='';searchChange();});
     $('#heroExplore').addEventListener('click',()=>changeView('explore'));
     $('#heroLatest').addEventListener('click',()=>changeView('latest'));
-    $('#refreshButton').addEventListener('click',resetAndLoad);
+    $('#refreshButton').addEventListener('click',()=>{if(state.category==='book')window.ZhigengBooksCatalog?.refreshNext();resetAndLoad();});
     $('#moreButton').addEventListener('click',()=>{state.page++;load(true);});
-    $('#resetButton').addEventListener('click',()=>{state.category='all';state.year=String(CURRENT_YEAR);state.keyword='';state.query='';$('#searchInput').value='';$('#yearSelect').value=state.year;setTitle();resetAndLoad();});
+    $('#resetButton').addEventListener('click',()=>{const bookView=state.category==='book';if(bookView)window.ZhigengBookLibrary?.resetFilters?.();state.category=bookView?'book':'all';state.year=String(CURRENT_YEAR);state.keyword='';state.query='';$('#searchInput').value='';$('#yearSelect').value=state.year;setTitle();resetAndLoad();});
     $('#workGrid').addEventListener('click',e=>{const action=e.target.closest('[data-action]');if(!action)return;const id=action.closest('[data-id]')?.dataset.id;if(!id)return;if(action.dataset.action==='save')return updateFavorite(id);if(action.dataset.action==='finished')return markFinished(id);const item=state.items.find(x=>x.id===id)||getSaved()[id]?.item;if(item)window.open(safeUrl(item.url),'_blank','noopener,noreferrer');});
     $('#guideButton').addEventListener('click',()=>toast('数据源：TMDB / Jikan / Open Library / TVmaze；评分来自各数据源，不能直接当作同一平台评分。'));
     ['#settingsButton','#headerSettings'].forEach(sel=>$(sel).addEventListener('click',openSettings));$('#modalClose').addEventListener('click',closeSettings);
@@ -316,21 +316,57 @@
   };
   const originalBooks=books;
   books=async function(){
-    try{return await originalBooks();}
-    catch(primary){
-      try{
-        const filters=window.ZhigengBookLibrary?.filters?.()||{};
-        if(filters.availability==='borrowable')throw new Error('借阅筛选需要 Open Library 接口，此时不可使用 Google Books 替代。');
-        const lookup=state.query||('subject:'+(GENRES[state.keyword]?.book||'fiction'));
-        const result=await request(endpoint('https://www.googleapis.com/books/v1/volumes',{q:lookup,maxResults:35,startIndex:(state.page-1)*35,orderBy:state.year!=='all'||state.view==='latest'||state.sort==='new'?'newest':'relevance',printType:'books',...(filters.language?{langRestrict:({'chi':'zh','eng':'en','jpn':'ja','fre':'fr','ger':'de','spa':'es'}[filters.language]||'en')}: {})}),{timeoutMs:7600});
-        const year=state.view==='latest'?CURRENT_YEAR:state.year;
-        return (result.items||[]).filter(v=>filters.availability!=='public'||v.accessInfo?.viewability==='ALL_PAGES').map(v=>{
-          const info=v.volumeInfo||{},published=String(info.publishedDate||''),date=/^\d{4}-\d{2}-\d{2}/.test(published)?published.slice(0,10):/^\d{4}$/.test(published)?published+'-01-01':'';
-          const rating=num(info.averageRating);
-          return {id:'book:google:'+v.id,type:'book',title:info.title||'未命名图书',original:'',year:date?Number(date.slice(0,4)):null,date,score:rating*2,votes:num(info.ratingsCount),interest:num(info.ratingsCount),image:(info.imageLinks?.thumbnail||info.imageLinks?.smallThumbnail||'').replace(/^http:/,'https:'),summary:plainHTML(info.description||''),source:'Google Books',url:info.infoLink||'https://books.google.com/books?id='+encodeURIComponent(v.id),status:'',subtype:(info.authors||[]).slice(0,2).join(' · '),ratingBase:rating?'5':'10'};
-        }).filter(v=>(year==='all'||v.year===Number(year))&&(!filters.from||v.year>=filters.from)&&(!filters.to||v.year<=filters.to)).slice(0,24);
-      } catch(secondary){throw new Error('Open Library：'+primary.message+'；Google Books：'+secondary.message);}
+    const filters=window.ZhigengBookLibrary?.filters?.()||{};
+    const catalog=window.ZhigengBooksCatalog;
+    const selected={view:state.view,year:state.year,query:state.query,keyword:state.keyword,sort:state.sort,page:state.page,filters};
+    const local=catalog?await catalog.search(selected).catch(()=>({items:[]})):{items:[]};
+    const forceLive=!!catalog?.consumeManualRefresh();
+    // 默认推荐优先从同站点目录读取，避免每次进入页面都向外部服务发起大量请求。
+    // 仅用户主动搜索、选筛选词、翻页或点击更新时再请求实时接口。
+    if(local.items?.length&&!forceLive&&!state.query&&!state.keyword){
+      catalog?.reportCatalog();
+      return local.items;
     }
+    let primaryError=null,secondaryError=null;
+    try{
+      const result=await originalBooks();
+      if(result.length){catalog?.reportLive();return result;}
+    }catch(error){primaryError=error;}
+    try{
+      if(filters.availability==='borrowable')throw new Error('借阅状态需 Open Library 查询');
+      if(catalog?.googleInCooldown())throw new Error('Google Books 正在限流冷却期，请稍后重试');
+      const lookup=state.query||('subject:'+(GENRES[state.keyword]?.book||'fiction'));
+      const result=await request(endpoint('https://www.googleapis.com/books/v1/volumes',{
+        q:lookup,maxResults:24,startIndex:(state.page-1)*24,
+        orderBy:state.year!=='all'||state.view==='latest'||state.sort==='new'?'newest':'relevance',
+        printType:'books',...(filters.language?{langRestrict:({'chi':'zh','eng':'en','jpn':'ja','fre':'fr','ger':'de','spa':'es'}[filters.language]||'en')}: {})
+      }),{timeoutMs:7600});
+      const year=state.view==='latest'?CURRENT_YEAR:state.year;
+      const entries=(result.items||[]).filter(v=>filters.availability!=='public'||v.accessInfo?.viewability==='ALL_PAGES').map(v=>{
+        const info=v.volumeInfo||{},published=String(info.publishedDate||'');
+        const date=/^\d{4}-\d{2}-\d{2}/.test(published)?published.slice(0,10):/^\d{4}$/.test(published)?published+'-01-01':'';
+        const rating=num(info.averageRating);
+        return {id:'book:google:'+v.id,type:'book',title:info.title||'未命名图书',original:'',
+          year:date?Number(date.slice(0,4)):null,date,score:rating*2,votes:num(info.ratingsCount),interest:num(info.ratingsCount),
+          image:(info.imageLinks?.thumbnail||info.imageLinks?.smallThumbnail||'').replace(/^http:/,'https:'),
+          summary:plainHTML(info.description||''),source:'Google Books',
+          url:info.infoLink||'https://books.google.com/books?id='+encodeURIComponent(v.id),
+          status:'',subtype:(info.authors||[]).slice(0,2).join(' · '),ratingBase:rating?'5':'10'};
+      }).filter(v=>(year==='all'||v.year===Number(year))&&(!filters.from||v.year>=filters.from)&&(!filters.to||v.year<=filters.to)).slice(0,24);
+      if(entries.length){catalog?.reportLive();return entries;}
+    }catch(error){
+      secondaryError=error;
+      if(/HTTP 429/.test(error.message||''))catalog?.markGoogle429();
+    }
+    if(local.items?.length){
+      catalog?.reportCatalog(primaryError||secondaryError?'实时接口不可用，已使用目录快照':'');
+      return local.items;
+    }
+    if(primaryError||secondaryError)
+      throw new Error('Open Library：'+(primaryError?.message||'无匹配结果')+
+        '；Google Books：'+(secondaryError?.message||'无匹配结果')+
+        '。当前条件没有匹配的本地目录记录，可尝试清除筛选条件。');
+    return [];
   };
   window.ZhigengBookAPI={
     getItem(id){return state.items.find(x=>x.id===id)||getSaved()[id]?.item||null;},
@@ -345,6 +381,8 @@
   pullSource=async function(category){
     try{
       const items=await sourceBeforeCache(category);
+      if(category==='book'&&window.ZhigengBooksCatalog?.lastSource==='catalog')
+        (state.cachedLabels||(state.cachedLabels=[])).push('书籍目录');
       if(items.length){try{localStorage.setItem(sourceCacheKey(category),JSON.stringify({at:Date.now(),items:items.slice(0,30)}));}catch{}}
       return items;
     } catch(error){
@@ -366,7 +404,7 @@
       const notice=$('#notice');
       if(!notice.textContent.includes(message))notice.textContent+=(notice.textContent?' ':'')+message;
       notice.hidden=false;
-      $('#dataMode').textContent='包含缓存数据';
+      $('#dataMode').textContent='含图书缓存目录';
     }
   };
   const loadBeforeCache=load;

@@ -24,7 +24,11 @@
     const languages=['chi','eng','jpn','fre','ger','spa'];
     return {language:languages.includes(v.language)?v.language:'',from:cleanYear(v.from),to:cleanYear(v.to),availability:['public','borrowable'].includes(v.availability)?v.availability:'',exact:v.exact===true};
   }
-  window.ZhigengBookLibrary = {filters};
+  function resetFilters(){
+    jsonWrite(FILTER_KEY,filterDefaults);
+    if(document.getElementById('bookLanguage'))populateFilters();
+  }
+  window.ZhigengBookLibrary = {filters,resetFilters};
   function storeShelf(value) {
     if (!jsonWrite(SHELF_KEY,value)) message('书架保存失败：本机存储空间不足或浏览器禁止保存。');
     updateShelf();
