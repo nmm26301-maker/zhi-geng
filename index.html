@@ -66,6 +66,11 @@
               <button class="book-action book-action-main" type="button" id="bookImportButton">＋ 导入电子书</button>
               <input type="file" id="bookFileInput" accept=".epub,.pdf,.txt,application/epub+zip,application/pdf,text/plain" multiple hidden />
             </div>
+            <form id="bookSearchForm" class="book-search-form" role="search">
+              <label for="bookSearchInput">搜索图书、小说或作者 <small>支持中文、英文 · 默认所有年份</small></label>
+              <div class="book-search-control"><span aria-hidden="true">⌕</span><input id="bookSearchInput" type="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="试试：三体、活着、Pride and Prejudice…" /><button type="submit">搜书 ↗</button></div>
+              <p id="bookSearchHint" class="book-search-hint">从公开图书目录和在线书目中搜索，不需要 TMDB 密钥。</p>
+            </form>
             <details class="book-filter-section" id="bookFilterDetails"><summary>精准找书：语言 / 年份区间 / 在线阅读 <span class="book-filter-chevron">⌄</span></summary>
               <div class="book-filter-grid">
                 <label>书籍语言<select id="bookLanguage"><option value="">全部语言</option><option value="chi">中文</option><option value="eng">英语</option><option value="jpn">日语</option><option value="fre">法语</option><option value="ger">德语</option><option value="spa">西班牙语</option></select></label>
@@ -144,6 +149,7 @@
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="assets/books-catalog.js" defer></script>
+  <script src="assets/book-search.js" defer></script>
   <script src="assets/app.js" defer></script>
   <script src="assets/book-bridge.js" defer></script>
   <script src="assets/book-library.js" defer></script>
