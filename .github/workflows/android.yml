@@ -23,26 +23,27 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-      - name: Check download validation
+      - name: Check download and AI navigation policies
         run: |
           mkdir -p /tmp/zhigeng-tests
-          javac -d /tmp/zhigeng-tests android/app/src/main/java/cn/zhigeng/app/DownloadPolicy.java android/tests/DownloadPolicyTest.java
+          javac -d /tmp/zhigeng-tests android/app/src/main/java/cn/zhigeng/app/DownloadPolicy.java android/tests/DownloadPolicyTest.java android/app/src/main/java/cn/zhigeng/app/DuckAiPolicy.java android/tests/DuckAiPolicyTest.java
           java -cp /tmp/zhigeng-tests cn.zhigeng.app.DownloadPolicyTest
+          java -cp /tmp/zhigeng-tests cn.zhigeng.app.DuckAiPolicyTest
       - name: Build native application
         working-directory: android
         run: gradle :app:assembleRelease :app:assembleDebug --no-daemon
       - name: Package unsigned APK and signing verifier
         run: |
           mkdir -p apk-output
-          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.0-unsigned.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.1-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
           cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.0-unsigned.apk > apk-output/package-info.txt
-          test "$(unzip -p apk-output/Zhigeng-v0.6.0-unsigned.apk classes.dex | wc -c)" -gt 10000
-          ! unzip -l apk-output/Zhigeng-v0.6.0-unsigned.apk | grep -q 'lib/.*\.so'
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.1-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.1-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.1-unsigned.apk | grep -q 'lib/.*\.so'
       - uses: actions/upload-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.0
+          name: Zhigeng-native-android-v0.6.1
           path: apk-output/
           retention-days: 30
 
@@ -58,7 +59,7 @@ jobs:
           java-version: '17'
       - uses: actions/download-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.0
+          name: Zhigeng-native-android-v0.6.1
           path: apk-output
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
@@ -74,6 +75,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Zhigeng-v0.6.0-emulator-check
+          name: Zhigeng-v0.6.1-emulator-check
           path: emulator-check/
           retention-days: 30
