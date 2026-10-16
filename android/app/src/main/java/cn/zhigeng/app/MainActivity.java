@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
     private LinearLayout root,body,nav;private ScrollView scroll;private EditText search;private TextView status;private Button more;
     private Catalog.Query query=new Catalog.Query();private final ArrayList<JSONObject> visible=new ArrayList<>();private int generation=0;private String page="discover";private boolean busy=false;
     private static final int IMPORT=101;
-    @Override public void onCreate(Bundle state){super.onCreate(state);getWindow().setStatusBarColor(BG);getWindow().setNavigationBarColor(BG);getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);secrets=new SecretStore(this);catalog=new Catalog(this,secrets);prefs=getSharedPreferences("library",MODE_PRIVATE);render();}
+    @Override public void onCreate(Bundle state){super.onCreate(state);getWindow().setStatusBarColor(BG);getWindow().setNavigationBarColor(BG);getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);secrets=new SecretStore(this);catalog=new Catalog(this,secrets);prefs=getSharedPreferences("library",MODE_PRIVATE);if(state!=null){page=state.getString("page","discover");query.type=state.getString("type","all");query.text=state.getString("query","");query.provider=state.getString("provider","public");}render();}
     private int dp(float n){return Math.round(n*getResources().getDisplayMetrics().density);}
     private GradientDrawable background(int color,int radius){GradientDrawable d=new GradientDrawable();d.setColor(color);d.setCornerRadius(dp(radius));return d;}
     private LinearLayout col(){LinearLayout v=new LinearLayout(this);v.setOrientation(LinearLayout.VERTICAL);return v;}
@@ -129,5 +129,6 @@ public class MainActivity extends Activity {
     }
     private void open(String raw){String url=Catalog.secureUrl(raw);if(url.isEmpty()){toast("来源链接暂不可用");return;}try{startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)));}catch(Exception e){toast("无法打开链接");}}
     private void toast(String message){Toast.makeText(this,message,Toast.LENGTH_SHORT).show();}
+    @Override protected void onSaveInstanceState(Bundle state){super.onSaveInstanceState(state);state.putString("page",page);state.putString("type",query.type);state.putString("query",query.text);state.putString("provider",query.provider);}
     @Override protected void onDestroy(){generation++;jobs.shutdownNow();images.shutdownNow();super.onDestroy();}
 }
