@@ -266,7 +266,7 @@
     $('#heroLatest').addEventListener('click',()=>changeView('latest'));
     $('#refreshButton').addEventListener('click',()=>{if(state.category==='book')window.ZhigengBooksCatalog?.refreshNext();resetAndLoad();});
     $('#moreButton').addEventListener('click',()=>{state.page++;load(true);});
-    $('#resetButton').addEventListener('click',()=>{state.category='all';state.year=String(CURRENT_YEAR);state.keyword='';state.query='';$('#searchInput').value='';$('#yearSelect').value=state.year;setTitle();resetAndLoad();});
+    $('#resetButton').addEventListener('click',()=>{const bookView=state.category==='book';if(bookView)window.ZhigengBookLibrary?.resetFilters?.();state.category=bookView?'book':'all';state.year=String(CURRENT_YEAR);state.keyword='';state.query='';$('#searchInput').value='';$('#yearSelect').value=state.year;setTitle();resetAndLoad();});
     $('#workGrid').addEventListener('click',e=>{const action=e.target.closest('[data-action]');if(!action)return;const id=action.closest('[data-id]')?.dataset.id;if(!id)return;if(action.dataset.action==='save')return updateFavorite(id);if(action.dataset.action==='finished')return markFinished(id);const item=state.items.find(x=>x.id===id)||getSaved()[id]?.item;if(item)window.open(safeUrl(item.url),'_blank','noopener,noreferrer');});
     $('#guideButton').addEventListener('click',()=>toast('数据源：TMDB / Jikan / Open Library / TVmaze；评分来自各数据源，不能直接当作同一平台评分。'));
     ['#settingsButton','#headerSettings'].forEach(sel=>$(sel).addEventListener('click',openSettings));$('#modalClose').addEventListener('click',closeSettings);
@@ -381,6 +381,8 @@
   pullSource=async function(category){
     try{
       const items=await sourceBeforeCache(category);
+      if(category==='book'&&window.ZhigengBooksCatalog?.lastSource==='catalog')
+        (state.cachedLabels||(state.cachedLabels=[])).push('书籍目录');
       if(items.length){try{localStorage.setItem(sourceCacheKey(category),JSON.stringify({at:Date.now(),items:items.slice(0,30)}));}catch{}}
       return items;
     } catch(error){
