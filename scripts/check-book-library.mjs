@@ -26,7 +26,7 @@ for(const id of required){
   if(!groupControls.has(id))assert(lib.includes(id),'book feature not connected: '+id);
 }
 assert(lib.includes("querySelectorAll('[data-set-read-status]')"),'status button group not wired');
-assert(html.includes('<script src="assets/book-library.js" defer></script>'));
+assert(html.includes('<script src="assets/book-library.js?v=20261016-zlib1" defer></script>'));
 assert(app.includes('window.ZhigengBookAPI'),'missing module interop');
 assert(app.includes('window.ZhigengBookLibrary?.filters?.()'),'missing filter integration');
 assert(app.includes('ebook_access'),'missing online read filter');
@@ -41,3 +41,4 @@ assert(lib.includes('MAX_FILE_SIZE = 60 * 1024 * 1024'),'no import file size lim
 assert(css.includes('@media(max-width:700px)'),'missing mobile layout');
 assert(!lib.includes('/eapi/book/'),'do not copy private APK endpoints');
 console.log('Book library and reader wiring checks passed ('+required.length+' UI controls).');
+

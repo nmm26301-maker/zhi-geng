@@ -33,7 +33,7 @@
   function endpoint(base, values={}){const url=new URL(base);Object.entries(values).forEach(([key,val])=>{if(val!==undefined&&val!==null&&val!=='')url.searchParams.set(key,String(val));});return url.toString();}
   async function request(url, options={}){
     const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),11500);
-    try{const res=await fetch(url,{...options,signal:controller.signal,headers:{Accept:'application/json',...(options.headers||{})}});if(!res.ok){throw new Error(`${res.status}${res.status===429?'（请求频率限制）':''}`);}return await res.json();}
+    try{const res=await (window.ZhigengTransport?.fetch||fetch)(url,{...options,signal:controller.signal,headers:{Accept:'application/json',...(options.headers||{})}});if(!res.ok){throw new Error(`${res.status}${res.status===429?'（请求频率限制）':''}`);}return await res.json();}
     catch(e){if(e.name==='AbortError')throw new Error('请求超时');throw e;}
     finally{clearTimeout(timeout);}
   }
@@ -63,7 +63,7 @@
     const url=endpoint('https://api.themoviedb.org/3/'+path,{...params,...auth.params});
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),13500);
     try{
-      const res=await fetch(url,{method:'GET',signal:controller.signal,headers:{Accept:'application/json',...auth.headers},cache:'no-store'});
+      const res=await (window.ZhigengTransport?.fetch||fetch)(url,{method:'GET',signal:controller.signal,headers:{Accept:'application/json',...auth.headers},cache:'no-store'});
       const json=await res.json().catch(()=>({}));
       if(!res.ok){
         const code=Number(json.status_code)||0;
@@ -223,7 +223,7 @@
     });
     // v0.3: never make the successful categories mask a failed category.
     // Cached public metadata is source-backed, not fabricated.
-    if(!append&&(failedTypes.length||!fresh.length)){
+    if(!window.ZhigengZlib?.active()&&!append&&(failedTypes.length||!fresh.length)){
       const backup=await snapshotFallback();
       if(run!==state.lastRun)return;
       const usable=fresh.length?backup.filter(v=>failedTypes.includes(v.type)):backup;
@@ -231,14 +231,14 @@
     }
     state.items=unique(append?[...state.items,...fresh]:fresh);
     state.loading=false;
-    state.moreAvailable=!fallbackUsed&&fresh.length>=19;
+    state.moreAvailable=state.category==='book'&&window.ZhigengZlib?.active()?window.ZhigengZlib.moreAvailable:!fallbackUsed&&fresh.length>=19;
     $('#loading').hidden=true;
     const notes=[];
     if(fallbackUsed)notes.push('部分内容使用最近一次成功获取的公开数据快照，非实时资料。');
     if(!getKey()&&['all','movie','tv','variety'].includes(state.category))notes.push('没有配置 TMDB：电影、电视剧及综艺数据可能不完整，点击右上角 ⚙ 设置。');
     if(fails.length)notes.push('实时数据接口暂不可用：'+fails.join('；')+'。可稍后重试。');
     if(notes.length){$('#notice').hidden=false;$('#notice').textContent=notes.join(' ');}
-    $('#dataMode').textContent=fallbackUsed?'实时数据 + 历史快照':fails.length?'部分接口暂不可用':'实时公开数据';
+    $('#dataMode').textContent=state.category==='book'&&window.ZhigengZlib?.active()?(fails.length?'账号搜索未完成':'Z-Library 账号搜索'):fallbackUsed?'实时数据 + 历史快照':fails.length?'部分接口暂不可用':'实时公开数据';
     render();
   }
   function resetAndLoad(){state.page=1;state.moreAvailable=false;load();}
@@ -248,7 +248,7 @@
   function closeSettings(){$('#settingsModal').hidden=true;}
   function updateFavorite(id){let target=state.items.find(x=>x.id===id);const saved=getSaved();if(saved[id]){delete saved[id];toast('已从清单移除');}else{target=target||saved[id]?.item;if(!target)return;saved[id]={item:target,finished:false,savedAt:new Date().toISOString()};toast('已加入我的清单 ♡');}saveList(saved);render();}
   function markFinished(id){const saved=getSaved();if(!saved[id])return;saved[id].finished=!saved[id].finished;saveList(saved);toast(saved[id].finished?'已标记完成':'已恢复为待看 / 待读');render();}
-  function searchChange(){const q=$('#searchInput').value.trim();$('#clearSearch').hidden=!q;state.query=q;if(state.category==='book'&&q){state.view='explore';state.year='all';state.keyword='';$('#yearSelect').value='all';const bs=$('#bookSearchInput');if(bs&&bs.value!==q)bs.value=q;}setTitle();resetAndLoad();}
+  function searchChange(){const q=$('#searchInput').value.trim();$('#clearSearch').hidden=!q;state.query=q;if(q){state.view='explore';state.year='all';state.keyword='';$('#yearSelect').value='all';const bs=$('#bookSearchInput');if(bs&&bs.value!==q)bs.value=q;}setTitle();resetAndLoad();}
   let searchTimer;
   function init(){
     const years=['all'];for(let y=CURRENT_YEAR+1;y>=1950;y--)years.push(String(y));$('#yearSelect').innerHTML=years.map(y=>`<option value="${y}">${y==='all'?'全部年份':y+' 年'}</option>`).join('');$('#yearSelect').value=state.year;
@@ -286,7 +286,7 @@
     const controller=new AbortController();
     const timeout=setTimeout(()=>controller.abort(),timeoutMs);
     try {
-      const response=await fetch(url,{...opts,signal:controller.signal,headers:{Accept:'application/json',...(opts.headers||{})}});
+      const response=await (window.ZhigengTransport?.fetch||fetch)(url,{...opts,signal:controller.signal,headers:{Accept:'application/json',...(opts.headers||{})}});
       if(!response.ok)throw new Error('HTTP '+response.status+(response.status===429?'（请求频率限制）':''));
       return await response.json();
     } catch(error){
@@ -317,6 +317,7 @@
   const originalBooks=books;
   books=async function(){
     const filters=window.ZhigengBookLibrary?.filters?.()||{};
+    if(window.ZhigengZlib?.active())return window.ZhigengZlib.search({query:state.query,filters:{...filters,...(state.year!=='all'?{from:Number(state.year),to:Number(state.year)}:{})},page:state.page});
     const catalog=window.ZhigengBooksCatalog;
     const selected={view:state.view,year:state.year,query:state.query,keyword:state.keyword,sort:state.sort,page:state.page,filters};
     const local=catalog?await catalog.search(selected).catch(()=>({items:[]})):{items:[]};
@@ -396,9 +397,10 @@
   };
   const sourceBeforeCache=pullSource,cachePrefix='zhigeng_source_v2:';
   function sourceCacheKey(category){
-    return cachePrefix+encodeURIComponent(JSON.stringify({category,view:state.view,year:state.year,sort:state.sort,keyword:state.keyword,query:state.query,page:state.page}));
+    return cachePrefix+encodeURIComponent(JSON.stringify({category,view:state.view,year:state.year,sort:state.sort,keyword:state.keyword,query:state.query,page:state.page,filters:category==='book'?window.ZhigengBookLibrary?.filters?.():null}));
   }
   pullSource=async function(category){
+    if(category==='book'&&window.ZhigengZlib?.active())return sourceBeforeCache(category);
     try{
       const items=await sourceBeforeCache(category);
       if(category==='book'&&window.ZhigengBooksCatalog?.lastSource==='catalog')

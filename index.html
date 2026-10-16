@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#101522" />
   <meta name="description" content="知更：聚合电影、电视剧、动漫、综艺与书籍的年度发现雷达。" />
   <title>知更 · 好作品不会再错过</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css?v=20261016-zlib1" />
   <link rel="alternate" type="application/rss+xml" title="知更每周新作" href="feed.xml" />
 </head>
 <body>
@@ -54,10 +54,10 @@
           <div class="filters-panel"><div class="filter-line filter-line-primary"><div class="tabs" id="categoryTabs" aria-label="内容类型"><button class="tab active" data-category="all">全部</button><button class="tab" data-category="movie">电影</button><button class="tab" data-category="tv">电视剧</button><button class="tab" data-category="anime">动漫</button><button class="tab" data-category="variety">综艺</button><button class="tab" data-category="book">书籍</button></div><div class="select-area"><label><span>年份</span><select id="yearSelect" aria-label="年份"></select></label><label><span>排序</span><select id="sortSelect" aria-label="排序"><option value="popular">热门优先</option><option value="rating">口碑优先</option><option value="new">最新优先</option><option value="hidden">挖掘遗珠</option></select></label></div></div>
           <div class="filter-line keyword-line"><span class="tag-intro">灵感关键词</span><div class="tag-list" id="keywordChips"><button data-tag="" class="keyword-chip active">为你精选</button><button data-tag="悬疑" class="keyword-chip">悬疑烧脑</button><button data-tag="科幻" class="keyword-chip">科幻宇宙</button><button data-tag="治愈" class="keyword-chip">温柔治愈</button><button data-tag="喜剧" class="keyword-chip">轻松喜剧</button><button data-tag="动作" class="keyword-chip">动作冒险</button><button data-tag="纪录" class="keyword-chip">纪实探索</button><button data-tag="爱情" class="keyword-chip">心动爱情</button><button data-tag="历史" class="keyword-chip">历史人文</button></div></div></div>
           <section class="book-hub" id="bookHub" hidden aria-label="图书资源中心">
-            <div class="book-hub-copy"><div class="section-kicker">BOOK CORNER · 阅读资源</div><h3>找到想读的书，也找到阅读的路。</h3><p>公开书目、借阅与经典作品入口集中在这里。Z-Library 仅作为你自选的外部访问入口，不会自动下载图书。</p></div>
+            <div class="book-hub-copy"><div class="section-kicker">BOOK CORNER · 阅读资源</div><h3>搜到好书，留给下一次阅读。</h3><p>公开目录与 Z-Library 账号搜索，集中在知更里。选好来源，输入书名就开始。</p></div>
             <div class="book-hub-actions">
               <a class="book-action" id="bookHubOpenLibrary" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">Open Library 馆藏 ↗</a>
-              <button class="book-action book-action-main" type="button" id="bookHubSource">配置 Z-Library 入口 ↗</button>
+              <button class="book-action book-action-main" type="button" id="bookHubSource">Z-Library 站内搜索</button>
             </div>
           </section>
           <section class="book-studio" id="bookStudio" hidden aria-label="图书管理与本地阅读">
@@ -66,6 +66,8 @@
               <button class="book-action book-action-main" type="button" id="bookImportButton">＋ 导入电子书</button>
               <input type="file" id="bookFileInput" accept=".epub,.pdf,.txt,application/epub+zip,application/pdf,text/plain" multiple hidden />
             </div>
+            <div class="zlib-source-row"><label>搜索来源<select id="bookProvider"><option value="public">公开图书目录</option><option value="zlib">Z-Library · 账号搜索</option></select></label><button id="zlibConnect" type="button" class="book-action">连接 Z-Library</button><span id="zlibSessionState">未连接</span></div>
+            <p id="fullVersionHint" class="field-tip" hidden>当前是静态版，账号搜索请 <a href="https://zhigeng-reading.savoryvine10.chatgpt.site" target="_blank" rel="noopener noreferrer">打开完整版知更 ↗</a>。</p>
             <form id="bookSearchForm" class="book-search-form" role="search">
               <label for="bookSearchInput">搜索图书、小说或作者 <small>支持中文、英文 · 默认所有年份</small></label>
               <div class="book-search-control"><span aria-hidden="true">⌕</span><input id="bookSearchInput" type="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="试试：三体、活着、Pride and Prejudice…" /><button type="submit">搜书 ↗</button></div>
@@ -76,6 +78,7 @@
                 <label>书籍语言<select id="bookLanguage"><option value="">全部语言</option><option value="chi">中文</option><option value="eng">英语</option><option value="jpn">日语</option><option value="fre">法语</option><option value="ger">德语</option><option value="spa">西班牙语</option></select></label>
                 <label>出版时间（起）<input id="bookYearFrom" type="number" min="1400" max="2100" inputmode="numeric" placeholder="不限" /></label>
                 <label>出版时间（止）<input id="bookYearTo" type="number" min="1400" max="2100" inputmode="numeric" placeholder="不限" /></label>
+                <label>文件格式<select id="bookExtension" disabled><option value="">全部格式</option><option value="epub">EPUB</option><option value="pdf">PDF</option><option value="txt">TXT</option><option value="mobi">MOBI</option><option value="azw3">AZW3</option><option value="djvu">DJVU</option><option value="fb2">FB2</option></select></label>
                 <label>可读状态<select id="bookAvailability"><option value="">全部书籍</option><option value="public">在线可读</option><option value="borrowable">可借阅</option></select></label>
               </div>
               <div class="book-filter-actions"><label class="book-exact-check"><input type="checkbox" id="bookExact" /> 精确短语搜索</label><button type="button" class="outline-button" id="bookFilterClear">清除条件</button><button type="button" class="primary-button" id="bookFilterApply">应用筛选</button></div>
@@ -100,7 +103,7 @@
   </div>
 
   <nav class="bottom-nav" aria-label="手机导航"><button class="active" data-mobile="explore">⌕<small>发现</small></button><button data-mobile="latest">✦<small>上新</small></button><button data-mobile="saved">♡<small>清单</small></button><button data-mobile="settings">⚙<small>设置</small></button></nav>
-  <div class="modal-backdrop" id="settingsModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="section-kicker">DATA SOURCE SETTINGS</div><h2 id="modalTitle">接口与偏好设置</h2></div><button id="modalClose" class="modal-close" aria-label="关闭">×</button></div><div class="source-status"><div><b>Open Library / Google Books</b><small>书籍主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>Jikan / AniList</b><small>动漫主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>TVmaze</b><small>电视剧近期播出备用数据 · 无需密钥</small></div><span class="status-good">已配置</span></div><div class="source-status tmdb-source"><div><b>TMDB</b><small>完整电影、剧集、综艺检索 · 需要自己申请 API 密钥</small></div><a href="https://www.themoviedb.org/settings/api" rel="noopener" target="_blank">申请 ↗</a></div><label class="field-label" for="tmdbKey">TMDB 密钥 · API Key（v3）或 API Read Access Token</label><input id="tmdbKey" class="modal-input" autocomplete="off" spellcheck="false" type="password" placeholder="粘贴 32 位 API Key 或 eyJ… Access Token" /><p class="field-tip">两种密钥均可，但认证方式不同。先测试官方接口，成功后再保存。密钥只保存在当前浏览器，不会上传到本网站的服务器；请勿将密钥提交到公开仓库。</p><div id="tmdbStatus" class="tmdb-status" role="status" aria-live="polite">尚未测试 TMDB 连接</div><div class="source-status muted-source"><div><b>Z-Library（外部入口）</b><small>这份 APK 属于安卓程序，不能直接并入网页。可配置自己信任的网址，在书籍详情里一键打开；不接入未经核验的下载 API。</small></div><span class="status-pending" id="bookExternalStatus">未设置</span></div>
+  <div class="modal-backdrop" id="settingsModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="section-kicker">DATA SOURCE SETTINGS</div><h2 id="modalTitle">接口与偏好设置</h2></div><button id="modalClose" class="modal-close" aria-label="关闭">×</button></div><div class="source-status"><div><b>Open Library / Google Books</b><small>书籍主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>Jikan / AniList</b><small>动漫主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>TVmaze</b><small>电视剧近期播出备用数据 · 无需密钥</small></div><span class="status-good">已配置</span></div><div class="source-status tmdb-source"><div><b>TMDB</b><small>完整电影、剧集、综艺检索 · 需要自己申请 API 密钥</small></div><a href="https://www.themoviedb.org/settings/api" rel="noopener" target="_blank">申请 ↗</a></div><label class="field-label" for="tmdbKey">TMDB 密钥 · API Key（v3）或 API Read Access Token</label><input id="tmdbKey" class="modal-input" autocomplete="off" spellcheck="false" type="password" placeholder="粘贴 32 位 API Key 或 eyJ… Access Token" /><p class="field-tip">两种密钥均可，但认证方式不同。先测试官方接口，成功后再保存。密钥只保存在当前浏览器，不会上传到本网站的服务器；请勿将密钥提交到公开仓库。</p><div id="tmdbStatus" class="tmdb-status" role="status" aria-live="polite">尚未测试 TMDB 连接</div><div class="source-status muted-source"><div><b>Z-Library（外部入口）</b><small>书籍页已提供 heartleo/zlib 账号搜索。这里保留自选的外部网址入口。</small></div><span class="status-pending" id="bookExternalStatus">未设置</span></div>
           <label class="field-label" for="zlibraryUrl">自选访问网址 / 搜索链接模板</label>
           <input id="zlibraryUrl" class="modal-input" type="url" spellcheck="false" autocomplete="off" placeholder="https://你信任的网址/search?q={query}" />
           <p class="field-tip">仅接受 HTTPS 网址。可选填入 <code>{query}</code> 作为书名与作者的搜索占位符；若不填写，点击后直接打开网址。不要在这里粘贴登录令牌或密码，本站不验证外部网站身份。</p>
@@ -132,6 +135,7 @@
       </div>
       <div class="book-detail-actions">
         <button id="bookDetailsRead" type="button" class="primary-button" hidden>打开阅读器 ↗</button>
+        <a id="bookDetailsOriginal" class="outline-button" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">查看来源书页 ↗</a>
         <button id="bookDetailsResource" type="button" class="outline-button">寻找阅读资源 ↗</button>
       </div>
       <p class="book-details-note">知更只提供公开图书资料或阅读你自行导入的文件，不会代为获取受版权保护的电子书。</p>
@@ -147,11 +151,25 @@
     </div>
     <div class="book-reader-bottom"><span id="bookReaderProgressLabel">已读 0%</span><input id="bookReaderProgress" type="range" min="0" max="100" value="0" aria-label="阅读进度" /><select id="bookReaderBookmarks" aria-label="跳转已保存的书签"><option value="">书签</option></select><button type="button" id="bookReaderFinish">标为已读</button><a id="bookReaderExternal" target="_blank" rel="noopener noreferrer" hidden>系统打开 ↗</a></div>
   </div>
+  <div class="modal-backdrop" id="zlibModal" hidden><div class="modal zlib-dialog" role="dialog" aria-modal="true" aria-labelledby="zlibTitle">
+    <div class="modal-top"><div><div class="section-kicker">Z-LIBRARY · HEARTLEO/ZLIB</div><h2 id="zlibTitle">连接你的图书账号</h2></div><button type="button" id="zlibClose" class="modal-close" aria-label="关闭账号连接">×</button></div>
+    <p class="field-tip">连接后可在知更内搜索书名、作者并按年份、语言、格式筛选。密码仅用于本次登录；会话只留在当前页面，刷新后需重新连接。</p>
+    <form id="zlibForm">
+    <label class="field-label" for="zlibDomain">账号所在源站</label><select id="zlibDomain" class="modal-input"><option value="https://z-lib.gd">z-lib.gd</option><option value="https://z-lib.gl">z-lib.gl</option><option value="https://z-library.ec">z-library.ec</option><option value="https://article.sk">article.sk</option><option value="https://articles.sk">articles.sk</option><option value="https://zlib.bz">zlib.bz</option><option value="https://1lib.sk">1lib.sk</option><option value="https://z-lib.fm">z-lib.fm</option><option value="https://z-lib.sk">z-lib.sk</option><option value="https://zliba.ru">zliba.ru</option></select>
+    <p class="field-tip">列表来自上游客户端，不能保证所有源站目前可用。请选择自己已确认使用的源站。</p>
+    <div id="zlibPasswordFields"><label class="field-label" for="zlibEmail">账号邮箱</label><input id="zlibEmail" class="modal-input" type="email" autocomplete="username" required /><label class="field-label" for="zlibPassword">密码</label><input id="zlibPassword" class="modal-input" type="password" autocomplete="current-password" required /></div>
+    <label class="book-exact-check zlib-session-toggle"><input type="checkbox" id="zlibUseSession" /> 使用自己的 zlib 已有会话连接</label>
+    <div id="zlibSessionFields" hidden><p class="field-tip">填写你自己客户端会话中的 remix_userid 和 remix_userkey，二者均只用于当前页面。</p><label class="field-label" for="zlibUserId">remix_userid</label><input class="modal-input" id="zlibUserId" inputmode="numeric" autocomplete="off" /><label class="field-label" for="zlibUserKey">remix_userkey</label><input class="modal-input" id="zlibUserKey" type="password" autocomplete="off" /></div>
+    <p id="zlibStatus" class="tmdb-status" role="status" aria-live="polite">请连接你自己的账号。</p><div class="modal-actions"><button type="button" id="zlibDisconnect" class="outline-button" hidden>断开并清除会话</button><button type="submit" id="zlibLogin" class="primary-button">连接账号</button></div></form>
+    <p class="field-tip">搜索适配自 <a href="https://github.com/heartleo/zlib" target="_blank" rel="noopener noreferrer">heartleo/zlib</a>（MIT）。账号与资料以来源站返回为准。</p>
+  </div></div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="assets/transport.js?v=20261016-zlib1" defer></script>
+  <script src="assets/zlib.js?v=20261016-zlib1" defer></script>
   <script src="assets/books-catalog.js" defer></script>
-  <script src="assets/book-search.js" defer></script>
-  <script src="assets/app.js" defer></script>
-  <script src="assets/book-bridge.js" defer></script>
-  <script src="assets/book-library.js" defer></script>
+  <script src="assets/book-search.js?v=20261016-zlib1" defer></script>
+  <script src="assets/app.js?v=20261016-zlib1" defer></script>
+  <script src="assets/book-bridge.js?v=20261016-zlib1" defer></script>
+  <script src="assets/book-library.js?v=20261016-zlib1" defer></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
     const controller=new AbortController();
     const timeout=setTimeout(()=>controller.abort(),timeoutMs);
     try{
-      const response=await fetch(url,{signal:controller.signal,headers:{Accept:'application/json'}});
+      const response=await (window.ZhigengTransport?.fetch||fetch)(url,{signal:controller.signal,headers:{Accept:'application/json'}});
       if(!response.ok)throw new Error('HTTP '+response.status);
       return await response.json();
     }finally{clearTimeout(timeout);}
@@ -140,3 +140,4 @@
   }
   window.ZhigengBookSearch={search};
 })();
+

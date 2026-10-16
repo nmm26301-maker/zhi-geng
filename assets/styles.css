@@ -132,3 +132,11 @@ body.book-reader-is-open{overflow:hidden}
 .book-search-control button:hover{background:#e4ffd6}
 .book-search-hint{color:#a9c0b6;line-height:1.6;font-size:10px;margin:9px 2px 0}
 @media(max-width:700px){.book-search-form{padding:12px;margin-top:13px}.book-search-form>label{display:block;font-size:12px}.book-search-form>label small{display:block;margin-top:5px}.book-search-control{min-height:45px;gap:7px;padding-left:9px}.book-search-control input{font-size:12px}.book-search-control button{font-size:12px;padding:11px 12px}}
+
+
+/* Account search: responsive, distinct from external links. */
+.zlib-source-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:22px 0 14px;padding:16px;border:1px solid var(--border,#303848);border-radius:16px;background:rgba(181,223,181,.04)}
+.zlib-source-row label{display:flex;align-items:center;gap:10px;font-size:13px}.zlib-source-row select{color:inherit;background:#192131;border:1px solid #354051;border-radius:10px;padding:10px;font:inherit;max-width:100%}
+#zlibSessionState{font-size:12px;color:#a8b4c6}.zlib-session-toggle{margin:18px 0}.zlib-dialog{max-height:88dvh;overflow:auto}.zlib-dialog a{color:#c4f3ae}.zlib-dialog select{background:#192131;color:#e6ebf4}.book-filter-grid{grid-template-columns:repeat(auto-fit,minmax(135px,1fr))}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #c4f3ae;outline-offset:3px}button:disabled,select:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:600px){.zlib-source-row{align-items:stretch;gap:10px;padding:12px}.zlib-source-row label{width:100%;justify-content:space-between}.zlib-source-row select{max-width:70%}.zlib-source-row .book-action{flex:1}.modal-input{font-size:16px}.hero{min-height:240px}.book-studio-header p{line-height:1.7}}

@@ -2,6 +2,8 @@ name: Validate Zhigeng site
 
 on:
   pull_request:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,9 @@ jobs:
           node-version: '22'
       - name: Validate JavaScript syntax and book UI references
         run: |
+          node --check server/gateway.mjs
+          node --check assets/transport.js
+          node --check assets/zlib.js
           node --check assets/app.js
           node --check assets/book-bridge.js
           node --check assets/book-library.js
@@ -27,9 +32,11 @@ jobs:
           node scripts/check-book-library.mjs
       - name: Smoke test main book interactions
         run: |
-          npm install --no-save --no-package-lock jsdom@26
+          npm ci
+          npm test
           node scripts/test-book-ui.mjs
           node scripts/test-book-resilience.mjs
           node scripts/test-real-book-search.mjs
       - name: Informational live-provider status
         run: node scripts/probe-book-apis.mjs
+

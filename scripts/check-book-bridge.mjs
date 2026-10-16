@@ -20,10 +20,11 @@ for (const id of expected) {
   assert(all.has(id), 'missing UI element: ' + id);
   assert(bridge.includes(id), 'unreferenced UI element: ' + id);
 }
-assert(html.includes('src="assets/book-bridge.js"'), 'book bridge script not loaded');
+assert(html.includes('src="assets/book-bridge.js?v=20261016-zlib1"'), 'book bridge script not loaded');
 assert(app.includes('data-action="resources"'), 'book card action missing');
 assert(bridge.includes("url.protocol !== 'https:'"), 'HTTPS-only validation missing');
 assert(bridge.includes("addEventListener('click'"), 'resource interaction missing');
 assert(!html.includes('zlibrary-global.se'), 'unverified site must not be a hardcoded default');
 
 console.log('Book bridge static integration checks passed.');
+

@@ -1,47 +1,67 @@
-# 知更 · 影音书籍雷达
+# 知更 · 影音与阅读 v0.4
 
-电影、电视剧、动漫、综艺和书籍的年份筛选、搜索、榜单、收藏与新作发现。
+电影、电视剧、动漫、综艺与图书发现；支持年度筛选、关键词、个人清单、书架和本地阅读。
 
-## 数据源
+## 直接使用
 
-- TMDB：电影/电视剧/综艺；需要自行配置 API Key 或 Read Access Token。
-- Jikan → AniList：动漫主备来源，发生超时、限流或网络故障会尝试备用接口。
-- Open Library → Google Books：书籍主备来源。注意 Open Library 是作品首版年份，Google Books 是具体版本出版年份。
-- TVmaze：在没有 TMDB 令牌时作为电视剧及综艺有限备用来源。
-- 各分类并行加载，单一来源失败不影响其他分类；相同筛选条件的成功结果缓存最多 7 天，备用数据明确标为非实时。
+完整版：https://zhigeng-reading.savoryvine10.chatgpt.site
 
+进入「书籍」→「连接 Z-Library」→ 选择自己确认的账号源站，填写账号连接 → 输入书名，点击「搜书」。
 
-## 原生体验的图书功能（2026-10-16）
+也可选择「公开图书目录」，无需图书账号。影视使用自己的 TMDB API Key 或 Read Access Token，设置中可测试连接。搜索作品时默认检索所有年份，年度筛选可另选。
 
-已在网页版直接实现可用的图书应用功能（独立开发，不包含第三方 APK 的闭源源码与私有接口）：
+## 本次集成 heartleo/zlib
 
-- 书籍封面或「详情 · 加入书架」打开图书详情，可按 **想读 / 在读 / 已读** 分类管理私人书架。
-- 搜索增强：语言、出版年份范围、精确短语搜索、在线可读或可借阅筛选；支持本设备的搜索历史。
-- 「导入电子书」支持用户主动选择 **EPUB / PDF / TXT** 文件。文件存储在此设备浏览器的 **IndexedDB** 中，不会上传 GitHub Pages 或知更服务器；单本文件上限 60 MB。
-- **EPUB** 通过开源 epub.js 与 JSZip 在浏览器内阅读，支持翻页、字体大小、进度和书签；首次加载阅读组件需要联网。**PDF** 使用浏览器自带 PDF 查看器，阅读百分比需要手动维护。**TXT** 支持本地滚动阅读、字体大小、进度恢复及书签。
-- 书架信息保存在浏览器 localStorage，不支持账号云同步；更换浏览器、清除网站数据、隐私模式或系统清理可能导致记录与电子书丢失。建议保留原始电子书备份。
-- 第三方在线目录仅提供图书资料、合法公开阅读或借阅入口，不能通过本网页登录 Z-Library、同步其收藏或调用其私有下载服务。
+根据 https://github.com/heartleo/zlib 的 EAPI 登录与搜索实现，适配为适合浏览器的服务端模块，并保留 MIT 版权声明：`licenses/heartleo-zlib-MIT.txt`。
 
-对下载记录而言，本地已导入电子书会显示在「本地图书」分类中；这不等同于复制 Z-Library 账号里的下载历史。
+- 站内搜索书名、作者，显示真实来源返回的书目，支持年份范围、语言、精确检索、EPUB/PDF/TXT/MOBI/AZW3/DJVU/FB2 格式筛选和分页。
+- 支持邮箱密码登录；EAPI 登录未通过时尝试上游的 rpc.php 表单方式。也可使用自己客户端的 remix_userid/remix_userkey 会话。
+- 密码仅用于本次转接登录，不写磁盘；会话仅留在当前页面内存，刷新后需重新连接。服务器不保存账号密码和会话，也不将其放入 URL。
+- 来源被拒、超时、返回验证页或重定向时显示错误，停止该次请求；不会以公开书目或旧缓存冒充账号搜索结果。
+- 书籍可查看来源书页、加入书架；本版集成范围为账号连接与书目搜索，未集成下载、Kindle 投递、下载历史与全量账号同步。
+- Z-Library 的域名与接口由上游控制，不保证所有源站当前可用；域名列表来自该项目，不代表官方接口认证。未使用用户真实账号完成在线端到端验证。
 
-## 使用和部署
+## 完整版与静态版
 
-直接访问 index.html，或从 GitHub Settings → Pages 启用 Pages，在 Build and deployment 里选择 GitHub Actions。
-若已有 GitHub Actions 部署流程，推送 main 后可自动部署；部署地址通常是 https://nmm26301-maker.github.io/zhi-geng/ 。
-网页的 TMDB 密钥存入当前设备浏览器 localStorage，**不得将令牌写入 GitHub 公共源码**。正式多人使用需要服务端密钥代理。
+GitHub Pages 是静态托管，不能执行后端登录。Pages 保留公开目录搜索与本地阅读，并显示完整版入口。
 
-免费第三方 API 存在网络、限流和 CORS 限制，不保证全球网络均可用；在首访且无缓存情况下，多路 API 都不可用可能显示空数据。
+完整版使用同源 `/api/gateway` 转接，减少浏览器直连第三方产生的跨域与网络问题。仅允许代码中列出的书目 API 和源站；外部来源自身故障、限流或账号限制仍可能造成失败。TMDB 的凭证错误与网络故障分别提示，不保证凭证一定有效。
 
-## 书籍资源桥接（来自用户提供的 Z-Library APK 需求）
+## 本地运行 / Node 部署
 
-- 点击「书籍」分类后，显示独立的「阅读资源」工具区。
-- 每本图书卡片底部都有「查找阅读资源」，可以打开 Open Library、Google Books、Project Gutenberg 对应的检索或作品页面，并复制书名与作者。
-- 在「接口与偏好设置」填写自己信任的 **HTTPS** 图书网址，即可在图书详情中打开外部 Z-Library 入口。网址可以包含 `{query}` 占位符，知更会以 URL 编码后的“书名 + 作者”替换它；没有占位符则只打开所填网址。网址保存在浏览器本地，不上传 GitHub。
-- 网站不会自动使用 APK 内的私有接口、账号、Tor 组件或下载能力，也**没有**把 APK 植入网页。网站不托管第三方程序安装包，不提供未经授权的作品下载。
-- 提供外部入口不代表我们对第三方网址真实性、安全性或内容合法性进行了认证；用户需要自行确认。
+Node.js 22 及以上，无生产运行依赖：
 
-关于提供的 APK 的静态检视与后续原生整合边界：参见 [docs/zlibrary-apk-review.md](docs/zlibrary-apk-review.md)。
+```bash
+npm start
+```
 
-Z-Library 只预留接口位置，不接入未经核实的下载接口，本站不提供未经授权的作品下载。
+打开 http://localhost:3000 。也可设置 `PORT`。线上需要通过平台提供 HTTPS。
 
-文档：[TMDB](https://developer.themoviedb.org/)、[AniList](https://docs.anilist.co/)、[Jikan](https://docs.api.jikan.moe/)、[Open Library](https://openlibrary.org/dev/docs/api/search)、[Google Books](https://developers.google.com/books/docs/v1/reference/volumes/list)。
+容器构建：`docker build -t zhigeng .`；启动：`docker run --rm -p 3000:3000 zhigeng`。
+
+源文件：`assets/` 为前端，`server/gateway.mjs` 为账号及元数据适配，`server/serve.mjs` 为本地及 Node 部署入口。完整版另由 Sites 托管同一套前端与适配代码。
+
+## 书架与阅读
+
+- 支持想读、在读、已读，书签及阅读进度。
+- 用户主动导入的 EPUB/PDF/TXT 存在设备浏览器 IndexedDB，每本上限 60 MB；电子书不上传服务器。
+- EPUB 首次使用需加载 epub.js/JSZip；PDF 使用浏览器阅读器，进度手动维护。
+- 书架和收藏保存在当前设备，换浏览器、清除数据不会同步。请保留原始电子书。
+
+## 校验
+
+```bash
+npm ci
+npm test
+node scripts/check-book-bridge.mjs
+node scripts/check-book-library.mjs
+node scripts/test-book-ui.mjs
+node scripts/test-book-resilience.mjs
+node scripts/test-real-book-search.mjs
+```
+
+包含后端筛选传参、备用登录、域名与跳转限制、账号会话不持久化，以及界面连接→搜索→详情→书架→翻页→异常→断开的模拟接口测试。模拟测试不代表第三方实时可用性。
+
+## 公开数据源
+
+TMDB（影视，需自备凭证）、Jikan/AniList（动漫）、TVmaze（部分电视内容）、Open Library/Google Books/Wikidata/Wikipedia/Gutendex（书目）。来源评分、年份和可读定义不完全一致，不能直接当作同平台评分。本服务提供书目发现与用户导入文件阅读。

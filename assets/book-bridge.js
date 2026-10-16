@@ -34,7 +34,7 @@
     const configured = !!validatedTemplate(getExternalUrl());
     $('bookExternalStatus').textContent = configured ? '已设置' : '未设置';
     $('bookExternalStatus').className = configured ? 'status-good' : 'status-pending';
-    $('bookHubSource').textContent = configured ? '打开自选图书入口 ↗' : '配置 Z-Library 入口 ↗';
+    $('bookHubSource').textContent = 'Z-Library 站内搜索';
     $('bookModalExternal').textContent = configured ? '在自选 Z-Library 入口中查找 ↗' : '配置 Z-Library 入口 ↗';
   }
   function openSettingsForBooks() {
@@ -115,8 +115,7 @@
       syncSourceSettings();
     });
     $('bookHubSource').addEventListener('click', () => {
-      if (validatedTemplate(getExternalUrl())) openExternal({title:'',author:''});
-      else openSettingsForBooks();
+      $('zlibConnect').click();
     });
     $('bookHubOpenLibrary').addEventListener('click', () => {});
     $('bookModalExternal').addEventListener('click', () => currentBook && openExternal(currentBook));
@@ -143,3 +142,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+

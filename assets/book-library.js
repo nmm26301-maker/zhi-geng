@@ -165,6 +165,7 @@
     if(!item)return;
     state.selected=cloneBook(item);
     const details=$('bookDetailsModal');
+    const sourceLink=$('bookDetailsOriginal');sourceLink.href=/^https:\/\//.test(item.url||'')?item.url:'https://openlibrary.org/';
     $('bookDetailsTitle').textContent=item.title||'未命名图书';
     $('bookDetailsMeta').textContent=[item.subtype,item.year,item.source,item.format?.toUpperCase()].filter(Boolean).join(' · ');
     $('bookDetailsSummary').textContent=item.summary||'暂无详细介绍，可以先收藏，稍后再读。';
