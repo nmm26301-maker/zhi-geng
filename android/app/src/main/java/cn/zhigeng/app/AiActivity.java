@@ -56,10 +56,11 @@ public class AiActivity extends Activity {
     private void add(LinearLayout parent,View child,int top){LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,-2);p.topMargin=dp(top);parent.addView(child,p);}
 
     private void foyer(){
-        chatting=false;loadSequence++;subtitle.setText("知更 × Duck.ai");progress.setVisibility(View.INVISIBLE);
+        chatting=false;loadSequence++;subtitle.setText("Duck.ai · FCC");progress.setVisibility(View.INVISIBLE);
         stage.removeAllViews();error=null;if(web!=null)web.setVisibility(View.GONE);
         ScrollView scroll=new ScrollView(this);LinearLayout content=column();content.setPadding(dp(20),dp(16),dp(20),dp(28));scroll.addView(content);stage.addView(scroll);
         TextView eyebrow=text("A LITTLE INSPIRATION  /  聊点新想法",10,FOREST,false);eyebrow.setLetterSpacing(.08f);add(content,eyebrow,0);
+        LinearLayout routes=row();Button duckRoute=button("Duck.ai",false),fccRoute=button("FCC 多模型",true);routes.addView(duckRoute,new LinearLayout.LayoutParams(0,dp(44),1));LinearLayout.LayoutParams fr=new LinearLayout.LayoutParams(0,dp(44),1);fr.leftMargin=dp(10);routes.addView(fccRoute,fr);duckRoute.setOnClickListener(v->openChat());fccRoute.setOnClickListener(v->startActivity(new Intent(this,FccActivity.class)));add(content,routes,16);
         LinearLayout hero=column();hero.setBackground(bg(FOREST,28));hero.setPadding(dp(24),dp(24),dp(24),dp(24));
         add(hero,text("让好奇，\n多走一步。",31,PAPER,true),0);
         add(hero,text("聊一本书，找一部电影，\n也可以从一个小问题开始。",14,SAGE,false),16);
@@ -121,7 +122,7 @@ public class AiActivity extends Activity {
         Button home=button("返回助手首页",false);add(box,home,12);home.setOnClickListener(v->foyer());error=box;stage.addView(error,new FrameLayout.LayoutParams(-1,-1));
     }
     private void retry(){if(web!=null){web.stopLoading();failed=false;hideError();web.loadUrl(DuckAiPolicy.HOME);}else{failed=false;openChat();}}
-    private void menu(){String[] items=chatting?new String[]{"刷新聊天页","助手首页","关于 Duck.ai"}:new String[]{"打开 Duck.ai","关于 Duck.ai"};new AlertDialog.Builder(this).setTitle("AI 助手").setItems(items,(d,i)->{String item=items[i];if(item.equals("刷新聊天页"))retry();else if(item.equals("助手首页"))foyer();else if(item.equals("打开 Duck.ai"))openChat();else new AlertDialog.Builder(this).setTitle("Duck.ai · 应用内访问").setMessage("本页内嵌 Duck.ai 官方网站，并非知更自建 AI 模型。模型与用量以 Duck.ai 页面为准。聊天记录和删除选项请在 Duck.ai 页面中管理。\n\n本次集成支持文字聊天，未申请麦克风或相机权限。").setPositiveButton("知道了",null).show();}).show();}
+    private void menu(){String[] items=chatting?new String[]{"刷新聊天页","助手首页","关于 Duck.ai"}:new String[]{"打开 Duck.ai","FCC 多模型","关于 Duck.ai"};new AlertDialog.Builder(this).setTitle("AI 助手").setItems(items,(d,i)->{String item=items[i];if(item.equals("刷新聊天页"))retry();else if(item.equals("助手首页"))foyer();else if(item.equals("打开 Duck.ai"))openChat();else if(item.equals("FCC 多模型"))startActivity(new Intent(this,FccActivity.class));else new AlertDialog.Builder(this).setTitle("Duck.ai · 应用内访问").setMessage("本页内嵌 Duck.ai 官方网站，并非知更自建 AI 模型。模型与用量以 Duck.ai 页面为准。聊天记录和删除选项请在 Duck.ai 页面中管理。\n\n本次集成支持文字聊天，未申请麦克风或相机权限。").setPositiveButton("知道了",null).show();}).show();}
     @Override public void onBackPressed(){if(chatting&&web!=null&&web.canGoBack()&&!failed){web.goBack();}else if(chatting)foyer();else super.onBackPressed();}
     @Override protected void onSaveInstanceState(Bundle state){state.putBoolean("chatting",chatting);super.onSaveInstanceState(state);}
     @Override protected void onPause(){if(web!=null){web.onPause();CookieManager.getInstance().flush();}super.onPause();}
