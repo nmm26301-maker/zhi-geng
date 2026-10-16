@@ -21,6 +21,14 @@ w.fetch=async(url)=>{
     ]});
     return ok({search:[]});
   }
+  if(path.includes('wikipedia.org/w/api.php')){
+    const u=new URL(path),q=u.searchParams.get('gsrsearch');
+    if(q==='活着')return ok({query:{pages:{
+      '11002':{pageid:11002,title:'活着 (小说)',extract:'《活着》是中国作家余华创作的长篇小说。该作品讲述主人公的经历。'},
+      '11003':{pageid:11003,title:'活着 (电影)',extract:'《活着》是一部改编自同名小说的电影。'}
+    }}});
+    return ok({query:{pages:{}}});
+  }
   if(path.includes('gutendex.com/books/')){
     const q=new URL(path).searchParams.get('search');
     if(q==='Pride and Prejudice')return ok({results:[{
@@ -56,6 +64,12 @@ assert(!bookTitles.includes('三体电影'),'non-book entities must be filtered'
 assert.equal(w.document.querySelector('#yearSelect').value,'all','book query searches every year');
 assert(calls.some(u=>u.includes('wikidata.org/w/api.php')&&new URL(u).searchParams.get('search')==='三体'));
 assert(!calls.some(u=>u.includes('openlibrary.org/search.json')),'do not wait on blocked Open Library after independent search succeeds');
+
+input.value='活着';form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));
+await pause(140);
+const wikiTitles=[...w.document.querySelectorAll('.work-card .card-title')].map(x=>x.textContent);
+assert(wikiTitles.includes('活着 (小说)'),'Chinese Wikipedia book fallback should find a novel when Wikidata returns no result');
+assert(!wikiTitles.includes('活着 (电影)'),'Wikipedia fallback should exclude movie records');
 
 input.value='Pride and Prejudice';form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));
 await pause(140);
