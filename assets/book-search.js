@@ -87,6 +87,36 @@
         languages:[],subjects:[],ebookAccess:'',editionCount:0
       }));
   }
+  async function wikipedia(query,filters,page){
+    if(filters.language||filters.availability||filters.from||filters.to||page>1)return [];
+    const zh=/[一-鿿]/.test(query),host=zh?'zh.wikipedia.org':'en.wikipedia.org';
+    const url=new URL('https://'+host+'/w/api.php');
+    url.searchParams.set('action','query');
+    url.searchParams.set('generator','search');
+    url.searchParams.set('gsrsearch',query);
+    url.searchParams.set('gsrnamespace','0');
+    url.searchParams.set('gsrlimit','20');
+    url.searchParams.set('prop','extracts');
+    url.searchParams.set('exintro','1');
+    url.searchParams.set('explaintext','1');
+    url.searchParams.set('exchars','450');
+    url.searchParams.set('format','json');
+    url.searchParams.set('origin','*');
+    const data=await getJson(url.toString());
+    return Object.values(data.query?.pages||{}).filter(page=>{
+      const heading=text(page.title),lead=text(page.extract).slice(0,210);
+      const opening=lead.split(/[。.!?\n]/)[0].slice(0,170);
+      return page.pageid && !NONBOOK_PATTERN.test(heading) &&
+        BOOK_PATTERN.test(heading+' '+opening) &&
+        !(NONBOOK_PATTERN.test(opening)&&!BOOK_PATTERN.test(heading));
+    }).slice(0,12).map(v=>({
+      id:'book:wikipedia:'+host+':'+v.pageid,
+      type:'book',title:text(v.title),original:'',year:null,date:'',score:0,votes:0,interest:1,
+      image:'',summary:text(v.extract).slice(0,1300),source:zh?'中文维基百科 · 图书':'Wikipedia · Books',
+      url:'https://'+host+'/?curid='+v.pageid,status:'图书百科资料',subtype:'',
+      ratingBase:'10',languages:[],subjects:[],ebookAccess:'',editionCount:0
+    }));
+  }
   function deduplicate(items){
     const seen=new Set();
     return items.filter(v=>{
@@ -101,12 +131,12 @@
     if(!query)return {items:[],attempted:0,failures:0,fromCache:false};
     const cached=cacheRead(query,filters,page);
     if(cached)return {items:cached,attempted:0,failures:0,fromCache:true};
-    const results=await Promise.allSettled([gutenberg(query,filters,page),wikidata(query,filters,page)]);
+    const results=await Promise.allSettled([gutenberg(query,filters,page),wikidata(query,filters,page),wikipedia(query,filters,page)]);
     const items=deduplicate(results.flatMap(r=>r.status==='fulfilled'?r.value:[]));
     const failures=results.filter(r=>r.status==='rejected').length;
     // 仅成功返回的数据可以缓存；断网失败时不写空结果，避免后续错误持续存在。
     if(items.length)cacheWrite(query,filters,page,items);
-    return {items,attempted:2,failures,fromCache:false};
+    return {items,attempted:3,failures,fromCache:false};
   }
   window.ZhigengBookSearch={search};
 })();
