@@ -1,0 +1,14 @@
+{
+  "paper": "#F7F5EF",
+  "surface": "#FFFFFF",
+  "ink": "#203B32",
+  "muted": "#78837A",
+  "forest": "#244E40",
+  "sage": "#E9EEE7",
+  "vermilion": "#BB614E",
+  "line": "#E4E6DE",
+  "radius": 20,
+  "pageGutter": 20,
+  "font": "Android sans-serif / Noto Sans SC (CJK) / Roboto (Latin)",
+  "figma": "https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8"
+}

@@ -15,9 +15,9 @@ import java.util.concurrent.*;
 final class Catalog {
     static final String[] DOMAINS={"https://z-lib.gd","https://z-lib.gl","https://z-library.ec","https://article.sk","https://articles.sk","https://zlib.bz","https://1lib.sk","https://z-lib.fm","https://z-lib.sk","https://zliba.ru"};
     static class Query {
-        String type="all",text="",year="all",tag="",provider="public",language="",extension="",from="",to="",sort="popular";
-        int page=1;boolean exact=false;boolean forceLive=false;
-        Query copy(){Query q=new Query();q.type=type;q.text=text;q.year=year;q.tag=tag;q.provider=provider;q.language=language;q.extension=extension;q.from=from;q.to=to;q.sort=sort;q.page=page;q.exact=exact;q.forceLive=forceLive;return q;}
+        String type="all",text="",year="all",tag="",provider="public",language="",extension="",from="",to="",sort="popular",region="CN",rankSource="editor";
+        int page=1;boolean exact=false;boolean forceLive=false;boolean ranking=false;
+        Query copy(){Query q=new Query();q.type=type;q.text=text;q.year=year;q.tag=tag;q.provider=provider;q.language=language;q.extension=extension;q.from=from;q.to=to;q.sort=sort;q.page=page;q.exact=exact;q.forceLive=forceLive;q.region=region;q.rankSource=rankSource;q.ranking=ranking;return q;}
     }
     static class Result {List<JSONObject> items=new ArrayList<>();String note="";boolean more=false;}
     private final Context ctx;private final SecretStore secrets;
@@ -31,7 +31,7 @@ final class Catalog {
     private Reply request(String url,String form,Map<String,String> headers)throws Exception{
         HttpURLConnection c=(HttpURLConnection)new URL(url).openConnection();
         c.setConnectTimeout(9500);c.setReadTimeout(11000);c.setInstanceFollowRedirects(false);
-        c.setRequestProperty("Accept","application/json");c.setRequestProperty("User-Agent","ZhigengAndroid/0.5 (heartleo-zlib adapter)");
+        c.setRequestProperty("Accept","application/json");c.setRequestProperty("User-Agent","ZhigengAndroid/0.6 (heartleo-zlib adapter)");
         if(headers!=null)for(Map.Entry<String,String> h:headers.entrySet())c.setRequestProperty(h.getKey(),h.getValue());
         try{
             if(form!=null){c.setRequestMethod("POST");c.setDoOutput(true);c.setRequestProperty("Content-Type","application/x-www-form-urlencoded; charset=utf-8");try(OutputStream out=c.getOutputStream()){out.write(form.getBytes(StandardCharsets.UTF_8));}}
@@ -67,6 +67,17 @@ final class Catalog {
     }
     Result search(Query q)throws Exception{
         if(q.type.equals("book")&&q.provider.equals("zlib"))return zsearch(q);
+        if(q.ranking&&q.rankSource.equals("tmdb")){
+            if(secrets.get("tmdb").isEmpty())throw new Exception("TMDB 评分榜需要有效凭证，可先浏览知更编辑推荐榜。");
+            if(q.type.equals("book"))throw new Exception("中文图书提供编辑推荐榜，请选择影视分类查看 TMDB 评分榜。");
+            Query live=q.copy();live.sort="rating";live.text="";Result rank=new Result();rank.items=tmdb(live,q.type);rank.more=rank.items.size()>=20;rank.note="TMDB 国内用户评分榜 · 至少50票 · "+LocalDate.now();return rank;
+        }
+        if(q.ranking||q.region.equals("CN")&&!q.forceLive){Result domestic=domestic(q);if(!domestic.items.isEmpty()||q.text.isEmpty()){if(q.ranking||q.text.isEmpty()||secrets.get("tmdb").isEmpty())return domestic;}}
+        if(q.region.equals("CN")&&!q.type.equals("book")&&!q.type.equals("all")){
+            if(secrets.get("tmdb").isEmpty()){Result local=domestic(q);local.note="当前为国内编辑书目；更多实时影视结果需配置 TMDB。";return local;}
+            Result cn=new Result();cn.items=tmdb(q,q.type);cn.more=cn.items.size()>=20;return cn;
+        }
+
         Result result=new Result();if(q.type.equals("all")&&q.text.isEmpty()&&q.tag.isEmpty()&&!q.forceLive){result.items=bundled(q);if(!result.items.isEmpty()){result.note="内置真实目录快照，搜索可在线找作品。";result.more=result.items.size()>=24;return result;}}List<Callable<List<JSONObject>>> calls=new ArrayList<>();
         if(q.type.equals("all")){calls.add(()->anime(q));calls.add(()->books(q));if(!secrets.get("tmdb").isEmpty())calls.add(()->tmdb(q,"movie"));}
         else if(q.type.equals("book"))return publicBooks(q);
@@ -136,13 +147,23 @@ final class Catalog {
         if(key.matches("[a-fA-F0-9]{32}"))url+="&api_key="+key;else headers.put("Authorization","Bearer "+key);
         if(!q.text.isEmpty())url+="&query="+enc(q.text);
         if(!q.year.equals("all"))url+="&"+(q.text.isEmpty()?(movie?"primary_release_year":"first_air_date_year"):(movie?"year":"first_air_date_year"))+"="+q.year;
+        if(q.text.isEmpty()&&q.region.equals("CN"))url+="&with_origin_country=CN";
+        if(q.text.isEmpty()&&type.equals("anime"))url+="&with_genres=16";
+        if(q.ranking)url+="&"+(movie?"primary_release_date.lte=":"first_air_date.lte=")+LocalDate.now();
         if(q.text.isEmpty()&&type.equals("variety"))url+="&with_genres=10764%7C10767";
         if(q.text.isEmpty()&&q.sort.equals("rating"))url+="&sort_by=vote_average.desc&vote_count.gte=50";
         if(q.text.isEmpty()&&!q.tag.isEmpty())url+="&with_genres="+genre(q.tag,movie);
         JSONArray a=request(url,null,headers).data.optJSONArray("results");List<JSONObject> out=new ArrayList<>();if(a!=null)for(int i=0;i<a.length();i++){
-            JSONObject v=a.getJSONObject(i);if(type.equals("variety")&&!q.text.isEmpty()){JSONArray genres=v.optJSONArray("genre_ids");if(genres==null||!genres.toString().contains("10764")&&!genres.toString().contains("10767"))continue;}
+            JSONObject v=a.getJSONObject(i);
+            if(q.region.equals("CN")&&!q.text.isEmpty()){
+                JSONArray origin=v.optJSONArray("origin_country");String language=v.optString("original_language");
+                if(movie&&!language.equals("zh")&&!language.equals("cn"))continue;
+                if(!movie&&(origin==null||!origin.toString().contains("CN")))continue;
+                if(type.equals("anime")&&(v.optJSONArray("genre_ids")==null||!v.optJSONArray("genre_ids").toString().contains("16")))continue;
+            }
+            if(type.equals("variety")&&!q.text.isEmpty()){JSONArray genres=v.optJSONArray("genre_ids");if(genres==null||!genres.toString().contains("10764")&&!genres.toString().contains("10767"))continue;}
             String date=v.optString(movie?"release_date":"first_air_date");String year=date.length()>=4?date.substring(0,4):"";String path=v.optString("poster_path");
-            JSONObject b=item(type+":"+v.optInt("id"),type,v.optString(movie?"title":"name"),"",year,"TMDB","https://www.themoviedb.org/"+route+"/"+v.optInt("id"),path.isEmpty()||path.equals("null")?"":"https://image.tmdb.org/t/p/w342"+path,v.optString("overview"));b.put("score",v.optDouble("vote_average",0));out.add(b);
+            JSONObject b=item(type+":"+v.optInt("id"),type,v.optString(movie?"title":"name"),"",year,"TMDB","https://www.themoviedb.org/"+route+"/"+v.optInt("id"),path.isEmpty()||path.equals("null")?"":"https://image.tmdb.org/t/p/w342"+path,v.optString("overview"));b.put("score",v.optDouble("vote_average",0)).put("votes",v.optInt("vote_count",0));out.add(b);
         }return out;
     }
     private static String genre(String tag,boolean movie){return switch(tag){case "mystery"->"9648";case "science_fiction"->movie?"878":"10765";case "romance"->"10749";case "history"->"36";case "humor"->"35";default->"18";};}
@@ -157,6 +178,27 @@ final class Catalog {
             JSONObject show=a.getJSONObject(i).optJSONObject("show");if(show==null)continue;String type=show.optString("type"),genres=show.optJSONArray("genres")==null?"":show.optJSONArray("genres").toString();boolean variety=(type+genres).matches("(?i).*(reality|talk show|game show).*" );if(variety!=q.type.equals("variety"))continue;
             String date=show.optString("premiered"),year=date.length()>=4?date.substring(0,4):"";if(!yearMatches(year,q))continue;JSONObject image=show.optJSONObject("image");out.add(item(q.type+":maze:"+show.optInt("id"),q.type,show.optString("name"),"",year,"TVmaze",show.optString("url"),image==null?"":image.optString("medium"),show.optString("summary")));
         }return out;
+    }
+    Result domestic(Query q)throws Exception{
+        JSONObject data;try(InputStream in=ctx.getAssets().open("domestic.json")){data=new JSONObject(readString(in));}
+        ArrayList<JSONObject> found=new ArrayList<>();JSONArray a=data.getJSONArray("items");
+        for(int i=0;i<a.length();i++){JSONObject v=a.getJSONObject(i);if(!q.type.equals("all")&&!v.optString("type").equals(q.type))continue;
+            if(!yearMatches(v.optString("year"),q))continue;
+            String hay=(v.optString("title")+" "+v.optString("author")+" "+v.optString("tag")).toLowerCase(Locale.ROOT);
+            if(!q.text.isEmpty()&&!hay.contains(q.text.toLowerCase(Locale.ROOT)))continue;found.add(new JSONObject(v.toString()));}
+        Result r=new Result();int start=(q.page-1)*24,end=Math.min(start+24,found.size());if(start<found.size())r.items.addAll(found.subList(start,end));r.more=end<found.size();r.note="知更编辑推荐 · 顺序不代表平台热度";return r;
+    }
+    String resolveDownload(JSONObject item)throws Exception{
+        String id=item.optString("zlibId"),hash=item.optString("zlibHash");
+        if(!id.matches("[0-9]{1,30}")||!hash.matches("[A-Za-z0-9_-]{1,100}"))throw new Exception("请先从 Z-Library 搜索结果中选择具体版本");
+        String origin=domain(secrets.get("zdomain"));JSONObject data=request(origin+"/eapi/book/"+id+"/"+hash+"/file",null,session()).data;
+        if(data.optInt("success")!=1)throw new Exception("来源未提供下载链接，请检查账号额度、权限或源站状态");
+        JSONObject file=data.optJSONObject("file");String url=file==null?"":file.optString("downloadLink");
+        if(url.isEmpty())url=data.optString("downloadLink");if(url.isEmpty())url=data.optString("url");if(url.isEmpty())url=data.optString("link");
+        if(url.startsWith("/"))url=origin+url;url=secureUrl(url);if(url.isEmpty())throw new Exception("来源返回的下载链接无效");return url;
+    }
+    Map<String,String> downloadHeaders(String url)throws Exception{
+        String origin=domain(secrets.get("zdomain"));return new URI(url).getHost().equals(new URI(origin).getHost())?session():Collections.emptyMap();
     }
     private Map<String,String> session()throws Exception{
         String id=secrets.get("zid"),key=secrets.get("zkey");if(!id.matches("[0-9]{1,30}")||!key.matches("[-a-zA-Z0-9_]{6,256}"))throw new Exception("请先在设置中连接自己的 Z-Library 账号");
@@ -182,7 +224,7 @@ final class Catalog {
         JSONObject d=request(origin+"/eapi/book/search",form,h).data;if(d.optInt("success")!=1)throw new Exception("账号搜索被来源拒绝，请重新连接账号或确认来源站状态");
         Result r=new Result();JSONArray a=d.optJSONArray("books");if(a!=null)for(int i=0;i<a.length();i++){
             JSONObject v=a.getJSONObject(i);String path=v.optString("href");String url=path.startsWith("/")?origin+path:path;if(!url.startsWith(origin+"/"))url=origin+"/book/"+v.optString("id")+"/"+v.optString("hash");
-            JSONObject b=item("book:zlib:"+v.optString("id")+":"+v.optString("hash"),"book",v.optString("title"),v.optString("author"),v.optString("year"),"Z-Library · "+v.optString("extension").toUpperCase(Locale.ROOT),url,v.optString("cover"),v.optString("description"));r.items.add(b);
+            JSONObject b=item("book:zlib:"+v.optString("id")+":"+v.optString("hash"),"book",v.optString("title"),v.optString("author"),v.optString("year"),"Z-Library · "+v.optString("extension").toUpperCase(Locale.ROOT),url,v.optString("cover"),v.optString("description"));b.put("zlibId",v.optString("id")).put("zlibHash",v.optString("hash")).put("format",v.optString("extension").toLowerCase(Locale.ROOT));r.items.add(b);
         }
         JSONObject pagination=d.optJSONObject("pagination");int total=pagination==null?0:pagination.optInt("total_pages");r.more=total>0?q.page<total:r.items.size()>=24;return r;
     }
