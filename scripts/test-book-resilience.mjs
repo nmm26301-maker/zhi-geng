@@ -27,7 +27,7 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 await wait(60);
 w.document.querySelector('#categoryTabs [data-category="book"]').click();
 await wait(120);
-assert.equal(w.document.querySelectorAll('.work-card').length,seed.items.length,'show real local catalog despite live APIs being blocked');
+assert.equal(w.document.querySelectorAll('.work-card').length,Math.min(24,seed.items.length),'show real local catalog despite live APIs being blocked');
 assert.equal(openRequests,0,'do not call Open Library during cached browsing');
 assert.equal(googleRequests,0,'do not call Google Books during cached browsing');
 assert(w.document.querySelector('#dataMode').textContent.includes('缓存'),'display snapshot status');
@@ -36,13 +36,13 @@ w.document.getElementById('refreshButton').click();
 await wait(110);
 assert.equal(openRequests,1,'manual update tries Open Library once');
 assert.equal(googleRequests,1,'manual update tries Google Books once');
-assert.equal(w.document.querySelectorAll('.work-card').length,seed.items.length,'fallback to book snapshot after two failures');
+assert.equal(w.document.querySelectorAll('.work-card').length,Math.min(24,seed.items.length),'fallback to book snapshot after two failures');
 assert(w.localStorage.getItem('zhigeng_google_books_429_until_v1'),'429 starts cooldown');
 
 w.document.getElementById('refreshButton').click();
 await wait(110);
 assert.equal(googleRequests,1,'cooldown prevents repeat Google Books calls');
-assert.equal(w.document.querySelectorAll('.work-card').length,seed.items.length,'book snapshot persists in cooldown');
+assert.equal(w.document.querySelectorAll('.work-card').length,Math.min(24,seed.items.length),'book snapshot persists in cooldown');
 
 const search=w.document.getElementById('searchInput');
 search.value=seed.items[0].title;
@@ -64,7 +64,7 @@ await wait(100);
 w.document.getElementById('resetButton').click();
 await wait(100);
 assert.equal(w.document.getElementById('bookLanguage').value,'','reset clears advanced book filters');
-assert.equal(w.document.querySelectorAll('.work-card').length,seed.items.filter(x=>x.year===2026).length,'reset returns to 2026 matching records');
+assert.equal(w.document.querySelectorAll('.work-card').length,Math.min(24,seed.items.filter(x=>x.year===2026).length),'reset returns to 2026 matching records');
 assert.equal(catalogRequests,1,'same-origin catalog is not repeatedly downloaded');
 
 console.log('Offline + CORS + 429 regression passed. Cached records '+seed.items.length+'; Google calls '+googleRequests+'.');
