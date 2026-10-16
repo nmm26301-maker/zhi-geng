@@ -7,7 +7,8 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.xml':'application/xml'};
 const server=http.createServer(async(req,res)=>{
   try{
-    const url=new URL(req.url,'http://'+req.headers.host);
+    const protocol=String(req.headers['x-forwarded-proto']||'http').split(',')[0].trim()==='https'?'https':'http';
+    const url=new URL(req.url,protocol+'://'+req.headers.host);
     if(url.pathname==='/api/gateway'){
       let size=0;const chunks=[];
       for await(const chunk of req){size+=chunk.length;if(size>20000){res.writeHead(413);res.end();return;}chunks.push(chunk);}
