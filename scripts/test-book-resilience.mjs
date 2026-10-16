@@ -64,7 +64,7 @@ await wait(100);
 w.document.getElementById('resetButton').click();
 await wait(100);
 assert.equal(w.document.getElementById('bookLanguage').value,'','reset clears advanced book filters');
-assert.equal(w.document.querySelectorAll('.work-card').length,seed.items.length,'reset returns to 2026 cache catalog');
+assert.equal(w.document.querySelectorAll('.work-card').length,seed.items.filter(x=>x.year===2026).length,'reset returns to 2026 matching records');
 assert.equal(catalogRequests,1,'same-origin catalog is not repeatedly downloaded');
 
 console.log('Offline + CORS + 429 regression passed. Cached records '+seed.items.length+'; Google calls '+googleRequests+'.');
