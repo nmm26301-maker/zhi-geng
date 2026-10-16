@@ -78,6 +78,12 @@ final class Catalog {
             Result cn=new Result();cn.items=tmdb(q,q.type);cn.more=cn.items.size()>=20;return cn;
         }
 
+        if(q.region.equals("CN")&&q.type.equals("all")){
+            if(secrets.get("tmdb").isEmpty()){Result local=domestic(q);local.note="国内编辑推荐 · 更多实时国内影视需配置 TMDB。";return local;}
+            Result live=new Result();Query film=q.copy();film.type="movie";Query show=q.copy();show.type="tv";
+            List<Callable<List<JSONObject>>> cnCalls=Arrays.asList(()->tmdb(film,"movie"),()->tmdb(show,"tv"));ExecutorService cnPool=Executors.newFixedThreadPool(2);try{for(Future<List<JSONObject>> f:cnPool.invokeAll(cnCalls,23,TimeUnit.SECONDS)){try{live.items.addAll(f.get());}catch(Exception e){live.note="部分国内来源暂不可用";}}}finally{cnPool.shutdownNow();}live.more=live.items.size()>=20;return live;
+        }
+        if(q.region.equals("CN")&&q.type.equals("book")){Query chinese=q.copy();if(chinese.language.isEmpty())chinese.language="chi";return publicBooks(chinese);}
         Result result=new Result();if(q.type.equals("all")&&q.text.isEmpty()&&q.tag.isEmpty()&&!q.forceLive){result.items=bundled(q);if(!result.items.isEmpty()){result.note="内置真实目录快照，搜索可在线找作品。";result.more=result.items.size()>=24;return result;}}List<Callable<List<JSONObject>>> calls=new ArrayList<>();
         if(q.type.equals("all")){calls.add(()->anime(q));calls.add(()->books(q));if(!secrets.get("tmdb").isEmpty())calls.add(()->tmdb(q,"movie"));}
         else if(q.type.equals("book"))return publicBooks(q);
