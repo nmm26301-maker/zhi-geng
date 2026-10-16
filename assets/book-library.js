@@ -406,6 +406,15 @@
   }
   function init(){
     populateFilters();renderHistory();updateShelf();syncStudio();
+    const searchForm=$('bookSearchForm'),bookInput=$('bookSearchInput');
+    searchForm.addEventListener('submit',event=>{
+      event.preventDefault();
+      const term=bookInput.value.trim();
+      if(!term){message('请输入要查询的书名或作者。');bookInput.focus();return;}
+      window.ZhigengBookAPI?.searchBooks?.(term);
+      saveSearch(term);
+      $('bookSearchHint').textContent='正在查找「'+term.slice(0,80)+'」，默认跨所有年份搜索…';
+    });
     $('bookImportButton').addEventListener('click',()=>$('bookFileInput').click());
     $('bookFileInput').addEventListener('change',e=>importFiles([...e.target.files]));
     $('bookFilterApply').addEventListener('click',applyFilters);

@@ -21,6 +21,7 @@ jobs:
           node --check assets/book-bridge.js
           node --check assets/book-library.js
           node --check assets/books-catalog.js
+          node --check assets/book-search.js
           node --check scripts/refresh-books.mjs
           node scripts/check-book-bridge.mjs
           node scripts/check-book-library.mjs
@@ -29,3 +30,6 @@ jobs:
           npm install --no-save --no-package-lock jsdom@26
           node scripts/test-book-ui.mjs
           node scripts/test-book-resilience.mjs
+          node scripts/test-real-book-search.mjs
+      - name: Informational live-provider status
+        run: node scripts/probe-book-apis.mjs

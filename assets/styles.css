@@ -119,3 +119,16 @@ body.book-reader-is-open{overflow:hidden}
 
 .book-reader-bottom select{max-width:102px;min-width:65px;padding:7px 4px;border-radius:8px;border:1px solid #d9ded5;background:#f8faf5;color:#465747;font-size:11px}
 @media(max-width:700px){.book-reader-bottom select{max-width:70px}.book-reader-bottom input{min-width:35px}}
+
+/* 书籍独立搜索：大输入框、显式搜索按钮，移动端不挤压。 */
+.book-search-form{margin-top:17px;padding:15px;border-radius:13px;background:#203040;border:1px solid #426253}
+.book-search-form>label{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#ecf7ee;font-size:13px;font-weight:750;margin-bottom:10px}
+.book-search-form>label small{color:#afc8bc;font-size:10px;font-weight:500}
+.book-search-control{display:flex;align-items:center;gap:11px;min-height:49px;background:#101b28;border:1px solid #53675d;border-radius:11px;padding:5px 6px 5px 14px}
+.book-search-control>span{color:#bed7bd;font-size:22px;flex:none}
+.book-search-control input{flex:1;min-width:0;color:#fafdf9;background:transparent;border:0;outline:none;font-size:14px}
+.book-search-control input::placeholder{color:#869c9f}
+.book-search-control button{flex:none;background:#c4f3ae;border:0;border-radius:9px;padding:11px 19px;color:#173729;font-size:13px;font-weight:800}
+.book-search-control button:hover{background:#e4ffd6}
+.book-search-hint{color:#a9c0b6;line-height:1.6;font-size:10px;margin:9px 2px 0}
+@media(max-width:700px){.book-search-form{padding:12px;margin-top:13px}.book-search-form>label{display:block;font-size:12px}.book-search-form>label small{display:block;margin-top:5px}.book-search-control{min-height:45px;gap:7px;padding-left:9px}.book-search-control input{font-size:12px}.book-search-control button{font-size:12px;padding:11px 12px}}

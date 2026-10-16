@@ -242,13 +242,13 @@
     render();
   }
   function resetAndLoad(){state.page=1;state.moreAvailable=false;load();}
-  function changeCategory(c){state.category=c;setTitle();resetAndLoad();}
+  function changeCategory(c){state.category=c;if(c==='book'){state.year='all';$('#yearSelect').value='all';}setTitle();resetAndLoad();}
   function changeView(v){state.view=v;if(v==='latest'||v==='saved')state.year='all';else if(v==='explore'&&state.year==='all')state.year=String(CURRENT_YEAR);if(v==='saved')state.category='all';$('#yearSelect').value=state.year;setTitle();resetAndLoad();document.querySelector('#discoverySection').scrollIntoView({behavior:'smooth',block:'start'});}
   function openSettings(){const modal=$('#settingsModal');modal.hidden=false;$('#tmdbKey').value=getKey();setTmdbStatus(getKey()?'已读取本机保存的凭证，点击「测试连接」确认是否有效。':'请输入 TMDB 申请页中的 API Key（v3）或 Read Access Token。');$('#tmdbKey').focus();}
   function closeSettings(){$('#settingsModal').hidden=true;}
   function updateFavorite(id){let target=state.items.find(x=>x.id===id);const saved=getSaved();if(saved[id]){delete saved[id];toast('已从清单移除');}else{target=target||saved[id]?.item;if(!target)return;saved[id]={item:target,finished:false,savedAt:new Date().toISOString()};toast('已加入我的清单 ♡');}saveList(saved);render();}
   function markFinished(id){const saved=getSaved();if(!saved[id])return;saved[id].finished=!saved[id].finished;saveList(saved);toast(saved[id].finished?'已标记完成':'已恢复为待看 / 待读');render();}
-  function searchChange(){const q=$('#searchInput').value.trim();$('#clearSearch').hidden=!q;state.query=q;resetAndLoad();}
+  function searchChange(){const q=$('#searchInput').value.trim();$('#clearSearch').hidden=!q;state.query=q;if(state.category==='book'&&q){state.view='explore';state.year='all';state.keyword='';$('#yearSelect').value='all';const bs=$('#bookSearchInput');if(bs&&bs.value!==q)bs.value=q;}setTitle();resetAndLoad();}
   let searchTimer;
   function init(){
     const years=['all'];for(let y=CURRENT_YEAR+1;y>=1950;y--)years.push(String(y));$('#yearSelect').innerHTML=years.map(y=>`<option value="${y}">${y==='all'?'全部年份':y+' 年'}</option>`).join('');$('#yearSelect').value=state.year;
@@ -321,6 +321,18 @@
     const selected={view:state.view,year:state.year,query:state.query,keyword:state.keyword,sort:state.sort,page:state.page,filters};
     const local=catalog?await catalog.search(selected).catch(()=>({items:[]})):{items:[]};
     const forceLive=!!catalog?.consumeManualRefresh();
+    // 真正的跨年份图书搜索：先并行查询不依赖 Google 的开放书源，并结合本机目录。
+    if(state.query.trim()){
+      const index=window.ZhigengBookSearch;
+      const live=index?await index.search({query:state.query,filters,page:state.page}):{items:[],failures:0};
+      const combined=unique([...(local.items||[]),...(live.items||[])]);
+      if(combined.length){
+        // 返回真实图书搜索结果；即使外部接口在用户网络被阻断，缓存命中仍可用。
+        if(live.items?.length)catalog?.reportLive();
+        else catalog?.reportCatalog('书目结果来自已有目录');
+        return combined;
+      }
+    }
     // 默认推荐优先从同站点目录读取，避免每次进入页面都向外部服务发起大量请求。
     // 仅用户主动搜索、选筛选词、翻页或点击更新时再请求实时接口。
     if(local.items?.length&&!forceLive&&!state.query&&!state.keyword){
@@ -372,7 +384,15 @@
     getItem(id){return state.items.find(x=>x.id===id)||getSaved()[id]?.item||null;},
     reload(){state.page=1;resetAndLoad();},
     showBooks(){changeView('explore');changeCategory('book');},
-    chooseYearAll(){state.year='all';$('#yearSelect').value='all';}
+    chooseYearAll(){state.year='all';$('#yearSelect').value='all';},
+    searchBooks(query){
+      const q=String(query||'').trim();
+      state.category='book';state.view='explore';state.year='all';state.keyword='';state.query=q;state.page=1;
+      $('#yearSelect').value='all';$('#searchInput').value=q;$('#clearSearch').hidden=!q;
+      const input=$('#bookSearchInput');if(input&&input.value!==q)input.value=q;
+      setTitle();resetAndLoad();
+      document.querySelector('#discoverySection')?.scrollIntoView({behavior:'smooth',block:'start'});
+    }
   };
   const sourceBeforeCache=pullSource,cachePrefix='zhigeng_source_v2:';
   function sourceCacheKey(category){
