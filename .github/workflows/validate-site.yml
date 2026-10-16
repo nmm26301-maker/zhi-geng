@@ -31,3 +31,5 @@ jobs:
           node scripts/test-book-ui.mjs
           node scripts/test-book-resilience.mjs
           node scripts/test-real-book-search.mjs
+      - name: Informational live-provider status
+        run: node scripts/probe-book-apis.mjs
