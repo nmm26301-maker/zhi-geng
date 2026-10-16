@@ -1,10 +1,14 @@
 # 知更 · Android App
 
-**安卓安装包：[Zhigeng-v0.5.0.apk](releases/Zhigeng-v0.5.0.apk?raw=true)**
+**安卓安装包：[Zhigeng-v0.6.0.apk](releases/Zhigeng-v0.6.0.apk?raw=true)**
 
-原生安卓应用，支持 Android 8.0 及以上。发现、阅读、书架、设置四个页面；影视/书籍搜索、年份筛选、Z-Library 账号搜书与本地图书文字阅读。不是网页封装，不依赖前一版网站或 ChatGPT 网页登录。
+原生安卓应用，支持 Android 8.0 及以上。发现、榜单、阅读、书架、我的五个页面；28项国内编辑推荐、TMDB 国内评分榜、Z-Library 站内链接与下载、书架、EPUB/TXT/PDF 内置阅读。不是网页封装。
 
-安卓源码与构建说明见 [android/README.md](android/README.md)。最终 APK 已完成私有发布签名校验，尚未在用户真实设备与图书账号上完成测试。签名密钥单独保存，不提交公开仓库。
+安卓源码与构建说明见 [android/README.md](android/README.md)。最终 APK 已完成私有发布签名校验，沿用0.5版签名，可覆盖安装。模拟器原生导航与无崩溃检查已通过；真实图书账号下载尚未测试。签名密钥单独保存，不提交公开仓库。
+
+[Figma 三屏设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=6-653) · [设计预览](design/zhigeng-v0.6-preview.png)
+
+下载入口在「阅读 → Z-Library 搜索 → 图书详情 → 获取下载链接 / 下载到书架」。下载权限与链接有效性以源站账号返回为准；失败或取消不把临时文件放入书架。
 
 ---
 
