@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
             provider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){public void onNothingSelected(AdapterView<?> a){}public void onItemSelected(AdapterView<?> a,View v,int pos,long id){String value=pos==1?"zlib":"public";if(!query.provider.equals(value)){query.provider=value;query.page=1;load(false);}}});
         }
         LinearLayout searchRow=row();search=input(query.type.equals("book")?"搜索书名、小说或作者":"搜索作品名称",false);search.setText(query.text);search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);searchRow.addView(search,new LinearLayout.LayoutParams(0,dp(50),1));Button go=button("搜索",true);LinearLayout.LayoutParams gp=new LinearLayout.LayoutParams(dp(68),dp(50));gp.leftMargin=dp(8);searchRow.addView(go,gp);go.setOnClickListener(v->submit());search.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_SEARCH){submit();return true;}return false;});add(body,searchRow,15);
-        LinearLayout tools=row();Button filters=button("筛选 · "+(query.year.equals("all")?"全部年份":query.year),false);tools.addView(filters,new LinearLayout.LayoutParams(0,dp(42),1));Button refresh=button("↻ 更新",false);LinearLayout.LayoutParams rp=new LinearLayout.LayoutParams(dp(95),dp(42));rp.leftMargin=dp(8);tools.addView(refresh,rp);filters.setOnClickListener(v->filterDialog());refresh.setOnClickListener(v->{query.page=1;load(false);});add(body,tools,10);
+        LinearLayout tools=row();Button filters=button("筛选 · "+(query.year.equals("all")?"全部年份":query.year),false);tools.addView(filters,new LinearLayout.LayoutParams(0,dp(42),1));Button refresh=button("↻ 更新",false);LinearLayout.LayoutParams rp=new LinearLayout.LayoutParams(dp(95),dp(42));rp.leftMargin=dp(8);tools.addView(refresh,rp);filters.setOnClickListener(v->filterDialog());refresh.setOnClickListener(v->{query.page=1;query.forceLive=true;load(false);});add(body,tools,10);
         status=label("正在寻找好作品…",12,MUTED);status.setLineSpacing(dp(3),1);add(body,status,18);
         load(false);
     }
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
     private boolean validYear(String value){return value.isEmpty()||value.matches("[12][0-9]{3}");}
     private GridLayout grid;
     private void load(boolean append){
-        if(status==null||isFinishing())return;final int token=++generation;Catalog.Query selected=query.copy();busy=true;if(!append){visible.clear();if(grid!=null&&grid.getParent()==body)body.removeView(grid);if(more!=null&&more.getParent()==body)body.removeView(more);}
+        if(status==null||isFinishing())return;final int token=++generation;Catalog.Query selected=query.copy();query.forceLive=false;busy=true;if(!append){visible.clear();if(grid!=null&&grid.getParent()==body)body.removeView(grid);if(more!=null&&more.getParent()==body)body.removeView(more);}
         status.setText("正在搜索 · "+(selected.provider.equals("zlib")&&selected.type.equals("book")?"Z-Library":"公开数据源"));if(more!=null)more.setEnabled(false);
         jobs.execute(()->{Catalog.Result result;try{result=catalog.search(selected);}catch(Exception e){result=new Catalog.Result();result.note=e.getMessage()==null?"连接失败，请检查网络":e.getMessage();}final Catalog.Result got=result;
             runOnUiThread(()->{if(isFinishing()||token!=generation)return;busy=false;visible.addAll(got.items);renderResults(got.more);status.setText(visible.size()+" 部作品"+(got.note.isEmpty()?"":" · "+got.note)+(visible.isEmpty()&&got.note.isEmpty()?"\n没有匹配结果，试试更换书名或清除筛选。":""));});

@@ -16,8 +16,8 @@ final class Catalog {
     static final String[] DOMAINS={"https://z-lib.gd","https://z-lib.gl","https://z-library.ec","https://article.sk","https://articles.sk","https://zlib.bz","https://1lib.sk","https://z-lib.fm","https://z-lib.sk","https://zliba.ru"};
     static class Query {
         String type="all",text="",year="all",tag="",provider="public",language="",extension="",from="",to="",sort="popular";
-        int page=1;boolean exact=false;
-        Query copy(){Query q=new Query();q.type=type;q.text=text;q.year=year;q.tag=tag;q.provider=provider;q.language=language;q.extension=extension;q.from=from;q.to=to;q.sort=sort;q.page=page;q.exact=exact;return q;}
+        int page=1;boolean exact=false;boolean forceLive=false;
+        Query copy(){Query q=new Query();q.type=type;q.text=text;q.year=year;q.tag=tag;q.provider=provider;q.language=language;q.extension=extension;q.from=from;q.to=to;q.sort=sort;q.page=page;q.exact=exact;q.forceLive=forceLive;return q;}
     }
     static class Result {List<JSONObject> items=new ArrayList<>();String note="";boolean more=false;}
     private final Context ctx;private final SecretStore secrets;
@@ -67,7 +67,7 @@ final class Catalog {
     }
     Result search(Query q)throws Exception{
         if(q.type.equals("book")&&q.provider.equals("zlib"))return zsearch(q);
-        Result result=new Result();List<Callable<List<JSONObject>>> calls=new ArrayList<>();
+        Result result=new Result();if(q.type.equals("all")&&q.text.isEmpty()&&q.tag.isEmpty()&&!q.forceLive){result.items=bundled(q);if(!result.items.isEmpty()){result.note="内置真实目录快照，搜索可在线找作品。";result.more=result.items.size()>=24;return result;}}List<Callable<List<JSONObject>>> calls=new ArrayList<>();
         if(q.type.equals("all")){calls.add(()->anime(q));calls.add(()->books(q));if(!secrets.get("tmdb").isEmpty())calls.add(()->tmdb(q,"movie"));}
         else if(q.type.equals("book"))return publicBooks(q);
         else if(q.type.equals("anime"))calls.add(()->anime(q));
