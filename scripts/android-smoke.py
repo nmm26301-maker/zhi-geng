@@ -12,9 +12,9 @@ def tap(text):
  raise AssertionError('Missing navigation: '+text)
 def screen(name,required):
  tree=dump();strings=[n.get('text','') for n in tree.iter('node')]
- assert any(required in x for x in strings),('Missing UI',required,strings)
  (out/(name+'.xml')).write_bytes(E.tostring(tree,encoding='utf-8'))
  with (out/(name+'.png')).open('wb') as f:subprocess.run(['adb','exec-out','screencap','-p'],stdout=f,check=True)
+ assert any(required in x for x in strings),('Missing UI',required,strings)
 adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity');time.sleep(3)
 screen('01-domestic-discovery','国内精选');tap('榜单');screen('02-editorial-rank','知更编辑推荐');tap('阅读');screen('03-chinese-books','公开图书目录');tap('书架');screen('04-library','导入');tap('我的');screen('05-settings','TMDB')
 tap('✦ AI 助手');screen('06-ai-assistant','让好奇，')
