@@ -7,8 +7,8 @@ android {
         applicationId 'cn.zhigeng.app'
         minSdk 26
         targetSdk 34
-        versionCode 602
-        versionName '0.6.2'
+        versionCode 603
+        versionName '0.6.3'
     }
     buildFeatures { buildConfig true }
     buildTypes { release { minifyEnabled false } }
