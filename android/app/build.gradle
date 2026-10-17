@@ -12,7 +12,10 @@ android {
         versionName '0.6.4'
     }
     buildFeatures { buildConfig true }
-    buildTypes { release { minifyEnabled false } }
+    buildTypes {
+        release { minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
+        debug { minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
+    }
     kotlinOptions { jvmTarget = "17" }
     packaging { resources { excludes += ["META-INF/DEPENDENCIES"]; merges += ["META-INF/LICENSE*", "META-INF/NOTICE*"] } }
     compileOptions { coreLibraryDesugaringEnabled true; sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
