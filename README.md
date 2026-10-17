@@ -1,16 +1,20 @@
 # 知更 · Android App
 
-**安卓安装包：[Zhigeng-v0.6.1.apk](releases/Zhigeng-v0.6.1.apk?raw=true)**
+**安卓安装包：[Zhigeng-v0.6.2.apk](releases/Zhigeng-v0.6.2.apk?raw=true)**
 
-原生安卓应用，支持 Android 8.0 及以上。发现、榜单、阅读、书架、我的五个页面；28项国内编辑推荐、TMDB 国内评分榜、Z-Library 站内链接与下载、书架、EPUB/TXT/PDF 内置阅读。主要功能使用安卓原生界面；新增 AI 助手在应用内嵌入 Duck.ai 官方聊天网页。
+原生安卓应用，支持 Android 8.0 及以上。发现、榜单、阅读、书架、我的五个页面；28项国内编辑推荐、TMDB 国内评分榜、Z-Library 站内链接与下载、书架、EPUB/TXT/PDF 内置阅读。主要功能使用安卓原生界面；AI 助手包含 Duck.ai 官方网页和原生 FCC 网关聊天。
 
-安卓源码与构建说明见 [android/README.md](android/README.md)。最终 APK 已完成私有发布签名校验，沿用0.5版签名，可覆盖安装。模拟器已通过原有五页、助手页、Duck.ai 官方网页加载和应用内返回检查，无崩溃；未自动发送聊天，真实图书账号下载尚未测试。签名密钥单独保存，不提交公开仓库。
+安卓源码与构建说明见 [android/README.md](android/README.md)。最终 APK 已完成私有发布签名校验，沿用0.5版签名，可覆盖安装。模拟器已通过原有五页、Duck.ai 网页加载、FCC 目录、HTTPS 鉴权、增量回复、HTTP 429 和加密保存检查，无崩溃。FCC 回复使用标注清楚的本地协议测试服务；真实网关对话及真实图书账号下载尚未测试。签名密钥单独保存，不提交公开仓库。
 
 [Figma 国内发现 / 榜单 / 下载设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=6-653) · [设计预览](design/zhigeng-v0.6-preview.png)
 
 AI 入口在主界面右上角「✦ AI 助手」。原生助手首页包含三个可复制的问题模板，点击「开始聊天」进入内嵌 Duck.ai。提供刷新、返回和连接失败重试，不跳外部浏览器。知更不会自动发送聊天、书架或账号数据；模型和用量以官方页面为准。
 
 [助手 Figma 设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=13-41) · [助手设计预览](design/zhigeng-v0.6.1-ai.png)
+
+FCC 入口在「AI 助手 → FCC 多模型」。填写自己的 HTTPS FCC 网关地址与 Proxy Token 后，可读取实际模型列表、切换模型并在知更内增量聊天。支持停止、复制回复、错误保留问题草稿，连接与当前聊天记录加密保存在设备。61 家服务商为目录快照，不代表全部已开通或免费；需要用户在 FCC 管理端配置对应账号。
+
+[FCC Figma 设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=16-2126) · [FCC 设计预览](design/zhigeng-v0.6.2-fcc.png)
 
 下载入口在「阅读 → Z-Library 搜索 → 图书详情 → 获取下载链接 / 下载到书架」。下载权限与链接有效性以源站账号返回为准；失败或取消不把临时文件放入书架。
 

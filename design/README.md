@@ -10,4 +10,10 @@ Figma：https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=6-653
 
 ## 0.6.1 · AI 助手
 
-新增可编辑的[助手首页](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=13-41)。29 个后代图层：6 个布局框架、19 个文字、4 个组件实例，无图片填充。复用品牌变量与 Material 3 按钮，新增带文字属性的助手问题卡片组件；全部文字使用 Noto Sans SC。官方聊天网站在 App 中嵌入，本画板设计范围是知更的助手首页。
+新增可编辑的[助手首页](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=13-41)。0.6.1 初版包含 29 个后代图层：6 个布局框架、19 个文字、4 个组件实例，无图片填充。复用品牌变量与 Material 3 按钮，新增带文字属性的助手问题卡片组件；全部文字使用 Noto Sans SC。官方聊天网站在 App 中嵌入，本画板设计范围是知更的助手首页。
+
+## 0.6.2 · FCC 多模型
+
+[FCC 连接与原生聊天空状态](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=16-2126)采用 115 个后代图层：57 个布局框架、42 个文字、16 个组件实例；没有图片填充或整屏截图。复用品牌变量、Material 3 按钮与输入框，全部文字使用 Noto Sans SC。AI 助手首页增加 Duck.ai / FCC 双入口。
+
+画板展示未连接的真实空状态，不使用模拟 AI 回复充当在线结果。源代码的模拟器协议测试回复单独明确标记为本地测试，不是模型推理。
