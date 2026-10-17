@@ -20,12 +20,12 @@ def open_book(kind):
 adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c')
 open_book('epub');screen('reader-01-epub-page','第一章');assert '排版' not in texts(),'Reader chrome is visible by default'
 center();tap('目录');screen('reader-02-toc','第二章 山间晚风');tap('第二章 山间晚风');time.sleep(2);screen('reader-03-second-chapter','第二章')
-center();tap('添加书签');tap('排版');screen('reader-04-settings','阅读排版');tap('夜间');screen('reader-05-night-settings','✓ 夜间');tap('完成');tap('收起');screen('reader-06-night-page','第二章')
+center();tap('添加书签');tap('排版');screen('reader-04-settings','阅读排版');tap('字号');screen('reader-04b-font-size','字号');tap('夜间');screen('reader-05-night-settings','✓ 夜间');tap('完成');tap('收起');screen('reader-06-night-page','第二章')
 open_book('epub');screen('reader-07-location-restored','第二章');center();tap('书签');screen('reader-08-bookmarks','第二章');tap('完成');tap('排版');tap('米色');tap('完成');tap('收起')
 open_book('txt');screen('reader-09-txt-page','第一章');center();tap('目录');screen('reader-10-txt-toc','第二章 山间晚风');tap('第二章 山间晚风');time.sleep(2);screen('reader-11-txt-chapter','第二章')
 open_book('txt');screen('reader-12-txt-restored','第二章')
 open_book('gb');screen('reader-13-gb18030','第一章')
 open_book('pdf');screen('reader-14-pdf','1 / 2');center();tap('下一页 ›');screen('reader-15-pdf-next','2 / 2');tap('记书签');open_book('pdf');screen('reader-16-pdf-restored','2 / 2')
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(out/'reader-runtime-errors.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
-(out/'reader-result.json').write_text(json.dumps({'version':'0.6.4','api':29,'engine':'Readium Kotlin 3.1.0','documents':'original local debug fixtures','epub':'passed: rendered chapters, table of contents, bookmark, theme and locator restart','txt':'passed: offline EPUB adapter, chapter navigation, locator restart, GB18030','pdf':'passed: native rendering, page navigation, bookmark, page restart','crashes':False},ensure_ascii=False,indent=2))
+(out/'reader-result.json').write_text(json.dumps({'version':'0.6.4','api':29,'engine':'Readium Kotlin 3.1.0','documents':'original local debug fixtures','epub':'passed: rendered chapters, table of contents, bookmark, font size, theme and locator restart','txt':'passed: offline EPUB adapter, chapter navigation, locator restart, GB18030','pdf':'passed: native rendering, page navigation, bookmark, page restart','crashes':False},ensure_ascii=False,indent=2))
 print('Reader emulator smoke passed: EPUB/TXT/GB18030/PDF, hidden chrome, directory, bookmark, themes and progress restoration')
