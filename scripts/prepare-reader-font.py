@@ -6,7 +6,7 @@ from fontTools import subset
 root=pathlib.Path(__file__).resolve().parent.parent
 url='https://raw.githubusercontent.com/google/fonts/47d54ca1ebb14fd864695f1d39dc734f39017c33/ofl/notoserifsc/NotoSerifSC%5Bwght%5D.ttf'
 raw=urllib.request.urlopen(url,timeout=120).read()
-assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()=='eab063faf229160a52d3760f5555150e4eb9e5bf','Font source changed'
+assert hashlib.sha1(b'blob '+str(len(raw)).encode()+bytes([0])+raw).hexdigest()=='eab063faf229160a52d3760f5555150e4eb9e5bf','Font source changed'
 p=root/'android/app/build/reader-font-source.ttf';p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
 font=instantiateVariableFont(TTFont(p),{'wght':400},inplace=True)
 options=subset.Options();options.flavor='woff2';options.name_IDs=['*'];options.name_legacy=True;options.name_languages=['*']

@@ -14,7 +14,7 @@ android {
     buildFeatures { buildConfig true }
     buildTypes { release { minifyEnabled false } }
     kotlinOptions { jvmTarget = "17" }
-    packaging { resources { excludes += ["META-INF/DEPENDENCIES", "META-INF/LICENSE*", "META-INF/NOTICE*"] } }
+    packaging { resources { excludes += ["META-INF/DEPENDENCIES"]; merges += ["META-INF/LICENSE*", "META-INF/NOTICE*"] } }
     compileOptions { coreLibraryDesugaringEnabled true; sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
 }
 
