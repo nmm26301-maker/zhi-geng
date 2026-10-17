@@ -2,7 +2,7 @@ name: Build Zhigeng Android APK
 on:
   push:
     branches: [main]
-    paths: ['android/**', '.github/workflows/android.yml']
+    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/fcc-protocol-fixture.py']
   workflow_dispatch:
 permissions:
   contents: read

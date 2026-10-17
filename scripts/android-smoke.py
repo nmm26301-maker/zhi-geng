@@ -30,7 +30,7 @@ tap('⋯');tap('助手首页');screen('09-ai-return','开始聊天')
 tap('‹ 返回');screen('10-native-return','TMDB')
 # Only the debug variant accepts this fixture shortcut. Release excludes the hook and test CA.
 adb('shell','am','force-stop','cn.zhigeng.app');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity','--ez','fcc_protocol_test','true');time.sleep(3)
-screen('11-fcc-local-test','连接你的 FCC');tap('保存并读取模型');tap('进入聊天');screen('12-fcc-models','fixture/text')
+tap('连接网关');screen('11-fcc-local-test','连接你的 FCC');tap('保存并读取模型');tap('进入聊天');screen('12-fcc-models','fixture/text')
 tap('输入消息…');adb('shell','input','text','Protocol%stest');tap('发送');time.sleep(3);screen('13-fcc-protocol-reply','本地协议测试回复')
 tap('fixture/text  ⌄');tap('Rate limit fixture (not an AI model)\nfixture/http429');tap('输入消息…');adb('shell','input','text','Rate%stest');tap('发送');time.sleep(2);screen('14-fcc-rate-limit','HTTP 429')
 protected=adb('shell','run-as','cn.zhigeng.app','cat','shared_prefs/protected.xml')
