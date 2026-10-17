@@ -17,6 +17,7 @@ def screen(name,required):
  assert any(required in n.get('text','') for n in t.iter('node')),('Missing content',required)
 def open_book(kind):
  adb('shell','am','force-stop','cn.zhigeng.app');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity','--es','reader_test',kind);time.sleep(9)
+adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c')
 open_book('epub');screen('reader-01-epub-page','第一章');assert '排版' not in texts(),'Reader chrome is visible by default'
 center();tap('目录');screen('reader-02-toc','第二章 山间晚风');tap('第二章 山间晚风');time.sleep(2);screen('reader-03-second-chapter','第二章')
 center();tap('添加书签');tap('排版');screen('reader-04-settings','阅读排版');tap('夜间');screen('reader-05-night-settings','✓ 夜间');tap('完成');tap('收起');screen('reader-06-night-page','第二章')
