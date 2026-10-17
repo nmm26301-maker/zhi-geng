@@ -7,7 +7,7 @@
         <activity android:name=".AiActivity" android:exported="false" android:windowSoftInputMode="adjustResize" android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".InAppBrowserActivity" android:exported="false" />
         <activity android:name=".PdfActivity" android:exported="false" />
-        <activity android:name=".ReaderActivity" android:exported="false" />
+        <activity android:name=".ReaderActivity" android:exported="false" android:theme="@style/ReaderTheme" />
         <activity android:name=".MainActivity" android:exported="true" android:windowSoftInputMode="adjustResize">
             <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
         </activity>

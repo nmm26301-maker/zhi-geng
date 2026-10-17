@@ -1,18 +1,30 @@
-plugins { id 'com.android.application' }
+plugins { id 'com.android.application'; id 'org.jetbrains.kotlin.android' }
 android {
     namespace 'cn.zhigeng.app'
     compileSdk 35
     buildToolsVersion '35.0.0'
     defaultConfig {
         applicationId 'cn.zhigeng.app'
+        multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 603
-        versionName '0.6.3'
+        versionCode 604
+        versionName '0.6.4'
     }
     buildFeatures { buildConfig true }
     buildTypes { release { minifyEnabled false } }
-    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    kotlinOptions { jvmTarget = "17" }
+    packaging { resources { excludes += ["META-INF/DEPENDENCIES", "META-INF/LICENSE*", "META-INF/NOTICE*"] } }
+    compileOptions { coreLibraryDesugaringEnabled true; sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
 }
 
 dependencies { testImplementation "junit:junit:4.13.2"; testImplementation "org.json:json:20240303" }
+
+dependencies {
+    implementation 'org.readium.kotlin-toolkit:readium-shared:3.1.0'
+    implementation 'org.readium.kotlin-toolkit:readium-streamer:3.1.0'
+    implementation 'org.readium.kotlin-toolkit:readium-navigator:3.1.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.7'
+    implementation 'androidx.fragment:fragment-ktx:1.8.5'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+}

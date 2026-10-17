@@ -2,7 +2,7 @@ name: Build Zhigeng Android APK
 on:
   push:
     branches: [main]
-    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/fcc-protocol-fixture.py']
+    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/fcc-protocol-fixture.py', 'scripts/android-reader-smoke.py', 'scripts/prepare-reader-font.py', 'scripts/make-reader-fixtures.py']
   workflow_dispatch:
 permissions:
   contents: read
@@ -29,23 +29,28 @@ jobs:
           javac -d /tmp/zhigeng-tests android/app/src/main/java/cn/zhigeng/app/DownloadPolicy.java android/tests/DownloadPolicyTest.java android/app/src/main/java/cn/zhigeng/app/DuckAiPolicy.java android/tests/DuckAiPolicyTest.java
           java -cp /tmp/zhigeng-tests cn.zhigeng.app.DownloadPolicyTest
           java -cp /tmp/zhigeng-tests cn.zhigeng.app.DuckAiPolicyTest
+      - name: Prepare offline Chinese reading font
+        run: |
+          python3 -m pip install fonttools==4.59.0 brotli==1.1.0
+          python3 scripts/prepare-reader-font.py
+          python3 scripts/make-reader-fixtures.py
       - name: Build native application
         working-directory: android
         run: gradle :app:testDebugUnitTest :app:assembleRelease :app:assembleDebug --no-daemon
       - name: Package unsigned APK and signing verifier
         run: |
           mkdir -p apk-output
-          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.3-unsigned.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.4-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
           cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.3-unsigned.apk > apk-output/package-info.txt
-          test "$(unzip -p apk-output/Zhigeng-v0.6.3-unsigned.apk classes.dex | wc -c)" -gt 10000
-          ! unzip -l apk-output/Zhigeng-v0.6.3-unsigned.apk | grep -q 'lib/.*\.so'
-          ! unzip -p apk-output/Zhigeng-v0.6.3-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
-          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.3-unsigned.apk | grep -q 'fcc_test_ca'
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.4-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.4-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.4-unsigned.apk | grep -q 'lib/.*\.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.4-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.4-unsigned.apk | grep -q 'fcc_test_ca'
       - uses: actions/upload-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.3
+          name: Zhigeng-native-android-v0.6.4
           path: apk-output/
           retention-days: 30
 
@@ -61,7 +66,7 @@ jobs:
           java-version: '17'
       - uses: actions/download-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.3
+          name: Zhigeng-native-android-v0.6.4
           path: apk-output
       - name: Start local FCC protocol fixture
         run: |
@@ -77,10 +82,12 @@ jobs:
           profile: pixel_2
           disable-animations: true
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot
-          script: python3 scripts/android-smoke.py
+          script: |
+            python3 scripts/android-smoke.py
+            python3 scripts/android-reader-smoke.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Zhigeng-v0.6.3-emulator-check
+          name: Zhigeng-v0.6.4-emulator-check
           path: emulator-check/
           retention-days: 30
