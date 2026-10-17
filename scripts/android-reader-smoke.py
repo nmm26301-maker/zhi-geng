@@ -1,5 +1,5 @@
 """Reader UI tests use only original, local documents bundled in debug."""
-import subprocess,time,pathlib,xml.etree.ElementTree as E,json
+import subprocess,time,pathlib,xml.etree.ElementTree as E,json,atexit
 out=pathlib.Path('emulator-check');out.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*args]).decode(errors='replace')
 def tree():
@@ -15,8 +15,10 @@ def screen(name,required):
  t=tree();(out/(name+'.xml')).write_bytes(E.tostring(t,encoding='utf-8'))
  with (out/(name+'.png')).open('wb') as f:subprocess.run(['adb','exec-out','screencap','-p'],stdout=f,check=True)
  assert any(required in n.get('text','') for n in t.iter('node')),('Missing content',required)
+atexit.register(lambda:(out/'reader-runtime-errors.txt').write_text(adb('logcat','-d','-s','AndroidRuntime:E')))
 def open_book(kind):
  adb('shell','am','force-stop','cn.zhigeng.app');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity','--es','reader_test',kind);time.sleep(9)
+ if 'GOT IT' in texts():tap('GOT IT');time.sleep(2)
 adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c')
 open_book('epub');screen('reader-01-epub-page','第一章');assert '排版' not in texts(),'Reader chrome is visible by default'
 center();tap('目录');screen('reader-02-toc','第二章 山间晚风');tap('第二章 山间晚风');time.sleep(2);screen('reader-03-second-chapter','第二章')
