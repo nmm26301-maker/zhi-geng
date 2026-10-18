@@ -111,6 +111,8 @@ jobs:
         with:
           name: Zhigeng-native-android-v0.6.4
           path: apk-output
+      - name: Install screenshot verifier
+        run: python3 -m pip install Pillow==11.3.0
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
       - uses: reactivecircus/android-emulator-runner@v2
