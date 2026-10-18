@@ -1,5 +1,6 @@
 """Reader UI tests use only original, local documents bundled in debug."""
 import subprocess,time,pathlib,xml.etree.ElementTree as E,json,atexit
+from PIL import Image
 out=pathlib.Path('emulator-check');out.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*args]).decode(errors='replace')
 def tree():
@@ -16,11 +17,19 @@ def screen(name,required):
  with (out/(name+'.png')).open('wb') as f:subprocess.run(['adb','exec-out','screencap','-p'],stdout=f,check=True)
  assert any(required in n.get('text','') for n in t.iter('node')),('Missing content',required)
 atexit.register(lambda:(out/'reader-runtime-errors.txt').write_text(adb('logcat','-d','-s','AndroidRuntime:E')))
+def visual_text(name,prefix):
+ t=E.fromstring((out/(name+'.xml')).read_bytes());img=Image.open(out/(name+'.png')).convert('RGB')
+ for n in t.iter('node'):
+  if n.get('text','').startswith(prefix):
+   b=[int(x) for x in n.get('bounds').replace('][',',').strip('[]').split(',')];crop=img.crop((max(0,b[0]),max(0,b[1]),min(img.width,b[2]),min(img.height,b[3])))
+   assert sum(1 for r,g,b in crop.getdata() if max(r,g,b)<150)>150,'Body text exists in accessibility but is not painted'
+   return
+ raise AssertionError('No body paragraph available for visual check')
 def open_book(kind):
  adb('shell','am','force-stop','cn.zhigeng.app');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity','--es','reader_test',kind);time.sleep(9)
  if 'GOT IT' in texts():tap('GOT IT');time.sleep(2)
 adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c')
-open_book('epub');screen('reader-01-epub-page','第一章');assert '排版' not in texts(),'Reader chrome is visible by default'
+open_book('epub');screen('reader-01-epub-page','第一章');visual_text('reader-01-epub-page','这是一份为知更编写');assert '排版' not in texts(),'Reader chrome is visible by default'
 center();tap('目录');screen('reader-02-toc','第二章 山间晚风');tap('第二章 山间晚风');time.sleep(2);screen('reader-03-second-chapter','第二章')
 center();tap('添加书签');tap('排版');screen('reader-04-settings','阅读排版');tap('字号');screen('reader-04b-font-size','字号');tap('夜间');screen('reader-05-night-settings','✓ 夜间');tap('完成');tap('收起');screen('reader-06-night-page','第二章')
 open_book('epub');screen('reader-07-location-restored','第二章');center();tap('书签');screen('reader-08-bookmarks','第二章');tap('完成');tap('排版');tap('米色');tap('完成');tap('收起')
@@ -31,3 +40,4 @@ open_book('pdf');screen('reader-14-pdf','1 / 2');center();tap('下一页 ›');s
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(out/'reader-runtime-errors.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
 (out/'reader-result.json').write_text(json.dumps({'version':'0.6.4','api':29,'engine':'Readium Kotlin 3.1.0','documents':'original local debug fixtures','epub':'passed: rendered chapters, table of contents, bookmark, font size, theme and locator restart','txt':'passed: offline EPUB adapter, chapter navigation, locator restart, GB18030','pdf':'passed: native rendering, page navigation, bookmark, page restart','crashes':False},ensure_ascii=False,indent=2))
 print('Reader emulator smoke passed: EPUB/TXT/GB18030/PDF, hidden chrome, directory, bookmark, themes and progress restoration')
+
