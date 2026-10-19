@@ -483,8 +483,9 @@
       const link=event.target.closest('a[href="#rankings"],a[href="#assistant"],a[href="#domestic"],a[href="#library"]');
       if (!link) return;
       event.preventDefault();const route=link.getAttribute('href').slice(1);
-      if (route==='library') navigate(route);
-      else {location.hash='#'+route;navigate(route);}
+      if(route==='library')navigate(route);
+      else if(location.hash==='#'+route)navigate(route);
+      else location.hash='#'+route;
     });
     $$('#sideNav button,#categoryNav button,#categoryTabs button,.bottom-nav button,#heroExplore,#heroLatest,#avatarButton').forEach(button=>{
       button.addEventListener('click',()=>{ if ($('#zgPanel').dataset.page) showPage(''); });
