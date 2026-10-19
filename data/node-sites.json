@@ -1,143 +1,179 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "updatedAt": "2026-10-19",
-  "title": "知更 · 节点服务导航",
+  "title": "知更 · 最新聊天筛选节点网站（替换版）",
   "groups": [
     {
       "id": "proxy",
-      "name": "静态 / 动态代理 IP 服务",
-      "subtitle": "ISP 静态地址、住宅轮换代理与数据中心代理。与机场订阅不是一类产品。",
+      "name": "专业静态 / 动态代理 IP（5 家）",
+      "subtitle": "最新微信/支付宝付款筛选：Decodo、NextProxy、IPFast、LycheeIP；第5家原聊天无法准确恢复，暂以旧一轮出现的 IPRoyal 标注补位。",
       "entries": [
         {
-          "id": "webshare",
-          "name": "Webshare",
-          "url": "https://www.webshare.io/",
+          "id": "decodo",
+          "name": "Decodo 德口多",
+          "url": "https://decodo.cn/",
           "tags": [
             "静态 ISP",
-            "轮换住宅",
-            "数据中心"
+            "动态住宅",
+            "支付宝"
           ],
-          "desc": "提供静态住宅（ISP）、轮换住宅及数据中心代理，可用免费代理了解操作面板。",
-          "source": "官网目录",
-          "verified": "官网页面已查阅；未测试具体出口 IP 信誉"
+          "price": "按官网套餐",
+          "payment": "支付宝：官网确认（亚洲）；微信：未核实",
+          "desc": "原 Smartproxy。全球代理网络和数据采集工具，官方账单 FAQ 列支付宝（限亚洲）。",
+          "source": "最新聊天 + Decodo 官方说明",
+          "verified": "官网及支付宝方式已核对；微信和出口 IP 未实测",
+          "provenance": "latest"
+        },
+        {
+          "id": "nextproxy",
+          "name": "NextProxy",
+          "url": "https://www.nextproxy.com/",
+          "tags": [
+            "静态住宅",
+            "动态住宅",
+            "支付宝 / 微信"
+          ],
+          "price": "按产品/地区计费",
+          "payment": "支付宝、微信：官网均列明；未进行真实支付",
+          "desc": "提供动态住宅、静态住宅 ISP、机房等代理；官网列有支付宝、微信等支付方式。",
+          "source": "最新聊天 + NextProxy 官网",
+          "verified": "官网支付方式可查；节点 IP 信誉未实测",
+          "provenance": "latest"
+        },
+        {
+          "id": "ipfast",
+          "name": "IPFast",
+          "url": "https://ipfast.net/",
+          "tags": [
+            "静态住宅",
+            "动态住宅",
+            "支付宝 / 微信"
+          ],
+          "price": "按官网套餐",
+          "payment": "支付宝、微信：官网均列明；未进行真实支付",
+          "desc": "静态 ISP 和动态住宅代理；官网明确说明中国大陆网络不可直接使用其代理。",
+          "source": "最新聊天 + IPFast 官网",
+          "verified": "官网支付说明可查；出口质量未实测",
+          "provenance": "latest"
+        },
+        {
+          "id": "lycheeip",
+          "name": "LycheeIP 荔枝 IP",
+          "url": "https://www.lycheeip.com/",
+          "tags": [
+            "静态住宅",
+            "动态住宅",
+            "支付宝 / 微信"
+          ],
+          "price": "静态住宅起价以官网为准",
+          "payment": "支付宝、微信：官网 FAQ 均列明；未进行真实支付",
+          "desc": "提供静态住宅、静态机房与动态住宅代理；官网说明需自行具备境外网络环境。",
+          "source": "最新聊天 + LycheeIP 官方 FAQ",
+          "verified": "官网支付说明可查；纯净度为商家标称未实测",
+          "provenance": "latest"
         },
         {
           "id": "iproyal",
-          "name": "IPRoyal",
+          "name": "IPRoyal（前一轮候选·暂占位）",
           "url": "https://iproyal.com/",
           "tags": [
             "静态 ISP",
-            "动态住宅"
-          ],
-          "desc": "静态 ISP 地址可长期保持；住宅轮换按流量计费。适合需要控制地址与会话的用途。",
-          "source": "官网与官方帮助文档",
-          "verified": "官网资料已核实；未测试目标站点解锁"
-        },
-        {
-          "id": "decodo",
-          "name": "Decodo",
-          "url": "https://decodo.com/",
-          "tags": [
-            "静态 ISP",
             "动态住宅",
-            "SOCKS5"
+            "第5家待核对"
           ],
-          "desc": "原 Smartproxy 品牌，提供 ISP、动态住宅与其他代理资源。",
-          "source": "官网目录",
-          "verified": "官网页面已查阅；未测试连接"
-        },
-        {
-          "id": "soax",
-          "name": "SOAX",
-          "url": "https://soax.com/",
-          "tags": [
-            "动态住宅",
-            "移动代理"
-          ],
-          "desc": "提供住宅与移动代理等选择，购买前应确认需要的 IP 位置及计费方式。",
-          "source": "官网目录",
-          "verified": "官网页面已查阅；未测试连接"
-        },
-        {
-          "id": "oxylabs",
-          "name": "Oxylabs",
-          "url": "https://oxylabs.io/",
-          "tags": [
-            "住宅代理",
-            "ISP 静态",
-            "企业级"
-          ],
-          "desc": "面向较高阶的数据采集与企业代理使用场景，通常需要核算流量和预算。",
-          "source": "官网目录",
-          "verified": "官网页面已查阅；未测试连接"
+          "price": "按官网套餐",
+          "payment": "之前讨论提及支付宝；微信与实际收款未核实",
+          "desc": "仅用于补足第五个导航位：这家出现在更早一轮代理名单，但最新回复第五个名称无法从聊天记录恢复，不应视为最终重新筛选结果。",
+          "source": "较早一轮聊天，非最新原表；待替换",
+          "verified": "名称不是已核实的最新第5家；请勿据此认为支付或 IP 质量已确认",
+          "provenance": "earlier-round-fallback"
         }
       ]
     },
     {
       "id": "airport",
-      "name": "低价机场 / 节点订阅",
-      "subtitle": "偏日常订阅与客户端导入，不等同于干净的专属住宅 IP。低价站点更应先短期试用。",
+      "name": "低价机场 / 订阅节点（5 家）",
+      "subtitle": "严格替换为最新聊天中的星岛梦、FreeCat、九云、宝云、锦云。支付方式与套餐来自当次资料或第三方网站，结账前仍需复核。",
       "entries": [
         {
+          "id": "xingdaomeng",
+          "name": "星岛梦",
+          "url": "https://kfccbb.xingdaomeng.com/",
+          "tags": [
+            "¥25/月",
+            "150GB/月",
+            "支付宝 / 微信（第三方）"
+          ],
+          "price": "¥25 / 150GB（月）",
+          "payment": "支付宝/微信：第三方列支持；未实付验证",
+          "desc": "最新讨论中的首位；品牌入口有推广/分配网址的可能，AI 适用性和线路稳定性不能由套餐宣传推断。",
+          "source": "最新聊天 + 2026-10 第三方套餐档案",
+          "verified": "品牌入口来自第三方整理；未验证当前结账及节点",
+          "provenance": "latest"
+        },
+        {
           "id": "freecat",
-          "name": "FreeCat · 自由猫",
+          "name": "FreeCat 自由猫",
           "url": "https://us.freecat.cloud/register",
           "tags": [
-            "低价订阅",
-            "用户曾提到",
-            "注意投诉"
+            "¥12/月",
+            "100GB/月",
+            "支付宝（未实付）"
           ],
-          "desc": "保留你之前提供的注册入口。公开社区曾报告部分时期服务异常；不建议未经实测长周期预付。",
-          "source": "本人讨论网址 + 2026 年社区报告",
-          "verified": "注册入口可检索；未验证实际可用性"
+          "price": "¥12 / 100GB（月）",
+          "payment": "支付宝：之前资料列支持；微信：未核实",
+          "desc": "保留你最初发过的 FreeCat 注册链接；官网公开套餐中有流浪猫 100GB/月档。",
+          "source": "最新聊天 + 你提供的注册网址 + 品牌官网",
+          "verified": "价格和入口资料可查；实际支付、运营稳定性未实测",
+          "provenance": "latest"
         },
         {
-          "id": "yifen",
-          "name": "一分机场",
-          "url": "https://xn--4gqx1hgtfdmt.com/",
+          "id": "jiuyun",
+          "name": "九云",
+          "url": "https://jiuyundl.com/",
           "tags": [
-            "低价订阅",
-            "直连"
+            "¥6/月",
+            "150GB/月",
+            "支付宝 / 微信（第三方）"
           ],
-          "desc": "公开导航列有直连与低价流量套餐；网址更换频繁，需确认渠道真实。",
-          "source": "公开机场目录及搜索索引",
-          "verified": "搜索可查；直连加载未验证"
+          "price": "¥6 / 150GB（月）",
+          "payment": "支付宝/微信：第三方列支持；未实付验证",
+          "desc": "低价中转节点；官方标称部分 AI 和流媒体支持，第三方资料没有可复现的完整解锁测试。",
+          "source": "最新聊天 + 第三方品牌档案（jiuyundl.com）",
+          "verified": "域名由第三方列为官网；未实测登陆及线路",
+          "provenance": "latest"
         },
         {
-          "id": "yiyuan",
-          "name": "一元机场",
-          "url": "https://xn--4gq62f52gdss.com/",
+          "id": "baoyun",
+          "name": "宝云",
+          "url": "https://888by.baoyundl.com/",
           "tags": [
-            "低价订阅",
-            "入口有变更"
+            "¥4/月",
+            "200GB/月",
+            "支付宝 / 微信（第三方）"
           ],
-          "desc": "已索引入口提示官网曾更换域名，购买前须核对最新官方公告与付款地址。",
-          "source": "网站搜索索引",
-          "verified": "旧入口可检索；新官网身份未核实"
+          "price": "¥4 / 200GB（月）",
+          "payment": "支付宝/微信：第三方列支持；未实付验证",
+          "desc": "极低价中转节点；使用第三方评测页面列出的跳转入口，疑似推广链接。",
+          "source": "最新聊天 + 2026-09 第三方套餐档案",
+          "verified": "AI 支持为商家标称，实际节点与售后未实测",
+          "provenance": "latest"
         },
         {
-          "id": "sanmao",
-          "name": "三毛机场",
-          "url": "https://gw-1.xn--ehqx7tcnnope.com/",
+          "id": "jinyun",
+          "name": "锦云",
+          "url": "https://jybdw1.wanhlj.com/",
           "tags": [
-            "低价订阅",
-            "备用入口"
+            "¥6/月",
+            "50GB/月",
+            "支付宝 / 微信（第三方）"
           ],
-          "desc": "第三方目录可找到入口；不能把入口可打开等同于节点可用、IP 纯净。",
-          "source": "公开索引",
-          "verified": "网页检索确认；未测试订阅"
-        },
-        {
-          "id": "peiqian",
-          "name": "赔钱机场",
-          "url": "https://dash.pqjc.site/",
-          "tags": [
-            "低价订阅",
-            "谨慎核验"
-          ],
-          "desc": "网上存在多个使用该名称的域名、争议与冒名可能；请独立确认官方身份并仅小额试用。",
-          "source": "2026-09-03 第三方实测目录",
-          "verified": "第三方列有此地址；未核实运营主体"
+          "price": "¥6 / 50GB（月）",
+          "payment": "支付宝/微信：第三方列支持；未实付验证",
+          "desc": "低价体验套餐；第三方记录的入口可能带推广关系，未做 ChatGPT/Gemini/Claude 逐节点实测。",
+          "source": "最新聊天 + 2026-10 第三方套餐档案",
+          "verified": "官网身份与线路稳定性未独立验证",
+          "provenance": "latest"
         }
       ]
     }
@@ -145,13 +181,13 @@
   "shortcuts": [
     {
       "id": "yifen-dashboard",
-      "providerId": "yifen",
-      "name": "一分机场 · 控制台直达",
+      "name": "你另外指定的节点控制台入口",
       "url": "https://xn--4gqx1hgtfdmt.com/#/dashboard",
       "type": "dashboard",
-      "label": "额外快捷入口",
-      "desc": "你最新补充的控制台页面。与上面的「一分机场」同属一个域名，不算第 11 家不同服务商。",
-      "verified": "用户提供的链接；站点在当前检查环境返回 HTTP 403，无法确认是否需要先登录。"
+      "label": "独立补充 · 不占用5+5",
+      "desc": "这是你额外发来的原始控制台地址，不属于最新机场5家名单；为避免与最新筛选混淆，单独放在两组之后。",
+      "verified": "仅保留用户原网址；未确认实际登录或安全性"
     }
-  ]
+  ],
+  "notes": "代理组前四家和机场组五家来自最新重筛聊天；代理第5家原文无法精确恢复，IPRoyal仅为更早一轮名单的明确标注补位，不代表原文第5家。"
 }
