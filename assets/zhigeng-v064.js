@@ -187,7 +187,7 @@
   }
   function showPage(page) {
     const panel = $('#zgPanel');
-    const inPanel = page === 'rankings' || page === 'assistant' || page === 'kanju';
+    const inPanel = page === 'rankings' || page === 'assistant' || page === 'kanju' || page === 'sms';
     panel.hidden = !inPanel;
     panel.dataset.page = inPanel ? page : '';
     hideLegacy(inPanel);
@@ -208,6 +208,8 @@
       renderAssistantTab();
     } else if (page === 'kanju') {
       window.ZhigengKanju?.mount(panel);
+    } else if (page === 'sms') {
+      window.ZhigengSmsHub?.mount(panel);
     } else panel.replaceChildren();
     if (inPanel) window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -223,7 +225,7 @@
       showPage(''); $('#zgDomestic')?.scrollIntoView({behavior:'smooth'});
       return;
     }
-    if (route === 'assistant' || route === 'rankings' || route === 'kanju') showPage(route);
+    if (route === 'assistant' || route === 'rankings' || route === 'kanju' || route === 'sms') showPage(route);
     else showPage('');
   }
   function assistantMarkup() {
@@ -462,7 +464,7 @@
     panel.id='zgPanel';panel.className='zg-panel';panel.hidden=true;
     domestic.insertAdjacentElement('afterend',panel);
     const side = document.createElement('div');
-    side.innerHTML='<div class="side-caption">知更空间</div><nav class="side-nav zg-side-nav"><a class="nav-item zg-side-link" href="#domestic"><span class="nav-icon">✺</span> 国内精选</a><a class="nav-item zg-side-link" href="#rankings"><span class="nav-icon">▥</span> 年度榜单</a><a class="nav-item zg-side-link" href="#kanju"><span class="nav-icon">▣</span> 看剧AI</a><a class="nav-item zg-side-link" href="#library"><span class="nav-icon">▤</span> 我的阅读</a><a class="nav-item zg-side-link" href="#assistant"><span class="nav-icon">✦</span> AI 助手</a></nav>';
+    side.innerHTML='<div class="side-caption">知更空间</div><nav class="side-nav zg-side-nav"><a class="nav-item zg-side-link" href="#domestic"><span class="nav-icon">✺</span> 国内精选</a><a class="nav-item zg-side-link" href="#rankings"><span class="nav-icon">▥</span> 年度榜单</a><a class="nav-item zg-side-link" href="#kanju"><span class="nav-icon">▣</span> 看剧AI</a><a class="nav-item zg-side-link" href="#sms"><span class="nav-icon">▥</span> 接码导航</a><a class="nav-item zg-side-link" href="#library"><span class="nav-icon">▤</span> 我的阅读</a><a class="nav-item zg-side-link" href="#assistant"><span class="nav-icon">✦</span> AI 助手</a></nav>';
     $('#categoryNav')?.insertAdjacentElement('afterend',side);
     const headerAI=document.createElement('a');headerAI.href='#assistant';headerAI.className='zg-ai-header';headerAI.textContent='✦ AI 助手';$('.header-actions')?.prepend(headerAI);
     domestic.addEventListener('click',event=>{
@@ -484,7 +486,7 @@
       if (item) {event.preventDefault();toggleFavorite(item);}
     });
     document.addEventListener('click',event=>{
-      const link=event.target.closest('a[href="#rankings"],a[href="#assistant"],a[href="#domestic"],a[href="#library"],a[href="#kanju"]');
+      const link=event.target.closest('a[href="#rankings"],a[href="#assistant"],a[href="#domestic"],a[href="#library"],a[href="#kanju"],a[href="#sms"]');
       if (!link) return;
       event.preventDefault();const route=link.getAttribute('href').slice(1);
       if(route==='library')navigate(route);
@@ -510,7 +512,7 @@
       $('#zgDomesticCount').textContent='编辑目录暂不可用：'+error.message;
       $('#zgDomesticGrid').innerHTML='<div class="zg-empty">请检查 data/domestic.json 是否随网站一同发布。</div>';
     }
-    if (['rankings','assistant','kanju','domestic','library'].includes(location.hash.slice(1))) navigate(location.hash.slice(1));
+    if (['rankings','assistant','kanju','sms','domestic','library'].includes(location.hash.slice(1))) navigate(location.hash.slice(1));
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init);
   else init();
