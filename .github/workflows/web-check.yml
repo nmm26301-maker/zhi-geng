@@ -7,12 +7,15 @@ on:
       - 'index.html'
       - 'assets/zhigeng-v064.js'
       - 'assets/kanju-bridge.js'
+      - 'assets/sms-hub.js'
+      - 'sms-hub/index.html'
       - 'assets/annual-rankings.js'
       - 'assets/zhigeng-v064.css'
       - 'assets/reader-experience.js'
       - 'data/domestic.json'
       - 'tests/web-v064.test.mjs'
       - 'tests/kanju-bridge.test.mjs'
+      - 'tests/sms-hub.test.mjs'
       - 'tests/annual-rankings.test.mjs'
       - '.github/workflows/web-check.yml'
   pull_request:
@@ -44,5 +47,6 @@ jobs:
           node --check assets/zhigeng-v064.js
           node --check assets/annual-rankings.js
           node --check assets/kanju-bridge.js
+          node --check assets/sms-hub.js
           node --check assets/reader-experience.js
-          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs tests/kanju-bridge.test.mjs
+          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs tests/kanju-bridge.test.mjs tests/sms-hub.test.mjs
