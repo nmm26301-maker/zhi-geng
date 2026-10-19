@@ -199,3 +199,56 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 
 .zg-rank-setup{display:inline-flex;align-items:center;margin:12px 6px 0;border:0;border-radius:999px;padding:9px 15px;background:#244e40;color:white;font-size:12px;font-weight:700}
 .zg-rank-setup:hover{background:#396453}
+
+/* 看剧AI · 官网浏览容器；不承载自有影视流或接口 */
+.zg-kanju-layout{display:block}
+.zg-kanju-intro{display:flex;justify-content:space-between;align-items:stretch;gap:25px;padding:24px 27px;border-radius:21px;background:linear-gradient(115deg,#e7ede3,#f9f6ee 72%);border:1px solid #dae4d8;overflow:hidden}
+.zg-kanju-intro>div:first-child{flex:1;min-width:0;z-index:1}
+.zg-kanju-overline{display:inline-block;color:#8b775c;font-size:10px;letter-spacing:.16em;font-weight:800;margin-bottom:10px}
+.zg-kanju-intro h2{font-size:clamp(20px,2.6vw,29px);line-height:1.4;color:#244e40;letter-spacing:-.02em;margin:0 0 10px}
+.zg-kanju-intro p{color:#6d806f;font-size:12px;line-height:1.9;max-width:610px;margin:0}
+.zg-kanju-form{margin-top:22px}
+.zg-kanju-form>label{color:#4c6656;font-size:12px;font-weight:750;display:block;margin-bottom:8px}
+.zg-kanju-input-wrap{display:flex;gap:10px;max-width:660px}
+.zg-kanju-input-wrap input{flex:1;min-width:0;border-radius:12px;border:1px solid #cbdacc;background:white;color:#284638;padding:13px 14px;font-size:13px}
+.zg-kanju-input-wrap input::placeholder{color:#99a79a}
+.zg-kanju-input-wrap input:focus-visible{outline:2px solid #bb614e;outline-offset:2px}
+.zg-kanju-input-wrap button{white-space:nowrap}
+.zg-kanju-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px}
+.zg-kanju-actions a,.zg-kanju-quiet-button{display:inline-flex;align-items:center;justify-content:center;min-height:37px;padding:9px 14px;border-radius:10px;border:1px solid #ccd9c9;background:#fff;color:#2c5342;font-size:11px;font-weight:750;text-decoration:none;cursor:pointer}
+.zg-kanju-actions a:hover,.zg-kanju-quiet-button:hover{background:#e8efe3}
+.zg-kanju-actions .zg-kanju-back{border-color:transparent;background:transparent;color:#798d7c}
+.zg-kanju-flower{flex:0 0 195px;background:radial-gradient(circle at 60% 35%,#557d67 0 23%,#244e40 24% 100%);color:white;min-height:230px;align-self:stretch;border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;box-shadow:inset 0 0 30px #ffffff12}
+.zg-kanju-flower:after{position:absolute;content:'';height:125px;width:125px;border-radius:50%;border:1px solid #e9f4e757;box-shadow:0 0 0 17px #e9f4e713,0 0 0 39px #e9f4e70b}
+.zg-kanju-flower>span{font-size:51px;font-weight:200;line-height:1}
+.zg-kanju-flower>strong{font-size:24px;z-index:1}
+.zg-kanju-flower>small{font-size:8px;letter-spacing:.13em;color:#edf4e3bd;z-index:1}
+.zg-kanju-disclaimer{font-size:11px;line-height:1.85;color:#718473;padding:0 3px;margin:17px 0 7px}
+.zg-kanju-frame{min-height:510px;border-radius:18px;border:1px solid #dce4d7;background:#f3f6f0;overflow:hidden;display:flex}
+.zg-kanju-frame iframe{width:100%;height:min(80vh,780px);min-height:520px;background:#fff;border:0;display:block}
+.zg-kanju-placeholder{display:flex;flex-direction:column;justify-content:center;align-items:center;margin:auto;padding:40px 22px;gap:14px;text-align:center;color:#688072}
+.zg-kanju-placeholder>span{font-size:52px;color:#47745e}
+.zg-kanju-placeholder>strong{font-size:21px;color:#244e40}
+.zg-kanju-placeholder>p{font-size:13px;margin:0}
+.zg-kanju-placeholder>small{color:#91a094;font-size:11px}
+.zg-kanju-lookup{border:0;border-radius:999px;background:#ecf1ea;color:#244e40;font-weight:750;font-size:10px;padding:7px 10px;white-space:nowrap;cursor:pointer}
+.zg-kanju-lookup:hover{background:#dbe9d9}
+@media(max-width:900px){.zg-kanju-flower{flex-basis:150px}.zg-kanju-intro{gap:16px;padding:19px}.zg-kanju-lookup{font-size:10px}}
+@media(max-width:650px){
+  .zg-kanju-intro{flex-direction:column;padding:17px;border-radius:16px}
+  .zg-kanju-flower{flex:initial;min-height:95px;gap:4px;padding:10px}
+  .zg-kanju-flower:after{height:70px;width:70px}
+  .zg-kanju-flower>span{font-size:26px}
+  .zg-kanju-flower>strong{font-size:16px}
+  .zg-kanju-flower>small{font-size:8px}
+  .zg-kanju-input-wrap{flex-direction:column}
+  .zg-kanju-input-wrap button{width:100%}
+  .zg-kanju-actions{gap:7px}
+  .zg-kanju-actions a,.zg-kanju-quiet-button{font-size:10px}
+  .zg-kanju-frame{min-height:420px}
+  .zg-kanju-frame iframe{min-height:540px}
+  .bottom-nav{gap:0;justify-content:space-between}
+  .bottom-nav>a,.bottom-nav>button{min-width:0;flex:1;padding-left:1px;padding-right:1px}
+  .bottom-nav small{white-space:nowrap}
+  .zg-work-foot>div{flex-wrap:wrap}
+}
