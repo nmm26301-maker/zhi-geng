@@ -6,10 +6,12 @@ on:
     paths:
       - 'index.html'
       - 'assets/zhigeng-v064.js'
+      - 'assets/annual-rankings.js'
       - 'assets/zhigeng-v064.css'
       - 'assets/reader-experience.js'
       - 'data/domestic.json'
       - 'tests/web-v064.test.mjs'
+      - 'tests/annual-rankings.test.mjs'
       - '.github/workflows/web-check.yml'
   pull_request:
     paths:
@@ -36,5 +38,6 @@ jobs:
       - name: Check browser scripts and editorial UI
         run: |
           node --check assets/zhigeng-v064.js
+          node --check assets/annual-rankings.js
           node --check assets/reader-experience.js
-          node --test tests/web-v064.test.mjs
+          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs
