@@ -86,7 +86,7 @@ test('search filters both groups independently, without mixing services',async()
   assert.equal(w.document.querySelectorAll('.zg-node-group').length,2);
   assert.equal(w.document.querySelectorAll('.zg-node-group[data-zg-node-group="airport"] .zg-node-card').length,0);
   assert.ok(w.document.querySelectorAll('.zg-node-group[data-zg-node-group="proxy"] .zg-node-card').length>=2);
-  assert.match(w.document.querySelector('#zgNodesCount').textContent,/两组独立展示/);
+  assert.match(w.document.querySelector('#zgNodesCount').textContent,/额外控制台入口 1 个/);
   dom.window.close();
 });
 
@@ -100,6 +100,31 @@ test('favorites persist after navigating away and back without duplicate toggle'
   assert.ok(w.document.querySelector('.zg-node-card [data-zg-node-favorite="webshare"]').classList.contains('is-saved'));
   tap(w,'.zg-node-card [data-zg-node-favorite="webshare"]');
   assert.deepEqual(JSON.parse(w.localStorage.getItem('zhigeng-node-fav-v1')),[]);
+  dom.window.close();
+});
+
+test('requested Yifen dashboard is a separate exact deep link, not an eleventh provider',async()=>{
+  assert.equal(nodeData.schemaVersion,2);
+  assert.equal(nodeData.groups.flatMap(group=>group.entries).length,10);
+  assert.equal(nodeData.shortcuts.length,1);
+  const dashboard=nodeData.shortcuts[0];
+  assert.equal(dashboard.id,'yifen-dashboard');
+  assert.equal(dashboard.providerId,'yifen');
+  assert.equal(dashboard.url,'https://xn--4gqx1hgtfdmt.com/#/dashboard');
+  const source=nodeData.groups.find(g=>g.id==='airport').entries.find(x=>x.id===dashboard.providerId);
+  assert.equal(new URL(dashboard.url).origin,new URL(source.url).origin);
+  const {dom,w,requests}=await createPage();
+  tap(w,'a[href="#nodes"]');await settle();
+  assert.deepEqual([...w.document.querySelectorAll('.zg-node-group')].map(g=>g.querySelectorAll('.zg-node-card').length),[5,5]);
+  assert.equal(w.document.querySelectorAll('.zg-node-shortcut').length,1);
+  const extra=w.document.querySelector('.zg-node-group[data-zg-node-group="airport"] .zg-node-shortcut-link');
+  assert.ok(extra);
+  assert.equal(extra.href,dashboard.url);
+  assert.equal(extra.target,'_blank');
+  assert.match(extra.rel,/noopener/);
+  assert.match(extra.rel,/noreferrer/);
+  assert.match(w.document.querySelector('#zgNodesCount').textContent,/额外控制台入口 1 个/);
+  assert.equal(requests(),2,'navigation must not prefetch external service login or billing pages');
   dom.window.close();
 });
 
