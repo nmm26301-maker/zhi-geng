@@ -8,7 +8,8 @@
   function favorites(){
     try {
       const v=JSON.parse(localStorage.getItem(STORAGE)||'[]');
-      return new Set(Array.isArray(v)?v.filter(x=>typeof x==='string'):[]);
+      const valid=new Set(state.data?.groups?.flatMap(g=>g.entries.map(e=>e.id))||[]);
+      return new Set(Array.isArray(v)?v.filter(x=>typeof x==='string'&&valid.has(x)):[]);
     }catch{return new Set();}
   }
   function safeURL(value){
