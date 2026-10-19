@@ -4,7 +4,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   const labels = {all:'全部',movie:'电影',tv:'电视剧',anime:'国创动画',variety:'综艺',book:'书籍'};
-  const state = {domestic:[],type:'all',rankType:'all',rankSource:'editor',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck',fccFingerprint:'',draft:''};
+  const state = {domestic:[],type:'all',rankType:'movie',rankSource:'yearly',rankYear:String(new Date().getFullYear()),rankRegion:'global',rankSort:'rating',rankPage:1,rankHasMore:false,rankNote:'',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck',fccFingerprint:'',draft:''};
   const storeKey = 'zhigeng_saved_v1';
   const keyName = 'zhigeng_tmdb_credential_v1';
 
@@ -41,9 +41,12 @@
   function card(item, index, ranked) {
     const saved = !!readSaved()[item.id];
     const type = labels[item.type] || item.type;
-    const score = Number(item.score) > 0 && Number(item.votes) >= 50 ?
-      '<span class="zg-rating">★ ' + Number(item.score).toFixed(1) + ' <small>· ' + Number(item.votes).toLocaleString('zh-CN') + ' 票</small></span>' :
-      '<span class="zg-editor-label">编辑甄选</span>';
+    const annualLabel=String(item.scoreLabel||'');
+    const showScore=Number(item.score)>0&&(item.annual ? (item.type!=='movie'&&item.type!=='tv'&&item.type!=='variety'||Number(item.votes)>=50) : Number(item.votes)>=50);
+    const score=showScore ?
+      '<span class="zg-rating">★ ' + Number(item.score).toFixed(1) + (annualLabel==='Open Library /5'?'/5':'/10') +
+      ' <small>· ' + escapeHTML(annualLabel||'评分') + (item.type==='movie'||item.type==='tv'||item.type==='variety'?' · '+Number(item.votes).toLocaleString('zh-CN')+' 票':'') + '</small></span>' :
+      '<span class="zg-editor-label">' + (item.annual?'暂无可靠评分':'编辑甄选') + '</span>';
     const author = item.author || item.subtype || '';
     const source = item.source || '知更编辑推荐';
     return '<article class="zg-work" data-kind="' + escapeHTML(item.type) + '">' +
@@ -63,20 +66,69 @@
     $('#zgDomesticCount').textContent = '来自安卓同一份编辑目录 · ' + list.length + ' 部';
   }
   function renderRankingList() {
-    const editor = state.rankSource === 'editor';
-    const items = editor ? state.domestic.filter(x => state.rankType === 'all' || x.type === state.rankType) : state.rankingItems;
-    const target = $('#zgRankingList');
-    if (!target) return;
-    target.innerHTML = items.length ? items.map((item,i) => card(item,i,true)).join('') :
-      '<div class="zg-empty">当前没有可显示的作品。可切换类型，或检查所选数据源。</div>';
-    $('#zgRankingCount').textContent = editor ? '知更原创编辑排序，不是实时热榜 · 共 ' + items.length + ' 部' :
-      'TMDB 数据源 · 不少于 50 位用户评分 · ' + items.length + ' 部';
-    $('#zgRankingFilters').innerHTML = typeFilters('',state.rankType,'zg-rank-type');
-    $$('#zgRankingFilters [data-zg-rank-type="anime"],#zgRankingFilters [data-zg-rank-type="book"]').forEach(el => { el.disabled = !editor; });
-    $$('[data-zg-rank-source]').forEach(el => el.classList.toggle('is-active', el.dataset.zgRankSource === state.rankSource));
+    const editor=state.rankSource==='editor', annual=state.rankSource==='yearly';
+    const items=editor?state.domestic.filter(x=>state.rankType==='all'||x.type===state.rankType):state.rankingItems;
+    const target=$('#zgRankingList');
+    if(!target)return;
+    target.innerHTML=items.length?items.map((x,i)=>card(x,i,!(annual&&x.editorialFallback))).join(''):
+      '<div class="zg-empty">这个年份和分类暂无可显示的真实记录。可换个年份、类型或数据来源。</div>';
+    $('#zgRankingCount').textContent=editor?'知更人工精选排序 · 不是实时年度榜 · 共 '+items.length+' 部':
+      annual?state.rankNote:'TMDB 中国来源用户评分总榜 · 至少50票 · '+items.length+' 部';
+    $('#zgRankingFilters').innerHTML=typeFilters('',state.rankType,'zg-rank-type');
+    const all=$('#zgRankingFilters [data-zg-rank-type="all"]');
+    if(all)all.disabled=annual;
+    $$('#zgRankingFilters [data-zg-rank-type="anime"],#zgRankingFilters [data-zg-rank-type="book"]').forEach(el=>{
+      el.disabled=state.rankSource==='tmdb';
+    });
+    const yearControls=$('#zgYearControls');
+    if(yearControls)yearControls.hidden=!annual;
+    const pageControls=$('#zgRankPager');
+    if(pageControls)pageControls.hidden=!annual;
+    if(annual) {
+      $('#zgRankYear').value=state.rankYear;
+      $('#zgRankRegion').value=state.rankRegion;
+      $('#zgRankSort').value=state.rankSort;
+      $('#zgRankPageLabel').textContent='第 '+state.rankPage+' 页';
+      $('#zgRankPrev').disabled=state.rankLoading||state.rankPage<=1;
+      $('#zgRankNext').disabled=state.rankLoading||!state.rankHasMore;
+    }
+    $$('[data-zg-rank-source]').forEach(el=>el.classList.toggle('is-active',el.dataset.zgRankSource===state.rankSource));
+  }
+  async function loadAnnual() {
+    const requestId=++state.rankSeq;
+    state.rankLoading=true;state.rankHasMore=false;state.rankingItems=[];
+    state.rankNote='正在获取 '+state.rankYear+' 年 · '+(labels[state.rankType]||'')+' 的榜单…';
+    renderRankingList();
+    try {
+      const ranker=window.ZhigengAnnualRankings;
+      if(!ranker)throw Error('年度排行模块尚未加载，请刷新页面');
+      const value=await ranker.load({
+        type:state.rankType,year:state.rankYear,region:state.rankRegion,
+        sort:state.rankSort,page:state.rankPage,
+        credential:localStorage.getItem(keyName)||'',
+        fetcher:window.ZhigengTransport?.fetch||fetch
+      });
+      if(requestId!==state.rankSeq||$('#zgPanel')?.dataset.page!=='rankings')return;
+      state.rankingItems=value.items||[];
+      state.rankHasMore=!!value.hasMore;
+      state.rankNote=value.note||'年度目录';
+      if(value.needsTmdb)state.rankNote+=' 动漫与图书年度榜单可使用公开数据，不需要 TMDB 密钥。';
+    } catch(error) {
+      if(requestId!==state.rankSeq||$('#zgPanel')?.dataset.page!=='rankings')return;
+      state.rankingItems=[];state.rankHasMore=false;
+      state.rankNote='年度榜单读取失败：'+(error?.message||'网络不可用')+'。不会把其他年份或缓存误当实时排行。';
+    } finally {
+      if(requestId===state.rankSeq) {state.rankLoading=false;renderRankingList();}
+    }
+  }
+  function changeAnnualFilter() {
+    state.rankPage=1;
+    if(state.rankSource==='yearly')loadAnnual();
+    else loadRanking();
   }
   async function loadRanking() {
     const requestId = ++state.rankSeq;
+    if (state.rankSource === 'yearly') {await loadAnnual(); return;}
     if (state.rankSource === 'editor') { renderRankingList(); return; }
     const raw = localStorage.getItem(keyName) || '';
     const auth = raw.trim();
@@ -135,11 +187,17 @@
     panel.hidden = !inPanel;
     panel.dataset.page = inPanel ? page : '';
     hideLegacy(inPanel);
+    if(page!=='rankings') ++state.rankSeq;
     $$('.zg-side-link,.zg-mobile-link,.zg-ai-header').forEach(a => a.classList.toggle('is-active',a.getAttribute('href') === '#' + page));
     if (page === 'rankings') {
-      panel.innerHTML = '<div class="zg-section-top"><span>CURATED & VERIFIED</span><h1>值得花时间的作品榜单</h1><p>编辑精选与真实评分各走各的数据源，不混用排名依据。</p></div>' +
-        '<div class="zg-ranking-toolbar"><div class="zg-toggle"><button data-zg-rank-source="editor" type="button">知更编辑榜</button><button data-zg-rank-source="tmdb" type="button">TMDB 国内评分榜</button></div><button type="button" class="zg-return" data-zg-return>返回探索 ↗</button></div>' +
-        '<div id="zgRankingFilters"></div><p class="zg-data-note" id="zgRankingCount"></p><div id="zgRankingList" class="zg-work-grid"></div>';
+      panel.innerHTML = '<div class="zg-section-top"><span>ANNUAL DISCOVERY · 1900—' + new Date().getFullYear() + '</span><h1>每一年的好作品排行榜</h1><p>可选年份、地区、类型和排名依据。各数据源独立排序，不混用不同平台评分。</p></div>' +
+        '<div class="zg-ranking-toolbar"><div class="zg-toggle"><button data-zg-rank-source="yearly" type="button">每年排行榜</button><button data-zg-rank-source="editor" type="button">知更编辑精选</button><button data-zg-rank-source="tmdb" type="button">TMDB 综合评分榜</button></div><button type="button" class="zg-return" data-zg-return>返回探索 ↗</button></div>' +
+        '<div id="zgYearControls" class="zg-year-controls" aria-label="年度排行榜筛选"><label>年份<select id="zgRankYear" aria-label="选择排行榜年份">' +
+        Array.from({length:new Date().getFullYear()-1899},(_,i)=>new Date().getFullYear()-i).map(y=>'<option value="'+y+'">'+y+' 年'+(y===new Date().getFullYear()?' · 进行中':'')+'</option>').join('') +
+        '</select></label><label>作品地区<select id="zgRankRegion" aria-label="选择作品地区"><option value="global">全球 / 所有语言</option><option value="CN">中国来源 / 中文版本</option></select></label>' +
+        '<label>排行依据<select id="zgRankSort" aria-label="选择排行依据"><option value="rating">口碑评分</option><option value="popular">热度 / 关注度</option></select></label></div>' +
+        '<div id="zgRankingFilters"></div><p class="zg-data-note" id="zgRankingCount" role="status" aria-live="polite"></p><div id="zgRankingList" class="zg-work-grid"></div>' +
+        '<div id="zgRankPager" class="zg-rank-pager"><button type="button" id="zgRankPrev" data-zg-page="prev">← 上一页</button><span id="zgRankPageLabel">第 1 页</span><button type="button" id="zgRankNext" data-zg-page="next">下一页 →</button></div>';
       loadRanking();
     } else if (page === 'assistant') {
       panel.innerHTML = assistantMarkup();
@@ -350,14 +408,24 @@
     if (action.hasAttribute('data-zg-return')) {
       location.hash = '#explore'; showPage(''); $('#discoverySection')?.scrollIntoView({behavior:'smooth'});return;
     }
-    const source = action.dataset.zgRankSource;
-    if (source && source !== state.rankSource) {
-      state.rankSource=source;
-      if (source === 'tmdb' && !['movie','tv','variety'].includes(state.rankType)) state.rankType='movie';
+    const source=action.dataset.zgRankSource;
+    if(source&&source!==state.rankSource) {
+      state.rankSource=source;state.rankPage=1;
+      if(source==='yearly'&&state.rankType==='all')state.rankType='movie';
+      if(source==='tmdb'&&!['movie','tv','variety'].includes(state.rankType))state.rankType='movie';
       loadRanking();return;
     }
-    const filter = action.dataset.zgRankType;
-    if (filter) {state.rankType=filter;loadRanking();return;}
+    const filter=action.dataset.zgRankType;
+    if(filter) {
+      state.rankType=filter;changeAnnualFilter();return;
+    }
+    const page=action.dataset.zgPage;
+    if(page&&state.rankSource==='yearly'&&!state.rankLoading) {
+      if(page==='next'&&state.rankHasMore)state.rankPage++;
+      else if(page==='prev'&&state.rankPage>1)state.rankPage--;
+      else return;
+      loadAnnual();return;
+    }
     if (action.dataset.zgAiTab) {if (state.controller) state.controller.abort();state.tab=action.dataset.zgAiTab;renderAssistantTab();return;}
     if (action.id === 'zgLoadDuck') {
       const frame = document.createElement('iframe');
@@ -394,6 +462,13 @@
       if (type) {state.type=type.dataset.zgType;renderDomestic();}
     });
     panel.addEventListener('click',handlePanelClick);
+    panel.addEventListener('change',event=>{
+      if(event.target.id==='zgRankYear')state.rankYear=event.target.value;
+      else if(event.target.id==='zgRankRegion')state.rankRegion=event.target.value;
+      else if(event.target.id==='zgRankSort')state.rankSort=event.target.value;
+      else return;
+      changeAnnualFilter();
+    });
     document.addEventListener('click',event=>{
       const save=event.target.closest('[data-zg-save]');
       if (!save) return;
