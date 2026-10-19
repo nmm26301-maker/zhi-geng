@@ -93,3 +93,39 @@ test('curated save writes to the existing saved-list namespace',async()=>{
   assert.equal(record.item.score,0,'Editorial score is never fabricated');
   window.close();
 });
+
+test('year switch and book ranking save use the correct work year and five-star scale',async()=>{
+  const dom=new JSDOM(html,{url:'https://nmm26301-maker.github.io/zhi-geng/',runScripts:'outside-only'});
+  const {window}=dom;window.scrollTo=()=>{};window.HTMLElement.prototype.scrollIntoView=()=>{};
+  let selectedQuery='';
+  window.fetch=async url=>{
+    if(String(url).includes('data/domestic.json'))return {ok:true,json:async()=>catalog};
+    if(String(url).includes('openlibrary.org/search.json')){
+      selectedQuery=new URL(String(url)).searchParams.get('q');
+      return {ok:true,json:async()=>({numFound:1,docs:[
+        {key:'/works/OL900W',title:'年度测试图书',first_publish_year:2023,author_name:['测试作者'],
+          ratings_average:4.5,ratings_count:50,readinglog_count:800}
+      ]})};
+    }
+    throw Error('Unexpected endpoint: '+url);
+  };
+  window.eval(yearly);window.eval(script);
+  window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+  await settle();
+  window.document.querySelector('a[href="#rankings"]').click();
+  await settle();
+  const year=window.document.querySelector('#zgRankYear');
+  year.value='2023';year.dispatchEvent(new window.Event('change',{bubbles:true}));
+  window.document.querySelector('#zgRankingFilters [data-zg-rank-type="book"]').click();
+  await settle();
+  assert.match(selectedQuery,/first_publish_year:2023/);
+  const cards=window.document.querySelectorAll('#zgRankingList .zg-work');
+  assert.equal(cards.length,1);
+  assert.match(cards[0].textContent,/4.5\/5/);
+  cards[0].querySelector('[data-zg-save]').click();
+  const saved=Object.values(JSON.parse(window.localStorage.getItem('zhigeng_saved_v1')));
+  assert.equal(saved.length,1);
+  assert.equal(saved[0].item.ratingBase,'5');
+  assert.equal(saved[0].item.score,9);
+  window.close();
+});
