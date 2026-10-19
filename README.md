@@ -33,6 +33,9 @@ FCC 入口在「AI 助手 → FCC 多模型」。填写自己的 HTTPS FCC 网�
 
 功能：两组分别呈现、不混排行；本地文本搜索与收藏；十个网站独立 HTTPS 入口在外部网页打开（不嵌入第三方支付／账号页面）；显示各站点来源与核验限制；窄屏可横向滚动底部导航，防止八个入口挤成一排。
 
+**最新补充：额外的一分机场控制台快捷入口。** 用户明确提供 `https://xn--4gqx1hgtfdmt.com/#/dashboard`，现以独立快捷卡片放在第二组下方，不计入 5+5 十家服务商数量。该地址与原有「一分机场」的 `https://xn--4gqx1hgtfdmt.com/` 属于同一域名，并非新增加了一个不同的机场；带有 `#/dashboard` 的完整路径原样保留。当前检查环境访问返回 HTTP 403，因此只确认链接形式、未确认页面是否需要登录或对所有用户开放。新增 `data/node-sites.json.shortcuts` 数据字段及端到端回归断言。
+
+
 **重要：** 商业 ISP / 住宅代理与机场订阅是不同服务，不得将机场默认宣传为原生独享住宅 IP。此目录未实测真实出口 ASN、IP 信誉、ChatGPT/Gemini/Claude 区域权限、线路速度／售后／价格，也未代替用户购买或登录。尤其 FreeCat 在 2026 年曾有社区投诉与后续可用性反馈；低价机场存在更换域名、同名仿冒、停服和付款风险，宜先核对来源并小额短期试用。不会收集账号密码、代理凭据、付款信息或用户订阅地址。
 
 代码：`data/node-sites.json`、`assets/node-directory.js`、`assets/zhigeng-v064.js`、`assets/zhigeng-v064.css`，测试：`tests/node-directory.test.mjs`。
