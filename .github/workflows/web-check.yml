@@ -1,0 +1,40 @@
+name: Check Zhigeng website v0.6.4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/zhigeng-v064.js'
+      - 'assets/zhigeng-v064.css'
+      - 'assets/reader-experience.js'
+      - 'data/domestic.json'
+      - 'tests/web-v064.test.mjs'
+      - '.github/workflows/web-check.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/zhigeng-v064.js'
+      - 'assets/zhigeng-v064.css'
+      - 'assets/reader-experience.js'
+      - 'data/domestic.json'
+      - 'tests/web-v064.test.mjs'
+
+permissions:
+  contents: read
+
+jobs:
+  web-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Check browser scripts and editorial UI
+        run: |
+          node --check assets/zhigeng-v064.js
+          node --check assets/reader-experience.js
+          node --test tests/web-v064.test.mjs
