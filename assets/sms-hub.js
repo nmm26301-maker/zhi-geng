@@ -12,6 +12,7 @@
   const F='sms-nav-fav-1',H='sms-nav-hide-1';
   const state={filter:'all',query:''};
   const $=(sel,root=document)=>root.querySelector(sel);
+  const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
   const safe=x=>String(x||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const whitelist=new Set(sites.map(x=>x.url));
   function read(key) {
@@ -66,7 +67,8 @@
         state.filter=el.dataset.zgSmsFilter;
         render();
       } else if(el.dataset.zgSmsStar)toggle(F,el.dataset.zgSmsStar);
-      else if(el.dataset.zgSmsHide)toggle(H,el.dataset.zgSmsHide);  }
+      else if(el.dataset.zgSmsHide)toggle(H,el.dataset.zgSmsHide);
+  }
   function mount(panel) {
     if(!panel)return;
     panel.innerHTML='<div class="zg-section-top"><span>PUBLIC SMS DIRECTORY · BOOKMARKS</span><h1>接码网站导航</h1>'+
