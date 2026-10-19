@@ -54,7 +54,12 @@ test('exactly two independent five-item lists, original FreeCat entry, unique HT
     assert.equal(url.password,'');
     assert.equal(url.search,'');
   }
-  assert.equal(nodeData.groups[1].entries[0].url,'https://us.freecat.cloud/register');
+  assert.equal(nodeData.groups[1].entries[1].url,'https://us.freecat.cloud/register');
+  assert.deepEqual(nodeData.groups[1].entries.map(x=>x.id),['xingdaomeng','freecat','jiuyun','baoyun','jinyun']);
+  assert.deepEqual(nodeData.groups[0].entries.map(x=>x.id),['decodo','nextproxy','ipfast','lycheeip','iproyal']);
+  assert.equal(nodeData.groups[0].entries[4].provenance,'earlier-round-fallback');
+  assert.equal(nodeData.groups[0].entries.filter(x=>x.provenance==='latest').length,4);
+  assert.ok(!nodeData.groups[1].entries.some(x=>['yifen','yiyuan','sanmao','peiqian'].includes(x.id)));
   assert.match(pageHtml,/href="#nodes"/);
   assert.match(pageHtml,/node-directory\.js/);
 });
@@ -81,7 +86,7 @@ test('search filters both groups independently, without mixing services',async()
   const {dom,w}=await createPage();
   tap(w,'a[href="#nodes"]');await settle();
   const input=w.document.querySelector('#zgNodesSearch');
-  input.value='静态 ISP';
+  input.value='动态住宅';
   input.dispatchEvent(new w.Event('input',{bubbles:true}));
   assert.equal(w.document.querySelectorAll('.zg-node-group').length,2);
   assert.equal(w.document.querySelectorAll('.zg-node-group[data-zg-node-group="airport"] .zg-node-card').length,0);
@@ -93,31 +98,30 @@ test('search filters both groups independently, without mixing services',async()
 test('favorites persist after navigating away and back without duplicate toggle',async()=>{
   const {dom,w}=await createPage();
   tap(w,'a[href="#nodes"]');await settle();
-  tap(w,'.zg-node-card [data-zg-node-favorite="webshare"]');
-  assert.deepEqual(JSON.parse(w.localStorage.getItem('zhigeng-node-fav-v1')),['webshare']);
+  tap(w,'.zg-node-card [data-zg-node-favorite="decodo"]');
+  assert.deepEqual(JSON.parse(w.localStorage.getItem('zhigeng-node-fav-v1')),['decodo']);
   tap(w,'a[href="#sms"]');await settle();
   tap(w,'a[href="#nodes"]');await settle();
-  assert.ok(w.document.querySelector('.zg-node-card [data-zg-node-favorite="webshare"]').classList.contains('is-saved'));
-  tap(w,'.zg-node-card [data-zg-node-favorite="webshare"]');
+  assert.ok(w.document.querySelector('.zg-node-card [data-zg-node-favorite="decodo"]').classList.contains('is-saved'));
+  tap(w,'.zg-node-card [data-zg-node-favorite="decodo"]');
   assert.deepEqual(JSON.parse(w.localStorage.getItem('zhigeng-node-fav-v1')),[]);
   dom.window.close();
 });
 
 test('requested Yifen dashboard is a separate exact deep link, not an eleventh provider',async()=>{
-  assert.equal(nodeData.schemaVersion,2);
+  assert.equal(nodeData.schemaVersion,3);
   assert.equal(nodeData.groups.flatMap(group=>group.entries).length,10);
   assert.equal(nodeData.shortcuts.length,1);
   const dashboard=nodeData.shortcuts[0];
   assert.equal(dashboard.id,'yifen-dashboard');
-  assert.equal(dashboard.providerId,'yifen');
+  assert.equal(dashboard.type,'dashboard');
   assert.equal(dashboard.url,'https://xn--4gqx1hgtfdmt.com/#/dashboard');
-  const source=nodeData.groups.find(g=>g.id==='airport').entries.find(x=>x.id===dashboard.providerId);
-  assert.equal(new URL(dashboard.url).origin,new URL(source.url).origin);
+  assert.ok(!nodeData.groups.some(g=>g.entries.some(s=>new URL(s.url).origin===new URL(dashboard.url).origin)),'extra dashboard is not one of ten providers');
   const {dom,w,requests}=await createPage();
   tap(w,'a[href="#nodes"]');await settle();
   assert.deepEqual([...w.document.querySelectorAll('.zg-node-group')].map(g=>g.querySelectorAll('.zg-node-card').length),[5,5]);
   assert.equal(w.document.querySelectorAll('.zg-node-shortcut').length,1);
-  const extra=w.document.querySelector('.zg-node-group[data-zg-node-group="airport"] .zg-node-shortcut-link');
+  const extra=w.document.querySelector('.zg-node-extra-section .zg-node-shortcut-link');
   assert.ok(extra);
   assert.equal(extra.href,dashboard.url);
   assert.equal(extra.target,'_blank');
@@ -125,6 +129,18 @@ test('requested Yifen dashboard is a separate exact deep link, not an eleventh p
   assert.match(extra.rel,/noreferrer/);
   assert.match(w.document.querySelector('#zgNodesCount').textContent,/额外控制台入口 1 个/);
   assert.equal(requests(),2,'navigation must not prefetch external service login or billing pages');
+  dom.window.close();
+});
+
+test('latest chat payment and price labels remain visible and fifth proxy is transparently marked',async()=>{
+  const {dom,w}=await createPage();
+  tap(w,'a[href="#nodes"]');await settle();
+  assert.equal(w.document.querySelectorAll('.zg-node-payment').length,10);
+  assert.equal(w.document.querySelectorAll('.zg-node-price').length,10);
+  assert.match(w.document.querySelector('.zg-node-group[data-zg-node-group="proxy"]').textContent,/第5家原聊天无法准确恢复/);
+  assert.match(w.document.querySelector('#zgNodesStatus').textContent,/4家代理与5家机场/);
+  assert.match(w.document.querySelector('.zg-node-group[data-zg-node-group="airport"]').textContent,/宝云/);
+  assert.match(w.document.querySelector('.zg-node-extra-section').textContent,/不归入最新筛选/);
   dom.window.close();
 });
 
