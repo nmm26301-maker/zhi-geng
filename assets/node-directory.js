@@ -39,16 +39,25 @@
     const body=$('#zgNodesSections');
     if(!body)return;
     let matching=0;
+    const shortcuts=Array.isArray(state.data.shortcuts)?state.data.shortcuts:[];
+    const renderShortcuts=(group)=>group.id!=='airport'?'':shortcuts.filter(s=>s.providerId==='yifen').map(shortcut=>{
+      const target=safeURL(shortcut.url);
+      return '<aside class="zg-node-shortcut" aria-label="新增节点快捷入口">'+
+        '<div class="zg-node-shortcut-icon" aria-hidden="true">↗</div>'+
+        '<div class="zg-node-shortcut-copy"><span>'+escape(shortcut.label||'额外直达')+'</span><h3>'+escape(shortcut.name)+'</h3>'+
+        '<p>'+escape(shortcut.desc)+'</p><small>'+escape(shortcut.verified)+'</small></div>'+
+        '<a class="zg-node-shortcut-link" href="'+escape(target)+'" target="_blank" rel="noopener noreferrer">进入控制台 ↗</a></aside>';
+    }).join('');
     body.innerHTML=state.data.groups.map((group,index)=>{
       const items=group.entries.filter(site=>!query||(site.name+' '+site.url+' '+site.desc+' '+site.tags.join(' ')).toLocaleLowerCase().includes(query));
       matching+=items.length;
       return '<section class="zg-node-group" data-zg-node-group="'+escape(group.id)+'">'+
         '<div class="zg-node-group-header"><div><span class="zg-node-group-number">0'+(index+1)+' / 02</span><h2>'+escape(group.name)+'</h2><p>'+escape(group.subtitle)+'</p></div>'+
         '<span class="zg-node-group-total">'+items.length+' / '+group.entries.length+' 家</span></div>'+
-        '<div class="zg-node-grid">'+(items.length?items.map(site=>card(site,group.id,saved)).join(''):'<p class="zg-node-noresults">这一组没有匹配结果，可以换一个搜索词。</p>')+'</div></section>';
+        '<div class="zg-node-grid">'+(items.length?items.map(site=>card(site,group.id,saved)).join(''):'<p class="zg-node-noresults">这一组没有匹配结果，可以换一个搜索词。</p>')+'</div>'+renderShortcuts(group)+'</section>';
     }).join('');
     const count=$('#zgNodesCount');
-    if(count)count.textContent='共 '+state.data.groups.reduce((n,g)=>n+g.entries.length,0)+' 家 · 当前匹配 '+matching+' 家 · 两组独立展示';
+    if(count)count.textContent='共 '+state.data.groups.reduce((n,g)=>n+g.entries.length,0)+' 家 · 当前匹配 '+matching+' 家 · 额外控制台入口 '+shortcuts.length+' 个';
     const badge=$('#zgNodesFavoriteCount');
     if(badge)badge.textContent='已收藏 '+saved.size+' 家';
   }
@@ -69,8 +78,8 @@
   async function mount(panel){
     if(!panel)return;
     panel.innerHTML='<div class="zg-section-top"><span>NETWORK DIRECTORY · 5 + 5</span><h1>节点与代理服务导航</h1>'+
-      '<p>按你最新的要求分成两组各五家：专业代理 IP 与低价机场，互不混淆。</p></div>'+
-      '<div class="zg-node-hero"><div><span>2 CATEGORIES · 10 REFERENCES</span><h2>适合的连接方式，比更多节点更重要。</h2>'+
+      '<p>按照最新聊天记录保留两组各 5 家，另加你提供的一分机场控制台直达链接。</p></div>'+
+      '<div class="zg-node-hero"><div><span>2 CATEGORIES · 10 SERVICES + 1 DASHBOARD</span><h2>适合的连接方式，比更多节点更重要。</h2>'+
       '<p>用于比较服务入口和产品类型，不是速度、IP信誉或 ChatGPT / Gemini / Claude 解锁的实测排行榜。</p></div>'+
       '<div class="zg-node-hero-art" aria-hidden="true">◈</div></div>'+
       '<div class="zg-node-tools"><label for="zgNodesSearch">查找服务<input id="zgNodesSearch" type="search" placeholder="搜索名称、静态IP、动态IP…" autocomplete="off" /></label>'+
@@ -94,6 +103,9 @@
       const data=await res.json();
       if(!Array.isArray(data.groups)||data.groups.length!==2||data.groups.some(g=>!Array.isArray(g.entries)||g.entries.length!==5))throw Error('目录分组数量应为 5 + 5');
       for(const group of data.groups)for(const entry of group.entries)if(safeURL(entry.url)==='#')throw Error('目录内有不可用的地址格式');
+      if(!Array.isArray(data.shortcuts)||data.shortcuts.length!==1)throw Error('额外控制台链接配置异常');
+      const dashboard=data.shortcuts[0],provider=data.groups[1].entries.find(e=>e.id===dashboard.providerId);
+      if(!provider||safeURL(dashboard.url)==='#'||!dashboard.url.startsWith(provider.url))throw Error('控制台地址必须属于对应机场域名');
       if(req!==state.requestId)return;
       state.data=data;render();
     }catch(error){
