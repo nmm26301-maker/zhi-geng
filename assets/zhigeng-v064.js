@@ -19,7 +19,7 @@
     catch { return {}; }
   }
   function normalized(item) {
-    return {id:String(item.id),type:item.type,title:item.title,original:'',subtype:item.author||'',year:String(item.year||''),date:'',source:item.source||'知更编辑推荐',url:item.url||'',image:item.image||'',score:Number(item.score)||0,votes:Number(item.votes)||0,interest:1,summary:item.summary||'',ratingBase:'10'};
+    return {id:String(item.id),type:item.type,title:item.title,original:'',subtype:item.author||'',year:String(item.year||''),date:'',source:item.source||'知更编辑推荐',url:item.url||'',image:item.image||'',score:(Number(item.score)||0)*(item.scoreLabel==='Open Library /5'?2:1),votes:Number(item.votes)||0,interest:Number(item.interest)||1,summary:item.summary||'',ratingBase:item.scoreLabel==='Open Library /5'?'5':'10'};
   }
   function toggleFavorite(item) {
     const saved = readSaved();
