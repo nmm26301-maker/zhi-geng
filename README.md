@@ -22,6 +22,29 @@ FCC 入口在「AI 助手 → FCC 多模型」。填写自己的 HTTPS FCC 网�
 
 ---
 
+
+## AI 会员代充 / 共享 / 比价（最新截图指定，2026-10-20）
+
+入口：https://nmm26301-maker.github.io/zhi-geng/#memberships
+
+**此名单严格按照用户截图的 5 个主推荐 + 2 个备选，不是节点机场网站，也不再使用上一轮误收录的 8 家。** 手机底部导航与电脑版侧栏改为「AI会员」，原节点深链保留兼容，但不再作为优先推荐。
+
+主推荐按截图顺序：
+1. **GamsGo** — https://www.gamsgo.com/ — 多 AI / 软件 / 影音会员，需分辨代充与共享商品。
+2. **AI订阅价格雷达** — https://airadar.vip/ — ChatGPT、Claude、Gemini 等公开报价的比价导航（不直接代充）。
+3. **特惠购** — https://tehuio.com/ — ChatGPT、Claude、Google AI 等自有账号充值、卡密与成品号；其帮助中心列出微信及支付宝，但没有做实际付款验证。
+4. **FamilyPro** — https://familypro.io/ — 共享/合租账号，也可能有个别代充商品；共享账号有聊天隐私风险。
+5. **银河录像局** — https://nf.video/ — 偏影音会员，兼有部分 AI 代充或镜像服务；镜像不等于官方 Plus 订阅。
+
+截图注明的备选：
+- **环球巴士** — https://universalbus.cn/ — 官方页面发布过部分商品下架、暂停新单公告，购买前必须确认。
+- **Relay Radar** — https://aicodex.chat/subscribe — 多来源 AI 订阅报价比价渠道，不是具体代充商家。
+
+支持站内实时筛选（按 AI 产品、交付方式、网站名称）、本地收藏、刷新网站目录；网站外链都在用户主动点击后才打开。仅展示七个选定平台，不内嵌登录/购买页，也不代收款、不读取共享账号、卡密或支付信息。价格及微信/支付宝渠道均以当前商品页面、实际结算和售后为准，未做下单验证。
+
+数据文件：\`data/ai-memberships.json\`（schema v2，5+2），模块：\`assets/ai-memberships.js\`，自动测试：\`tests/ai-memberships.test.mjs\`。浏览器强制使用版本号加载以减少 GitHub Pages 缓存不更新的情况。安卓独立 APK 不随网页发布自动更新。
+
+
 ## 网页版 · 2026-10-19 节点服务目录（**最新聊天替换版**）
 
 入口：`https://nmm26301-maker.github.io/zhi-geng/#nodes`。原接码、看剧AI、年度榜单功能保持不变。
