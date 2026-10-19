@@ -158,3 +158,29 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:1100px){.zg-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.zg-ai-header{padding:9px 11px}}
 @media(max-width:700px){.zg-domestic,.zg-panel{padding:24px 0 14px}.zg-section-top h1,.zg-section-top h2{font-size:26px}.zg-work-grid{grid-template-columns:1fr;gap:11px}.zg-work{flex-direction:row;gap:12px;padding:10px}.zg-art{flex:0 0 112px;width:112px;height:164px;padding:11px}.zg-art-title{font-size:18px;max-width:100%}.zg-work-copy{padding:2px 0}.zg-work h3{font-size:15px;margin:5px 0 2px}.zg-summary{font-size:11px;line-height:1.6;margin:5px 0 6px;min-height:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}.zg-byline{font-size:10px}.zg-work-foot{padding-top:7px}.zg-work-foot>div{gap:5px}.zg-work-foot a,.zg-save{font-size:10px}.zg-ranking-toolbar{align-items:flex-start;flex-direction:column}.zg-duck-intro{flex-direction:column;align-items:stretch;padding:15px}.zg-duck-actions{flex-direction:row;align-items:center;flex-wrap:wrap}.zg-fcc-layout{grid-template-columns:1fr}.zg-fcc-chat{min-height:500px}.zg-top-with-action{align-items:flex-start;flex-direction:column}.zg-ai-header{font-size:11px;padding:7px 10px}.header-date{display:none}.zg-duck-frame{min-height:340px}.zg-duck-frame iframe{min-height:430px}}
 @media(max-width:480px){.zg-art{flex-basis:100px;width:100px;height:160px}.zg-art-title{font-size:16px}.zg-work-foot{align-items:flex-start}.zg-editor-label,.zg-rating{font-size:9px}.zg-work-foot a{font-size:9px}.zg-work-foot>div{flex-wrap:wrap}.zg-chip{font-size:11px;padding:7px 10px}.zg-ai-header{padding:7px 9px}.topbar{gap:7px}.search-wrap{min-width:100px}.header-actions{gap:7px}.zg-ranking-toolbar .zg-toggle button{padding:9px 12px}.zg-work h3{font-size:14px}}
+
+/* 非侵入式阅读器：默认安静界面，工具可一键唤出 */
+.book-reader{background:#f7f5ef;color:#244e40}
+.book-reader.zg-reader-paper{background:#fff;color:#243b30}
+.book-reader.zg-reader-warm{background:#f4ead8;color:#3d3a2e}
+.book-reader.zg-reader-night{background:#17211c;color:#e9ebdf}
+.book-reader.zg-reader-night .book-reader-top,.book-reader.zg-reader-night .book-reader-bottom{background:#1d2b24;color:#e9ebdf;border-color:#35483c}
+.book-reader.zg-reader-night #bookReaderText{background:#17211c;color:#e9ebdf}
+.book-reader.zg-reader-warm #bookReaderText{background:#f4ead8;color:#3d3a2e}
+.book-reader.zg-reader-paper #bookReaderText{background:#fff;color:#243b30}
+.book-reader .zg-reader-controls{position:absolute;inset:16px 16px auto auto;z-index:48;display:flex;align-items:center;gap:8px;pointer-events:none}
+.book-reader .zg-reader-controls>*{pointer-events:auto}
+.zg-reader-controls button,.zg-reader-theme-label{border:1px solid #c6d5c9;border-radius:11px;background:#fbfcf5f2;color:#284938;padding:9px 12px;font-size:12px;box-shadow:0 2px 14px #1c312119}
+.zg-reader-controls button{cursor:pointer}
+.zg-reader-controls button:hover{background:#e4ecdf}
+.zg-reader-theme-label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.zg-reader-theme-label select{border:0;background:transparent;color:inherit;max-width:76px;font-size:12px}
+.zg-reader-quiet .book-reader-top,.zg-reader-quiet .book-reader-bottom{position:absolute;opacity:0;pointer-events:none;left:0;right:0}
+.zg-reader-quiet .book-reader-top{top:0}
+.zg-reader-quiet .book-reader-bottom{bottom:0}
+.zg-reader-quiet #bookReaderContent{flex:1;min-height:0}
+.zg-reader-quiet .zg-reader-controls #zgReaderToggle{opacity:.55}
+.zg-reader-quiet .zg-reader-controls #zgReaderToggle:hover{opacity:1}
+#zgReaderPrev,#zgReaderNext{font-size:19px;line-height:1;width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+#bookReader:has(#bookReaderPrev[hidden]) #zgReaderPrev,#bookReader:has(#bookReaderNext[hidden]) #zgReaderNext{display:none}
+@media(max-width:650px){.book-reader .zg-reader-controls{inset:calc(9px + env(safe-area-inset-top)) 7px auto auto;gap:4px}.zg-reader-controls button,.zg-reader-theme-label{padding:7px 8px;font-size:11px}.zg-reader-theme-label{gap:3px}.zg-reader-theme-label select{max-width:52px}}
