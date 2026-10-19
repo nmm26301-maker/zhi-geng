@@ -3,7 +3,7 @@
   'use strict';
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-  const labels = {all:'全部',movie:'电影',tv:'电视剧',anime:'国创动画',variety:'综艺',book:'书籍'};
+  const labels = {all:'全部',movie:'电影',tv:'电视剧',anime:'动漫',variety:'综艺',book:'书籍'};
   const state = {domestic:[],type:'all',rankType:'movie',rankSource:'yearly',rankYear:String(new Date().getFullYear()),rankRegion:'global',rankSort:'rating',rankPage:1,rankHasMore:false,rankNote:'',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck',fccFingerprint:'',draft:''};
   const storeKey = 'zhigeng_saved_v1';
   const keyName = 'zhigeng_tmdb_credential_v1';
@@ -42,7 +42,7 @@
     const saved = !!readSaved()[item.id];
     const type = labels[item.type] || item.type;
     const annualLabel=String(item.scoreLabel||'');
-    const showScore=Number(item.score)>0&&(item.annual ? (item.type!=='movie'&&item.type!=='tv'&&item.type!=='variety'||Number(item.votes)>=50) : Number(item.votes)>=50);
+    const showScore=Number(item.score)>0&&(item.annual ? (item.type==='book'?Number(item.votes)>=10:item.type==='anime'||Number(item.votes)>=50) : Number(item.votes)>=50);
     const score=showScore ?
       '<span class="zg-rating">★ ' + Number(item.score).toFixed(1) + (annualLabel==='Open Library /5'?'/5':'/10') +
       ' <small>· ' + escapeHTML(annualLabel||'评分') + (item.type==='movie'||item.type==='tv'||item.type==='variety'?' · '+Number(item.votes).toLocaleString('zh-CN')+' 票':'') + '</small></span>' :
@@ -71,7 +71,9 @@
     const target=$('#zgRankingList');
     if(!target)return;
     target.innerHTML=items.length?items.map((x,i)=>card(x,i,!(annual&&x.editorialFallback))).join(''):
-      '<div class="zg-empty">这个年份和分类暂无可显示的真实记录。可换个年份、类型或数据来源。</div>';
+      '<div class="zg-empty">这个年份和分类暂无可显示的真实记录。可换个年份、类型或数据来源。'+
+      (annual&&['movie','tv','variety'].includes(state.rankType)&&!localStorage.getItem(keyName)?
+      ' <button class="zg-rank-setup" id="zgRankSetup" type="button">配置 TMDB 密钥 ↗</button>':'')+'</div>';
     $('#zgRankingCount').textContent=editor?'知更人工精选排序 · 不是实时年度榜 · 共 '+items.length+' 部':
       annual?state.rankNote:'TMDB 中国来源用户评分总榜 · 至少50票 · '+items.length+' 部';
     $('#zgRankingFilters').innerHTML=typeFilters('',state.rankType,'zg-rank-type');
@@ -411,6 +413,7 @@
     const source=action.dataset.zgRankSource;
     if(source&&source!==state.rankSource) {
       state.rankSource=source;state.rankPage=1;
+      if(source==='editor')state.rankType='all';
       if(source==='yearly'&&state.rankType==='all')state.rankType='movie';
       if(source==='tmdb'&&!['movie','tv','variety'].includes(state.rankType))state.rankType='movie';
       loadRanking();return;
@@ -419,6 +422,7 @@
     if(filter) {
       state.rankType=filter;changeAnnualFilter();return;
     }
+    if(action.id==='zgRankSetup'){$('#headerSettings')?.click();return;}
     const page=action.dataset.zgPage;
     if(page&&state.rankSource==='yearly'&&!state.rankLoading) {
       if(page==='next'&&state.rankHasMore)state.rankPage++;
@@ -448,13 +452,13 @@
     if (!main || $('#zgDomestic')) return;
     const domestic = document.createElement('section');
     domestic.id='zgDomestic';domestic.className='zg-domestic';
-    domestic.innerHTML='<div class="zg-section-top zg-top-with-action"><div><span>HANDPICKED · MADE IN CHINA</span><h2>国内好作品，慢慢发现。</h2><p>和安卓端同步的华语电影、国产剧、国创动画、综艺与中文书精选。</p></div><a href="#rankings" class="zg-more-link">查看完整榜单 ↗</a></div><div id="zgDomesticFilters"></div><p class="zg-data-note" id="zgDomesticCount"></p><div id="zgDomesticGrid" class="zg-work-grid"></div>';
+    domestic.innerHTML='<div class="zg-section-top zg-top-with-action"><div><span>HANDPICKED · MADE IN CHINA</span><h2>国内好作品，慢慢发现。</h2><p>和安卓端同步的华语电影、国产剧、国创动画、综艺与中文书精选。</p></div><a href="#rankings" class="zg-more-link">查看每年排行榜 ↗</a></div><div id="zgDomesticFilters"></div><p class="zg-data-note" id="zgDomesticCount"></p><div id="zgDomesticGrid" class="zg-work-grid"></div>';
     $('.stats-row')?.insertAdjacentElement('afterend',domestic);
     const panel = document.createElement('section');
     panel.id='zgPanel';panel.className='zg-panel';panel.hidden=true;
     domestic.insertAdjacentElement('afterend',panel);
     const side = document.createElement('div');
-    side.innerHTML='<div class="side-caption">知更空间</div><nav class="side-nav zg-side-nav"><a class="nav-item zg-side-link" href="#domestic"><span class="nav-icon">✺</span> 国内精选</a><a class="nav-item zg-side-link" href="#rankings"><span class="nav-icon">▥</span> 口碑榜单</a><a class="nav-item zg-side-link" href="#library"><span class="nav-icon">▤</span> 我的阅读</a><a class="nav-item zg-side-link" href="#assistant"><span class="nav-icon">✦</span> AI 助手</a></nav>';
+    side.innerHTML='<div class="side-caption">知更空间</div><nav class="side-nav zg-side-nav"><a class="nav-item zg-side-link" href="#domestic"><span class="nav-icon">✺</span> 国内精选</a><a class="nav-item zg-side-link" href="#rankings"><span class="nav-icon">▥</span> 年度榜单</a><a class="nav-item zg-side-link" href="#library"><span class="nav-icon">▤</span> 我的阅读</a><a class="nav-item zg-side-link" href="#assistant"><span class="nav-icon">✦</span> AI 助手</a></nav>';
     $('#categoryNav')?.insertAdjacentElement('afterend',side);
     const headerAI=document.createElement('a');headerAI.href='#assistant';headerAI.className='zg-ai-header';headerAI.textContent='✦ AI 助手';$('.header-actions')?.prepend(headerAI);
     domestic.addEventListener('click',event=>{
