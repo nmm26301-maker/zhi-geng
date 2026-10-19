@@ -58,6 +58,15 @@
     if(!persist(key,values)){status('浏览器无法保存偏好，请检查本地存储设置。');return;}
     render();
   }
+  function handlePanelClick(event) {
+      if($('#zgPanel')?.dataset.page!=='sms')return;
+      const el=event.target.closest('[data-zg-sms-filter],[data-zg-sms-star],[data-zg-sms-hide]');
+      if(!el)return;
+      if(el.dataset.zgSmsFilter){
+        state.filter=el.dataset.zgSmsFilter;
+        render();
+      } else if(el.dataset.zgSmsStar)toggle(F,el.dataset.zgSmsStar);
+      else if(el.dataset.zgSmsHide)toggle(H,el.dataset.zgSmsHide);  }
   function mount(panel) {
     if(!panel)return;
     panel.innerHTML='<div class="zg-section-top"><span>PUBLIC SMS DIRECTORY · BOOKMARKS</span><h1>接码网站导航</h1>'+
@@ -79,16 +88,8 @@
       input.value=state.query;
       input.addEventListener('input',()=>{state.query=input.value.trim();render();});
     }
-    panel.addEventListener('click',event=>{
-      if(panel.dataset.page!=='sms')return;
-      const el=event.target.closest('[data-zg-sms-filter],[data-zg-sms-star],[data-zg-sms-hide]');
-      if(!el)return;
-      if(el.dataset.zgSmsFilter){
-        state.filter=el.dataset.zgSmsFilter;
-        render();
-      } else if(el.dataset.zgSmsStar)toggle(F,el.dataset.zgSmsStar);
-      else if(el.dataset.zgSmsHide)toggle(H,el.dataset.zgSmsHide);
-    },{once:false});
+    panel.removeEventListener('click',handlePanelClick);
+    panel.addEventListener('click',handlePanelClick);
     render();
   }
   window.ZhigengSmsHub={mount,sites,storage:{favorites:F,hidden:H}};
