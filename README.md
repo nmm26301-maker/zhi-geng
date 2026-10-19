@@ -146,3 +146,7 @@ node scripts/test-real-book-search.mjs
 ## 公开数据源
 
 TMDB（影视，需自备凭证）、Jikan/AniList（动漫）、TVmaze（部分电视内容）、Open Library/Google Books/Wikidata/Wikipedia/Gutendex（书目）。来源评分、年份和可读定义不完全一致，不能直接当作同平台评分。本服务提供书目发现与用户导入文件阅读。
+
+### 2026-10-20 节点列表旧版本缓存与发布排队修复
+
+节点数据使用 `rev=20261020-live4` 加时间戳、`fetch(..., {cache:'no-store'})` 绕过浏览器缓存；检测 `schemaVersion=3` 与最新 5+5 服务 ID，发现旧目录会提示错误而不冒充已完成替换。UI 新增「刷新最新名单」。HTML 引用的新 JS/CSS 带版本号。Pages 发布工作流 `cancel-in-progress: true` 防止连续文件提交产生大量过时的并行／排队发布，最终以最新主分支为准。若 Pages 正在排队，仍要等待 GitHub 的部署实际成功，链接加 `?r=20261020-live4#nodes` 只能绕缓存，不能取代尚未发布的文件。

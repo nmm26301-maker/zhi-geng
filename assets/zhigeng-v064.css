@@ -387,3 +387,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .zg-node-extra-section{display:block;padding-top:21px;margin:6px 0 0;border-top:1px solid #dfe7df}
 .zg-node-extra-section .zg-node-shortcut{margin-top:0}
 @media(max-width:740px){.zg-node-price{font-size:13px}.zg-node-extra-section{padding-top:16px}}
+
+/* Nodes: explicit latest-catalog refresh after CDN/browser cache invalidation */
+.zg-node-refresh{background:#edf4e9;color:#285743;border:1px solid #cfddcc;border-radius:10px;padding:9px 12px;font-size:11px;line-height:1.4;font-weight:800;cursor:pointer;white-space:nowrap}
+.zg-node-refresh:hover{background:#dbe8d7}
+.zg-node-refresh:focus-visible{outline:2px solid #b96b53;outline-offset:2px}

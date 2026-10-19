@@ -75,6 +75,8 @@ test('node entry opens two separately titled groups, 5+5 cards and never preload
   assert.match(groups[0].textContent,/静态/);
   assert.match(groups[1].textContent,/低价机场/);
   assert.equal(requests(),2,'Only local catalogs may be fetched');
+  assert.ok(w.document.querySelector('#zgNodesRefresh'));
+  assert.match(w.document.querySelector('#zgNodesCount').textContent,/最新聊天替换版/);
   const anchors=[...w.document.querySelectorAll('.zg-node-card-actions a')];
   assert.equal(anchors.length,10);
   assert.ok(anchors.every(x=>x.target==='_blank'&&x.rel.includes('noopener')&&x.rel.includes('noreferrer')));
@@ -141,6 +143,17 @@ test('latest chat payment and price labels remain visible and fifth proxy is tra
   assert.match(w.document.querySelector('#zgNodesStatus').textContent,/4家代理与5家机场/);
   assert.match(w.document.querySelector('.zg-node-group[data-zg-node-group="airport"]').textContent,/宝云/);
   assert.match(w.document.querySelector('.zg-node-extra-section').textContent,/不归入最新筛选/);
+  dom.window.close();
+});
+
+test('refresh button re-fetches the latest catalog without contacting external provider sites',async()=>{
+  const {dom,w,requests}=await createPage();
+  tap(w,'a[href="#nodes"]');await settle();
+  const before=requests();
+  tap(w,'#zgNodesRefresh');await settle();
+  assert.equal(requests(),before+1);
+  assert.equal(w.document.querySelectorAll('.zg-node-card').length,10);
+  assert.equal(w.document.querySelectorAll('.zg-node-shortcut').length,1);
   dom.window.close();
 });
 

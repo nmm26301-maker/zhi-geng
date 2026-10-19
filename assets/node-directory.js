@@ -5,6 +5,8 @@
   const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const state={data:null,query:'',requestId:0};
   const STORAGE='zhigeng-node-fav-v1';
+  const REVISION='20261020-live4';
+  const LATEST_IDS={proxy:['decodo','nextproxy','ipfast','lycheeip','iproyal'],airport:['xingdaomeng','freecat','jiuyun','baoyun','jinyun']};
   function favorites(){
     try {
       const v=JSON.parse(localStorage.getItem(STORAGE)||'[]');
@@ -57,7 +59,7 @@
         '<div class="zg-node-grid">'+(items.length?items.map(site=>card(site,group.id,saved)).join(''):'<p class="zg-node-noresults">这一组没有匹配结果，可以换一个搜索词。</p>')+'</div></section>';
     }).join('')+'<section class="zg-node-extra-section"><div class="zg-node-group-header"><div><span class="zg-node-group-number">EXTRA / NOT COUNTED</span><h2>额外指定的控制台</h2><p>独立保留你提供的地址，不归入最新筛选的机场五家。</p></div></div>'+renderShortcuts()+'</section>';
     const count=$('#zgNodesCount');
-    if(count)count.textContent='共 '+state.data.groups.reduce((n,g)=>n+g.entries.length,0)+' 家 · 当前匹配 '+matching+' 家 · 额外控制台入口 '+shortcuts.length+' 个';
+    if(count)count.textContent='共 '+state.data.groups.reduce((n,g)=>n+g.entries.length,0)+' 家 · 当前匹配 '+matching+' 家 · 额外控制台入口 '+shortcuts.length+' 个 · 最新聊天替换版';
     const badge=$('#zgNodesFavoriteCount');
     if(badge)badge.textContent='已收藏 '+saved.size+' 家';
   }
@@ -83,7 +85,7 @@
       '<p>用于比较服务入口和产品类型，不是速度、IP信誉或 ChatGPT / Gemini / Claude 解锁的实测排行榜。</p></div>'+
       '<div class="zg-node-hero-art" aria-hidden="true">◈</div></div>'+
       '<div class="zg-node-tools"><label for="zgNodesSearch">查找服务<input id="zgNodesSearch" type="search" placeholder="搜索名称、静态IP、动态IP…" autocomplete="off" /></label>'+
-      '<div><span id="zgNodesFavoriteCount">已收藏 0 家</span><span id="zgNodesCount" role="status" aria-live="polite">正在加载两组网站…</span></div></div>'+
+      '<div><span id="zgNodesFavoriteCount">已收藏 0 家</span><span id="zgNodesCount" role="status" aria-live="polite">正在加载两组网站…</span><button id="zgNodesRefresh" type="button" class="zg-node-refresh">↻ 刷新最新名单</button></div></div>'+
       '<div class="zg-node-status" id="zgNodesStatus" role="status">已替换原先自行补的节点名单。最新聊天能核实4家代理与5家机场；代理第5家无法精确恢复，暂显示此前对话出现的 IPRoyal 并明确标记。支付宝、微信支付声明不等于实际付款成功；第三方注册链接可能含推广信息。</div>'+
       '<div id="zgNodesSections" class="zg-node-sections"><p class="zg-node-loading">正在读取 5 + 5 网站目录…</p></div>'+
       '<div class="zg-node-guide"><strong>为什么分开？</strong> 专业代理通常提供按 IP / 流量计费的 ISP、住宅或数据中心出口；机场通常提供多个节点的订阅。机场 IP 不一定独享或为住宅类型。AI 站点可用性取决于账号、区域政策、IP 信誉和使用方式，页面不作保证。</div>'+
@@ -93,15 +95,17 @@
       field.value=state.query;
       field.addEventListener('input',()=>{state.query=field.value.trim().slice(0,100);render();});
     }
+    $('#zgNodesRefresh')?.addEventListener('click',()=>{state.data=null;mount(panel);});
     panel.removeEventListener('click',onPanelClick);
     panel.addEventListener('click',onPanelClick);
     const req=++state.requestId;
     if(state.data){render();return;}
     try {
-      const res=await fetch('data/node-sites.json',{cache:'no-cache'});
+      const res=await fetch('data/node-sites.json?rev='+REVISION+'&t='+Date.now(),{cache:'no-store'});
       if(!res.ok)throw Error('目录 HTTP '+res.status);
       const data=await res.json();
       if(!Array.isArray(data.groups)||data.groups.length!==2||data.groups.some(g=>!Array.isArray(g.entries)||g.entries.length!==5))throw Error('目录分组数量应为 5 + 5');
+      if(data.schemaVersion!==3||data.groups.some(g=>!LATEST_IDS[g.id]||g.entries.some((e,i)=>e.id!==LATEST_IDS[g.id][i])))throw Error('服务器返回了旧版节点名单，请点击「刷新最新名单」或稍后重试');
       for(const group of data.groups)for(const entry of group.entries)if(safeURL(entry.url)==='#')throw Error('目录内有不可用的地址格式');
       if(!Array.isArray(data.shortcuts)||data.shortcuts.length!==1)throw Error('额外控制台链接配置异常');
       const dashboard=data.shortcuts[0];

@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: zhigeng-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   # Update public discovery data independently. A feed/API error cannot block the site.
