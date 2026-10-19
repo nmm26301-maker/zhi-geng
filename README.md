@@ -22,6 +22,16 @@ FCC 入口在「AI 助手 → FCC 多模型」。填写自己的 HTTPS FCC 网�
 
 ---
 
+## 网页版 · 2026-10-19 接码导航整合
+
+- **复用此前做好的接码网站**：从仓库原有 `sms-chinese-hub` 分支取回最终「访问原站」版本 `sms-hub/visit-only-20261019.html`，保存到 `main` 分支的 `sms-hub/index.html`。完整地址：`https://nmm26301-maker.github.io/zhi-geng/sms-hub/`。
+- 知更侧栏新增「接码导航」，手机底部新增「接码」，页面路径为 `/#sms`。站点采用知更原生「纸白／松绿」界面，支持网站名称／域名搜索、收藏、隐藏以及已隐藏恢复。
+- 保留之前严格筛选的 **6 个** 原站：`freephonenum.com`、`smstome.com`、`receive-smss.com`、`temporary-phone-number.com`、`temp-number.com`、`receive-sms-free.cc`。此前排除的其他网站不会自动加回。2026-10-19 重新确认各首页可访问，但没有发送实际验证短信或承诺任意号码能够收到验证码。
+- **不提供「中文浏览」、网页翻译或跨域采集**；点击「访问原站」打开外部原始页面，站点内容及语言由原站决定，避免第三方拒绝 iframe 时出现空白网页。
+- 原站点导航使用的 `sms-nav-fav-1` 与 `sms-nav-hide-1` 本地存储键保持一致；数据只在同一浏览器、同一网站来源下共享，不从此前的 `raw.githack.com` 浏览器存储自动迁移。知更不会读取、收集或存储第三方短信/验证码。
+- 共享号码的收件箱对其他访问者公开，**不适合重要账户、银行、付款、密码找回或敏感身份验证**。
+- 测试：`tests/sms-hub.test.mjs`；页面脚本：`assets/sms-hub.js`；样式：`assets/zhigeng-v064.css`。
+
 ## 网页版 · 2026-10-19 看剧AI（kanju.ai）
 
 - 在桌面侧栏、安卓手机浏览器底部导航新增 **「看剧 / 看剧AI」** 独立页面：`#kanju`。
