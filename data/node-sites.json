@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "updatedAt": "2026-10-19",
   "title": "知更 · 节点服务导航",
   "groups": [
@@ -140,6 +140,18 @@
           "verified": "第三方列有此地址；未核实运营主体"
         }
       ]
+    }
+  ],
+  "shortcuts": [
+    {
+      "id": "yifen-dashboard",
+      "providerId": "yifen",
+      "name": "一分机场 · 控制台直达",
+      "url": "https://xn--4gqx1hgtfdmt.com/#/dashboard",
+      "type": "dashboard",
+      "label": "额外快捷入口",
+      "desc": "你最新补充的控制台页面。与上面的「一分机场」同属一个域名，不算第 11 家不同服务商。",
+      "verified": "用户提供的链接；站点在当前检查环境返回 HTTP 403，无法确认是否需要先登录。"
     }
   ]
 }
