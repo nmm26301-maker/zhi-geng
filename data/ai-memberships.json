@@ -1,222 +1,186 @@
 {
-  "schemaVersion": 1,
-  "asOf": "2026-10-20",
-  "title": "AI会员代充、共享与比价目录",
-  "sourceNote": "整理自用户2026-10-19关于ChatGPT/Claude/Gemini代充与共享的聊天，共恢复8家（国内及综合平台5家+国际共享3家），不是节点/VPN机场。",
+  "schemaVersion": 2,
+  "updatedAt": "2026-10-20",
+  "title": "知更 · AI 会员代充与比价",
+  "summary": "按用户截图确认的五个主推荐与两个备选。主推荐为排序偏好，不代表安全性认证。",
   "groups": [
     {
-      "id": "main",
-      "title": "国内常用及综合平台",
-      "subtitle": "从此前最终五家候选还原；核对自有账号代充与共享/镜像的区别。",
+      "id": "primary",
+      "title": "最建议收藏的 5 个",
+      "subtitle": "按你最新截图里的顺序，主推荐和备选分开。",
       "entries": [
-        {
-          "id": "yinhe",
-          "name": "银河录像局",
-          "url": "https://nf.video/",
-          "brands": [
-            "ChatGPT",
-            "Claude",
-            "Gemini"
-          ],
-          "models": [
-            "own",
-            "shared",
-            "mirror"
-          ],
-          "payment": {
-            "alipay": "site",
-            "wechat": "unknown"
-          },
-          "price": "Plus 自有账号代充参考 ¥189/月；镜像服务另有 ¥29/月起",
-          "priceNote": "官网 Plus 代充商品 ¥189，第三方报道镜像约 ¥29；两种不是同一服务",
-          "note": "有 Plus 代充及 AI 镜像/共享商品；官网注明掉订阅售后有限、封号无售后，镜像不是官方会员。",
-          "direct": "https://nf.video/product/plus-topup/",
-          "source": "官网商品页 + 历史讨论",
-          "confidence": "商品类型已核对；价格、售后会调整"
-        },
-        {
-          "id": "huanqiu",
-          "name": "环球巴士",
-          "url": "https://www.universalbus.cn/",
-          "brands": [
-            "ChatGPT",
-            "Grok",
-            "Other"
-          ],
-          "models": [
-            "own",
-            "shared",
-            "mirror"
-          ],
-          "payment": {
-            "alipay": "unknown",
-            "wechat": "unknown"
-          },
-          "price": "历史页面示例：Plus 共享约 ¥69.88/月、代充约 ¥218.88/月",
-          "priceNote": "相关页面出现过部分产品暂停新订单的公告，实时库存未核实",
-          "note": "页面展示 ChatGPT Plus 充值、合租及镜像商品。部分商品可能暂停销售，实际可购性以结算页为准。",
-          "direct": "https://www.universalbus.cn/",
-          "source": "平台官网 + 历史讨论",
-          "confidence": "页面可检索，支付和可购买状态未实测"
-        },
         {
           "id": "gamsgo",
           "name": "GamsGo",
           "url": "https://www.gamsgo.com/",
+          "type": "seller",
+          "role": "综合会员平台",
+          "types": [
+            "own",
+            "shared"
+          ],
+          "brands": [
+            "ChatGPT",
+            "Claude",
+            "Gemini",
+            "其他"
+          ],
+          "payment": "微信、支付宝是否支持需以商品结算页确认",
+          "summary": "综合 AI、软件和影音会员商品较多；同一品牌可能有自有账号充值、共享或成品号不同交付方式。",
+          "tip": "先核对「充值自己账号」还是「交付共享账号」。",
+          "verified": "平台入口已核实；具体价格、支付和库存未实际下单验证",
+          "source": "官方平台及用户最新聊天"
+        },
+        {
+          "id": "airadar",
+          "name": "AI订阅价格雷达",
+          "url": "https://airadar.vip/",
+          "type": "compare",
+          "role": "先比价，再购买",
+          "types": [
+            "compare"
+          ],
           "brands": [
             "ChatGPT",
             "Claude",
             "Gemini",
             "Grok",
-            "Other"
+            "其他"
           ],
-          "models": [
+          "payment": "比价导航本身不处理购买支付",
+          "summary": "聚合公开渠道报价、期限与交付方式，能区分代充、成品号、共享、卡密。",
+          "tip": "先看清周期、账号归属、保证条款，再前往商家。",
+          "verified": "官方比价页面已核实；聚合报价非实际成交价",
+          "source": "AIradar 官网"
+        },
+        {
+          "id": "tehuio",
+          "name": "特惠购",
+          "url": "https://tehuio.com/",
+          "type": "seller",
+          "role": "自有账号代充与卡密",
+          "types": [
             "own",
-            "shared"
+            "redeem",
+            "account"
           ],
-          "payment": {
-            "alipay": "unknown",
-            "wechat": "unknown"
-          },
-          "price": "展示过 ChatGPT 方案 $4.83/月起、Gemini 自有账号充值 $2.45/月起",
-          "priceNote": "不同商品/交付方式价格不同；首页展示价不保证当前成交价",
-          "note": "有 ChatGPT 自有账号代充、共享账号及 Gemini 账号充值，并有 Claude 不同商品。下单前核对商品交付形式与卖家。",
-          "direct": "https://ai.gamsgo.com/zh/top-up/chatgpt-plus-top-up",
-          "source": "官方商品说明 + 历史讨论",
-          "confidence": "商品种类已核对；微信/支付宝未完成收银台核验"
+          "brands": [
+            "ChatGPT",
+            "Claude",
+            "Gemini",
+            "Grok",
+            "Cursor"
+          ],
+          "payment": "商家帮助中心列支付宝、微信、USDT；未实际付款验证",
+          "summary": "提供 ChatGPT、Claude、Gemini 等卡密、账户和代充商品；有些商品无售后或只保首次登录。",
+          "tip": "重要账号避免提供密码、会话或验证码；逐项查看质保条件。",
+          "verified": "官网商品分类与下单说明已核实，库存和价格实时变化",
+          "source": "特惠购官网及帮助中心"
         },
         {
           "id": "familypro",
           "name": "FamilyPro",
           "url": "https://familypro.io/",
+          "type": "seller",
+          "role": "共享／成品号",
+          "types": [
+            "shared",
+            "own",
+            "account"
+          ],
           "brands": [
             "ChatGPT",
-            "Other"
+            "其他"
           ],
-          "models": [
-            "own",
-            "shared"
-          ],
-          "payment": {
-            "alipay": "merchant",
-            "wechat": "merchant"
-          },
-          "price": "官方旧文章曾列共享 ChatGPT $5.50/月",
-          "priceNote": "2025 年官方文章参考价，2026 年实时套餐须重查",
-          "note": "支持 ChatGPT 共享和自有账号代充商品。其共享账号文章明确多人可见聊天记录；支付方式为商家文章自述。",
-          "direct": "https://familypro.io/en/products/chatgpt",
-          "source": "平台官方 FAQ／产品及支付介绍",
-          "confidence": "商家自述支付宝和微信，未进行实付"
+          "payment": "商家文章提及支付宝和微信，未实际支付验证",
+          "summary": "以账号共享和会员合租为特色；特定商品也可能提供自有账号充值。",
+          "tip": "共享账号可能被其他用户看到聊天记录，不要存放私密内容。",
+          "verified": "品牌及官网可核对，商家自述的支付方式非独立实测",
+          "source": "平台商品和 FAQ"
         },
         {
-          "id": "naifei",
-          "name": "奈飞小铺（此前记作网飞小铺）",
-          "url": "https://www.naifeishop.com/",
+          "id": "yinhe",
+          "name": "银河录像局",
+          "url": "https://nf.video/",
+          "type": "seller",
+          "role": "影音会员与部分 AI 商品",
+          "types": [
+            "own",
+            "mirror",
+            "shared"
+          ],
           "brands": [
-            "Other"
+            "ChatGPT",
+            "其他"
           ],
-          "models": [
-            "unknown"
-          ],
-          "payment": {
-            "alipay": "unknown",
-            "wechat": "unknown"
-          },
-          "price": "AI 会员商品与实时价格尚未核实",
-          "priceNote": "当前可查官网主要是账号合租导航，不能确认在售 ChatGPT/Claude/Gemini",
-          "note": "保留原聊天候选。官网可检索，但当前没有足够证据证实 AI 会员代充/共享产品在售，谨慎核对。",
-          "direct": "https://www.naifeishop.com/",
-          "source": "网站官网 + 历史讨论",
-          "confidence": "AI 商品未确认"
+          "payment": "支付方式以实际商品的结算页为准",
+          "summary": "偏影音会员，也提供部分 AI 相关服务；请区分官方订阅代充、镜像服务与共享账号。",
+          "tip": "低价镜像不等同于官方 ChatGPT Plus，不能按同一产品比价。",
+          "verified": "官网平台可核实；部分商品库存、售后条件可能变化",
+          "source": "银河录像局官网与历史讨论"
         }
       ]
     },
     {
-      "id": "global",
-      "title": "国际共享和比价平台",
-      "subtitle": "主要是订阅共享/团购；不代表能充值到自己的 ChatGPT 或 Claude 账号。",
+      "id": "alternatives",
+      "title": "另外保留的 2 个备选",
+      "subtitle": "供主推荐缺货、价格变化或售后不符时交叉核价。",
       "entries": [
         {
-          "id": "sharingful",
-          "name": "Sharingful",
-          "url": "https://www.sharingful.com/",
+          "id": "huanqiu",
+          "name": "环球巴士",
+          "url": "https://universalbus.cn/",
+          "type": "seller",
+          "role": "会员合租与代充备选",
+          "types": [
+            "shared",
+            "own",
+            "mirror"
+          ],
           "brands": [
-            "Gemini",
-            "Other"
-          ],
-          "models": [
-            "shared"
-          ],
-          "payment": {
-            "alipay": "unknown",
-            "wechat": "unknown"
-          },
-          "price": "此前讨论 Google AI Pro 约 €3.66/月（参考）",
-          "priceNote": "旧聊天参考价格，地区、账户与商品可用性以官网为准",
-          "note": "国际订阅分摊平台。Google/AI 共享资格和地区限制需要逐商品确认；不视为 ChatGPT Plus 自有账号代充。",
-          "direct": "https://www.sharingful.com/",
-          "source": "历史讨论 + 官网",
-          "confidence": "AI 产品价格和支付方式未实时核实"
-        },
-        {
-          "id": "sharesub",
-          "name": "Sharesub",
-          "url": "https://www.sharesub.com/",
-          "brands": [
-            "Gemini",
-            "Other"
-          ],
-          "models": [
-            "shared"
-          ],
-          "payment": {
-            "alipay": "unknown",
-            "wechat": "unknown"
-          },
-          "price": "Google AI Pro 英国地区挂牌曾约 £4.36/月",
-          "priceNote": "Google AI Pro 商品按座位、地区、手续费浮动",
-          "note": "平台公开说明 Google AI Pro 可以按家庭席位共享，ChatGPT 和 Claude 暂不开放共享；请注意地区与家庭组规则。",
-          "direct": "https://www.sharesub.com/en/brand/google",
-          "source": "Sharesub 官方 Google AI 商品页",
-          "confidence": "官方有 Gemini 共享；微信和支付宝未证实"
-        },
-        {
-          "id": "coosub",
-          "name": "Coosub",
-          "url": "https://coosub.com/",
-          "brands": [
+            "ChatGPT",
             "Claude",
-            "Other"
+            "Gemini",
+            "其他"
           ],
-          "models": [
-            "shared"
+          "payment": "实际支付方式未核实",
+          "summary": "曾展示 ChatGPT Plus 共享、充值、AI 镜像及部分其他会员；网站公告称部分商品暂停销售或下架。",
+          "tip": "务必先确认商品仍可购买、付款后是否正常履约。",
+          "verified": "平台官网及商品下架公告可查；当前下单状态未验证",
+          "source": "环球巴士官方公开页面"
+        },
+        {
+          "id": "relayradar",
+          "name": "Relay Radar",
+          "url": "https://aicodex.chat/subscribe",
+          "type": "compare",
+          "role": "AI订阅全渠道比价",
+          "types": [
+            "compare"
           ],
-          "payment": {
-            "alipay": "unknown",
-            "wechat": "unknown"
-          },
-          "price": "此前讨论 Claude 共享约 $5/月（未复核）",
-          "priceNote": "无法证实当前 Claude 上架、售价、交付与服务条款",
-          "note": "历史聊天提到 Claude 共享候选；目前官网可查到订阅共享业务，但尚未找到可靠的 Claude 实时在售证明。",
-          "direct": "https://coosub.com/",
-          "source": "历史讨论 + 官网标题",
-          "confidence": "Claude 产品未确认"
+          "brands": [
+            "ChatGPT",
+            "Claude",
+            "Gemini",
+            "Cursor",
+            "其他"
+          ],
+          "payment": "比较不同渠道，不直接代表已验证收款或售后",
+          "summary": "对比官方订阅、代充、卡网、合租等来源，显示风险提示与不同价位。",
+          "tip": "平台汇总价不是最终成交价，也不构成商家安全背书。",
+          "verified": "官网 AI 订阅比较页可核对，报价会变化",
+          "source": "Relay Radar 价格频道"
         }
       ]
     }
   ],
-  "legend": {
-    "models": {
-      "own": "充值到自己原账号",
-      "shared": "共享/成品账号",
-      "mirror": "镜像或第三方接入",
-      "unknown": "商品类型待核验"
-    },
-    "payment": {
-      "site": "官网商品页出现",
-      "merchant": "商家文章自述",
-      "unknown": "未经核实"
-    }
+  "deliveryLabels": {
+    "own": "自有账号代充",
+    "shared": "共享／合租",
+    "mirror": "镜像服务",
+    "redeem": "卡密／兑换码",
+    "account": "成品账号",
+    "compare": "报价比价"
   },
-  "caution": "这是第三方平台导航而不是官方认证。账号共享可能违反对应平台使用条款、存在账号停用与聊天记录泄露风险；代充可能要求提供账号会话信息，不应将密码、session、access token 交给不信任的商家。"
+  "disclaimer": "第三方平台可能不被相应 AI 服务官方认可。账户共享存在隐私、账号停用和服务条款风险；代充/卡密需核实交付、退款与售后。知更仅做导航，不代收款或收集账号登录信息。"
 }
