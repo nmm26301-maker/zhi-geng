@@ -60,7 +60,8 @@ test('exactly two independent five-item lists, original FreeCat entry, unique HT
   assert.equal(nodeData.groups[0].entries[4].provenance,'earlier-round-fallback');
   assert.equal(nodeData.groups[0].entries.filter(x=>x.provenance==='latest').length,4);
   assert.ok(!nodeData.groups[1].entries.some(x=>['yifen','yiyuan','sanmao','peiqian'].includes(x.id)));
-  assert.match(pageHtml,/href="#nodes"/);
+  assert.match(pageHtml,/href="#memberships"/);
+  assert.match(appCode,/route === 'nodes'/,'legacy node URL stays addressable');
   assert.match(pageHtml,/node-directory\.js/);
 });
 
