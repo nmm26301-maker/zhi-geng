@@ -45,6 +45,11 @@ final class Catalog {
             return reply;
         }catch(SocketTimeoutException e){throw new Exception("连接超时，请检查网络或稍后重试");}finally{c.disconnect();}
     }
+    private JSONObject annualRequest(String url,JSONObject body,Map<String,String> headers)throws Exception{
+        if(body==null)return request(url,null,headers).data;
+        HttpURLConnection c=(HttpURLConnection)new URL(url).openConnection();c.setConnectTimeout(9500);c.setReadTimeout(16000);c.setInstanceFollowRedirects(false);c.setRequestMethod("POST");c.setDoOutput(true);c.setRequestProperty("Content-Type","application/json");c.setRequestProperty("Accept","application/json");
+        try{try(OutputStream out=c.getOutputStream()){out.write(body.toString().getBytes(StandardCharsets.UTF_8));}int code=c.getResponseCode();if(code!=200)throw new Exception("AniList 返回 HTTP "+code);try(InputStream in=c.getInputStream()){return new JSONObject(readString(in));}}finally{c.disconnect();}
+    }
     private JSONObject get(String url)throws Exception{return request(url,null,null).data;}
     private static JSONObject item(String id,String type,String title,String author,String year,String source,String url,String cover,String summary)throws JSONException{
         return new JSONObject().put("id",id).put("type",type).put("title",clean(title)).put("author",clean(author)).put("year",year).put("source",source).put("url",secureUrl(url)).put("image",secureUrl(cover)).put("summary",clean(summary)).put("score",0);
@@ -66,6 +71,7 @@ final class Catalog {
         int start=(q.page-1)*24;return start>=list.size()?new ArrayList<>():new ArrayList<>(list.subList(start,Math.min(start+24,list.size())));
     }
     Result search(Query q)throws Exception{
+        if(q.ranking&&q.rankSource.equals("annual"))return AnnualRankings.load(q,secrets.get("tmdb"),this::annualRequest);
         if(q.type.equals("book")&&q.provider.equals("zlib"))return zsearch(q);
         if(q.ranking&&q.rankSource.equals("tmdb")){
             if(secrets.get("tmdb").isEmpty())throw new Exception("TMDB 评分榜需要有效凭证，可先浏览知更编辑推荐榜。");
