@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-19",
+  "title": "知更 · 节点服务导航",
+  "groups": [
+    {
+      "id": "proxy",
+      "name": "静态 / 动态代理 IP 服务",
+      "subtitle": "ISP 静态地址、住宅轮换代理与数据中心代理。与机场订阅不是一类产品。",
+      "entries": [
+        {
+          "id": "webshare",
+          "name": "Webshare",
+          "url": "https://www.webshare.io/",
+          "tags": [
+            "静态 ISP",
+            "轮换住宅",
+            "数据中心"
+          ],
+          "desc": "提供静态住宅（ISP）、轮换住宅及数据中心代理，可用免费代理了解操作面板。",
+          "source": "官网目录",
+          "verified": "官网页面已查阅；未测试具体出口 IP 信誉"
+        },
+        {
+          "id": "iproyal",
+          "name": "IPRoyal",
+          "url": "https://iproyal.com/",
+          "tags": [
+            "静态 ISP",
+            "动态住宅"
+          ],
+          "desc": "静态 ISP 地址可长期保持；住宅轮换按流量计费。适合需要控制地址与会话的用途。",
+          "source": "官网与官方帮助文档",
+          "verified": "官网资料已核实；未测试目标站点解锁"
+        },
+        {
+          "id": "decodo",
+          "name": "Decodo",
+          "url": "https://decodo.com/",
+          "tags": [
+            "静态 ISP",
+            "动态住宅",
+            "SOCKS5"
+          ],
+          "desc": "原 Smartproxy 品牌，提供 ISP、动态住宅与其他代理资源。",
+          "source": "官网目录",
+          "verified": "官网页面已查阅；未测试连接"
+        },
+        {
+          "id": "soax",
+          "name": "SOAX",
+          "url": "https://soax.com/",
+          "tags": [
+            "动态住宅",
+            "移动代理"
+          ],
+          "desc": "提供住宅与移动代理等选择，购买前应确认需要的 IP 位置及计费方式。",
+          "source": "官网目录",
+          "verified": "官网页面已查阅；未测试连接"
+        },
+        {
+          "id": "oxylabs",
+          "name": "Oxylabs",
+          "url": "https://oxylabs.io/",
+          "tags": [
+            "住宅代理",
+            "ISP 静态",
+            "企业级"
+          ],
+          "desc": "面向较高阶的数据采集与企业代理使用场景，通常需要核算流量和预算。",
+          "source": "官网目录",
+          "verified": "官网页面已查阅；未测试连接"
+        }
+      ]
+    },
+    {
+      "id": "airport",
+      "name": "低价机场 / 节点订阅",
+      "subtitle": "偏日常订阅与客户端导入，不等同于干净的专属住宅 IP。低价站点更应先短期试用。",
+      "entries": [
+        {
+          "id": "freecat",
+          "name": "FreeCat · 自由猫",
+          "url": "https://us.freecat.cloud/register",
+          "tags": [
+            "低价订阅",
+            "用户曾提到",
+            "注意投诉"
+          ],
+          "desc": "保留你之前提供的注册入口。公开社区曾报告部分时期服务异常；不建议未经实测长周期预付。",
+          "source": "本人讨论网址 + 2026 年社区报告",
+          "verified": "注册入口可检索；未验证实际可用性"
+        },
+        {
+          "id": "yifen",
+          "name": "一分机场",
+          "url": "https://xn--4gqx1hgtfdmt.com/",
+          "tags": [
+            "低价订阅",
+            "直连"
+          ],
+          "desc": "公开导航列有直连与低价流量套餐；网址更换频繁，需确认渠道真实。",
+          "source": "公开机场目录及搜索索引",
+          "verified": "搜索可查；直连加载未验证"
+        },
+        {
+          "id": "yiyuan",
+          "name": "一元机场",
+          "url": "https://xn--4gq62f52gdss.com/",
+          "tags": [
+            "低价订阅",
+            "入口有变更"
+          ],
+          "desc": "已索引入口提示官网曾更换域名，购买前须核对最新官方公告与付款地址。",
+          "source": "网站搜索索引",
+          "verified": "旧入口可检索；新官网身份未核实"
+        },
+        {
+          "id": "sanmao",
+          "name": "三毛机场",
+          "url": "https://gw-1.xn--ehqx7tcnnope.com/",
+          "tags": [
+            "低价订阅",
+            "备用入口"
+          ],
+          "desc": "第三方目录可找到入口；不能把入口可打开等同于节点可用、IP 纯净。",
+          "source": "公开索引",
+          "verified": "网页检索确认；未测试订阅"
+        },
+        {
+          "id": "peiqian",
+          "name": "赔钱机场",
+          "url": "https://dash.pqjc.site/",
+          "tags": [
+            "低价订阅",
+            "谨慎核验"
+          ],
+          "desc": "网上存在多个使用该名称的域名、争议与冒名可能；请独立确认官方身份并仅小额试用。",
+          "source": "2026-09-03 第三方实测目录",
+          "verified": "第三方列有此地址；未核实运营主体"
+        }
+      ]
+    }
+  ]
+}
