@@ -4,7 +4,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   const labels = {all:'全部',movie:'电影',tv:'电视剧',anime:'国创动画',variety:'综艺',book:'书籍'};
-  const state = {domestic:[],type:'all',rankType:'all',rankSource:'editor',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck'};
+  const state = {domestic:[],type:'all',rankType:'all',rankSource:'editor',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck',fccFingerprint:'',draft:''};
   const storeKey = 'zhigeng_saved_v1';
   const keyName = 'zhigeng_tmdb_credential_v1';
 
@@ -189,6 +189,8 @@
         '<div class="zg-chat-compose"><textarea id="zgFccDraft" rows="3" placeholder="输入问题…仅发送当前对话，不会读取书架或搜索记录。"></textarea>' +
         '<button type="button" id="zgFccSend" class="zg-primary">发送 ↗</button></div></div></div>';
       renderMessages();
+      $('#zgFccDraft').value = state.draft;
+      $('#zgFccDraft').addEventListener('input',e => {state.draft=e.target.value;});
     }
   }
   function showFccStatus(message) {
@@ -221,6 +223,8 @@
     showFccStatus('正在读取网关公布的模型列表…');
     const headers = {Accept:'application/json'};
     const token = $('#zgFccToken')?.value.trim();
+    const fingerprint = gatewayURL() + '#' + (token || '');
+    if (fingerprint !== state.fccFingerprint) state.chat = [];
     if (token) headers.Authorization = 'Bearer ' + token;
     try {
       const timeout = setTimeout(()=>ctl.abort(),20000);
@@ -234,11 +238,12 @@
       const option = new Option('选择模型','');select.add(option);
       const seen = new Set();
       for (const model of models) {
-        const id = String(typeof model === 'string' ? model : model.id || model.model || '').trim();
+        const id = String(typeof model === 'string' ? model : model?.id || model?.model || '').trim();
         if (!id || seen.has(id)) continue;
-        seen.add(id);select.add(new Option(String(model.display_name||model.name||id),id));
+        seen.add(id);select.add(new Option(String(model?.display_name||model?.name||id),id));
       }
       if (select.options.length > 1) select.selectedIndex = 1;
+      state.fccFingerprint = fingerprint;
       showFccStatus('已读取 ' + seen.size + ' 个模型。模型能否使用，以网关的实际返回为准。');
     } catch (error) { showFccStatus(friendlyError(error)); }
     finally {state.controller = null;}
@@ -287,6 +292,7 @@
     try { endpoint = apiURL('messages'); } catch (error) { showFccStatus(friendlyError(error)); return; }
     const headers = {'Content-Type':'application/json','anthropic-version':'2023-06-01',Accept:'text/event-stream, application/json'};
     const token = $('#zgFccToken')?.value.trim();
+    if (gatewayURL() + '#' + (token || '') !== state.fccFingerprint) {showFccStatus('网关或 Token 已变化，请先重新读取模型，避免把旧对话发送到新连接。');return;}
     if (token) headers.Authorization = 'Bearer ' + token;
     const ctl = new AbortController();state.controller=ctl;
     const input = [...state.chat.slice(-24),{role:'user',content:prompt}];
@@ -326,7 +332,7 @@
       }
       if (!answer.trim()) throw new Error(sawStreaming?'网关返回了空回复。':'网关未提供可读取的文字。');
       state.chat.push({role:'assistant',content:answer});
-      draft.value='';
+      draft.value=''; state.draft='';
       showFccStatus('已收到模型回复 · ' + model);
     } catch (error) {
       state.chat.pop();
@@ -352,7 +358,7 @@
     }
     const filter = action.dataset.zgRankType;
     if (filter) {state.rankType=filter;loadRanking();return;}
-    if (action.dataset.zgAiTab) {state.tab=action.dataset.zgAiTab;renderAssistantTab();return;}
+    if (action.dataset.zgAiTab) {if (state.controller) state.controller.abort();state.tab=action.dataset.zgAiTab;renderAssistantTab();return;}
     if (action.id === 'zgLoadDuck') {
       const frame = document.createElement('iframe');
       frame.src='https://duck.ai/';frame.title='Duck.ai 官方聊天';frame.loading='lazy';
@@ -371,7 +377,7 @@
   }
   async function init() {
     const main = $('main.content');
-    if (!main) return;
+    if (!main || $('#zgDomestic')) return;
     const domestic = document.createElement('section');
     domestic.id='zgDomestic';domestic.className='zg-domestic';
     domestic.innerHTML='<div class="zg-section-top zg-top-with-action"><div><span>HANDPICKED · MADE IN CHINA</span><h2>国内好作品，慢慢发现。</h2><p>和安卓端同步的华语电影、国产剧、国创动画、综艺与中文书精选。</p></div><a href="#rankings" class="zg-more-link">查看完整榜单 ↗</a></div><div id="zgDomesticFilters"></div><p class="zg-data-note" id="zgDomesticCount"></p><div id="zgDomesticGrid" class="zg-work-grid"></div>';
@@ -415,6 +421,7 @@
         rank:value.items[i].rank,editorial:true
       }));
       renderDomestic();
+      if ($('#zgPanel')?.dataset.page === 'rankings' && state.rankSource === 'editor') renderRankingList();
     } catch (error) {
       $('#zgDomesticCount').textContent='编辑目录暂不可用：'+error.message;
       $('#zgDomesticGrid').innerHTML='<div class="zg-empty">请检查 data/domestic.json 是否随网站一同发布。</div>';
