@@ -9,6 +9,8 @@ on:
       - 'assets/kanju-bridge.js'
       - 'assets/sms-hub.js'
       - 'assets/node-directory.js'
+      - 'assets/ai-memberships.js'
+      - 'data/ai-memberships.json'
       - 'data/node-sites.json'
       - 'sms-hub/index.html'
       - 'assets/annual-rankings.js'
@@ -19,6 +21,7 @@ on:
       - 'tests/kanju-bridge.test.mjs'
       - 'tests/sms-hub.test.mjs'
       - 'tests/node-directory.test.mjs'
+      - 'tests/ai-memberships.test.mjs'
       - 'tests/annual-rankings.test.mjs'
       - '.github/workflows/web-check.yml'
   pull_request:
@@ -52,5 +55,6 @@ jobs:
           node --check assets/kanju-bridge.js
           node --check assets/sms-hub.js
           node --check assets/node-directory.js
+          node --check assets/ai-memberships.js
           node --check assets/reader-experience.js
-          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs tests/kanju-bridge.test.mjs tests/sms-hub.test.mjs tests/node-directory.test.mjs
+          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs tests/kanju-bridge.test.mjs tests/sms-hub.test.mjs tests/node-directory.test.mjs tests/ai-memberships.test.mjs
