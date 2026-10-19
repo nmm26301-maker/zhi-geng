@@ -7,6 +7,7 @@
   <meta name="description" content="知更：聚合电影、电视剧、动漫、综艺与书籍的年度发现雷达。" />
   <title>知更 · 好作品不会再错过</title>
   <link rel="stylesheet" href="assets/styles.css?v=20261016-zlib1" />
+    <link rel="stylesheet" href="assets/zhigeng-v064.css?v=20261019" />
   <link rel="alternate" type="application/rss+xml" title="知更每周新作" href="feed.xml" />
 </head>
 <body>
@@ -102,7 +103,7 @@
     </div>
   </div>
 
-  <nav class="bottom-nav" aria-label="手机导航"><button class="active" data-mobile="explore">⌕<small>发现</small></button><button data-mobile="latest">✦<small>上新</small></button><button data-mobile="saved">♡<small>清单</small></button><button data-mobile="settings">⚙<small>设置</small></button></nav>
+  <nav class="bottom-nav" aria-label="手机导航"><button class="active" data-mobile="explore">⌕<small>发现</small></button><a class="zg-mobile-link" href="#rankings">▥<small>榜单</small></a><a class="zg-mobile-link" href="#library">▤<small>阅读</small></a><a class="zg-mobile-link" href="#assistant">✦<small>AI</small></a><button data-mobile="saved">♡<small>我的</small></button></nav>
   <div class="modal-backdrop" id="settingsModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="section-kicker">DATA SOURCE SETTINGS</div><h2 id="modalTitle">接口与偏好设置</h2></div><button id="modalClose" class="modal-close" aria-label="关闭">×</button></div><div class="source-status"><div><b>Open Library / Google Books</b><small>书籍主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>Jikan / AniList</b><small>动漫主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>TVmaze</b><small>电视剧近期播出备用数据 · 无需密钥</small></div><span class="status-good">已配置</span></div><div class="source-status tmdb-source"><div><b>TMDB</b><small>完整电影、剧集、综艺检索 · 需要自己申请 API 密钥</small></div><a href="https://www.themoviedb.org/settings/api" rel="noopener" target="_blank">申请 ↗</a></div><label class="field-label" for="tmdbKey">TMDB 密钥 · API Key（v3）或 API Read Access Token</label><input id="tmdbKey" class="modal-input" autocomplete="off" spellcheck="false" type="password" placeholder="粘贴 32 位 API Key 或 eyJ… Access Token" /><p class="field-tip">两种密钥均可，但认证方式不同。先测试官方接口，成功后再保存。密钥只保存在当前浏览器，不会上传到本网站的服务器；请勿将密钥提交到公开仓库。</p><div id="tmdbStatus" class="tmdb-status" role="status" aria-live="polite">尚未测试 TMDB 连接</div><div class="source-status muted-source"><div><b>Z-Library（外部入口）</b><small>书籍页已提供 heartleo/zlib 账号搜索。这里保留自选的外部网址入口。</small></div><span class="status-pending" id="bookExternalStatus">未设置</span></div>
           <label class="field-label" for="zlibraryUrl">自选访问网址 / 搜索链接模板</label>
           <input id="zlibraryUrl" class="modal-input" type="url" spellcheck="false" autocomplete="off" placeholder="https://你信任的网址/search?q={query}" />
@@ -171,5 +172,6 @@
   <script src="assets/app.js?v=20261016-zlib1" defer></script>
   <script src="assets/book-bridge.js?v=20261016-zlib1" defer></script>
   <script src="assets/book-library.js?v=20261016-zlib1" defer></script>
+  <script src="assets/zhigeng-v064.js?v=20261019" defer></script>
 </body>
 </html>
