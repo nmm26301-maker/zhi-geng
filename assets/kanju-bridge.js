@@ -81,7 +81,27 @@
     }
     location.hash='#kanju';
   }
+  function decorateLegacyCards() {
+    const grid=$('#workGrid');
+    if(!grid)return;
+    for(const card of grid.querySelectorAll('.work-card')) {
+      if(card.querySelector('.zg-kanju-lookup'))continue;
+      const title=card.querySelector('.card-title');
+      const kind=String(card.getAttribute('data-id')||'').split(':')[0];
+      if(!title||!['movie','tv','anime','variety'].includes(kind))continue;
+      const action=document.createElement('button');
+      action.type='button';action.className='zg-kanju-lookup zg-kanju-legacy';
+      action.textContent='看剧AI 找片 ↗';
+      action.setAttribute('data-zg-kanju-title',clean(title.textContent));
+      card.append(action);
+    }
+  }
   function init() {
+    const grid=$('#workGrid');
+    if(grid) {
+      decorateLegacyCards();
+      new MutationObserver(decorateLegacyCards).observe(grid,{childList:true});
+    }
     document.addEventListener('click',event=>{
       const button=event.target.closest('[data-zg-kanju-title]');
       if(!button)return;
