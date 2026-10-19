@@ -252,3 +252,52 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .bottom-nav small{white-space:nowrap}
   .zg-work-foot>div{flex-wrap:wrap}
 }
+
+/* SMS directory · original six-site list, integrated with paper/forest theme */
+.zg-sms-banner{display:flex;position:relative;justify-content:space-between;align-items:center;gap:16px;border-radius:21px;background:linear-gradient(120deg,#244e40,#426c53);color:white;padding:26px 32px;overflow:hidden;isolation:isolate}
+.zg-sms-banner>div:first-child{z-index:1}
+.zg-sms-banner span{color:#c8decd;font-weight:750;letter-spacing:.17em;font-size:10px}
+.zg-sms-banner h2{font-size:clamp(20px,2.8vw,29px);letter-spacing:-.025em;line-height:1.4;margin:9px 0}
+.zg-sms-banner p{max-width:650px;color:#e1e9de;font-size:12px;line-height:1.9;margin:0}
+.zg-sms-banner-shape{font-size:112px;line-height:1;opacity:.2;transform:rotate(16deg);margin-right:17px}
+.zg-sms-toolbar{margin:24px 0 12px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.zg-sms-toolbar strong{font-size:18px;color:#244e40}
+.zg-sms-toolbar p{font-size:12px;color:#7b8e7e;margin:5px 0 0}
+.zg-sms-toolbar input{width:min(330px,50%);font-size:12px;border:1px solid #d2dfd2;border-radius:12px;background:white;color:#224a3b;padding:12px 14px}
+#zgSmsFilters{margin-bottom:17px}
+.zg-sms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.zg-sms-card{min-width:0;border-radius:17px;border:1px solid #e0e7dd;background:#fff;padding:20px 22px;display:flex;flex-direction:column;box-shadow:0 4px 15px #244e4008}
+.zg-sms-card-top{display:flex;gap:13px;align-items:center}
+.zg-sms-icon{flex-shrink:0;display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:#e6f0e8;color:#285340;font-size:19px;font-weight:800}
+.zg-sms-name{min-width:0;flex:1}
+.zg-sms-name h3{margin:0;font-size:15px;color:#244e40}
+.zg-sms-name span{font-size:11px;color:#869689;overflow-wrap:anywhere}
+.zg-sms-star{background:transparent;border:0;color:#9ba99a;font-size:25px;cursor:pointer;align-self:flex-start}
+.zg-sms-star.is-saved{color:#c98d31}
+.zg-sms-card>p{font-size:12px;line-height:1.85;color:#708575;min-height:44px;margin:16px 0}
+.zg-sms-card-meta{display:flex;gap:8px;margin-bottom:15px}
+.zg-sms-card-meta span{font-size:10px;font-weight:650;padding:5px 9px;background:#eff4ec;color:#4e715d;border-radius:9px}
+.zg-sms-card-actions{display:flex;justify-content:space-between;align-items:center;gap:13px;margin-top:auto}
+.zg-sms-card-actions a{display:inline-flex;align-items:center;gap:8px;border-radius:9px;padding:10px 15px;background:#244e40;color:#fff;text-decoration:none;font-size:11px;font-weight:750}
+.zg-sms-card-actions a:hover{background:#356350}
+.zg-sms-card-actions button{border:0;background:transparent;padding:8px;color:#87988c;font-size:11px;cursor:pointer}
+.zg-sms-card-actions button:hover{color:#244e40}
+.zg-sms-empty{grid-column:1/-1;padding:35px 22px;border:1px solid #e1e7df;border-radius:16px;background:#fff;text-align:center;font-size:12px;color:#829584}
+.zg-sms-warning{margin:21px 0 13px;padding:16px 19px;background:#f7f1e3;border:1px solid #ecdec0;border-radius:13px;font-size:12px;line-height:1.9;color:#795e37}
+.zg-sms-warning strong{color:#6a4f30}
+.zg-sms-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:11px;padding:2px 5px 15px;color:#829584;font-size:11px}
+.zg-sms-footer a{color:#244e40;font-weight:750;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:720px){
+ .zg-sms-banner{padding:22px 19px}
+ .zg-sms-banner-shape{font-size:63px;margin:0}
+ .zg-sms-toolbar{display:block;margin-top:17px}
+ .zg-sms-toolbar input{width:100%;margin-top:10px}
+ .zg-sms-grid{grid-template-columns:1fr;gap:12px}
+ .zg-sms-card{padding:17px}
+ .zg-sms-name h3{font-size:14px}
+ .zg-sms-card>p{min-height:0;margin:12px 0}
+ .bottom-nav{padding:7px 5px calc(7px + env(safe-area-inset-bottom))}
+ .bottom-nav>a,.bottom-nav>button{font-size:18px;min-width:0;flex:1}
+ .bottom-nav small,.bottom-nav a small{font-size:9px}
+}
+@media(max-width:340px){.bottom-nav small,.bottom-nav a small{font-size:8px}}
