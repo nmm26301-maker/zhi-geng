@@ -22,23 +22,21 @@ FCC 入口在「AI 助手 → FCC 多模型」。填写自己的 HTTPS FCC 网�
 
 ---
 
-## 网页版 · 2026-10-19 节点服务目录（5 + 5）
+## 网页版 · 2026-10-19 节点服务目录（**最新聊天替换版**）
 
-新入口：`https://nmm26301-maker.github.io/zhi-geng/#nodes`。桌面侧栏新增「节点导航 5+5」，手机底部新增「节点」，原接码入口与看剧AI不删除。
+入口：`https://nmm26301-maker.github.io/zhi-geng/#nodes`。原接码、看剧AI、年度榜单功能保持不变。
 
-来自 2026-10-19「购买节点 / 一分钱机场」讨论的分组需求：原聊天只可确认用户确实要求「专业静态／动态代理 5 家」与「低价机场 5 家」和用户提供的 FreeCat 注册网址，**旧聊天中其余十家原始清单无法完整恢复**。因此当前目录是基于真实可查询官方网站与公开目录补齐的参考候选，不能说十家都已经在旧聊天中逐一选定。分组保持严格 **5 + 5**：
+**本次操作是覆盖原名单，不是追加。** 上一版未经确认的 Webshare、SOAX、Oxylabs 等自选结果已替换；低价机场原有「一分机场、一元机场、三毛机场、赔钱机场」等不再作为最新筛选的五家。按照用户最新的「重新筛选」「支持支付宝／微信」聊天，分成严格 5 + 5：
 
-1. **静态 / 动态代理 IP 服务：** Webshare（`webshare.io`）、IPRoyal（`iproyal.com`）、Decodo（`decodo.com`）、SOAX（`soax.com`）、Oxylabs（`oxylabs.io`）。
-2. **低价机场 / 节点订阅：** FreeCat 自由猫（用户原链接 `https://us.freecat.cloud/register`）、一分机场、一元机场、三毛机场、赔钱机场。后四家仅根据公开页面和第三方目录提供参考入口；域名及运营主体需要自行核验，不能视为官方身份背书。
+- **专业静态/动态代理 IP：** Decodo（`https://decodo.cn/`）、NextProxy（`https://www.nextproxy.com/`）、IPFast（`https://ipfast.net/`）、LycheeIP（`https://www.lycheeip.com/`）、IPRoyal（`https://iproyal.com/`，**暂用更早一轮提到的候选占位，原最新聊天第五家名字暂无法恢复**）。四家最新确认名称不应与第五家暂用候选混为一谈。
+- **低价机场订阅：** 星岛梦（`https://kfccbb.xingdaomeng.com/`）、FreeCat（`https://us.freecat.cloud/register`，用户原链接）、九云（`https://jiuyundl.com/`）、宝云（`https://888by.baoyundl.com/`）、锦云（`https://jybdw1.wanhlj.com/`）。机场 URL 中的部分站点来自第三方目录/推广跳转，不保证等于持久官方主域名；注册付款前应再次确认。
+- **额外独立控制台**：`https://xn--4gqx1hgtfdmt.com/#/dashboard`，是用户另外明确提供的网址；单独放在两组之后，不归入机场五家，不计入十个不同服务商。
 
-功能：两组分别呈现、不混排行；本地文本搜索与收藏；十个网站独立 HTTPS 入口在外部网页打开（不嵌入第三方支付／账号页面）；显示各站点来源与核验限制；窄屏可横向滚动底部导航，防止八个入口挤成一排。
+最新聊天中提及的参考月付：星岛梦 ¥25/150GB，FreeCat ¥12/100GB，九云 ¥6/150GB，宝云 ¥4/200GB，锦云 ¥6/50GB；实际套餐以官网结算页为准。最新聊天提到的支付方式：Decodo 亚洲地区支付宝、微信未核实；NextProxy、IPFast、LycheeIP 官网列支付宝和微信；机场星岛梦、九云、宝云、锦云的双支付信息来自第三方资料，FreeCat 支付宝被提及、微信未核实。这些都**未做过实际付款验证**。
 
-**最新补充：额外的一分机场控制台快捷入口。** 用户明确提供 `https://xn--4gqx1hgtfdmt.com/#/dashboard`，现以独立快捷卡片放在第二组下方，不计入 5+5 十家服务商数量。该地址与原有「一分机场」的 `https://xn--4gqx1hgtfdmt.com/` 属于同一域名，并非新增加了一个不同的机场；带有 `#/dashboard` 的完整路径原样保留。当前检查环境访问返回 HTTP 403，因此只确认链接形式、未确认页面是否需要登录或对所有用户开放。新增 `data/node-sites.json.shortcuts` 数据字段及端到端回归断言。
+UI 显示分组、价格、支付方式及核实程度；保留站内搜索、收藏，第三方网页通过 HTTPS 新标签打开，不代理视频/订阅/账号/支付数据。没有独立实测 ISP/ASN、IP 信誉、AI 服务解锁或长期在线率，也不保证适合 ChatGPT、Gemini、Claude。低价机场可能频繁变更域名、运营主体或套餐；优先短期小额试用。
 
-
-**重要：** 商业 ISP / 住宅代理与机场订阅是不同服务，不得将机场默认宣传为原生独享住宅 IP。此目录未实测真实出口 ASN、IP 信誉、ChatGPT/Gemini/Claude 区域权限、线路速度／售后／价格，也未代替用户购买或登录。尤其 FreeCat 在 2026 年曾有社区投诉与后续可用性反馈；低价机场存在更换域名、同名仿冒、停服和付款风险，宜先核对来源并小额短期试用。不会收集账号密码、代理凭据、付款信息或用户订阅地址。
-
-代码：`data/node-sites.json`、`assets/node-directory.js`、`assets/zhigeng-v064.js`、`assets/zhigeng-v064.css`，测试：`tests/node-directory.test.mjs`。
+代码：`data/node-sites.json`（schema v3）、`assets/node-directory.js`、`assets/zhigeng-v064.css`；回归测试：`tests/node-directory.test.mjs`。
 
 ## 网页版 · 2026-10-19 接码导航整合
 
