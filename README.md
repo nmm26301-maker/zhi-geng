@@ -22,6 +22,21 @@ FCC 入口在「AI 助手 → FCC 多模型」。填写自己的 HTTPS FCC 网�
 
 ---
 
+## 网页版 · 2026-10-19 节点服务目录（5 + 5）
+
+新入口：`https://nmm26301-maker.github.io/zhi-geng/#nodes`。桌面侧栏新增「节点导航 5+5」，手机底部新增「节点」，原接码入口与看剧AI不删除。
+
+来自 2026-10-19「购买节点 / 一分钱机场」讨论的分组需求：原聊天只可确认用户确实要求「专业静态／动态代理 5 家」与「低价机场 5 家」和用户提供的 FreeCat 注册网址，**旧聊天中其余十家原始清单无法完整恢复**。因此当前目录是基于真实可查询官方网站与公开目录补齐的参考候选，不能说十家都已经在旧聊天中逐一选定。分组保持严格 **5 + 5**：
+
+1. **静态 / 动态代理 IP 服务：** Webshare（`webshare.io`）、IPRoyal（`iproyal.com`）、Decodo（`decodo.com`）、SOAX（`soax.com`）、Oxylabs（`oxylabs.io`）。
+2. **低价机场 / 节点订阅：** FreeCat 自由猫（用户原链接 `https://us.freecat.cloud/register`）、一分机场、一元机场、三毛机场、赔钱机场。后四家仅根据公开页面和第三方目录提供参考入口；域名及运营主体需要自行核验，不能视为官方身份背书。
+
+功能：两组分别呈现、不混排行；本地文本搜索与收藏；十个网站独立 HTTPS 入口在外部网页打开（不嵌入第三方支付／账号页面）；显示各站点来源与核验限制；窄屏可横向滚动底部导航，防止八个入口挤成一排。
+
+**重要：** 商业 ISP / 住宅代理与机场订阅是不同服务，不得将机场默认宣传为原生独享住宅 IP。此目录未实测真实出口 ASN、IP 信誉、ChatGPT/Gemini/Claude 区域权限、线路速度／售后／价格，也未代替用户购买或登录。尤其 FreeCat 在 2026 年曾有社区投诉与后续可用性反馈；低价机场存在更换域名、同名仿冒、停服和付款风险，宜先核对来源并小额短期试用。不会收集账号密码、代理凭据、付款信息或用户订阅地址。
+
+代码：`data/node-sites.json`、`assets/node-directory.js`、`assets/zhigeng-v064.js`、`assets/zhigeng-v064.css`，测试：`tests/node-directory.test.mjs`。
+
 ## 网页版 · 2026-10-19 接码导航整合
 
 - **复用此前做好的接码网站**：从仓库原有 `sms-chinese-hub` 分支取回最终「访问原站」版本 `sms-hub/visit-only-20261019.html`，保存到 `main` 分支的 `sms-hub/index.html`。完整地址：`https://nmm26301-maker.github.io/zhi-geng/sms-hub/`。
