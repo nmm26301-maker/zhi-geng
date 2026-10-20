@@ -4,7 +4,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   const labels = {all:'全部',movie:'电影',tv:'电视剧',anime:'动漫',variety:'综艺',book:'书籍'};
-  const state = {domestic:[],type:'all',rankType:'movie',rankSource:'yearly',rankYear:String(new Date().getFullYear()),rankRegion:'global',rankSort:'rating',rankPage:1,rankHasMore:false,rankNote:'',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck',fccFingerprint:'',draft:''};
+  const state = {domestic:[],type:'all',rankType:'movie',rankSource:'yearly',rankYear:String(new Date().getFullYear()),rankRegion:'CN',rankSort:'rating',rankPage:1,rankHasMore:false,rankNote:'',rankingItems:[],chat:[],controller:null,rankSeq:0,tab:'duck',fccFingerprint:'',draft:''};
   const storeKey = 'zhigeng_saved_v1';
   const keyName = 'zhigeng_tmdb_credential_v1';
 
@@ -13,6 +13,15 @@
   }
   function safeHttp(link) {
     try { const url = new URL(String(link)); return url.protocol === 'https:' ? url.href : '#'; } catch { return '#'; }
+  }
+  // 仅接受媒体数据源的 HTTPS 图片，不把任意地址注入海报容器。
+  function safePoster(value) {
+    try {
+      const url=new URL(String(value||''));
+      return url.protocol==='https:'&&[
+        'image.tmdb.org','s4.anilist.co','s3.anilist.co','covers.openlibrary.org','upload.wikimedia.org'
+      ].includes(url.hostname)?url.href:'';
+    } catch {return '';}
   }
   function readSaved() {
     try { const value = JSON.parse(localStorage.getItem(storeKey) || '{}'); return value && typeof value === 'object' && !Array.isArray(value) ? value : {}; }
@@ -42,15 +51,17 @@
     const saved = !!readSaved()[item.id];
     const type = labels[item.type] || item.type;
     const annualLabel=String(item.scoreLabel||'');
-    const showScore=Number(item.score)>0&&(item.annual ? (item.type==='book'?Number(item.votes)>=10:item.type==='anime'||Number(item.votes)>=50) : Number(item.votes)>=50);
+    const showScore=Number(item.score)>0&&(item.annual ? (item.type==='book'?Number(item.votes)>=10:item.type==='anime'||(Number(item.votes)>=10)) : Number(item.votes)>=50);
     const score=showScore ?
       '<span class="zg-rating">★ ' + Number(item.score).toFixed(1) + (annualLabel==='Open Library /5'?'/5':'/10') +
       ' <small>· ' + escapeHTML(annualLabel||'评分') + (item.type==='movie'||item.type==='tv'||item.type==='variety'?' · '+Number(item.votes).toLocaleString('zh-CN')+' 票':'') + '</small></span>' :
       '<span class="zg-editor-label">' + (item.annual?'暂无可靠评分':'编辑甄选') + '</span>';
     const author = item.author || item.subtype || '';
     const source = item.source || '知更编辑推荐';
+    const poster=safePoster(item.image);
+    const posterMarkup=poster?'<img class="zg-poster" src="'+escapeHTML(poster)+'" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />':'';
     return '<article class="zg-work" data-kind="' + escapeHTML(item.type) + '">' +
-      '<div class="zg-art zg-art-' + escapeHTML(item.type) + '" aria-hidden="true"><span class="zg-art-number">' + String(index + 1).padStart(2,'0') + '</span>' +
+      '<div class="zg-art zg-art-' + escapeHTML(item.type) + '" aria-hidden="true">'+posterMarkup+'<span class="zg-art-number">' + String(index + 1).padStart(2,'0') + '</span>' +
       '<div class="zg-art-title">' + escapeHTML(item.title) + '</div><small>ZHIGENG · ' + escapeHTML(type) + '</small></div>' +
       '<div class="zg-work-copy"><div class="zg-work-meta">' + (ranked ? '<b class="zg-rank">NO. ' + String(item.rank || index + 1).padStart(2,'0') + '</b>' : '') +
       '<span>' + escapeHTML(type) + '</span><span>' + escapeHTML(item.year || '经典作品') + '</span></div>' +
@@ -116,7 +127,8 @@
       state.rankingItems=value.items||[];
       state.rankHasMore=!!value.hasMore;
       state.rankNote=value.note||'年度目录';
-      if(value.needsTmdb)state.rankNote+=' 动漫与图书年度榜单可使用公开数据，不需要 TMDB 密钥。';
+      if(state.rankRegion==='CN'&&['movie','tv','variety'].includes(state.rankType))state.rankNote+=' · 数据源并非作品全集；切换「热度」可查看更多低票数新作。';
+      if(value.needsTmdb)state.rankNote+=' 国产影视需配置 TMDB API 凭证；国产动画和中文书可用公开数据。国内编辑精选不是全国年度全集。';
     } catch(error) {
       if(requestId!==state.rankSeq||$('#zgPanel')?.dataset.page!=='rankings')return;
       state.rankingItems=[];state.rankHasMore=false;
@@ -194,11 +206,11 @@
     if(page!=='rankings') ++state.rankSeq;
     $$('.zg-side-link,.zg-mobile-link,.zg-ai-header').forEach(a => a.classList.toggle('is-active',a.getAttribute('href') === '#' + page));
     if (page === 'rankings') {
-      panel.innerHTML = '<div class="zg-section-top"><span>ANNUAL DISCOVERY · 1900—' + new Date().getFullYear() + '</span><h1>每一年的好作品排行榜</h1><p>可选年份、地区、类型和排名依据。各数据源独立排序，不混用不同平台评分。</p></div>' +
+      panel.innerHTML = '<div class="zg-section-top"><span>ANNUAL DISCOVERY · 1900—' + new Date().getFullYear() + '</span><h1>每一年的好作品排行榜</h1><p>默认展示内地／香港／台湾的年度作品。可切换年份、类型、口碑与热度；含真实封面、数据来源和分页，不把编辑清单冒充全国完整排名。</p></div>' +
         '<div class="zg-ranking-toolbar"><div class="zg-toggle"><button data-zg-rank-source="yearly" type="button">每年排行榜</button><button data-zg-rank-source="editor" type="button">知更编辑精选</button><button data-zg-rank-source="tmdb" type="button">TMDB 综合评分榜</button></div><button type="button" class="zg-return" data-zg-return>返回探索 ↗</button></div>' +
         '<div id="zgYearControls" class="zg-year-controls" aria-label="年度排行榜筛选"><label>年份<select id="zgRankYear" aria-label="选择排行榜年份">' +
         Array.from({length:new Date().getFullYear()-1899},(_,i)=>new Date().getFullYear()-i).map(y=>'<option value="'+y+'">'+y+' 年'+(y===new Date().getFullYear()?' · 进行中':'')+'</option>').join('') +
-        '</select></label><label>作品地区<select id="zgRankRegion" aria-label="选择作品地区"><option value="global">全球 / 所有语言</option><option value="CN">中国来源 / 中文版本</option></select></label>' +
+        '</select></label><label>作品地区<select id="zgRankRegion" aria-label="选择作品地区"><option value="global">全球 / 所有语言</option><option value="CN">内地＋香港＋台湾</option></select></label>' +
         '<label>排行依据<select id="zgRankSort" aria-label="选择排行依据"><option value="rating">口碑评分</option><option value="popular">热度 / 关注度</option></select></label></div>' +
         '<div id="zgRankingFilters"></div><p class="zg-data-note" id="zgRankingCount" role="status" aria-live="polite"></p><div id="zgRankingList" class="zg-work-grid"></div>' +
         '<div id="zgRankPager" class="zg-rank-pager"><button type="button" id="zgRankPrev" data-zg-page="prev">← 上一页</button><span id="zgRankPageLabel">第 1 页</span><button type="button" id="zgRankNext" data-zg-page="next">下一页 →</button></div>';
@@ -483,6 +495,13 @@
       else return;
       changeAnnualFilter();
     });
+    // 图片已加载才隐藏占位文字；加载失败则仍显示可读的文字卡。
+    document.addEventListener('load',event=>{
+      if(event.target.matches?.('.zg-poster'))event.target.closest('.zg-art')?.classList.add('is-loaded');
+    },true);
+    document.addEventListener('error',event=>{
+      if(event.target.matches?.('.zg-poster')){event.target.hidden=true;event.target.closest('.zg-art')?.classList.remove('is-loaded');}
+    },true);
     document.addEventListener('click',event=>{
       const save=event.target.closest('[data-zg-save]');
       if (!save) return;
@@ -512,6 +531,11 @@
       }));
       renderDomestic();
       if ($('#zgPanel')?.dataset.page === 'rankings' && state.rankSource === 'editor') renderRankingList();
+      window.ZhigengCoverEnrichment?.fill(state.domestic).then(items=>{
+        if(!items)return;
+        state.domestic=items;renderDomestic();
+        if ($('#zgPanel')?.dataset.page === 'rankings' && state.rankSource === 'editor') renderRankingList();
+      }).catch(()=>{});
     } catch (error) {
       $('#zgDomesticCount').textContent='编辑目录暂不可用：'+error.message;
       $('#zgDomesticGrid').innerHTML='<div class="zg-empty">请检查 data/domestic.json 是否随网站一同发布。</div>';
