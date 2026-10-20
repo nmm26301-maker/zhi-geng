@@ -83,7 +83,7 @@
     const items=editor?state.domestic.filter(x=>state.rankType==='all'||x.type===state.rankType):state.rankingItems;
     const target=$('#zgRankingList');
     if(!target)return;
-    target.innerHTML=items.length?items.map((x,i)=>card(x,i,!(annual&&x.editorialFallback))).join(''):
+    target.innerHTML=items.length?items.map((x,i)=>card(x,i,!(annual&&(x.editorialFallback||x.directory)))).join(''):
       '<div class="zg-empty">这个年份和分类暂无可显示的真实记录。可换个年份、类型或数据来源。'+
       (annual&&['movie','tv','variety'].includes(state.rankType)&&!localStorage.getItem(keyName)?
       ' <button class="zg-rank-setup" id="zgRankSetup" type="button">配置 TMDB 密钥 ↗</button>':'')+'</div>';
@@ -127,12 +127,20 @@
       state.rankingItems=value.items||[];
       state.rankHasMore=!!value.hasMore;
       state.rankNote=value.note||'年度目录';
-      if(state.rankRegion==='CN'&&['movie','tv','variety'].includes(state.rankType))state.rankNote+=' · 数据源并非作品全集；切换「热度」可查看更多低票数新作。';
-      if(value.needsTmdb)state.rankNote+=' 国产影视需配置 TMDB API 凭证；国产动画和中文书可用公开数据。国内编辑精选不是全国年度全集。';
+      if(state.rankRegion==='CN'&&['movie','tv','variety'].includes(state.rankType)&&!value.publicCatalog)state.rankNote+=' · 数据源并非作品全集；切换「热度」可查看更多低票数新作。';
+      if(value.publicCatalog&&window.ZhigengCoverEnrichment?.fill){
+        window.ZhigengCoverEnrichment.fill(state.rankingItems).then(items=>{
+          if(requestId!==state.rankSeq||$('#zgPanel')?.dataset.page!=='rankings'||state.rankSource!=='yearly')return;
+          if(!items)return;
+          state.rankingItems=items;renderRankingList();
+        }).catch(()=>{});
+      }
+      if(value.publicCatalog)state.rankNote+=' · 这是免密钥的年度作品索引，条目未按照分数排名；要看评分、热度和海报请在设置中配置 TMDB。';
+      else if(value.needsTmdb)state.rankNote+=' 国产影视评分排行需配置 TMDB API 凭证；年度维基百科作品索引可能因网络不可用而无法读取。';
     } catch(error) {
       if(requestId!==state.rankSeq||$('#zgPanel')?.dataset.page!=='rankings')return;
       state.rankingItems=[];state.rankHasMore=false;
-      state.rankNote='年度榜单读取失败：'+(error?.message||'网络不可用')+'。不会把其他年份或缓存误当实时排行。';
+      state.rankNote='年度榜单读取失败：'+(error?.message||'网络不可用')+'。没有经过核实的作品不计入排名。';
     } finally {
       if(requestId===state.rankSeq) {state.rankLoading=false;renderRankingList();}
     }
