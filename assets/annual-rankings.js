@@ -14,12 +14,12 @@
   };
   const result=(items,f,note,more=false)=>({
     items:items.map((v,i)=>({...v,rank:(f.page-1)*20+i+1,annual:true})),
-    note,hasMore:!!more&&f.page<10
+    note,hasMore:!!more&&f.page<25
   });
   const validate=(input)=>{
     const f={...input,year:Number(input.year),page:Number(input.page)};
     if(!Number.isInteger(f.year)||f.year<1900||f.year>new Date().getFullYear())throw Error('年份无效');
-    if(!Number.isInteger(f.page)||f.page<1||f.page>10)throw Error('页数无效');
+    if(!Number.isInteger(f.page)||f.page<1||f.page>25)throw Error('页数无效');
     if(!['movie','tv','anime','variety','book'].includes(f.type))throw Error('请选择内容类型');
     if(!['CN','global'].includes(f.region)||!['rating','popular'].includes(f.sort))throw Error('筛选条件无效');
     return f;
@@ -32,18 +32,22 @@
     const route=f.type==='movie'?'movie':'tv';
     const key=route==='movie'?'primary_release_date':'first_air_date';
     const url=new URL('https://api.themoviedb.org/3/discover/'+route);
+    // 热度榜允许未评分新作进入；国内评分榜降低样本门槛，同时明确评分偏差。
+    const minVotes=f.sort==='popular'?0:(f.region==='CN'?10:50);
     const params={'language':'zh-CN','include_adult':'false','page':String(f.page),
-      'sort_by':f.sort==='rating'?'vote_average.desc':'popularity.desc','vote_count.gte':'50',
+      'sort_by':f.sort==='rating'?'vote_average.desc':'popularity.desc',
       [key+'.gte']:f.year+'-01-01',[key+'.lte']:f.year+'-12-31'};
+    if(minVotes>0)params['vote_count.gte']=String(minVotes);
     if(f.type==='variety')params.with_genres='10764|10767';
-    if(f.region==='CN')params.with_origin_country='CN';
+    // OR 匹配内地／香港／台湾制作来源；不是将所有中文配音外国片视作国产。
+    if(f.region==='CN')params.with_origin_country='CN|HK|TW';
     for(const [name,value] of Object.entries(params))url.searchParams.set(name,value);
     const headers={Accept:'application/json'};
     if(isKey)url.searchParams.set('api_key',credential);else headers.Authorization='Bearer '+credential;
     const data=await fetchJSON(url.href,{headers},f.fetcher);
     const date=route==='movie'?'release_date':'first_air_date';
     const rows=(Array.isArray(data.results)?data.results:[])
-      .filter(v=>String(v[date]||'').slice(0,4)===String(f.year)&&Number(v.vote_count)>=50)
+      .filter(v=>String(v[date]||'').slice(0,4)===String(f.year)&&Number(v.vote_count)>=minVotes)
       .map(v=>({
         id:'tmdb:'+route+':'+v.id,type:f.type,title:v.title||v.name||'未命名作品',year:String(f.year),
         author:'TMDB 用户评分',tag:f.sort==='rating'?'评分排行':'热度排行',
@@ -52,8 +56,10 @@
         score:Number(v.vote_average)||0,votes:Number(v.vote_count)||0,interest:Number(v.popularity)||0,
         scoreLabel:'TMDB /10'
       }));
-    return result(rows,f,'TMDB · '+f.year+' 年 · '+(f.region==='CN'?'中国来源':'全球')+
-      ' · '+(f.sort==='rating'?'平均评分排序':'热度排序')+' · 评分人数不少于50位',
+    return result(rows,f,'TMDB · '+f.year+' 年 · '+(f.region==='CN'?'内地／香港／台湾来源':'全球')+
+      ' · '+(f.sort==='rating'?'TMDB 平均评分排序':'TMDB 热度排序')+
+      (minVotes?' · '+minVotes+'票起（小样本评分需谨慎）':' · 不限定评分人数')+
+      ' · 当前源共 '+Number(data.total_results||0)+' 条匹配（非全国作品全集）',
       f.page<Number(data.total_pages||1));
   }
   async function anime(f){
