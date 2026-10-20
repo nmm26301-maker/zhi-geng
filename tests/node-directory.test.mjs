@@ -67,7 +67,7 @@ test('exactly two independent five-item lists, original FreeCat entry, unique HT
 
 test('node entry opens two separately titled groups, 5+5 cards and never preloads shopping sites',async()=>{
   const {dom,w,requests}=await createPage();
-  w.location.hash='#nodes';
+  tap(w,'a[href="#nodes"]');
   await settle();
   assert.equal(w.document.querySelector('#zgPanel').dataset.page,'nodes');
   const groups=[...w.document.querySelectorAll('.zg-node-group')];
@@ -87,7 +87,7 @@ test('node entry opens two separately titled groups, 5+5 cards and never preload
 
 test('search filters both groups independently, without mixing services',async()=>{
   const {dom,w}=await createPage();
-  w.location.hash='#nodes';await settle();
+  tap(w,'a[href="#nodes"]');await settle();
   const input=w.document.querySelector('#zgNodesSearch');
   input.value='动态住宅';
   input.dispatchEvent(new w.Event('input',{bubbles:true}));
@@ -100,11 +100,11 @@ test('search filters both groups independently, without mixing services',async()
 
 test('favorites persist after navigating away and back without duplicate toggle',async()=>{
   const {dom,w}=await createPage();
-  w.location.hash='#nodes';await settle();
+  tap(w,'a[href="#nodes"]');await settle();
   tap(w,'.zg-node-card [data-zg-node-favorite="decodo"]');
   assert.deepEqual(JSON.parse(w.localStorage.getItem('zhigeng-node-fav-v1')),['decodo']);
   tap(w,'a[href="#sms"]');await settle();
-  w.location.hash='#nodes';await settle();
+  tap(w,'a[href="#nodes"]');await settle();
   assert.ok(w.document.querySelector('.zg-node-card [data-zg-node-favorite="decodo"]').classList.contains('is-saved'));
   tap(w,'.zg-node-card [data-zg-node-favorite="decodo"]');
   assert.deepEqual(JSON.parse(w.localStorage.getItem('zhigeng-node-fav-v1')),[]);
@@ -121,7 +121,7 @@ test('requested Yifen dashboard is a separate exact deep link, not an eleventh p
   assert.equal(dashboard.url,'https://xn--4gqx1hgtfdmt.com/#/dashboard');
   assert.ok(!nodeData.groups.some(g=>g.entries.some(s=>new URL(s.url).origin===new URL(dashboard.url).origin)),'extra dashboard is not one of ten providers');
   const {dom,w,requests}=await createPage();
-  w.location.hash='#nodes';await settle();
+  tap(w,'a[href="#nodes"]');await settle();
   assert.deepEqual([...w.document.querySelectorAll('.zg-node-group')].map(g=>g.querySelectorAll('.zg-node-card').length),[5,5]);
   assert.equal(w.document.querySelectorAll('.zg-node-shortcut').length,1);
   const extra=w.document.querySelector('.zg-node-extra-section .zg-node-shortcut-link');
@@ -137,7 +137,7 @@ test('requested Yifen dashboard is a separate exact deep link, not an eleventh p
 
 test('latest chat payment and price labels remain visible and fifth proxy is transparently marked',async()=>{
   const {dom,w}=await createPage();
-  w.location.hash='#nodes';await settle();
+  tap(w,'a[href="#nodes"]');await settle();
   assert.equal(w.document.querySelectorAll('.zg-node-payment').length,10);
   assert.equal(w.document.querySelectorAll('.zg-node-price').length,10);
   assert.match(w.document.querySelector('.zg-node-group[data-zg-node-group="proxy"]').textContent,/第5家原聊天无法准确恢复/);
@@ -149,7 +149,7 @@ test('latest chat payment and price labels remain visible and fifth proxy is tra
 
 test('refresh button re-fetches the latest catalog without contacting external provider sites',async()=>{
   const {dom,w,requests}=await createPage();
-  w.location.hash='#nodes';await settle();
+  tap(w,'a[href="#nodes"]');await settle();
   const before=requests();
   tap(w,'#zgNodesRefresh');await settle();
   assert.equal(requests(),before+1);
@@ -162,5 +162,8 @@ test('mobile nav retains SMS and Kanju separately alongside new node category',(
   assert.match(pageHtml,/<a class="zg-mobile-link" href="#sms">/);
   assert.match(pageHtml,/<a class="zg-mobile-link" href="#kanju">/);
   assert.match(pageHtml,/<a class="zg-mobile-link" href="#memberships">/);
-  assert.ok(!pageHtml.includes('<a class="zg-mobile-link" href="#nodes">'),'old mistaken node link not in mobile nav');
+  assert.match(pageHtml,/<a class="zg-mobile-link" href="#nodes">/,'Node entry must stay visible on mobile');
+  const bottom=pageHtml.match(/<nav class="bottom-nav"[\s\S]*?<\/nav>/)?.[0]||'';
+  assert.equal((bottom.match(/href="#nodes"/g)||[]).length,1);
+  assert.equal((bottom.match(/href="#memberships"/g)||[]).length,1);
 });
