@@ -5,7 +5,7 @@ import java.nio.file.*;
 import static org.junit.Assert.*;
 
 public class ServiceDirectoryTest {
-    private String asset(String name)throws Exception{return Files.readString(Path.of(System.getProperty("zhigeng.assets"),name));}
+    private String asset(String name)throws Exception{return new String(Files.readAllBytes(Paths.get(System.getProperty("zhigeng.assets"),name)),java.nio.charset.StandardCharsets.UTF_8);}
     @Test public void bundledChosenListsAndExtraConsoleAreComplete()throws Exception {
         JSONObject nodes=ServiceDirectory.validate("nodes",asset("node-sites.json")),members=ServiceDirectory.validate("memberships",asset("ai-memberships.json"));
         assertEquals(5,nodes.getJSONArray("groups").getJSONObject(0).getJSONArray("entries").length());assertEquals(5,nodes.getJSONArray("groups").getJSONObject(1).getJSONArray("entries").length());assertTrue(nodes.toString().contains("前一轮候选"));assertEquals(2,members.getJSONArray("groups").getJSONObject(1).getJSONArray("entries").length());
