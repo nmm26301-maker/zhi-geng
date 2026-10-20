@@ -1,0 +1,45 @@
+/* 知更 Icon System v1：24px stroke icons / 64px robin brand mark.
+   与现有纸白、松绿、朱砂主题一致，不依赖第三方字体或网络图标库。 */
+:root{--zg-icon-forest:#244e40;--zg-icon-sage:#e9eee7;--zg-icon-coral:#bb614e}
+.zg-icon{display:inline-block;inline-size:1.45em;block-size:1.45em;flex:none;vertical-align:-.28em;fill:none;stroke:currentColor;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+.zg-icon--brand{inline-size:100%;block-size:100%;stroke:none;vertical-align:middle}
+.brand-mark{overflow:hidden;display:flex;align-items:center;justify-content:center;border:0!important;background:transparent!important;border-radius:13px;box-shadow:0 2px 12px #244e4014}
+.brand-mark .zg-icon--brand{inline-size:100%;block-size:100%}
+.mobile-brand{display:flex;align-items:center;gap:7px}
+.mobile-brand .zg-icon--brand{inline-size:27px;block-size:27px;border-radius:8px}
+.nav-icon,.cat-icon{display:grid;place-items:center;flex:none}
+.nav-icon .zg-icon{inline-size:21px;block-size:21px}
+.cat-icon .zg-icon{inline-size:19px;block-size:19px}
+.category-nav .cat-icon{inline-size:31px;block-size:31px;border-radius:11px;background:color-mix(in srgb,var(--category,#244e40) 16%,transparent);color:var(--category,#244e40);transition:background .2s,transform .2s}
+.category-nav:hover .cat-icon{transform:translateY(-1px)}
+.category-nav.active .cat-icon{background:#dceadf;color:#244e40}
+.nav-item.active .nav-icon{color:#397a5d}
+.search-icon .zg-icon{inline-size:20px;block-size:20px}
+.header-actions .zg-icon{inline-size:19px;block-size:19px}
+.icon-button,.avatar{display:grid;place-items:center}
+.avatar{border:1px solid #d9e5da;background:#e8f0e7;color:#305d47}
+.settings-link{display:flex;align-items:center;gap:10px}
+.settings-link .zg-icon{inline-size:17px;block-size:17px}
+.hero-art .radar-core .zg-icon{inline-size:32px;block-size:32px;stroke-width:1.6}
+.stat-symbol{display:grid;place-items:center;inline-size:37px;block-size:37px;border-radius:13px;color:#396d54;background:#e8f0e8;font-size:17px}
+.stat-symbol .zg-icon{inline-size:21px;block-size:21px}
+.newsletter-icon{display:grid;place-items:center}
+.newsletter-icon .zg-icon{inline-size:24px;block-size:24px}
+.heading-sparkle .zg-icon{inline-size:20px;block-size:20px}
+.empty-glyph .zg-icon{inline-size:36px;block-size:36px}
+.book-search-control>span .zg-icon{inline-size:21px;block-size:21px}
+.bottom-nav button,.bottom-nav a.zg-mobile-link{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;white-space:nowrap}
+.bottom-nav .zg-icon{inline-size:20px;block-size:20px;stroke-width:1.8;transition:transform .18s ease,stroke-width .18s ease}
+.bottom-nav button.active .zg-icon,.bottom-nav a[aria-current="page"] .zg-icon{stroke-width:2.25;transform:translateY(-1px)}
+.bottom-nav button:active .zg-icon,.bottom-nav a:active .zg-icon{transform:scale(.9)}
+.bottom-nav small{display:block;line-height:1.3}
+.site-footer .zg-icon{inline-size:16px;block-size:16px;vertical-align:-.22em}
+@media(max-width:700px){
+ .brand-mark{border-radius:12px}
+ .bottom-nav{scrollbar-width:none}
+ .bottom-nav::-webkit-scrollbar{display:none}
+ .bottom-nav button,.bottom-nav a.zg-mobile-link{min-inline-size:60px;min-block-size:54px}
+ .bottom-nav small{font-size:10px}
+ .bottom-nav .zg-icon{inline-size:21px;block-size:21px}
+}
+@media(prefers-reduced-motion:reduce){.zg-icon,.category-nav .cat-icon{transition:none!important}}
