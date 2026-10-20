@@ -1,5 +1,8 @@
 # 知更 · Android App
 
+> **2026-10-20 · 知更全端图标升级（源代码已提交，APK 尚未重新构建）**：原创知更鸟品牌标识，网页/安卓统一的圆角矢量图标，安卓五项底部导航及分类 / AI 工具入口更新。可编辑设计见 [Figma Icon Studio](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=33-256)，实现与校验记录见 [图标设计文档](design/icon-studio-20261020.md)。**现有 0.6.6 APK 不包含此次图标修改，须待重新构建并签名后才能在手机上看到。**
+
+
 **安卓安装包：[Zhigeng-v0.6.6.apk](releases/Zhigeng-v0.6.6.apk?raw=true)**
 
 原生安卓应用，支持 Android 8.0 及以上。发现、榜单、阅读、书架、我的五个页面；28项国内编辑推荐、TMDB 国内评分榜、Z-Library 站内链接与下载、书架、EPUB/TXT/PDF 内置阅读。主要功能使用安卓原生界面；AI 助手包含 Duck.ai 官方网页和原生 FCC 网关聊天。
