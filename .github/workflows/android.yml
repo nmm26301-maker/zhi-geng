@@ -163,3 +163,34 @@ jobs:
           name: Zhigeng-v0.6.7-reader-check
           path: emulator-check/
           retention-days: 30
+
+  publish_preview:
+    needs: [build, emulator, reader]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Zhigeng-native-android-v0.6.7
+          path: apk-output
+      - name: Publish independently installable preview prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PREVIEW_TAG: preview-v0.6.7-run-${{ github.run_number }}
+        run: |
+          set -euo pipefail
+          test -s apk-output/Zhigeng-v0.6.7-preview.apk
+          if gh release view "$PREVIEW_TAG" >/dev/null 2>&1; then
+            echo "The run-specific preview is already published; do not replace its signing identity."
+            exit 0
+          fi
+          gh release create "$PREVIEW_TAG" apk-output/Zhigeng-v0.6.7-preview.apk apk-output/preview-sha256.txt \
+            --target "$GITHUB_SHA" \
+            --title "知更 Android 0.6.7 预览 · 构建 $GITHUB_RUN_NUMBER" \
+            --prerelease \
+            --notes "这是通过构建、阅读器及 Android 模拟器检查后发布的独立预览版。包名 cn.zhigeng.app.preview，不覆盖正式知更。使用构建时生成的测试签名，不可用于正式版覆盖升级；不同预览构建的签名可能不同。正式版请沿用 releases/ 目录已发布的原签名安装包。"
+          echo "Published installable preview APK to GitHub Releases." >> "$GITHUB_STEP_SUMMARY"
