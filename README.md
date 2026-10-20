@@ -1,10 +1,27 @@
 # 知更 · Android App
 
-**安卓安装包：[Zhigeng-v0.6.3.apk](releases/Zhigeng-v0.6.3.apk?raw=true)**
+**安卓安装包：[Zhigeng-v0.6.6.apk](releases/Zhigeng-v0.6.6.apk?raw=true)**
 
 原生安卓应用，支持 Android 8.0 及以上。发现、榜单、阅读、书架、我的五个页面；28项国内编辑推荐、TMDB 国内评分榜、Z-Library 站内链接与下载、书架、EPUB/TXT/PDF 内置阅读。主要功能使用安卓原生界面；AI 助手包含 Duck.ai 官方网页和原生 FCC 网关聊天。
 
 安卓源码与构建说明见 [android/README.md](android/README.md)。最终 APK 已完成私有发布签名校验，沿用0.5版签名，可覆盖安装。模拟器已通过原有五页、Duck.ai 网页加载、FCC 目录、HTTPS 鉴权、增量回复、HTTP 429 与重试、停止、草稿恢复和加密保存检查，无崩溃。FCC 回复使用标注清楚的本地协议测试服务；真实网关对话及真实图书账号下载尚未测试。签名密钥单独保存，不提交公开仓库。
+
+## Android 0.6.6 · 最新聊天合并版
+
+最终 0.6.6 构建、单元测试、Android 29 阅读器和原生功能回归均通过；阅读检查覆盖 EPUB / TXT / GB18030 / PDF、目录、书签、字号、夜间模式和重启定位。模拟器截图确认封面已实际显示，个别原站仍有 DNS / 超时限制。详情见 [发布校验记录](releases/Zhigeng-v0.6.6.json) 、[实际阅读截图](design/zhigeng-v0.6.6-reader-actual.png) 与 [实际封面截图](design/zhigeng-v0.6.6-covers-actual.png)。
+
+本次更新将网站最近的功能完整合入独立安卓 App：
+
+- **节点导航**：代理 IP 五家、机场五家分开，额外保留你提供的控制台网址。第五家代理 IPRoyal 仍明确标记为前一轮候选，未冒充已核实最终名单。
+- **AI 会员**：截图指定的 GamsGo、AI订阅价格雷达、特惠购、FamilyPro、银河录像局五个主推荐，另列环球巴士、Relay Radar 两个备选。与节点独立，支持搜索、AI 产品/交付方式筛选、本地收藏、目录刷新。
+- **国内年度榜**：内地/香港/台湾，国内评分10票起、全球50票起，热度不限票数，最多25页；无 TMDB 密钥可查看电影/剧集公开年度目录，明确标注无评分、无排名，不将条目索引当评分榜。
+- **真实封面**：同步最新28部国内精选图片和备用来源；发现、榜单、详情显示来源封面，支持 HTTPS 跳转、备用图、网络短暂失败后自动重试与手动重试。图片仍受原站网络与反盗链限制。
+- **阅读器**：Readium Kotlin 3.1.0、离线中文宋体、米色/白色/夜间主题、目录、多书签、字号和间距设置；TXT 本地 UTF-8/GB18030 适配，PDF 原生阅读。修正 WebView 分栏正文绘制缺块。
+- 保留 Z-Library 应用内链接与下载、六站接码、kanju.ai、Duck.ai 和原生 FCC 聊天；新服务统一从顶部「⋯ 更多工具」或「我的」进入。
+
+旧版 EPUB/TXT 的像素进度与旧书签无法精确迁移，升级后首次需从目录定位一次；旧数据保留，PDF 页码兼容。第三方网站的付款、账号登录、真实播放和真实图书账号下载未实际完成，目录里的支付和核实程度按原始资料保留。
+
+[Figma 节点 / AI会员](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=30-226) · [两屏设计预览](design/zhigeng-v0.6.6-directories.png) · [年度榜 / 看剧 / 接码设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=26-201) · [阅读器设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=20-134)
 
 [Figma 国内发现 / 榜单 / 下载设计](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=6-653) · [设计预览](design/zhigeng-v0.6-preview.png)
 
