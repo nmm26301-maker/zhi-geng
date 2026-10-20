@@ -64,7 +64,7 @@ test('invalid year and unsupported all-category ranking rejected',async()=>{
 test('domestic popular chart includes newly released films with no vote floor and real poster URLs',async()=>{
   const load=ranker();
   let minCount;
-  const res=await load({...filters,sort:'popular',fetcher:reply({total_pages:3,total_results:45,results:[
+  const res=await load({...filters,sort:'popular',credential:'a'.repeat(32),fetcher:reply({total_pages:3,total_results:45,results:[
     {id:101,title:'内地新片',release_date:'2024-08-08',poster_path:'/2024poster.jpg',vote_average:0,vote_count:0,popularity:340},
     {id:102,title:'港片',release_date:'2024-10-03',poster_path:null,vote_average:7.4,vote_count:9,popularity:130}
   ]},url=>{minCount=url.searchParams.get('vote_count.gte');assert.equal(url.searchParams.get('with_origin_country'),'CN|HK|TW');})});
