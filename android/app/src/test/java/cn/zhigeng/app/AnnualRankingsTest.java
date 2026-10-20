@@ -9,13 +9,13 @@ public class AnnualRankingsTest {
     @Test public void filmsRejectWrongYearAndLowVotesAndKeepPageRanks()throws Exception {
         Catalog.Query q=query("movie");q.region="CN";
         Catalog.Result r=AnnualRankings.load(q,"0123456789abcdef0123456789abcdef",(url,body,headers)->{
-            assertTrue(url.contains("primary_release_date.gte=2020-01-01"));assertTrue(url.contains("with_origin_country=CN"));assertTrue(url.contains("vote_count.gte=50"));assertTrue(url.contains("page=2"));
+            assertTrue(url.contains("primary_release_date.gte=2020-01-01"));assertTrue(url.contains("with_origin_country=CN%7CHK%7CTW"));assertTrue(url.contains("vote_count.gte=10"));assertTrue(url.contains("page=2"));
             return new JSONObject("{\"total_pages\":4,\"results\":[{\"id\":1,\"title\":\"Right\",\"release_date\":\"2020-02-03\",\"vote_count\":60,\"vote_average\":8.2},{\"id\":2,\"release_date\":\"2019-02-03\",\"vote_count\":80},{\"id\":3,\"release_date\":\"2020-02-03\",\"vote_count\":2}]}");
         });assertEquals(1,r.items.size());assertEquals(21,r.items.get(0).getInt("rank"));assertEquals("TMDB /10",r.items.get(0).getString("scoreLabel"));assertTrue(r.more);
     }
     @Test public void tokenStaysInHeaderAndVarietyUsesTelevision()throws Exception {
         Catalog.Query q=query("variety");q.sort="popular";
-        AnnualRankings.load(q,"eyJabc.def.ghi",(url,body,headers)->{assertTrue(url.contains("/discover/tv?"));assertTrue(url.contains("first_air_date.gte=2020"));assertTrue(url.contains("10764%7C10767"));assertTrue(url.contains("popularity.desc"));assertFalse(url.contains("eyJ"));assertEquals("Bearer eyJabc.def.ghi",headers.get("Authorization"));return new JSONObject("{\"results\":[]}");});
+        AnnualRankings.load(q,"eyJabc.def.ghi",(url,body,headers)->{assertTrue(url.contains("/discover/tv?"));assertTrue(url.contains("first_air_date.gte=2020"));assertTrue(url.contains("10764%7C10767"));assertTrue(url.contains("popularity.desc"));assertFalse(url.contains("vote_count.gte"));assertFalse(url.contains("eyJ"));assertEquals("Bearer eyJabc.def.ghi",headers.get("Authorization"));return new JSONObject("{\"results\":[]}");});
     }
     @Test public void booksUseOwnScaleAndExcludeSparseRatings()throws Exception {
         Catalog.Query q=query("book");q.region="CN";
@@ -29,7 +29,7 @@ public class AnnualRankingsTest {
     }
     @Test public void invalidFiltersFailBeforeNetworkAndLastPageStops()throws Exception {
         Catalog.Query q=query("book");q.year="1899";try{AnnualRankings.load(q,"",(u,b,h)->{fail("Network should not be used");return null;});fail();}catch(Exception expected){assertTrue(expected.getMessage().contains("无效"));}
-        q.year="2020";q.page=10;Catalog.Result r=AnnualRankings.load(q,"",(u,b,h)->new JSONObject("{\"numFound\":1000,\"docs\":[]}"));assertFalse(r.more);
+        q.year="2020";q.page=25;Catalog.Result r=AnnualRankings.load(q,"",(u,b,h)->new JSONObject("{\"numFound\":1000,\"docs\":[]}"));assertFalse(r.more);
     }
     @Test public void absentCredentialDoesNotInventMovieResults()throws Exception {
         try{AnnualRankings.load(query("movie"),"",(u,b,h)->{fail();return null;});fail();}catch(Exception expected){assertTrue(expected.getMessage().contains("TMDB"));}

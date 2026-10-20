@@ -16,8 +16,8 @@ final class Catalog {
     static final String[] DOMAINS={"https://z-lib.gd","https://z-lib.gl","https://z-library.ec","https://article.sk","https://articles.sk","https://zlib.bz","https://1lib.sk","https://z-lib.fm","https://z-lib.sk","https://zliba.ru"};
     static class Query {
         String type="all",text="",year="all",tag="",provider="public",language="",extension="",from="",to="",sort="popular",region="CN",rankSource="editor";
-        int page=1;boolean exact=false;boolean forceLive=false;boolean ranking=false;
-        Query copy(){Query q=new Query();q.type=type;q.text=text;q.year=year;q.tag=tag;q.provider=provider;q.language=language;q.extension=extension;q.from=from;q.to=to;q.sort=sort;q.page=page;q.exact=exact;q.forceLive=forceLive;q.region=region;q.rankSource=rankSource;q.ranking=ranking;return q;}
+        int page=1;boolean exact=false;boolean forceLive=false;boolean ranking=false;boolean publicCatalog=false;
+        Query copy(){Query q=new Query();q.type=type;q.text=text;q.year=year;q.tag=tag;q.provider=provider;q.language=language;q.extension=extension;q.from=from;q.to=to;q.sort=sort;q.page=page;q.exact=exact;q.forceLive=forceLive;q.region=region;q.rankSource=rankSource;q.ranking=ranking;q.publicCatalog=publicCatalog;return q;}
     }
     static class Result {List<JSONObject> items=new ArrayList<>();String note="";boolean more=false;}
     private final Context ctx;private final SecretStore secrets;
@@ -71,7 +71,7 @@ final class Catalog {
         int start=(q.page-1)*24;return start>=list.size()?new ArrayList<>():new ArrayList<>(list.subList(start,Math.min(start+24,list.size())));
     }
     Result search(Query q)throws Exception{
-        if(q.ranking&&q.rankSource.equals("annual"))return AnnualRankings.load(q,secrets.get("tmdb"),this::annualRequest);
+        if(q.ranking&&q.rankSource.equals("annual")){if(q.publicCatalog||secrets.get("tmdb").isEmpty()&&q.region.equals("CN")&&Arrays.asList("movie","tv").contains(q.type))return PublicAnnualCatalog.load(q,this::annualRequest);return AnnualRankings.load(q,secrets.get("tmdb"),this::annualRequest);}
         if(q.type.equals("book")&&q.provider.equals("zlib"))return zsearch(q);
         if(q.ranking&&q.rankSource.equals("tmdb")){
             if(secrets.get("tmdb").isEmpty())throw new Exception("TMDB 评分榜需要有效凭证，可先浏览知更编辑推荐榜。");

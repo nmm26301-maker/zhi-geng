@@ -10,7 +10,7 @@ final class AnnualRankings {
     interface Fetch { JSONObject request(String url,JSONObject body,Map<String,String> headers)throws Exception; }
     static Catalog.Result load(Catalog.Query q,String credential,Fetch fetch)throws Exception {
         int year;try{year=Integer.parseInt(q.year);}catch(Exception e){throw new Exception("请选择年度");}
-        if(year<1900||year>LocalDate.now().getYear()||q.page<1||q.page>10)throw new Exception("年份或页数无效");
+        if(year<1900||year>LocalDate.now().getYear()||q.page<1||q.page>25)throw new Exception("年份或页数无效");
         if(!Arrays.asList("movie","tv","variety","anime","book").contains(q.type)||!Arrays.asList("CN","global").contains(q.region)||!Arrays.asList("rating","popular").contains(q.sort))throw new Exception("榜单筛选无效");
         if(q.type.equals("anime"))return anime(q,year,fetch);
         if(q.type.equals("book"))return books(q,year,fetch);
@@ -18,7 +18,7 @@ final class AnnualRankings {
     }
     private static String enc(String text)throws Exception{return URLEncoder.encode(text,"UTF-8");}
     private static Catalog.Result result(Catalog.Query q,List<JSONObject> rows,String note,boolean more)throws Exception {
-        Catalog.Result r=new Catalog.Result();r.items=rows;r.note=note;r.more=more&&q.page<10;
+        Catalog.Result r=new Catalog.Result();r.items=rows;r.note=note;r.more=more&&q.page<25;
         for(int i=0;i<rows.size();i++)rows.get(i).put("rank",(q.page-1)*20+i+1).put("annual",true);
         return r;
     }
@@ -30,19 +30,21 @@ final class AnnualRankings {
         if(!key&&!token.matches("eyJ[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+"))throw new Exception("影视年度榜需要 TMDB 凭证，请到「我的」验证保存；也可切换编辑推荐。");
         String route=q.type.equals("movie")?"movie":"tv",date=route.equals("movie")?"primary_release_date":"first_air_date";
         String upper=year==LocalDate.now().getYear()?LocalDate.now().toString():year+"-12-31";
-        String url="https://api.themoviedb.org/3/discover/"+route+"?language=zh-CN&include_adult=false&page="+q.page+"&sort_by="+(q.sort.equals("rating")?"vote_average.desc":"popularity.desc")+"&vote_count.gte=50&"+date+".gte="+year+"-01-01&"+date+".lte="+upper;
-        if(q.region.equals("CN"))url+="&with_origin_country=CN";
+        int minVotes=q.sort.equals("popular")?0:q.region.equals("CN")?10:50;
+        String url="https://api.themoviedb.org/3/discover/"+route+"?language=zh-CN&include_adult=false&page="+q.page+"&sort_by="+(q.sort.equals("rating")?"vote_average.desc":"popularity.desc")+"&"+date+".gte="+year+"-01-01&"+date+".lte="+upper;
+        if(minVotes>0)url+="&vote_count.gte="+minVotes;
+        if(q.region.equals("CN"))url+="&with_origin_country=CN%7CHK%7CTW";
         if(q.type.equals("variety"))url+="&with_genres=10764%7C10767";
         Map<String,String> headers=new HashMap<>();if(key)url+="&api_key="+token;else headers.put("Authorization","Bearer "+token);
         JSONObject data=fetch.request(url,null,headers);JSONArray values=data.optJSONArray("results");List<JSONObject> rows=new ArrayList<>();
         if(values!=null)for(int i=0;i<values.length();i++){
             JSONObject v=values.getJSONObject(i);String released=v.optString(route.equals("movie")?"release_date":"first_air_date");
-            if(!released.startsWith(year+"-")||released.compareTo(upper)>0||v.optInt("vote_count")<50)continue;
+            if(!released.startsWith(year+"-")||released.compareTo(upper)>0||v.optInt("vote_count")<minVotes)continue;
             String path=v.optString("poster_path","");
             rows.add(item("tmdb:"+route+":"+v.optInt("id"),q.type,v.optString(route.equals("movie")?"title":"name"),q.year,"TMDB","https://www.themoviedb.org/"+route+"/"+v.optInt("id"),path.isEmpty()||path.equals("null")?"":"https://image.tmdb.org/t/p/w342"+path,v.optString("overview"))
                 .put("score",v.optDouble("vote_average",0)).put("votes",v.optInt("vote_count")).put("interest",v.optDouble("popularity",0)).put("scoreLabel","TMDB /10"));
         }
-        return result(q,rows,"TMDB · "+year+" 年 · "+(q.region.equals("CN")?"中国来源":"全球")+" · "+(q.sort.equals("rating")?"评分":"热度")+"排序 · 至少50票",q.page<data.optInt("total_pages",1));
+        return result(q,rows,"TMDB · "+year+" 年 · "+(q.region.equals("CN")?"内地／香港／台湾来源":"全球")+" · "+(q.sort.equals("rating")?"评分":"热度")+"排序 · "+(minVotes==0?"不限评分人数":minVotes+"票起，小样本需谨慎")+" · 匹配 "+data.optInt("total_results")+" 条，非完整作品全集",q.page<data.optInt("total_pages",1));
     }
     private static Catalog.Result anime(Catalog.Query q,int year,Fetch fetch)throws Exception {
         String gql="query YearAnime($page:Int!,$year:Int!,$origin:CountryCode,$sort:MediaSort!){Page(page:$page,perPage:20){pageInfo{hasNextPage}media(type:ANIME,seasonYear:$year,countryOfOrigin:$origin,sort:[$sort],isAdult:false){id title{native romaji english}siteUrl coverImage{large}description(asHtml:false)averageScore popularity seasonYear}}}";

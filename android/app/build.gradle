@@ -8,10 +8,11 @@ android {
         multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 605
-        versionName '0.6.5'
+        versionCode 606
+        versionName '0.6.6'
     }
     buildFeatures { buildConfig true }
+    testOptions { unitTests.all { systemProperty "zhigeng.assets", file("src/main/assets").absolutePath } }
     buildTypes {
         release { minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
         debug { minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
@@ -31,3 +32,5 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.8.5'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
 }
+
+dependencies { implementation 'org.jsoup:jsoup:1.18.3' }

@@ -5,6 +5,7 @@
     <application android:allowBackup="false" android:label="知更" android:icon="@drawable/ic_launcher" android:roundIcon="@drawable/ic_launcher" android:theme="@style/AppTheme" android:usesCleartextTraffic="false" android:supportsRtl="true">
         <activity android:name=".FccActivity" android:exported="false" android:windowSoftInputMode="adjustResize" android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".AiActivity" android:exported="false" android:windowSoftInputMode="adjustResize" android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".DirectoryActivity" android:exported="false" />
         <activity android:name=".CompanionActivity" android:exported="false" />
         <activity android:name=".InAppBrowserActivity" android:exported="false" />
         <activity android:name=".PdfActivity" android:exported="false" />
