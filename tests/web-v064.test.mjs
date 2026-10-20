@@ -14,6 +14,13 @@ const settle=()=>new Promise(done=>setTimeout(done,25));
 
 test('website assets load and editorial catalog matches Android v0.6 recommendations',async()=>{
   assert.equal(catalog.items.length,28);
+  assert.equal(catalog.items.filter(x=>x.image).length,28,'all 28 curated works have source-backed covers');
+  assert.ok(catalog.items.every(x=>x.image.startsWith('https://')&&x.imageSource.startsWith('https://')));
+  assert.notEqual(
+    catalog.items.find(x=>x.type==='movie'&&x.title==='活着').image,
+    catalog.items.find(x=>x.type==='book'&&x.title==='活着').image,
+    'movie and novel must not share a misidentified picture'
+  );
   assert.equal(new Set(catalog.items.map(item=>item.id)).size,28);
   assert.ok(catalog.items.every(item=>item.editorial===true&&item.source==='知更编辑推荐'));
   assert.match(html,/zhigeng-v064\.css/);
@@ -40,6 +47,8 @@ test('homepage shows 28 curated entries, rankings and both assistant modes',asyn
   window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
   await settle();
   assert.equal(window.document.querySelectorAll('#zgDomesticGrid .zg-work').length,28);
+  assert.equal(window.document.querySelectorAll('#zgDomesticGrid .zg-poster').length,28,'DOM must contain images not colored blocks');
+  assert.ok([...window.document.querySelectorAll('#zgDomesticGrid .zg-poster')].every(img=>img.src.startsWith('https://')));
   const typeButton=window.document.querySelector('#zgDomesticFilters [data-zg-type="book"]');
   typeButton.click();
   assert.equal(window.document.querySelectorAll('#zgDomesticGrid .zg-work').length,8);
