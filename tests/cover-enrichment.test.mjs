@@ -80,3 +80,41 @@ test('annual Chinese TMDB cards actually load real posters and restore text cove
   assert.match(img.closest('.zg-art').textContent,/测试国产年度电影/);
   dom.window.close();
 });
+
+
+test('every domestic image host is explicitly trusted and fallback restores a readable title',async()=>{
+  const html=readFileSync(resolve(root,'index.html'),'utf8');
+  const core=readFileSync(resolve(root,'assets/zhigeng-v064.js'),'utf8');
+  const catalog=JSON.parse(readFileSync(resolve(root,'data/domestic.json'),'utf8'));
+  assert.equal(catalog.items.length,28);
+  assert.equal(catalog.items.filter(x=>x.image).length,28);
+  const dom=new JSDOM(html,{url:'https://nmm26301-maker.github.io/zhi-geng/',runScripts:'outside-only',pretendToBeVisual:true});
+  const w=dom.window;
+  w.scrollTo=()=>{};
+  w.HTMLElement.prototype.scrollIntoView=()=>{};
+  w.fetch=async url=>{
+    if(String(url).includes('data/domestic.json'))return {ok:true,json:async()=>catalog};
+    throw Error('unexpected '+String(url));
+  };
+  w.eval(core);
+  w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+  await new Promise(done=>setTimeout(done,40));
+  const cards=[...w.document.querySelectorAll('#zgDomesticGrid .zg-work')];
+  assert.equal(cards.length,28);
+  assert.ok(cards.every(card=>card.querySelector('.zg-poster')));
+  const first=cards[0].querySelector('img.zg-poster');
+  assert.match(first.src,/v2\.cri\.cn/);
+  first.dispatchEvent(new w.Event('error'));
+  assert.equal(first.dataset.backupAttempt,'1');
+  assert.match(first.src,/assets\.wmoov\.com/);
+  first.dispatchEvent(new w.Event('load'));
+  assert.ok(first.closest('.zg-art').classList.contains('is-loaded'));
+  first.dispatchEvent(new w.Event('error'));
+  assert.equal(first.hidden,true);
+  assert.equal(first.closest('.zg-art').classList.contains('is-loaded'),false);
+  assert.match(first.closest('.zg-art').textContent,/我不是药神/);
+  const movie=catalog.items.find(x=>x.type==='movie'&&x.title==='活着');
+  const book=catalog.items.find(x=>x.type==='book'&&x.title==='活着');
+  assert.notEqual(movie.image,book.image,'movie and book must not share the same poster');
+  dom.window.close();
+});
