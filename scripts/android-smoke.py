@@ -1,6 +1,7 @@
-import subprocess,time,pathlib,xml.etree.ElementTree as E,json
+import subprocess,time,pathlib,xml.etree.ElementTree as E,json,atexit
 out=pathlib.Path('emulator-check');out.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*args]).decode(errors='replace')
+atexit.register(lambda:(out/'cover-runtime.txt').write_text(adb('logcat','-d','-s','ZhigengCover:V','AndroidRuntime:E')))
 def dump():
  adb('shell','uiautomator','dump','/sdcard/zhigeng.xml');return E.fromstring(adb('shell','cat','/sdcard/zhigeng.xml'))
 def tap(text):
@@ -21,9 +22,9 @@ def open_fcc():
  tap('✦ AI 助手');tap('FCC 多模型')
 def model(label,ref):tap('选择 FCC 模型');tap(label+' (not an AI model)\n'+ref)
 adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity');time.sleep(3)
-time.sleep(8);screen('01-domestic-discovery','国内精选');native_covers=sum('封面已加载' in n.get('content-desc','') for n in dump().iter('node'));tap('榜单');screen('02-annual-rank','年度排行榜');tap('编辑推荐');screen('02-editorial-rank','知更编辑推荐');tap('阅读');screen('03-chinese-books','公开图书目录');tap('书架');screen('04-library','导入');tap('我的');screen('05-settings','TMDB')
+time.sleep(8);screen('01-domestic-discovery','国内精选');native_covers=sum('封面已加载' in n.get('content-desc','') for n in dump().iter('node'));adb('shell','input','swipe','540','1500','540','650','400');time.sleep(3);screen('01b-curated-covers','我不是药神');tap('榜单');screen('02-annual-rank','年度排行榜');tap('编辑推荐');screen('02-editorial-rank','知更编辑推荐');tap('阅读');screen('03-chinese-books','公开图书目录');tap('书架');screen('04-library','导入');tap('我的');screen('05-settings','TMDB')
 tap('更多工具');tap('节点导航 5＋5');screen('28-node-directory','常用节点，');tap('代理 IP 5家');screen('29-proxy-group','Decodo');adb('shell','input','swipe','540','1550','540','1100','300');time.sleep(1);tap('收藏Decodo 德口多');adb('shell','input','swipe','540','450','540','1600','350');time.sleep(1);tap('我的收藏');screen('30-node-favorite','Decodo');tap('机场 5家');screen('31-airport-group','星岛梦');tap('‹ 返回')
-tap('更多工具');tap('AI 会员 5＋2');screen('32-ai-memberships','订阅之前，');adb('shell','input','swipe','540','1500','540','650','400');time.sleep(1);tap('备选 2个');screen('33-ai-alternatives','环球巴士');tap('‹ 返回')
+tap('更多工具');tap('AI 会员 5＋2');screen('32-ai-memberships','订阅之前，');tap('备选 2个');screen('33-ai-alternatives','环球巴士');tap('‹ 返回')
 tap('更多工具');tap('接码导航');screen('21-sms-directory','FreePhoneNum')
 tap('收藏FreePhoneNum');tap('我的收藏');screen('22-sms-favorite','FreePhoneNum');tap('隐藏FreePhoneNum');screen('23-sms-hidden-empty','暂无匹配');tap('已隐藏');screen('24-sms-hidden','FreePhoneNum');tap('恢复FreePhoneNum');tap('全部网站');screen('25-sms-restored','FreePhoneNum');tap('‹ 返回')
 tap('更多工具');tap('看剧 AI');screen('26-kanju-entry','好故事，');tap('打开看剧 AI 官网');time.sleep(10);screen('27-kanju-in-app','刷新')
