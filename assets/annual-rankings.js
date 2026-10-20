@@ -129,7 +129,13 @@
     try {
       if(f.type==='anime')return await anime(f);
       if(f.type==='book')return await books(f);
-      return await films(f);
+      const value=await films(f);
+      // 无 TMDB 凭证时，公开年度作品索引仅是检索目录，不是评分排行榜。
+      if(value.needsTmdb&&f.region==='CN'&&['movie','tv'].includes(f.type)&&window.ZhigengPublicAnnualCatalog?.load) {
+        try{return await window.ZhigengPublicAnnualCatalog.load(f);}
+        catch(error){return {...value,note:value.note+'；公开百科作品目录暂不可用：'+error.message};}
+      }
+      return value;
     } catch(e) {
       try {return await cachedBooks(f,e);}catch{}
       throw e;
