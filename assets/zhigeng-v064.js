@@ -80,7 +80,7 @@
     $('#zgDomesticFilters').innerHTML = typeFilters('',state.type,'zg-type');
     $('#zgDomesticGrid').innerHTML = list.map((item,i) => card(item,i,false)).join('');
     // 可能在DOM插入前已经由缓存读取完成，主动核实 naturalWidth 避免海报仍然透明。
-    $('#zgDomesticGrid .zg-poster').forEach(img=>{
+    $$('#zgDomesticGrid .zg-poster').forEach(img=>{
       if(img.complete&&img.naturalWidth>0)img.closest('.zg-art')?.classList.add('is-loaded');
     });
     $('#zgDomesticCount').textContent = '来自安卓同一份编辑目录 · ' + list.length + ' 部';
@@ -94,7 +94,7 @@
       '<div class="zg-empty">这个年份和分类暂无可显示的真实记录。可换个年份、类型或数据来源。'+
       (annual&&['movie','tv','variety'].includes(state.rankType)&&!localStorage.getItem(keyName)?
       ' <button class="zg-rank-setup" id="zgRankSetup" type="button">配置 TMDB 密钥 ↗</button>':'')+'</div>';
-    $('#zgRankingList .zg-poster').forEach(img=>{
+    $$('#zgRankingList .zg-poster').forEach(img=>{
       if(img.complete&&img.naturalWidth>0)img.closest('.zg-art')?.classList.add('is-loaded');
     });
     $('#zgRankingCount').textContent=editor?'知更人工精选排序 · 不是实时年度榜 · 共 '+items.length+' 部':
