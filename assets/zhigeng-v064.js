@@ -101,6 +101,8 @@
     if(pageControls)pageControls.hidden=!annual;
     if(annual) {
       $('#zgRankYear').value=state.rankYear;
+      const domesticLabel=$('#zgRankRegion option[value="CN"]');
+      if(domesticLabel)domesticLabel.textContent=state.rankType==='book'?'中文版本（不等于中国原创）':state.rankType==='anime'?'中国来源动漫':'内地＋香港＋台湾';
       $('#zgRankRegion').value=state.rankRegion;
       $('#zgRankSort').value=state.rankSort;
       $('#zgRankPageLabel').textContent='第 '+state.rankPage+' 页';
