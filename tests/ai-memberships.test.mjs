@@ -44,6 +44,7 @@ test('user screenshot exact five selected and two backups, replaced eight-site m
   assert.equal(data.groups[0].entries[2].url,'https://tehuio.com/');
   assert.equal(data.groups[1].entries[1].url,'https://aicodex.chat/subscribe');
   assert.match(html,/href="#memberships"/);
+  assert.match(html,/href="#nodes"/,'nodes remains an independent shortcut');
   assert.match(html,/assets\/ai-memberships\.js/);
 });
 test('mobile AI membership route displays five main cards and two backup cards with safe external links',async()=>{
