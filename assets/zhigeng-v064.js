@@ -16,7 +16,7 @@
   }
   // 仅接受媒体数据源的 HTTPS 图片，不把任意地址注入海报容器。
   // 精选海报逐一核对域名；未知站点与非HTTPS图片均拒绝载入。
-  const trustedPosterHosts=new Set(["assets.wmoov.com","bkimg.cdn.bcebos.com","campus-cdhk.oss-cn-hongkong.aliyuncs.com","file.digitaling.com","i0.hdslb.com","image.pmgstatic.com","image.tmdb.org","img.alicdn.com","img.jinantimes.com.cn","img5.xinhuashudian.com","lib.bbgu.edu.cn","m.media-amazon.com","media.bjnews.com.cn","p3-sdbk2-media.byteimg.com","p3.itc.cn","p5.itc.cn","p8.itc.cn","pic6.iqiyipic.com","tsg.hxxy.edu.cn","v2.cri.cn","walter.trakt.tv","www.chinawriter.com.cn","www.gznxbank.com","www.people.com.cn","x0.ifengimg.com","yabook.org","yuyi.com.sg"]);
+  const trustedPosterHosts=new Set(["posters.onesheet.org","resizing.flixster.com","piccdn2.umiwi.com","assets.wmoov.com","bkimg.cdn.bcebos.com","campus-cdhk.oss-cn-hongkong.aliyuncs.com","file.digitaling.com","i0.hdslb.com","image.pmgstatic.com","image.tmdb.org","img.alicdn.com","img.jinantimes.com.cn","img5.xinhuashudian.com","lib.bbgu.edu.cn","m.media-amazon.com","media.bjnews.com.cn","p3-sdbk2-media.byteimg.com","p3.itc.cn","p5.itc.cn","p8.itc.cn","pic6.iqiyipic.com","tsg.hxxy.edu.cn","v2.cri.cn","walter.trakt.tv","www.chinawriter.com.cn","www.gznxbank.com","www.people.com.cn","x0.ifengimg.com","yabook.org","yuyi.com.sg"]);
   const providerPosterHosts=new Set(['image.tmdb.org','s4.anilist.co','s3.anilist.co','covers.openlibrary.org','upload.wikimedia.org']);
   function safePoster(value) {
     try {

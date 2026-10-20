@@ -56,8 +56,9 @@
       "region": "CN",
       "editorial": true,
       "rank": 3,
-      "imageBackup": "",
-      "imageSource": "https://tsg.hxxy.edu.cn/__local/5/BE/EF/33EC897064D51A52748F6DF84FA_2BADDC9F_32D41.jpg"
+      "imageBackup": "https://posters.onesheet.org/posters/modern/1994/to-live-1994-us-theatrical.jpg",
+      "imageSource": "https://tsg.hxxy.edu.cn/__local/5/BE/EF/33EC897064D51A52748F6DF84FA_2BADDC9F_32D41.jpg",
+      "imageBackupSource": "https://onesheet.org/movie/to-live-1994/"
     },
     {
       "id": "curated:cn:movie:3",
@@ -284,8 +285,9 @@
       "region": "CN",
       "editorial": true,
       "rank": 3,
-      "imageBackup": "",
-      "imageSource": "https://media.bjnews.com.cn/image/2019/09/13/4836493921334927833.jpg"
+      "imageBackup": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak%3D/v3/t/assets/p19649599_p_v13_ab.jpg",
+      "imageSource": "https://media.bjnews.com.cn/image/2019/09/13/4836493921334927833.jpg",
+      "imageBackupSource": "https://www.rottentomatoes.com/m/the_legend_of_hei"
     },
     {
       "id": "curated:cn:anime:15",
@@ -512,8 +514,9 @@
       "region": "CN",
       "editorial": true,
       "rank": 7,
-      "imageBackup": "",
-      "imageSource": "https://lib.bbgu.edu.cn/__local/F/6B/13/C836BC4172FB5E10FB3196578BA_0282C6B0_F000.jpeg"
+      "imageBackup": "https://piccdn2.umiwi.com/uploader/image/cms_ebook/2023032719/1803795054247049712/032719.jpeg?x-oss-process=image%2Fresize%2Cm_fill%2Ch_320%2Cw_240",
+      "imageSource": "https://lib.bbgu.edu.cn/__local/F/6B/13/C836BC4172FB5E10FB3196578BA_0282C6B0_F000.jpeg",
+      "imageBackupSource": "https://www.dedao.cn/ebook/detail?id=5lZOKpMGr9mgdOvYa6Ej75XRo1NML3jxJb0k8ZVzb2nqPpDxBeJlK4AyQ8RPQv2z"
     },
     {
       "id": "curated:cn:book:27",
