@@ -546,7 +546,7 @@
     });
     window.addEventListener('hashchange',()=>navigate(location.hash.slice(1)));
     try {
-      const response=await fetch('data/domestic.json',{cache:'no-cache'});
+      const response=await fetch('data/domestic.json?rev=20261020-curated28',{cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const value=await response.json();
       if (!Array.isArray(value.items) || value.items.length!==28) throw new Error('编辑目录格式与数量不符');
