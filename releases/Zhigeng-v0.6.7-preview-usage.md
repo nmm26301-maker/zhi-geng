@@ -5,16 +5,16 @@
 ## 获取两种安装包
 
 - **已发布、可覆盖旧版的正式版 0.6.6**：[`Zhigeng-v0.6.6.apk`](Zhigeng-v0.6.6.apk?raw=true)。它沿用既有发布证书；尚不包含 0.6.7 的完整离线封面及最新图标。
-- **0.6.7 安装预览版**：打开 [Build Zhigeng Android APK](https://github.com/nmm26301-maker/zhi-geng/actions/workflows/android.yml)，选择最新**成功**运行的记录，在页面底部 Artifacts 下载 `Zhigeng-native-android-v0.6.7` ZIP，解压后选择 `Zhigeng-v0.6.7-preview.apk`。
+- **0.6.7 安装预览版（直接下载）**：打开 [GitHub Releases](https://github.com/nmm26301-maker/zhi-geng/releases)，选择已发布的最新 `知更 Android 0.6.7 预览`，从 Assets 点击 `Zhigeng-v0.6.7-preview.apk`。只有构建、阅读器和模拟器检查全部通过，才会自动创建预览发布。若 Releases 暂无预览版，请查看 [Android Actions](https://github.com/nmm26301-maker/zhi-geng/actions/workflows/android.yml) 的最新运行状态；也可在**成功**运行的 Artifacts 下载 `Zhigeng-native-android-v0.6.7` ZIP 并解压。
 - 同一个 ZIP 里的 `Zhigeng-v0.6.7-unsigned.apk` 是原包名的**未签名**正式版构建产物，**不能直接安装**，也不能直接覆盖 0.6.6。另有 `Zhigeng-debug-test.apk` 仅供测试。
 
 **注意**：只有当 Android Actions 的 build / emulator / reader 任务实际成功、Artifact 存在时，才能使用 0.6.7 预览版。源码提交和工作流触发不等于构建成功。本文件不宣称构建已完成。
 
 ## 手机安装
 
-1. 用安卓手机浏览器打开上面的 Actions 地址，登录 GitHub（若提示）。
-2. 打开最新成功记录，在 Artifacts 下载 ZIP；用文件管理器解压。
-3. 点击 `Zhigeng-v0.6.7-preview.apk`，必要时仅允许当前文件管理器或浏览器“安装未知应用”。
+1. 用安卓手机浏览器打开上面的 GitHub Releases 页面，选择最新预览发布的 APK；预览版尚未发布时可以先安装已有正式版 0.6.6。
+2. 直接下载并点击 `Zhigeng-v0.6.7-preview.apk`；若从 Actions 的 ZIP 下载，先用文件管理器解压。
+3. 必要时仅允许当前文件管理器或浏览器“安装未知应用”。
 4. 桌面显示「知更预览」；原「知更」不会被覆盖，两者的收藏、书架、登录信息各自独立。
 
 预览包使用构建机器临时生成的 Android debug 证书给 **release 变体**签名。这不是正式生产发布证书；跨次运行的预览 APK **可能不能互相覆盖升级**，可卸载上一个预览版后安装下一版，但卸载会清除预览版的本地数据。不要用预览包替换正式版签名，也不要把正式签名密钥上传到公开仓库。
