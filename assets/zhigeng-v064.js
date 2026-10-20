@@ -15,12 +15,14 @@
     try { const url = new URL(String(link)); return url.protocol === 'https:' ? url.href : '#'; } catch { return '#'; }
   }
   // 仅接受媒体数据源的 HTTPS 图片，不把任意地址注入海报容器。
+  // 精选海报逐一核对域名；未知站点与非HTTPS图片均拒绝载入。
+  const trustedPosterHosts=new Set(["assets.wmoov.com","bkimg.cdn.bcebos.com","campus-cdhk.oss-cn-hongkong.aliyuncs.com","file.digitaling.com","i0.hdslb.com","image.pmgstatic.com","image.tmdb.org","img.alicdn.com","img.jinantimes.com.cn","img5.xinhuashudian.com","lib.bbgu.edu.cn","m.media-amazon.com","media.bjnews.com.cn","p3-sdbk2-media.byteimg.com","p3.itc.cn","p5.itc.cn","p8.itc.cn","pic6.iqiyipic.com","tsg.hxxy.edu.cn","v2.cri.cn","walter.trakt.tv","www.chinawriter.com.cn","www.gznxbank.com","www.people.com.cn","x0.ifengimg.com","yabook.org","yuyi.com.sg"]);
+  const providerPosterHosts=new Set(['image.tmdb.org','s4.anilist.co','s3.anilist.co','covers.openlibrary.org','upload.wikimedia.org']);
   function safePoster(value) {
     try {
       const url=new URL(String(value||''));
-      return url.protocol==='https:'&&[
-        'image.tmdb.org','s4.anilist.co','s3.anilist.co','covers.openlibrary.org','upload.wikimedia.org'
-      ].includes(url.hostname)?url.href:'';
+      return url.protocol==='https:'&&!url.username&&!url.password&&
+        (providerPosterHosts.has(url.hostname)||trustedPosterHosts.has(url.hostname))?url.href:'';
     } catch {return '';}
   }
   function readSaved() {
@@ -28,7 +30,7 @@
     catch { return {}; }
   }
   function normalized(item) {
-    return {id:String(item.id),type:item.type,title:item.title,original:'',subtype:item.author||'',year:String(item.year||''),date:'',source:item.source||'知更编辑推荐',url:item.url||'',image:item.image||'',score:(Number(item.score)||0)*(item.scoreLabel==='Open Library /5'?2:1),votes:Number(item.votes)||0,interest:Number(item.interest)||1,summary:item.summary||'',ratingBase:item.scoreLabel==='Open Library /5'?'5':'10'};
+    return {id:String(item.id),type:item.type,title:item.title,original:'',subtype:item.author||'',year:String(item.year||''),date:'',source:item.source||'知更编辑推荐',url:item.url||'',image:item.image||'',imageBackup:item.imageBackup||'',imageSource:item.imageSource||'',score:(Number(item.score)||0)*(item.scoreLabel==='Open Library /5'?2:1),votes:Number(item.votes)||0,interest:Number(item.interest)||1,summary:item.summary||'',ratingBase:item.scoreLabel==='Open Library /5'?'5':'10'};
   }
   function toggleFavorite(item) {
     const saved = readSaved();
@@ -59,7 +61,8 @@
     const author = item.author || item.subtype || '';
     const source = item.source || '知更编辑推荐';
     const poster=safePoster(item.image);
-    const posterMarkup=poster?'<img class="zg-poster" src="'+escapeHTML(poster)+'" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />':'';
+    const backup=safePoster(item.imageBackup);
+    const posterMarkup=poster?'<img class="zg-poster" src="'+escapeHTML(poster)+'"'+(backup?' data-backup="'+escapeHTML(backup)+'"':'')+' alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />':'';
     return '<article class="zg-work" data-kind="' + escapeHTML(item.type) + '">' +
       '<div class="zg-art zg-art-' + escapeHTML(item.type) + '" aria-hidden="true">'+posterMarkup+'<span class="zg-art-number">' + String(index + 1).padStart(2,'0') + '</span>' +
       '<div class="zg-art-title">' + escapeHTML(item.title) + '</div><small>ZHIGENG · ' + escapeHTML(type) + '</small></div>' +
@@ -76,6 +79,10 @@
     const list = state.domestic.filter(item => state.type === 'all' || item.type === state.type);
     $('#zgDomesticFilters').innerHTML = typeFilters('',state.type,'zg-type');
     $('#zgDomesticGrid').innerHTML = list.map((item,i) => card(item,i,false)).join('');
+    // 可能在DOM插入前已经由缓存读取完成，主动核实 naturalWidth 避免海报仍然透明。
+    $('#zgDomesticGrid .zg-poster').forEach(img=>{
+      if(img.complete&&img.naturalWidth>0)img.closest('.zg-art')?.classList.add('is-loaded');
+    });
     $('#zgDomesticCount').textContent = '来自安卓同一份编辑目录 · ' + list.length + ' 部';
   }
   function renderRankingList() {
@@ -87,6 +94,9 @@
       '<div class="zg-empty">这个年份和分类暂无可显示的真实记录。可换个年份、类型或数据来源。'+
       (annual&&['movie','tv','variety'].includes(state.rankType)&&!localStorage.getItem(keyName)?
       ' <button class="zg-rank-setup" id="zgRankSetup" type="button">配置 TMDB 密钥 ↗</button>':'')+'</div>';
+    $('#zgRankingList .zg-poster').forEach(img=>{
+      if(img.complete&&img.naturalWidth>0)img.closest('.zg-art')?.classList.add('is-loaded');
+    });
     $('#zgRankingCount').textContent=editor?'知更人工精选排序 · 不是实时年度榜 · 共 '+items.length+' 部':
       annual?state.rankNote:'TMDB 中国来源用户评分总榜 · 至少50票 · '+items.length+' 部';
     $('#zgRankingFilters').innerHTML=typeFilters('',state.rankType,'zg-rank-type');
@@ -510,7 +520,12 @@
       if(event.target.matches?.('.zg-poster'))event.target.closest('.zg-art')?.classList.add('is-loaded');
     },true);
     document.addEventListener('error',event=>{
-      if(event.target.matches?.('.zg-poster')){event.target.hidden=true;event.target.closest('.zg-art')?.classList.remove('is-loaded');}
+      if(event.target.matches?.('.zg-poster')){
+        const img=event.target,backup=safePoster(img.dataset.backup);
+        if(backup&&img.dataset.backupAttempt!=='1'){img.dataset.backupAttempt='1';img.src=backup;return;}
+        img.hidden=true;
+        img.closest('.zg-art')?.classList.remove('is-loaded');
+      }
     },true);
     document.addEventListener('click',event=>{
       const save=event.target.closest('[data-zg-save]');
