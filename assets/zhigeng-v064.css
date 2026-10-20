@@ -440,3 +440,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:860px){.zg-member-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}.zg-member-toolbar label:first-child{grid-column:1/-1}}
 @media(max-width:720px){.zg-member-hero{padding:22px 18px}.zg-member-orbit{font-size:55px;padding:0}.zg-member-grid{grid-template-columns:1fr;gap:12px}.zg-member-card{padding:17px}.zg-member-summary{margin:12px 0 7px}.zg-member-card-footer span{max-width:54%}}
 @media(max-width:370px){.zg-member-toolbar{grid-template-columns:1fr}.zg-member-toolbar label:first-child{grid-column:auto}.zg-member-orbit{display:none}.zg-member-group-heading{align-items:flex-start}.zg-member-group-heading h2{font-size:19px}}
+
+/* Both Nodes and AI Memberships kept on mobile, without squeezing nine destinations. */
+@media(max-width:720px){
+  .bottom-nav{display:flex;justify-content:flex-start;gap:2px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding:7px max(8px,env(safe-area-inset-left)) calc(7px + env(safe-area-inset-bottom))}
+  .bottom-nav>a,.bottom-nav>button{flex:0 0 55px;min-width:55px;scroll-snap-align:start;white-space:nowrap}
+  .bottom-nav small,.bottom-nav a small{font-size:9px;letter-spacing:0}
+}
+@media(max-width:370px){.bottom-nav>a,.bottom-nav>button{flex-basis:52px;min-width:52px}}
