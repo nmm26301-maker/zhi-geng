@@ -2,14 +2,14 @@ name: Build Zhigeng Android APK
 on:
   push:
     branches: [main]
-    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/fcc-protocol-fixture.py', 'scripts/android-reader-smoke.py', 'scripts/prepare-reader-font.py', 'scripts/make-reader-fixtures.py']
+    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/fcc-protocol-fixture.py', 'scripts/android-reader-smoke.py', 'scripts/prepare-reader-font.py', 'scripts/make-reader-fixtures.py', 'scripts/prepare-android-posters.mjs', 'scripts/build-static-site.mjs', 'data/domestic.json']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -60,6 +60,26 @@ jobs:
           ! unzip -l apk-output/Zhigeng-v0.6.7-unsigned.apk | grep -q 'lib/.*\.so'
           ! unzip -p apk-output/Zhigeng-v0.6.7-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
           ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.7-unsigned.apk | grep -q 'fcc_test_ca'
+      - name: Build standalone preview release
+        working-directory: android
+        run: gradle :app:assembleRelease -PzhigengPreview --no-daemon
+      - name: Sign and verify installable preview APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          tools="$ANDROID_HOME/build-tools/35.0.0"
+          source_apk="android/app/build/outputs/apk/release/app-release-unsigned.apk"
+          aligned_apk="$RUNNER_TEMP/zhigeng-preview-aligned.apk"
+          preview_apk="apk-output/Zhigeng-v0.6.7-preview.apk"
+          test -s "$HOME/.android/debug.keystore"
+          "$tools/zipalign" -f -p 4 "$source_apk" "$aligned_apk"
+          "$tools/apksigner" sign --ks "$HOME/.android/debug.keystore" --ks-key-alias androiddebugkey --ks-pass pass:android --key-pass pass:android --out "$preview_apk" "$aligned_apk"
+          "$tools/apksigner" verify --verbose --print-certs "$preview_apk" > apk-output/preview-signature.txt
+          "$tools/aapt" dump badging "$preview_apk" > apk-output/preview-package-info.txt
+          grep -q "^package: name='cn.zhigeng.app.preview'" apk-output/preview-package-info.txt
+          grep -q "application-label:'知更预览'" apk-output/preview-package-info.txt
+          sha256sum "$preview_apk" > apk-output/preview-sha256.txt
+          echo "Preview APK signed and verified. Preview builds may use different debug certificates between runs." >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with:
           name: Zhigeng-native-android-v0.6.7
@@ -94,7 +114,15 @@ jobs:
           profile: pixel_2
           disable-animations: true
           emulator-options: -no-window -noaudio -no-boot-anim -dns-server 8.8.8.8,1.1.1.1 -gpu swiftshader_indirect -camera-back none -no-snapshot
-          script: python3 scripts/android-smoke.py
+          script: |
+            python3 scripts/android-smoke.py
+            adb install -r apk-output/Zhigeng-v0.6.7-preview.apk
+            adb shell am start -W -n cn.zhigeng.app.preview/cn.zhigeng.app.MainActivity
+            sleep 3
+            adb shell uiautomator dump /sdcard/zhigeng-preview.xml
+            adb shell cat /sdcard/zhigeng-preview.xml | grep -q '国内精选'
+            adb logcat -d -s AndroidRuntime:E > emulator-check/preview-runtime-errors.txt
+            ! grep -q 'FATAL EXCEPTION' emulator-check/preview-runtime-errors.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
