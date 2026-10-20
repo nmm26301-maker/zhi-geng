@@ -59,3 +59,26 @@ test('unavailable Wikipedia directory never pretends to have verified rankings',
  assert.match(r.note,/暂不可用/);
  dom.window.close();
 });
+
+test('month rowspans and grouped headers do not shift titles into director columns',()=>{
+ const dom=setup();
+ const html='<table class="wikitable"><tr><th rowspan="2">月份</th><th colspan="2">作品信息</th></tr>'+
+ '<tr><th>片名</th><th>导演</th></tr>'+
+ '<tr><td rowspan="2">一月</td><td><a href="/wiki/甲">甲电影</a><sup>[1]</sup></td><td><a href="/wiki/导演甲">导演甲</a></td></tr>'+
+ '<tr><td><a href="/wiki/乙">乙电影</a></td><td><a href="/wiki/导演乙">导演乙</a></td></tr></table>';
+ const rows=dom.window.ZhigengPublicAnnualCatalog.parseTable(html,'movie',2024,'https://zh.wikipedia.org/wiki/list',dom.window.DOMParser);
+ assert.deepEqual(Array.from(rows,x=>x.title),['甲电影','乙电影']);
+ assert.equal(rows[1].url,'https://zh.wikipedia.org/wiki/乙');
+ dom.window.close();
+});
+test('title rowspan is deduplicated and notes or section colspan rows are ignored',()=>{
+ const dom=setup();
+ const html='<table class="wikitable"><tr><th>剧名</th><th>集数</th></tr>'+
+ '<tr><td colspan="2">上半年</td></tr>'+
+ '<tr><td rowspan="2"><a href="/wiki/剧甲">剧甲</a><sup>[3]</sup></td><td>12</td></tr>'+
+ '<tr><td>24</td></tr>'+
+ '<tr><td><a href="/wiki/剧乙">剧乙</a></td><td>30</td></tr></table>';
+ const rows=dom.window.ZhigengPublicAnnualCatalog.parseTable(html,'tv',2024,'https://zh.wikipedia.org/wiki/list',dom.window.DOMParser);
+ assert.deepEqual(Array.from(rows,x=>x.title),['剧甲','剧乙']);
+ dom.window.close();
+});

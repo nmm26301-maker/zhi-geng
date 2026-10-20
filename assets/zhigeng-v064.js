@@ -20,7 +20,11 @@
   const providerPosterHosts=new Set(['image.tmdb.org','s4.anilist.co','s3.anilist.co','covers.openlibrary.org','upload.wikimedia.org']);
   function safePoster(value) {
     try {
-      const url=new URL(String(value||''));
+      const raw=String(value||'');
+      const url=new URL(raw,document.baseURI);
+      const localBase=new URL('assets/posters/',document.baseURI);
+      if(url.origin===localBase.origin&&url.href.startsWith(localBase.href)&&
+        /^[a-f0-9]{24}\.(jpg|png|webp|gif)$/.test(url.href.slice(localBase.href.length)))return url.href;
       return url.protocol==='https:'&&!url.username&&!url.password&&
         (providerPosterHosts.has(url.hostname)||trustedPosterHosts.has(url.hostname))?url.href:'';
     } catch {return '';}
@@ -546,7 +550,7 @@
     });
     window.addEventListener('hashchange',()=>navigate(location.hash.slice(1)));
     try {
-      const response=await fetch('data/domestic.json?rev=20261020-curated28',{cache:'no-store'});
+      const response=await fetch('data/domestic.json?rev=20261021-localposters',{cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const value=await response.json();
       if (!Array.isArray(value.items) || value.items.length!==28) throw new Error('编辑目录格式与数量不符');

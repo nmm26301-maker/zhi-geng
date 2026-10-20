@@ -14,28 +14,38 @@
     const tables=[...document.querySelectorAll('table.wikitable')];
     const collected=[];
     const seen=new Set();
-    const target=type==='movie'?/片名|影片名稱|电影名称|電影名稱/:/劇名|剧名/;
+    const target=type==='movie'?/^(片名|影片名稱|电影名称|電影名稱)$/:/^(劇名|剧名)$/;
     for(const table of tables){
-      const rows=[...table.querySelectorAll('tr')];
-      const headings=rows.find(row=>[...row.querySelectorAll('th')].some(th=>target.test(safe(th.textContent))));
-      if(!headings)continue;
-      const cells=[...headings.children].filter(el=>['TD','TH'].includes(el.tagName));
-      const col=cells.findIndex(c=>target.test(safe(c.textContent)));
-      if(col<0)continue;
-      const begin=rows.indexOf(headings)+1;
-      for(const row of rows.slice(begin)){
-        const tds=[...row.children].filter(el=>el.tagName==='TD'||el.tagName==='TH');
-        if(!tds.length)continue;
-        // 部分表使用跨行月份/日期；优先标题列，必要时在相邻列寻找真实作品链接。
-        let cell=tds[col];
-        if(!cell||cell.tagName!=='TD'){
-          cell=tds.find(c=>c.tagName==='TD'&&c.querySelector('a[href*="/wiki/"]'))||tds.find(c=>c.tagName==='TD');
+      const rows=[...table.querySelectorAll('tr')].filter(row=>row.closest('table')===table);
+      // 展开 rowspan / colspan，避免月份跨行后把导演、集数误当作片名。
+      const grid=[];
+      rows.forEach((row,r)=>{
+        grid[r] ||= [];
+        let col=0;
+        for(const cell of [...row.children].filter(el=>['TD','TH'].includes(el.tagName))){
+          while(grid[r][col])col++;
+          const width=Math.max(1,Math.min(cell.colSpan||1,100));
+          const height=Math.max(1,Math.min(cell.rowSpan===0?rows.length-r:cell.rowSpan||1,rows.length-r));
+          for(let y=r;y<r+height;y++){
+            grid[y] ||= [];
+            for(let x=col;x<col+width;x++)grid[y][x]=cell;
+          }
+          col+=width;
         }
-        if(!cell)continue;
-        const value=safe(cell.textContent).replace(/[＊*†‡]\s*$/,'').trim();
+      });
+      let titleCol=-1;
+      for(const cells of grid){
+        const heading=cells.findIndex(cell=>cell?.tagName==='TH'&&target.test(safe(cell.textContent)));
+        if(heading>=0){titleCol=heading;continue;}
+        if(titleCol<0)continue;
+        const cell=cells[titleCol];
+        if(!cell||cell.tagName!=='TD'||cell.colSpan>1)continue;
+        const copy=cell.cloneNode(true);
+        copy.querySelectorAll('sup,.reference,.sortkey,style,script').forEach(node=>node.remove());
+        const link=copy.querySelector('a[href^="/wiki/"]');
+        const value=safe(link?.textContent||copy.textContent).replace(/[＊*†‡]\s*$/,'').trim();
         if(!value||value.length>70||/^(片名|劇名|剧名|未知|待定|待播|TBA|上映日期|电视剧)$/i.test(value))continue;
         if(seen.has(value))continue;
-        const link=cell.querySelector('a[href^="/wiki/"]');
         const url=link?.getAttribute('href');
         const href=url&&url.startsWith('/wiki/')?'https://zh.wikipedia.org'+url:article;
         seen.add(value);

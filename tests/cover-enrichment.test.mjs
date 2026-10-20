@@ -118,3 +118,23 @@ test('every domestic image host is explicitly trusted and fallback restores a re
   assert.notEqual(movie.image,book.image,'movie and book must not share the same poster');
   dom.window.close();
 });
+
+test('self-hosted poster paths work under GitHub Pages subdirectory and reject other local paths',async()=>{
+ const dom=new JSDOM(html,{url:'https://nmm26301-maker.github.io/zhi-geng/',runScripts:'outside-only',pretendToBeVisual:true});
+ const w=dom.window;w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
+ const local=JSON.parse(JSON.stringify(curated));
+ local.items[0].image='assets/posters/'+'a'.repeat(24)+'.jpg';
+ local.items[0].imageBackup=curated.items[0].image;
+ local.items[1].image='assets/unknown.svg';
+ w.fetch=async()=>({ok:true,json:async()=>local});
+ w.eval(site);w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+ await delay();
+ const cards=w.document.querySelectorAll('#zgDomesticGrid .zg-work');
+ const image=cards[0].querySelector('.zg-poster');
+ assert.ok(image);
+ assert.equal(image.src,'https://nmm26301-maker.github.io/zhi-geng/assets/posters/'+'a'.repeat(24)+'.jpg');
+ image.dispatchEvent(new w.Event('load'));
+ assert.ok(image.closest('.zg-art').classList.contains('is-loaded'));
+ assert.equal(cards[1].querySelector('.zg-poster'),null);
+ dom.window.close();
+});
