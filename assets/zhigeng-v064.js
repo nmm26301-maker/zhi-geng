@@ -531,11 +531,13 @@
       }));
       renderDomestic();
       if ($('#zgPanel')?.dataset.page === 'rankings' && state.rankSource === 'editor') renderRankingList();
-      window.ZhigengCoverEnrichment?.fill(state.domestic).then(items=>{
-        if(!items)return;
-        state.domestic=items;renderDomestic();
-        if ($('#zgPanel')?.dataset.page === 'rankings' && state.rankSource === 'editor') renderRankingList();
-      }).catch(()=>{});
+      if(window.ZhigengCoverEnrichment?.fill) {
+        window.ZhigengCoverEnrichment.fill(state.domestic).then(items=>{
+          if(!items)return;
+          state.domestic=items;renderDomestic();
+          if ($('#zgPanel')?.dataset.page === 'rankings' && state.rankSource === 'editor') renderRankingList();
+        }).catch(()=>{});
+      }
     } catch (error) {
       $('#zgDomesticCount').textContent='编辑目录暂不可用：'+error.message;
       $('#zgDomesticGrid').innerHTML='<div class="zg-empty">请检查 data/domestic.json 是否随网站一同发布。</div>';
