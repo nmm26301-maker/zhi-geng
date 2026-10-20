@@ -14,6 +14,7 @@ on:
       - 'data/node-sites.json'
       - 'sms-hub/index.html'
       - 'assets/annual-rankings.js'
+      - 'assets/public-annual-catalog.js'
       - 'assets/cover-enrichment.js'
       - 'assets/zhigeng-v064.css'
       - 'assets/reader-experience.js'
@@ -24,6 +25,7 @@ on:
       - 'tests/node-directory.test.mjs'
       - 'tests/ai-memberships.test.mjs'
       - 'tests/annual-rankings.test.mjs'
+      - 'tests/public-annual-catalog.test.mjs'
       - 'tests/cover-enrichment.test.mjs'
       - '.github/workflows/web-check.yml'
   pull_request:
@@ -54,10 +56,11 @@ jobs:
         run: |
           node --check assets/zhigeng-v064.js
           node --check assets/annual-rankings.js
+          node --check assets/public-annual-catalog.js
           node --check assets/cover-enrichment.js
           node --check assets/kanju-bridge.js
           node --check assets/sms-hub.js
           node --check assets/node-directory.js
           node --check assets/ai-memberships.js
           node --check assets/reader-experience.js
-          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs tests/kanju-bridge.test.mjs tests/sms-hub.test.mjs tests/node-directory.test.mjs tests/ai-memberships.test.mjs tests/cover-enrichment.test.mjs
+          node --test tests/web-v064.test.mjs tests/annual-rankings.test.mjs tests/kanju-bridge.test.mjs tests/sms-hub.test.mjs tests/node-directory.test.mjs tests/ai-memberships.test.mjs tests/cover-enrichment.test.mjs tests/public-annual-catalog.test.mjs
