@@ -21,8 +21,8 @@ test('annual film query enforces year, Chinese origin, vote floor and pagination
   ]},url=>{
     calls++;assert.equal(url.searchParams.get('primary_release_date.gte'),'2024-01-01');
     assert.equal(url.searchParams.get('primary_release_date.lte'),'2024-12-31');
-    assert.equal(url.searchParams.get('with_origin_country'),'CN');
-    assert.equal(url.searchParams.get('vote_count.gte'),'50');
+    assert.equal(url.searchParams.get('with_origin_country'),'CN|HK|TW');
+    assert.equal(url.searchParams.get('vote_count.gte'),'10');
   });
   const data=await load({...filters,credential:'a'.repeat(32),fetcher:fake});
   assert.equal(calls,1);assert.deepEqual(data.items.map(x=>x.title),['正确年份']);
@@ -59,4 +59,27 @@ test('invalid year and unsupported all-category ranking rejected',async()=>{
   const load=ranker();
   await assert.rejects(load({...filters,year:'2100'}),/年份无效/);
   await assert.rejects(load({...filters,type:'all'}),/请选择内容类型/);
+});
+
+test('domestic popular chart includes newly released films with no vote floor and real poster URLs',async()=>{
+  const load=ranker();
+  let minCount;
+  const res=await load({...filters,sort:'popular',fetcher:reply({total_pages:3,total_results:45,results:[
+    {id:101,title:'内地新片',release_date:'2024-08-08',poster_path:'/2024poster.jpg',vote_average:0,vote_count:0,popularity:340},
+    {id:102,title:'港片',release_date:'2024-10-03',poster_path:null,vote_average:7.4,vote_count:9,popularity:130}
+  ]},url=>{minCount=url.searchParams.get('vote_count.gte');assert.equal(url.searchParams.get('with_origin_country'),'CN|HK|TW');})});
+  assert.equal(minCount,null,'popular charts should not exclude films without votes');
+  assert.equal(res.items.length,2);
+  assert.equal(res.items[0].image,'https://image.tmdb.org/t/p/w342/2024poster.jpg');
+  assert.equal(res.items[1].image,'');
+  assert.match(res.note,/非全国作品全集/);
+  assert.equal(res.hasMore,true);
+});
+
+test('annual page limit expanded to 25 without fabricating records',async()=>{
+  const load=ranker();
+  const r=await load({...filters,type:'movie',page:25,credential:'a'.repeat(32),fetcher:reply({results:[],total_pages:35,total_results:700})});
+  assert.deepEqual(r.items,[]);
+  assert.equal(r.hasMore,false);
+  await assert.rejects(load({...filters,page:26}),/页数无效/);
 });
