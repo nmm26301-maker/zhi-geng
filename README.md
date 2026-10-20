@@ -2,7 +2,7 @@
 
 > **2026-10-21 · Android 0.6.7 预览 APK 构建流程已提交**：新增独立包名 `cn.zhigeng.app.preview` 的可安装预览发布构建、签名与 Android 模拟器安装检查。构建是否成功，以 [GitHub Actions](https://github.com/nmm26301-maker/zhi-geng/actions/workflows/android.yml) 最新成功运行及实际 Artifact 为准；源代码提交不代表 APK 已通过编译。
 >
-> **安卓安装选择**：现有已签名、可覆盖升级的 [正式版 0.6.6](releases/Zhigeng-v0.6.6.apk?raw=true)；需要试用离线 28 封面与最新图标的 0.6.7，请按 [0.6.7 预览安装说明](releases/Zhigeng-v0.6.7-preview-usage.md) 获取 Actions 的 `Zhigeng-v0.6.7-preview.apk`。预览版与正式版并存；不要安装 `unsigned.apk`，也不要把临时预览签名用作正式升级签名。
+> **安卓安装选择**：现有已签名、可覆盖升级的 [正式版 0.6.6](releases/Zhigeng-v0.6.6.apk?raw=true)；需要试用离线 28 封面与最新图标的 0.6.7，请前往 [GitHub Releases](https://github.com/nmm26301-maker/zhi-geng/releases) 下载检查通过后发布的 `Zhigeng-v0.6.7-preview.apk`，详见 [预览安装说明](releases/Zhigeng-v0.6.7-preview-usage.md)。预览版与正式版并存；不要安装 `unsigned.apk`，也不要把临时预览签名用作正式升级签名。
 
 > **2026-10-20 · 知更全端图标升级（源代码已提交，APK 尚未重新构建）**：原创知更鸟品牌标识，网页/安卓统一的圆角矢量图标，安卓五项底部导航及分类 / AI 工具入口更新。可编辑设计见 [Figma Icon Studio](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=33-256)，实现与校验记录见 [图标设计文档](design/icon-studio-20261020.md)。**现有 0.6.6 APK 不包含此次图标修改，须待重新构建并签名后才能在手机上看到。**
 
