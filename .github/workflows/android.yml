@@ -39,6 +39,11 @@ jobs:
         run: |
           python3 -m pip install fonttools==4.59.0 brotli==1.1.0
           python3 scripts/prepare-reader-font.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bundle verified offline posters
+        run: node scripts/prepare-android-posters.mjs
       - name: Prepare debug reading documents
         run: python3 scripts/make-reader-fixtures.py
       - name: Build native application
@@ -47,17 +52,17 @@ jobs:
       - name: Package unsigned APK and signing verifier
         run: |
           mkdir -p apk-output
-          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.6-unsigned.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.7-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
           cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.6-unsigned.apk > apk-output/package-info.txt
-          test "$(unzip -p apk-output/Zhigeng-v0.6.6-unsigned.apk classes.dex | wc -c)" -gt 10000
-          ! unzip -l apk-output/Zhigeng-v0.6.6-unsigned.apk | grep -q 'lib/.*\.so'
-          ! unzip -p apk-output/Zhigeng-v0.6.6-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
-          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.6-unsigned.apk | grep -q 'fcc_test_ca'
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.7-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.7-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.7-unsigned.apk | grep -q 'lib/.*\.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.7-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.7-unsigned.apk | grep -q 'fcc_test_ca'
       - uses: actions/upload-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.6
+          name: Zhigeng-native-android-v0.6.7
           path: apk-output/
           retention-days: 30
 
@@ -73,7 +78,7 @@ jobs:
           java-version: '17'
       - uses: actions/download-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.6
+          name: Zhigeng-native-android-v0.6.7
           path: apk-output
       - name: Start local FCC protocol fixture
         run: |
@@ -93,7 +98,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Zhigeng-v0.6.6-emulator-check
+          name: Zhigeng-v0.6.7-emulator-check
           path: emulator-check/
           retention-days: 30
 
@@ -109,7 +114,7 @@ jobs:
           java-version: '17'
       - uses: actions/download-artifact@v4
         with:
-          name: Zhigeng-native-android-v0.6.6
+          name: Zhigeng-native-android-v0.6.7
           path: apk-output
       - name: Install screenshot verifier
         run: python3 -m pip install Pillow==11.3.0
@@ -127,6 +132,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Zhigeng-v0.6.6-reader-check
+          name: Zhigeng-v0.6.7-reader-check
           path: emulator-check/
           retention-days: 30

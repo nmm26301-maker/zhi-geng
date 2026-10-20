@@ -1,4 +1,4 @@
-# 知更 Android 0.6.6
+# 知更 Android 0.6.7
 
 独立原生安卓应用（Java + Android SDK），不是 WebView 网页壳，不依赖前一版知更网站或 ChatGPT 网页登录。
 
@@ -92,3 +92,10 @@ gradle :app:assembleRelease
 - 新 Figma 两屏：https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=30-226 。
 
 封面网络恢复：首次遇到域名解析失败、连接失败或超时时自动延后重试两次（有界重试），失效地址和 HTTP 拒绝仍使用备用来源/保留标题并允许手动重试；不无限刷请求。模拟器显式指定 DNS，避免宿主 DNS 发现失败被误认为图片绘制问题。
+
+## 0.6.7 · 离线封面与原生图标
+
+- 28 张真实精选图片在构建时验证并打入 APK，发现、榜单及详情先读取离线图片，失败再使用来源备用图。
+- 原生知更鸟与圆角线性图标沿用已有矢量资源；修正年度目录的分组表头和横跨整行的章节行解析。
+- 使用 `-PzhigengPreview` 构建独立 `cn.zhigeng.app.preview`，显示为「知更预览」，可与原版并存。预览签名独立，不能作为原版覆盖升级包。
+- 构建前执行 `node scripts/prepare-android-posters.mjs`，缺少任何一张封面将停止打包，不把占位图宣称为完整封面。
