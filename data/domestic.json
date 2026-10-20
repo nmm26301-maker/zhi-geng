@@ -13,11 +13,13 @@
       "reason": "从普通人的选择，走近一场关于生命与尊严的困境。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E",
-      "image": "",
+      "image": "https://v2.cri.cn/c89e53c6-0bc7-45ca-ac11-a385002d7d11/fd914d58-7955-400e-a87f-cbe831811f41/image/84d1f902-e455-4197-8980-9df3c863c7de.1080x1513.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 1
+      "rank": 1,
+      "imageBackup": "https://assets.wmoov.com/movie/photo/201812/FB_IMG_1544857385725_1544859238.jpg",
+      "imageSource": "https://v2.cri.cn/c89e53c6-0bc7-45ca-ac11-a385002d7d11/fd914d58-7955-400e-a87f-cbe831811f41/image/84d1f902-e455-4197-8980-9df3c863c7de.1080x1513.jpg"
     },
     {
       "id": "curated:cn:movie:1",
@@ -30,11 +32,13 @@
       "reason": "把人物的执念、艺术与时代放在一起，适合安静地完整看一遍。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC",
-      "image": "",
+      "image": "https://image.tmdb.org/t/p/w500/aU9ANapU6G4FzoPukkR8Qwcqdig.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 2
+      "rank": 2,
+      "imageBackup": "",
+      "imageSource": "https://image.tmdb.org/t/p/w500/aU9ANapU6G4FzoPukkR8Qwcqdig.jpg"
     },
     {
       "id": "curated:cn:movie:2",
@@ -47,11 +51,13 @@
       "reason": "透过一个家庭的起伏，看普通人如何承受生活。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E6%B4%BB%E7%9D%80",
-      "image": "",
+      "image": "https://tsg.hxxy.edu.cn/__local/5/BE/EF/33EC897064D51A52748F6DF84FA_2BADDC9F_32D41.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 3
+      "rank": 3,
+      "imageBackup": "",
+      "imageSource": "https://tsg.hxxy.edu.cn/__local/5/BE/EF/33EC897064D51A52748F6DF84FA_2BADDC9F_32D41.jpg"
     },
     {
       "id": "curated:cn:movie:3",
@@ -64,11 +70,13 @@
       "reason": "密集对白、荒诞权谋与多重解读，适合反复琢磨。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E8%AE%A9%E5%AD%90%E5%BC%B9%E9%A3%9E",
-      "image": "",
+      "image": "https://image.tmdb.org/t/p/w500/iwl9LXmCea56vpV0xC0LH8bunIl.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 4
+      "rank": 4,
+      "imageBackup": "",
+      "imageSource": "https://image.tmdb.org/t/p/w500/iwl9LXmCea56vpV0xC0LH8bunIl.jpg"
     },
     {
       "id": "curated:cn:movie:4",
@@ -81,11 +89,13 @@
       "reason": "从家庭与家园出发，打开中国科幻的银幕想象。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
-      "image": "",
+      "image": "https://file.digitaling.com/eImg/uimages/20190123/1548231659249034.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 5
+      "rank": 5,
+      "imageBackup": "https://m.media-amazon.com/images/M/MV5BY2Y4YWNlZTAtMGIwMi00ZWJlLWIzNDgtODYwNTZiMzYyYmJhXkEyXkFqcGc%40._V1_.jpg",
+      "imageSource": "https://file.digitaling.com/eImg/uimages/20190123/1548231659249034.jpg"
     },
     {
       "id": "curated:cn:movie:5",
@@ -98,11 +108,13 @@
       "reason": "沿着诗人的人生走近盛唐，适合对古典文化感兴趣时观看。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E9%95%BF%E5%AE%89%E4%B8%89%E4%B8%87%E9%87%8C",
-      "image": "",
+      "image": "https://image.tmdb.org/t/p/w500/7wxk8Ka5AGUIjCpEPg4vBOwSSul.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 6
+      "rank": 6,
+      "imageBackup": "",
+      "imageSource": "https://image.tmdb.org/t/p/w500/7wxk8Ka5AGUIjCpEPg4vBOwSSul.jpg"
     },
     {
       "id": "curated:cn:tv:6",
@@ -115,11 +127,13 @@
       "reason": "案件之外，人物的生活和命运更令人回味。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E6%BC%AB%E9%95%BF%E7%9A%84%E5%AD%A3%E8%8A%82",
-      "image": "",
+      "image": "https://walter.trakt.tv/images/shows/000/204/595/posters/medium/2d7640d163.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 1
+      "rank": 1,
+      "imageBackup": "https://campus-cdhk.oss-cn-hongkong.aliyuncs.com/attachments/image/2023/05/12/72569670-abd6-430e-a370-3844fc68b20e.jpg",
+      "imageSource": "https://walter.trakt.tv/images/shows/000/204/595/posters/medium/2d7640d163.jpg"
     },
     {
       "id": "curated:cn:tv:7",
@@ -132,11 +146,13 @@
       "reason": "沉稳叙事与人物关系并进，适合喜欢长线布局的观众。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E7%90%85%E7%90%8A%E6%A6%9C",
-      "image": "",
+      "image": "https://image.tmdb.org/t/p/w500/tJhFJjX81Oc1YdaFWb01sRZxwrS.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 2
+      "rank": 2,
+      "imageBackup": "https://img.jinantimes.com.cn/371a1cae8ddb9620c750d36a1540b443.png",
+      "imageSource": "https://image.tmdb.org/t/p/w500/tJhFJjX81Oc1YdaFWb01sRZxwrS.jpg"
     },
     {
       "id": "curated:cn:tv:8",
@@ -149,11 +165,13 @@
       "reason": "有泥土气息的群像故事，从具体生活里看见时代变化。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E5%B1%B1%E6%B5%B7%E6%83%85",
-      "image": "",
+      "image": "https://bkimg.cdn.bcebos.com/pic/a8014c086e061d950a7b7718e9ba1dd162d9f2d35cf6?x-bce-process=image%2Fformat%2Cf_auto",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 3
+      "rank": 3,
+      "imageBackup": "",
+      "imageSource": "https://bkimg.cdn.bcebos.com/pic/a8014c086e061d950a7b7718e9ba1dd162d9f2d35cf6?x-bce-process=image%2Fformat%2Cf_auto"
     },
     {
       "id": "curated:cn:tv:9",
@@ -166,11 +184,13 @@
       "reason": "人物与制度相互牵动，适合愿意认真追随对白的观众。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E5%A4%A7%E6%98%8E%E7%8E%8B%E6%9C%9D1566",
-      "image": "",
+      "image": "https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb4316916a629e2ea4462308f7d3d9",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 4
+      "rank": 4,
+      "imageBackup": "",
+      "imageSource": "https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb4316916a629e2ea4462308f7d3d9"
     },
     {
       "id": "curated:cn:tv:10",
@@ -183,11 +203,13 @@
       "reason": "在细碎日常里感受关系与岁月的变化。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E7%88%B6%E6%AF%8D%E7%88%B1%E6%83%85",
-      "image": "",
+      "image": "https://p3-sdbk2-media.byteimg.com/tos-cn-i-xv4ileqgde/86289c06a3ef4696b648312c7b25b81f~tplv-xv4ileqgde-resize-w%3A750.image",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 5
+      "rank": 5,
+      "imageBackup": "",
+      "imageSource": "https://p3-sdbk2-media.byteimg.com/tos-cn-i-xv4ileqgde/86289c06a3ef4696b648312c7b25b81f~tplv-xv4ileqgde-resize-w%3A750.image"
     },
     {
       "id": "curated:cn:tv:11",
@@ -200,11 +222,13 @@
       "reason": "紧凑的篇幅与细节铺陈，适合一次连贯观看。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD",
-      "image": "",
+      "image": "https://p3.itc.cn/q_70/images03/20200704/8d58554441b34b39814717def1c3141a.jpeg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 6
+      "rank": 6,
+      "imageBackup": "",
+      "imageSource": "https://p3.itc.cn/q_70/images03/20200704/8d58554441b34b39814717def1c3141a.jpeg"
     },
     {
       "id": "curated:cn:anime:12",
@@ -217,11 +241,13 @@
       "reason": "用不同美术语言和短篇结构，重新打开熟悉的民间想象。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E4%B8%AD%E5%9B%BD%E5%A5%87%E8%B0%AD",
-      "image": "",
+      "image": "https://x0.ifengimg.com/res/2023/0898356DF938E8DAD267DEC52636C8C6F7A76FDF_size558_w1080_h1532.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 1
+      "rank": 1,
+      "imageBackup": "",
+      "imageSource": "https://x0.ifengimg.com/res/2023/0898356DF938E8DAD267DEC52636C8C6F7A76FDF_size558_w1080_h1532.jpg"
     },
     {
       "id": "curated:cn:anime:13",
@@ -234,11 +260,13 @@
       "reason": "把水墨笔触与动作节奏结合，适合关注动画表现力时观看。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E9%9B%BE%E5%B1%B1%E4%BA%94%E8%A1%8C",
-      "image": "",
+      "image": "https://p8.itc.cn/q_70/images03/20210513/2bdeee51c9a14ad59166b6cb1294dae6.jpeg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 2
+      "rank": 2,
+      "imageBackup": "",
+      "imageSource": "https://p8.itc.cn/q_70/images03/20210513/2bdeee51c9a14ad59166b6cb1294dae6.jpeg"
     },
     {
       "id": "curated:cn:anime:14",
@@ -251,11 +279,13 @@
       "reason": "从小小的相遇出发，讨论归属、成长与共处。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E7%BD%97%E5%B0%8F%E9%BB%91%E6%88%98%E8%AE%B0",
-      "image": "",
+      "image": "https://media.bjnews.com.cn/image/2019/09/13/4836493921334927833.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 3
+      "rank": 3,
+      "imageBackup": "",
+      "imageSource": "https://media.bjnews.com.cn/image/2019/09/13/4836493921334927833.jpg"
     },
     {
       "id": "curated:cn:anime:15",
@@ -268,11 +298,13 @@
       "reason": "借照片进入不同人生，在悬念里看见情感的重量。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E6%97%B6%E5%85%89%E4%BB%A3%E7%90%86%E4%BA%BA",
-      "image": "",
+      "image": "https://image.pmgstatic.com/cache/resized/w936/files/images/film/posters/165/667/165667249_48caf8.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 4
+      "rank": 4,
+      "imageBackup": "",
+      "imageSource": "https://image.pmgstatic.com/cache/resized/w936/files/images/film/posters/165/667/165667249_48caf8.jpg"
     },
     {
       "id": "curated:cn:variety:16",
@@ -285,11 +317,13 @@
       "reason": "让器物、历史与人的故事相连，适合边看边延伸阅读。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E5%9B%BD%E5%AE%B6%E5%AE%9D%E8%97%8F",
-      "image": "",
+      "image": "https://i0.hdslb.com/bfs/bangumi/acd6c255647414332b2cf42436f589fb76fa3eb7.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 1
+      "rank": 1,
+      "imageBackup": "",
+      "imageSource": "https://i0.hdslb.com/bfs/bangumi/acd6c255647414332b2cf42436f589fb76fa3eb7.jpg"
     },
     {
       "id": "curated:cn:variety:17",
@@ -302,11 +336,13 @@
       "reason": "从具体问题慢慢聊开，适合喜欢听观点碰撞的时刻。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E5%9C%86%E6%A1%8C%E6%B4%BE",
-      "image": "",
+      "image": "https://image.tmdb.org/t/p/w500/aeYR8mIwH8k4UvCcfK6ioCTYMB1.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 2
+      "rank": 2,
+      "imageBackup": "",
+      "imageSource": "https://image.tmdb.org/t/p/w500/aeYR8mIwH8k4UvCcfK6ioCTYMB1.jpg"
     },
     {
       "id": "curated:cn:variety:18",
@@ -319,11 +355,13 @@
       "reason": "把注意力交给人声与舞台，适合想发现新声音时观看。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E5%A3%B0%E5%85%A5%E4%BA%BA%E5%BF%83",
-      "image": "",
+      "image": "https://pic6.iqiyipic.com/image/20220822/8b/cf/a_100142956_m_601_m20_1080_608.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 3
+      "rank": 3,
+      "imageBackup": "",
+      "imageSource": "https://pic6.iqiyipic.com/image/20220822/8b/cf/a_100142956_m_601_m20_1080_608.jpg"
     },
     {
       "id": "curated:cn:variety:19",
@@ -336,11 +374,13 @@
       "reason": "熟人之间自然的交流与音乐，让旅途多一点松弛感。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/movie/subject_search?search_text=%E5%BF%AB%E4%B9%90%E5%86%8D%E5%87%BA%E5%8F%91",
-      "image": "",
+      "image": "https://p5.itc.cn/images01/20220719/6957c7c52b4b48b9ae351461d9d9aeed.jpeg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 4
+      "rank": 4,
+      "imageBackup": "https://bkimg.cdn.bcebos.com/pic/342ac65c10385343fbf2710a1547a77eca80653822d9",
+      "imageSource": "https://p5.itc.cn/images01/20220719/6957c7c52b4b48b9ae351461d9d9aeed.jpeg"
     },
     {
       "id": "curated:cn:book:20",
@@ -353,11 +393,13 @@
       "reason": "从福贵的经历出发，读普通人与生活的漫长相处。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E6%B4%BB%E7%9D%80",
-      "image": "",
+      "image": "https://www.chinawriter.com.cn/NMediaFile/2017/0321/MAIN201703210949000247500232978.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 1
+      "rank": 1,
+      "imageBackup": "",
+      "imageSource": "https://www.chinawriter.com.cn/NMediaFile/2017/0321/MAIN201703210949000247500232978.jpg"
     },
     {
       "id": "curated:cn:book:21",
@@ -370,11 +412,13 @@
       "reason": "从科学悬念走向宇宙尺度，适合想把想象力推远一点时阅读。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E4%B8%89%E4%BD%93",
-      "image": "",
+      "image": "https://img5.xinhuashudian.com/images/2020/07/29/ee5f947a-5cfe-4c8a-a5a3-846deca1c355.jpg?x-oss-process=image%2Fresize%2Cm_mfit%2Ch_750%2Cw_750",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 2
+      "rank": 2,
+      "imageBackup": "",
+      "imageSource": "https://img5.xinhuashudian.com/images/2020/07/29/ee5f947a-5cfe-4c8a-a5a3-846deca1c355.jpg?x-oss-process=image%2Fresize%2Cm_mfit%2Ch_750%2Cw_750"
     },
     {
       "id": "curated:cn:book:22",
@@ -387,11 +431,13 @@
       "reason": "用一组概念理解乡土社会，适合带着现实问题慢慢读。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E4%B9%A1%E5%9C%9F%E4%B8%AD%E5%9B%BD",
-      "image": "",
+      "image": "https://img.alicdn.com/bao/uploaded/O1CN01dqhYcQ1ONtvhjlCbA_%21%216000000001694-2-yinhe.png",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 3
+      "rank": 3,
+      "imageBackup": "",
+      "imageSource": "https://img.alicdn.com/bao/uploaded/O1CN01dqhYcQ1ONtvhjlCbA_%21%216000000001694-2-yinhe.png"
     },
     {
       "id": "curated:cn:book:23",
@@ -404,11 +450,13 @@
       "reason": "在日常劳动与人生选择里，理解人与时代的关系。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C",
-      "image": "",
+      "image": "https://www.people.com.cn/mediafile/pic/20150310/61/3517461957804282037.jpg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 4
+      "rank": 4,
+      "imageBackup": "",
+      "imageSource": "https://www.people.com.cn/mediafile/pic/20150310/61/3517461957804282037.jpg"
     },
     {
       "id": "curated:cn:book:24",
@@ -421,11 +469,13 @@
       "reason": "用一个人的经历，写出家庭责任与生活的复杂滋味。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E8%AE%B8%E4%B8%89%E8%A7%82%E5%8D%96%E8%A1%80%E8%AE%B0",
-      "image": "",
+      "image": "https://www.gznxbank.com/file/20240902/89d9f208d0714f29b0f668563ec8cc2c.png",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 5
+      "rank": 5,
+      "imageBackup": "",
+      "imageSource": "https://www.gznxbank.com/file/20240902/89d9f208d0714f29b0f668563ec8cc2c.png"
     },
     {
       "id": "curated:cn:book:25",
@@ -438,11 +488,13 @@
       "reason": "从孩童的眼睛回望往事，文字清淡而余味悠长。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E5%9F%8E%E5%8D%97%E6%97%A7%E4%BA%8B",
-      "image": "",
+      "image": "https://yabook.org/images/2025/07/2414d57234605c1ad0aa9595627bd356.jpg.webp",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 6
+      "rank": 6,
+      "imageBackup": "",
+      "imageSource": "https://yabook.org/images/2025/07/2414d57234605c1ad0aa9595627bd356.jpg.webp"
     },
     {
       "id": "curated:cn:book:26",
@@ -455,11 +507,13 @@
       "reason": "在机敏语言与人际往来里，读出生活中的进退两难。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E5%9B%B4%E5%9F%8E",
-      "image": "",
+      "image": "https://lib.bbgu.edu.cn/__local/F/6B/13/C836BC4172FB5E10FB3196578BA_0282C6B0_F000.jpeg",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 7
+      "rank": 7,
+      "imageBackup": "",
+      "imageSource": "https://lib.bbgu.edu.cn/__local/F/6B/13/C836BC4172FB5E10FB3196578BA_0282C6B0_F000.jpeg"
     },
     {
       "id": "curated:cn:book:27",
@@ -472,11 +526,15 @@
       "reason": "把人物、情感与家族命运放在一起，适合长期重读。",
       "source": "知更编辑推荐",
       "url": "https://search.douban.com/book/subject_search?search_text=%E7%BA%A2%E6%A5%BC%E6%A2%A6",
-      "image": "",
+      "image": "https://yuyi.com.sg/cdn/shop/products/9787020002207_46500824-9b28-45e7-a81a-a0298d447a1d.jpg?v=1596572220",
       "score": 0,
       "region": "CN",
       "editorial": true,
-      "rank": 8
+      "rank": 8,
+      "imageBackup": "",
+      "imageSource": "https://yuyi.com.sg/cdn/shop/products/9787020002207_46500824-9b28-45e7-a81a-a0298d447a1d.jpg?v=1596572220"
     }
-  ]
+  ],
+  "coverUpdatedAt": "2026-10-20",
+  "coverMethod": "为28部不同类别的作品补入经过名称/年份核对的外部海报或书封；不同出版版本封面可能不同。来源站可能限制外链，加载失败显示标题卡。"
 }
