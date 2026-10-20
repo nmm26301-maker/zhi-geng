@@ -1,6 +1,16 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
-    <path android:fillColor="#47765D" android:pathData="M0,0h108v108h-108z" />
-    <path android:fillColor="#F4F1DA" android:pathData="M25,59C24,43 37,32 54,35C62,25 77,31 76,44L87,48L76,52C72,72 56,80 39,72L27,82L31,67L20,62z" />
-    <path android:fillColor="#E8AA75" android:pathData="M43,52C58,50 65,61 59,70C49,76 34,68 35,60z" />
-    <path android:fillColor="#274C3A" android:pathData="M67,40a2.4,2.4 0,1 0,0.1 0z" />
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 知更鸟品牌图标：与网页、Figma SVG 同一造型，安卓矢量显示。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="64" android:viewportHeight="64">
+    <path android:fillColor="#244E40" android:pathData="M0,0 H64 V64 H0 Z"/>
+    <path android:fillColor="#326A52" android:pathData="M20,1 H44 C55,1 63,9 63,20 V44 C63,55 55,63 44,63 H20 C9,63 1,55 1,44 V20 C1,9 9,1 20,1 Z"/>
+    <path android:fillColor="@android:color/transparent" android:strokeColor="#EACB94" android:strokeWidth="2.6" android:strokeLineCap="round" android:pathData="M12,46.5 C24,43.1 36,44.4 51,45.5"/>
+    <path android:fillColor="#FFF9EC" android:pathData="M17.7,34.5 C17.9,24.2 25.9,16.1 36.3,16.7 C44.7,17.1 51,23.5 50.9,32.1 C50.7,43.7 41.8,50.5 30.5,49.3 C22.4,48.5 17.5,42.5 17.7,34.5 Z"/>
+    <path android:fillColor="#B45F4D" android:pathData="M19.3,37.4 C17.1,32.4 20.6,25.9 26.4,23.9 C29.1,30.4 34.5,33.7 42.2,34.5 C40.6,43.9 29.6,49.4 23.2,44.9 C19.6,42.7 18.8,40.2 19.3,37.4 Z"/>
+    <path android:fillColor="#D7E8CC" android:pathData="M19.3,37.1 C22.4,29.6 28.1,25.6 36,26 C34.6,34 29.3,38.2 19.3,40.3 Z"/>
+    <path android:fillColor="#E7B468" android:pathData="M49.7,29.6 L57.2,32.2 L50,35.3 Z"/>
+    <path android:fillColor="#203B32" android:pathData="M42.1,24.3 a2.1,2.1 0,1 0,0 4.2 a2.1,2.1 0,1 0,0 -4.2"/>
+    <path android:fillColor="#FFF9EC" android:pathData="M42.7,25.2 a0.6,0.6 0,1 0,0 1.2 a0.6,0.6 0,1 0,0 -1.2"/>
+    <path android:fillColor="#F3DCA7" android:pathData="M18,13 L19.25,16.25 L22.5,17.5 L19.25,18.75 L18,22 L16.75,18.75 L13.5,17.5 L16.75,16.25 Z"/>
 </vector>
