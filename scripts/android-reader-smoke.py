@@ -36,6 +36,6 @@ open_book('txt');screen('reader-12-txt-restored','第二章')
 open_book('gb');screen('reader-13-gb18030','第一章')
 open_book('pdf');screen('reader-14-pdf','1 / 2');center();tap('下一页 ›');screen('reader-15-pdf-next','2 / 2');tap('记书签');open_book('pdf');screen('reader-16-pdf-restored','2 / 2')
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(out/'reader-runtime-errors.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
-(out/'reader-result.json').write_text(json.dumps({'version':'0.6.7','api':29,'engine':'Readium Kotlin 3.1.0','documents':'original local debug fixtures','epub':'passed: rendered chapters, table of contents, bookmark, font size, theme and locator restart','txt':'passed: offline EPUB adapter, chapter navigation, locator restart, GB18030','pdf':'passed: native rendering, page navigation, bookmark, page restart','crashes':False},ensure_ascii=False,indent=2))
+(out/'reader-result.json').write_text(json.dumps({'version':'0.6.9','api':29,'engine':'Readium Kotlin 3.1.0','documents':'original local debug fixtures','epub':'passed: rendered chapters, table of contents, bookmark, font size, theme and locator restart','txt':'passed: offline EPUB adapter, chapter navigation, locator restart, GB18030','pdf':'passed: native rendering, page navigation, bookmark, page restart','crashes':False},ensure_ascii=False,indent=2))
 print('Reader emulator smoke passed: EPUB/TXT/GB18030/PDF, hidden chrome, directory, bookmark, themes and progress restoration')
 

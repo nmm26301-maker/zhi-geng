@@ -1,9 +1,10 @@
 {
   "applicationId": "cn.zhigeng.app",
   "appLabel": "知更",
-  "versionName": "0.6.8",
-  "versionCode": 608,
+  "versionName": "0.6.9",
+  "versionCode": 609,
   "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
-  "previousVersionCode": 606,
-  "delivery": "in-place update of the existing production app"
+  "previousVersionCode": 608,
+  "delivery": "in-place update of the existing production app",
+  "websiteOpening": "external browser"
 }

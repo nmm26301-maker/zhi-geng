@@ -27,20 +27,11 @@ tap('更多工具');tap('节点导航 5＋5');screen('28-node-directory','常用
 tap('更多工具');tap('AI 会员 5＋2');screen('32-ai-memberships','订阅之前，');tap('备选 2个');screen('33-ai-alternatives','环球巴士');tap('‹ 返回')
 tap('更多工具');tap('接码导航');screen('21-sms-directory','FreePhoneNum')
 tap('收藏FreePhoneNum');tap('我的收藏');screen('22-sms-favorite','FreePhoneNum');tap('隐藏FreePhoneNum');screen('23-sms-hidden-empty','暂无匹配');tap('已隐藏');screen('24-sms-hidden','FreePhoneNum');tap('恢复FreePhoneNum');tap('全部网站');screen('25-sms-restored','FreePhoneNum');tap('‹ 返回')
-tap('更多工具');tap('看剧 AI');screen('26-kanju-entry','好故事，');tap('打开看剧 AI 官网');time.sleep(10);screen('27-kanju-in-app','刷新')
-assert 'cn.zhigeng.app/.InAppBrowserActivity' in adb('shell','dumpsys','activity','activities'),'Kanju opened an external browser'
-tap('‹ 返回');tap('‹ 返回')
 tap('打开 AI 助手');screen('06-ai-assistant','让好奇，')
 tap('FCC 多模型');screen('07-fcc-connection','连接你的 FCC');tap('保存并读取模型');screen('08-fcc-invalid-address','请填写有效的 HTTPS');tap('服务商');screen('09-fcc-directory','61 家服务商');tap('‹ 返回')
-tap('⋯');tap('关于 Duck.ai');screen('07-ai-about','本页内嵌 Duck.ai 官方网站');tap('知道了')
-tap('开始聊天  →');time.sleep(12)
-screen('08-duckai-embedded','AI 助手')
-ai_strings=[n.get('text','') for n in dump().iter('node')]
-chat_state='network error' if any('连接未完成' in x for x in ai_strings) else 'page finished' if any('官方网页' in x for x in ai_strings) else 'loading'
-# Never send a chat or accept service terms automatically; leave those choices to the user.
-assert 'cn.zhigeng.app/.AiActivity' in adb('shell','dumpsys','activity','activities'), 'Duck.ai left the app'
-tap('⋯');tap('助手首页');screen('09-ai-return','开始聊天')
-tap('‹ 返回');screen('10-native-return','TMDB')
+tap('助手菜单');tap('关于 Duck.ai');screen('07-ai-about','手机浏览器打开');tap('知道了');tap('‹ 返回');screen('10-native-return','TMDB')
+# All website departures are exercised separately against the actual external browser.
+chat_state='external browser; tested by android-browser-smoke.py'
 # Only the debug variant accepts this fixture shortcut. Release excludes the hook and test CA.
 adb('shell','am','force-stop','cn.zhigeng.app');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity','--ez','fcc_protocol_test','true');time.sleep(3)
 tap('连接网关');screen('11-fcc-local-test','连接你的 FCC');tap('保存并读取模型');tap('进入聊天');screen('12-fcc-models','Protocol fixture')
@@ -61,6 +52,6 @@ protected=adb('shell','run-as','cn.zhigeng.app','cat','shared_prefs/protected.xm
 assert all(x not in protected for x in ['fixture-token-not-a-secret','Draft persist test','Rate test','本地协议测试回复']),'Secrets, draft or chats stored in plaintext'
 logs=adb('logcat'  ,'-d','-s','AndroidRuntime:E');(out/'runtime-errors.txt').write_text(logs)
 assert 'FATAL EXCEPTION' not in logs,logs
-(out/'result.json').write_text(json.dumps({'app':'Zhigeng','version':'0.6.8','api':29,'nativeNavigation':'passed','visibleCuratedCoversLoaded':native_covers,'latestDirectories':'passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters','annualRankings':'passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures','smsDirectory':'passed: native six sites, favorite, hide, hidden filter and restore','kanjuEntry':'passed: native entry and in-app HTTPS WebView; live playback not tested','screens':len(list(out.glob('*.png'))),'fccProtocolFixture':'passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage','fccDraftRecovery':'passed: model switch, tab switch, process restart, failure and stop','fccRealProvider':'not tested: no user gateway or provider credentials','duckAiEmbeddedState':chat_state,'duckAiChatSent':False,'accountDownload':'not tested: needs real user credentials'},ensure_ascii=False,indent=2))
+(out/'result.json').write_text(json.dumps({'app':'Zhigeng','version':'0.6.9','api':29,'nativeNavigation':'passed','visibleCuratedCoversLoaded':native_covers,'latestDirectories':'passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters','annualRankings':'passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures','smsDirectory':'passed: native six sites, favorite, hide, hidden filter and restore','kanjuEntry':'external browser; tested separately; live playback not tested','screens':len(list(out.glob('*.png'))),'fccProtocolFixture':'passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage','fccDraftRecovery':'passed: model switch, tab switch, process restart, failure and stop','fccRealProvider':'not tested: no user gateway or provider credentials','duckAiOpening':chat_state,'duckAiChatSent':False,'accountDownload':'not tested: needs real user credentials'},ensure_ascii=False,indent=2))
 print('Native Android emulator smoke passed: navigation, Duck.ai, local HTTPS/SSE, HTTP 429/retry, stop, draft recovery and encrypted storage; no fatal exception')
 

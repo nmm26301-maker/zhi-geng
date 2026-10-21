@@ -1,4 +1,4 @@
-# 知更 Android 0.6.8
+# 知更 Android 0.6.9
 
 独立原生安卓应用（Java + Android SDK），不是 WebView 网页壳，不依赖前一版知更网站或 ChatGPT 网页登录。
 
@@ -100,3 +100,7 @@ gradle :app:assembleRelease
 - 0.6.8 固定原包名 `cn.zhigeng.app`、版本码 608；使用用户提供的蓝色知更鸟与书本图标替换桌面和首页标识。只交付沿用原证书的覆盖升级包，保留原 App 数据。独立预览构建及其发布入口已移除。
 - 构建前执行 `node scripts/prepare-android-posters.mjs`，缺少任何一张封面将停止打包，不把占位图宣称为完整封面。
 
+
+## 0.6.9 · 网址全部转到外部浏览器
+
+网站访问统一通过 BrowserLinks，优先交给手机默认浏览器；无默认时仅在浏览器应用中选择，无浏览器时明确提示。作品来源、看剧 AI、六站接码、节点与额外控制台、AI 会员、FCC 服务商、Duck.ai、开源项目页和 EPUB 外链均使用此入口。第三方网站不再使用 App 内 WebView。原生发现、榜单、书架、阅读及 FCC 聊天继续在知更内使用。正式包名 cn.zhigeng.app，版本码 609，沿用原证书覆盖更新。

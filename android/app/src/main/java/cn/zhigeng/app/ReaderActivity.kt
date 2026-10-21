@@ -117,7 +117,7 @@ class ReaderActivity : FragmentActivity() {
                 }
                 publication=opened.first;positions=opened.second
                 val initial=runCatching { Locator.fromJSON(JSONObject(prefs.getString("$key:locator","")!!)) }.getOrNull()
-                val factory=EpubNavigatorFactory(opened.first).createFragmentFactory(initialLocator=initial,initialPreferences=preferences(),listener=object:EpubNavigatorFragment.Listener{override fun onExternalLinkActivated(url:AbsoluteUrl){val value=url.toString();if(value.startsWith("https://"))startActivity(Intent(this@ReaderActivity,InAppBrowserActivity::class.java).putExtra("url",value))}},configuration=EpubNavigatorFragment.Configuration {
+                val factory=EpubNavigatorFactory(opened.first).createFragmentFactory(initialLocator=initial,initialPreferences=preferences(),listener=object:EpubNavigatorFragment.Listener{override fun onExternalLinkActivated(url:AbsoluteUrl){val value=url.toString();BrowserLinks.open(this@ReaderActivity,value)}},configuration=EpubNavigatorFragment.Configuration {
                     servedAssets=listOf("fonts/.*");addFontFamilyDeclaration(FontFamily("Zhigeng Serif"),alternates=listOf(FontFamily.SERIF)){ addFontFace { addSource("fonts/zhigeng-serif.woff2") } }
                 })
                 supportFragmentManager.fragmentFactory=factory

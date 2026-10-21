@@ -9,8 +9,8 @@ android {
         multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 608
-        versionName '0.6.8'
+        versionCode 609
+        versionName '0.6.9'
     }
     buildFeatures { buildConfig true }
     testOptions { unitTests.all { systemProperty "zhigeng.assets", file("src/main/assets").absolutePath } }
