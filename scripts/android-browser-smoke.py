@@ -25,31 +25,43 @@ def tap(text,scrolls=5):
     (OUT/'missing-activity.txt').write_text(adb('shell','dumpsys','activity','activities'))
     raise AssertionError('Missing website entry: '+text)
 def home():
-    # End the external browser task before cold-starting the native task. No app data is cleared.
-    for package in browsers:adb('shell','am','force-stop',package)
-    adb('shell','am','force-stop',APP)
-    adb('shell','am','start','-W','-f','0x10008000','-n',APP+'/.MainActivity')
+    # Reset navigation between cases without killing either process or clearing data.
+    adb('shell','am','start','-W','-f','0x14000000','-n',APP+'/.MainActivity')
     for retry in range(5):
         if any(n.get('content-desc')=='更多工具' for n in dump().iter('node')):return
         time.sleep(.5)
     raise AssertionError('Native home did not become ready')
 def tools(name):
     home();tap('更多工具',0);tap(name,0)
-def top_package():
+def resumed():
     value=adb('shell','dumpsys','activity','activities')
-    match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?\s([a-zA-Z][\w.]*)/',value)
+    match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?\s([a-zA-Z][\w.]*)/([^\s}]+)\s+t(\d+)',value)
     assert match, value
-    return match.group(1)
+    return dict(package=match.group(1),activity=match.group(2),task=match.group(3))
 def external(name,button,host):
+    native=resumed();assert native['package']==APP,native
     adb('logcat','-c');tap(button);time.sleep(1)
-    package=top_package()
+    browser=resumed();package=browser['package']
     logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I')
     assert package in browsers,(name,package,browsers)
     assert host in logs,(name,host,logs[-5000:])
     assert 'act=android.intent.action.VIEW' in logs,(name,logs[-3000:])
+    assert browser['task']!=native['task'],(name,'Browser shared native task',native,browser)
     (OUT/(name+'.txt')).write_text(logs)
-    results.append(dict(entry=name,browserPackage=package,host=host,external=True))
-    print('External browser verified:',name,package,host,flush=True)
+    # The first browser has no earlier history: Android Back must return directly.
+    back_return=None
+    if not results:
+        adb('shell','input','keyevent','4');time.sleep(1)
+        back_return=resumed()==native
+        assert back_return,('Back did not restore native page',native,resumed())
+    # Reproduce tapping Zhigeng's launcher icon while a browser task exists.
+    adb('shell','am','start','-W','-a','android.intent.action.MAIN',
+        '-c','android.intent.category.LAUNCHER','-f','0x10200000','-n',APP+'/.MainActivity')
+    time.sleep(1)
+    returned=resumed();assert returned==native,('Launcher lost native screen',native,returned)
+    results.append(dict(entry=name,browserPackage=package,host=host,external=True,
+                        separateTask=True,nativeScreenRestored=True,backReturned=back_return))
+    print('External browser and native return verified:',name,package,host,flush=True)
 
 query=adb('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW',
           '-c','android.intent.category.BROWSABLE','-d','https://zhigeng-browser.invalid/')
@@ -81,7 +93,7 @@ home();tap('我的');external('12-project','开源项目与许可 ↗','github.c
 home();tap('书架')
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(logs)
 assert 'FATAL EXCEPTION' not in logs,logs
-report=dict(applicationId=APP,versionCode=609,api=29,externalBrowserEntries=results,
+report=dict(applicationId=APP,versionCode=610,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),externalBrowserEntries=results,
             websiteNetworkRequired=False,appResumedAfterBrowser=True,crashes=False)
 (OUT/'result.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
 print('Website routing passed:',len(results),'native entries opened the external browser')

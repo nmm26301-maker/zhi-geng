@@ -56,20 +56,24 @@ jobs:
       - name: Package unsigned APK and signing verifier
         run: |
           mkdir -p apk-output
-          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.9-unsigned.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.10-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
           cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.9-unsigned.apk > apk-output/package-info.txt
-          test "$(unzip -p apk-output/Zhigeng-v0.6.9-unsigned.apk classes.dex | wc -c)" -gt 10000
-          ! unzip -l apk-output/Zhigeng-v0.6.9-unsigned.apk | grep -q 'lib/.*\.so'
-          ! unzip -p apk-output/Zhigeng-v0.6.9-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
-          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.9-unsigned.apk | grep -q 'fcc_test_ca'
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.10-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.10-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.10-unsigned.apk | grep -q 'lib/.*\.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.10-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.10-unsigned.apk | grep -q 'fcc_test_ca'
       - name: Start local FCC protocol fixture
         run: python3 scripts/fcc-protocol-fixture.py > /tmp/fcc-fixture.log 2>&1 &
       - name: Install screenshot verifier
         run: python3 -m pip install Pillow==11.3.0
-      - name: Enable KVM
-        run: sudo chmod 666 /dev/kvm
+      - name: Reserve disk and enable KVM
+        run: |
+          sudo rm -rf "$ANDROID_HOME/ndk" "$ANDROID_HOME/cmake" /usr/share/dotnet
+          rm -rf "$HOME/.gradle"
+          df -h "$HOME"
+          sudo chmod 666 /dev/kvm
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
@@ -89,7 +93,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: Zhigeng-native-android-v0.6.9-unsigned-build
+          name: Zhigeng-native-android-v0.6.10-unsigned-build
           path: |
             apk-output/
             emulator-check/

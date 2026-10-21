@@ -1,6 +1,5 @@
 package cn.zhigeng.app;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -53,7 +52,8 @@ public final class BrowserLinks {
     }
 
     private static boolean launch(Context context, Intent intent) {
-        if (!(context instanceof Activity)) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        // Keep browser history out of Zhigeng's task, even when opened by an Activity.
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         try {
             context.startActivity(intent);
             return true;
