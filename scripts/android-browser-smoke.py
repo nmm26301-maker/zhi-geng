@@ -11,17 +11,28 @@ def dump():
     return E.fromstring(adb('shell','cat','/sdcard/browser-check.xml'))
 def tap(text,scrolls=5):
     for attempt in range(scrolls+1):
-        for node in dump().iter('node'):
-            if text in [node.get('text'),node.get('content-desc')]:
-                x1,y1,x2,y2=map(int,re.findall(r'\d+',node.get('bounds')))
-                if x2>x1 and y2>y1:
-                    adb('shell','input','tap',(x1+x2)//2,(y1+y2)//2);time.sleep(1);return
+        for retry in range(4):
+            tree=dump()
+            for node in tree.iter('node'):
+                if text in [node.get('text'),node.get('content-desc')]:
+                    x1,y1,x2,y2=map(int,re.findall(r'\d+',node.get('bounds')))
+                    if x2>x1 and y2>y1:
+                        adb('shell','input','tap',(x1+x2)//2,(y1+y2)//2);time.sleep(1);return
+            time.sleep(.5)
         if attempt<scrolls:
             adb('shell','input','swipe','540','1550','540','650','350');time.sleep(.5)
+    (OUT/'missing-entry.xml').write_bytes(E.tostring(tree,encoding='utf-8'))
+    (OUT/'missing-activity.txt').write_text(adb('shell','dumpsys','activity','activities'))
     raise AssertionError('Missing website entry: '+text)
 def home():
+    # End the external browser task before cold-starting the native task. No app data is cleared.
+    for package in browsers:adb('shell','am','force-stop',package)
     adb('shell','am','force-stop',APP)
-    adb('shell','am','start','-W','-n',APP+'/.MainActivity');time.sleep(1)
+    adb('shell','am','start','-W','-f','0x10008000','-n',APP+'/.MainActivity')
+    for retry in range(5):
+        if any(n.get('content-desc')=='更多工具' for n in dump().iter('node')):return
+        time.sleep(.5)
+    raise AssertionError('Native home did not become ready')
 def tools(name):
     home();tap('更多工具',0);tap(name,0)
 def top_package():
