@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T01:52:10.178Z",
+  "updatedAt": "2026-10-21T01:38:39.438Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 360,
@@ -654,14 +654,14 @@
       "image": "https://covers.openlibrary.org/b/id/14826089-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL41943074W",
-      "score": 4.4,
-      "votes": 35,
-      "interest": 1049,
+      "score": 4.361111,
+      "votes": 36,
+      "interest": 1058,
       "language": [
-        "ger",
         "spa",
-        "dut",
-        "eng"
+        "ger",
+        "eng",
+        "dut"
       ],
       "subjects": [
         "American literature",
@@ -2857,7 +2857,7 @@
       "url": "https://openlibrary.org/works/OL28181491W",
       "score": 3.8181818,
       "votes": 22,
-      "interest": 906,
+      "interest": 920,
       "language": [
         "spa",
         "eng"
@@ -3334,15 +3334,15 @@
       "image": "https://covers.openlibrary.org/b/id/10601402-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24178205W",
-      "score": 4.127907,
-      "votes": 258,
-      "interest": 9393,
+      "score": 4.1274133,
+      "votes": 259,
+      "interest": 9445,
       "language": [
-        "por",
         "ita",
+        "spa",
+        "por",
         "eng",
-        "dut",
-        "spa"
+        "dut"
       ],
       "subjects": [
         "American literature",
@@ -3373,7 +3373,7 @@
       "url": "https://openlibrary.org/works/OL25515697W",
       "score": 4.048,
       "votes": 125,
-      "interest": 5806,
+      "interest": 5828,
       "language": [
         "spa",
         "eng"
@@ -3995,16 +3995,16 @@
       "url": "https://openlibrary.org/works/OL20965973W",
       "score": 4.011494,
       "votes": 87,
-      "interest": 2344,
+      "interest": 2359,
       "language": [
-        "ger",
-        "por",
-        "rum",
         "gre",
+        "por",
+        "tur",
+        "rum",
         "swe",
         "eng",
         "fre",
-        "tur"
+        "ger"
       ],
       "subjects": [
         "Fiction",
@@ -5633,16 +5633,16 @@
       "url": "https://openlibrary.org/works/OL20068530W",
       "score": 3.8837209,
       "votes": 129,
-      "interest": 5358,
+      "interest": 5403,
       "language": [
-        "ger",
-        "por",
+        "spa",
         "heb",
         "pol",
         "chi",
-        "eng",
+        "por",
         "tur",
-        "spa"
+        "eng",
+        "ger"
       ],
       "subjects": [
         "Fiction, romance, contemporary, suspense",
@@ -6853,14 +6853,14 @@
       "votes": 61,
       "interest": 688,
       "language": [
-        "por",
-        "cat",
+        "dut",
+        "spa",
         "heb",
         "pol",
-        "eng",
-        "fre",
+        "por",
+        "cat",
         "tur",
-        "dut"
+        "eng"
       ],
       "subjects": [
         "Serie:Magnus_Chase_and_the_Gods_of_Asgard",
@@ -8208,15 +8208,15 @@
       "url": "https://openlibrary.org/works/OL42430111W",
       "score": 4.3589745,
       "votes": 39,
-      "interest": 1914,
+      "interest": 1931,
       "language": [
-        "ger",
-        "por",
+        "spa",
         "pol",
-        "eng",
+        "por",
         "tur",
+        "eng",
         "dut",
-        "spa"
+        "ger"
       ],
       "subjects": [
         "College students",
@@ -8355,15 +8355,15 @@
       "image": "https://covers.openlibrary.org/b/id/7990753-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17715454W",
-      "score": 3.7857144,
-      "votes": 56,
-      "interest": 1342,
+      "score": 3.7894738,
+      "votes": 57,
+      "interest": 1350,
       "language": [
-        "ger",
         "pol",
         "fre",
         "eng",
-        "dut"
+        "dut",
+        "ger"
       ],
       "subjects": [
         "Serie:Caraval",
@@ -9051,14 +9051,14 @@
       "image": "https://covers.openlibrary.org/b/id/11026591-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL86707W",
-      "score": 4.481928,
-      "votes": 166,
-      "interest": 907,
+      "score": 4.473054,
+      "votes": 167,
+      "interest": 909,
       "language": [
-        "chi",
+        "heb",
         "spa",
-        "eng",
-        "heb"
+        "chi",
+        "eng"
       ],
       "subjects": [
         "owls",
@@ -10758,9 +10758,9 @@
       "votes": 94,
       "interest": 434,
       "language": [
+        "und",
         "spa",
-        "eng",
-        "und"
+        "eng"
       ],
       "subjects": [
         "watchdogs",
