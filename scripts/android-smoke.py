@@ -19,7 +19,7 @@ def screen(name,required):
 def has(text):return any(text in n.get('text','') for n in dump().iter('node'))
 def open_fcc():
  adb('shell','am','force-stop','cn.zhigeng.app');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity');time.sleep(2)
- tap('✦ AI 助手');tap('FCC 多模型')
+ tap('打开 AI 助手');tap('FCC 多模型')
 def model(label,ref):tap('选择 FCC 模型');tap(label+' (not an AI model)\n'+ref)
 adb('install','-r','apk-output/Zhigeng-debug-test.apk');adb('logcat','-c');adb('shell','am','start','-W','-n','cn.zhigeng.app/.MainActivity');time.sleep(3)
 time.sleep(16);screen('01-domestic-discovery','国内精选');native_covers=sum('封面已加载' in n.get('content-desc','') for n in dump().iter('node'));adb('shell','input','swipe','540','1500','540','650','400');time.sleep(3);screen('01b-curated-covers','我不是药神');tap('榜单');screen('02-annual-rank','年度排行榜');tap('编辑推荐');screen('02-editorial-rank','知更编辑推荐');tap('阅读');screen('03-chinese-books','公开图书目录');tap('书架');screen('04-library','导入');tap('我的');screen('05-settings','TMDB')
@@ -30,7 +30,7 @@ tap('收藏FreePhoneNum');tap('我的收藏');screen('22-sms-favorite','FreePhon
 tap('更多工具');tap('看剧 AI');screen('26-kanju-entry','好故事，');tap('打开看剧 AI 官网');time.sleep(10);screen('27-kanju-in-app','刷新')
 assert 'cn.zhigeng.app/.InAppBrowserActivity' in adb('shell','dumpsys','activity','activities'),'Kanju opened an external browser'
 tap('‹ 返回');tap('‹ 返回')
-tap('✦ AI 助手');screen('06-ai-assistant','让好奇，')
+tap('打开 AI 助手');screen('06-ai-assistant','让好奇，')
 tap('FCC 多模型');screen('07-fcc-connection','连接你的 FCC');tap('保存并读取模型');screen('08-fcc-invalid-address','请填写有效的 HTTPS');tap('服务商');screen('09-fcc-directory','61 家服务商');tap('‹ 返回')
 tap('⋯');tap('关于 Duck.ai');screen('07-ai-about','本页内嵌 Duck.ai 官方网站');tap('知道了')
 tap('开始聊天  →');time.sleep(12)
@@ -61,5 +61,6 @@ protected=adb('shell','run-as','cn.zhigeng.app','cat','shared_prefs/protected.xm
 assert all(x not in protected for x in ['fixture-token-not-a-secret','Draft persist test','Rate test','本地协议测试回复']),'Secrets, draft or chats stored in plaintext'
 logs=adb('logcat'  ,'-d','-s','AndroidRuntime:E');(out/'runtime-errors.txt').write_text(logs)
 assert 'FATAL EXCEPTION' not in logs,logs
-(out/'result.json').write_text(json.dumps({'app':'Zhigeng','version':'0.6.7','api':29,'nativeNavigation':'passed','visibleCuratedCoversLoaded':native_covers,'latestDirectories':'passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters','annualRankings':'passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures','smsDirectory':'passed: native six sites, favorite, hide, hidden filter and restore','kanjuEntry':'passed: native entry and in-app HTTPS WebView; live playback not tested','screens':len(list(out.glob('*.png'))),'fccProtocolFixture':'passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage','fccDraftRecovery':'passed: model switch, tab switch, process restart, failure and stop','fccRealProvider':'not tested: no user gateway or provider credentials','duckAiEmbeddedState':chat_state,'duckAiChatSent':False,'accountDownload':'not tested: needs real user credentials'},ensure_ascii=False,indent=2))
+(out/'result.json').write_text(json.dumps({'app':'Zhigeng','version':'0.6.8','api':29,'nativeNavigation':'passed','visibleCuratedCoversLoaded':native_covers,'latestDirectories':'passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters','annualRankings':'passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures','smsDirectory':'passed: native six sites, favorite, hide, hidden filter and restore','kanjuEntry':'passed: native entry and in-app HTTPS WebView; live playback not tested','screens':len(list(out.glob('*.png'))),'fccProtocolFixture':'passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage','fccDraftRecovery':'passed: model switch, tab switch, process restart, failure and stop','fccRealProvider':'not tested: no user gateway or provider credentials','duckAiEmbeddedState':chat_state,'duckAiChatSent':False,'accountDownload':'not tested: needs real user credentials'},ensure_ascii=False,indent=2))
 print('Native Android emulator smoke passed: navigation, Duck.ai, local HTTPS/SSE, HTTP 429/retry, stop, draft recovery and encrypted storage; no fatal exception')
+

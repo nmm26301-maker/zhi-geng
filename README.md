@@ -1,11 +1,6 @@
 # 知更 · Android App
 
-> **2026-10-21 · Android 0.6.7 预览 APK 构建流程已提交**：新增独立包名 `cn.zhigeng.app.preview` 的可安装预览发布构建、签名与 Android 模拟器安装检查。构建是否成功，以 [GitHub Actions](https://github.com/nmm26301-maker/zhi-geng/actions/workflows/android.yml) 最新成功运行及实际 Artifact 为准；源代码提交不代表 APK 已通过编译。
->
-> **安卓安装选择**：现有已签名、可覆盖升级的 [正式版 0.6.6](releases/Zhigeng-v0.6.6.apk?raw=true)；需要试用离线 28 封面与最新图标的 0.6.7，请前往 [GitHub Releases](https://github.com/nmm26301-maker/zhi-geng/releases) 下载检查通过后发布的 `Zhigeng-v0.6.7-preview.apk`，详见 [预览安装说明](releases/Zhigeng-v0.6.7-preview-usage.md)。预览版与正式版并存；不要安装 `unsigned.apk`，也不要把临时预览签名用作正式升级签名。
-
-> **2026-10-20 · 知更全端图标升级（源代码已提交，APK 尚未重新构建）**：原创知更鸟品牌标识，网页/安卓统一的圆角矢量图标，安卓五项底部导航及分类 / AI 工具入口更新。可编辑设计见 [Figma Icon Studio](https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=33-256)，实现与校验记录见 [图标设计文档](design/icon-studio-20261020.md)。**现有 0.6.6 APK 不包含此次图标修改，须待重新构建并签名后才能在手机上看到。**
-
+> **2026-10-21 · Android 0.6.8 覆盖升级**：使用用户提供的蓝色知更鸟与书本图标，固定原包名 `cn.zhigeng.app`、版本码 608。已移除独立预览构建和发布入口。升级包必须沿用 0.6.6 的原证书，并通过旧版覆盖安装及数据保留检查后交付；未签名构建产物不作为安装包。
 
 **安卓安装包：[Zhigeng-v0.6.6.apk](releases/Zhigeng-v0.6.6.apk?raw=true)**
 
@@ -214,3 +209,4 @@ TMDB（影视，需自备凭证）、Jikan/AniList（动漫）、TVmaze（部分
 `assets/zhigeng-v064.js` 使用经逐一核对的原图域名白名单，加载成功后替换文本色块；失败则尝试已配置的备用图，全部失败保持可读标题和编辑信息；缓存图片也可立即显示。国内精选 JSON 现使用 `?rev=20261020-curated28` 并以 `cache:no-store` 请求，HTML 同步更新了脚本缓存版本。回归测试会断言 28 条图片地址均存在、28 张图片 DOM 元素实际渲染、电影/小说《活着》来源不同，及备用图与最终退回文字卡的功能。
 
 图片仍由对应第三方图片服务器提供，可能存在反盗链、地区限制、权限或链接变更；**仓库有 28 条图片数据，不等于已经在所有安卓浏览器中确认加载成功**。没有对版权海报进行本地抓取或重新分发。
+

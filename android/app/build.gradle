@@ -4,13 +4,13 @@ android {
     compileSdk 35
     buildToolsVersion '35.0.0'
     defaultConfig {
-        applicationId project.hasProperty('zhigengPreview') ? 'cn.zhigeng.app.preview' : 'cn.zhigeng.app'
-        manifestPlaceholders = [appLabel: project.hasProperty('zhigengPreview') ? '知更预览' : '知更']
+        applicationId 'cn.zhigeng.app'
+        manifestPlaceholders = [appLabel: '知更']
         multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 607
-        versionName project.hasProperty('zhigengPreview') ? '0.6.7-preview' : '0.6.7'
+        versionCode 608
+        versionName '0.6.8'
     }
     buildFeatures { buildConfig true }
     testOptions { unitTests.all { systemProperty "zhigeng.assets", file("src/main/assets").absolutePath } }
@@ -35,3 +35,4 @@ dependencies {
 }
 
 dependencies { implementation 'org.jsoup:jsoup:1.18.3' }
+
