@@ -1,0 +1,101 @@
+{
+  "applicationId": "cn.zhigeng.app",
+  "appLabel": "知更",
+  "versionName": "0.6.12",
+  "versionCode": 612,
+  "previousVersionCode": 611,
+  "previousVersion": "0.6.11",
+  "delivery": "in-place update of the existing production app",
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "sha256": "88f557a3ae66623ceef686b0fcba177ada15061a9a806a665e151aac6e6e6873",
+  "size": 20769835,
+  "sourceCommit": "93cf4e68cd854a23d996b9c789820f8d8ce4e9a2",
+  "buildWorkflowRun": 39612148843,
+  "originalCertificateVerified": true,
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "websiteOpening": "external browser",
+  "bookCopies": {
+    "defaultDirectory": "Download/知更/",
+    "api29Plus": "MediaStore Downloads, independent complete copy",
+    "api26To28": "system Save As picker",
+    "olderShelfBooks": "export from local book details",
+    "customLocation": "system Save As picker",
+    "privateShelfCopyRetained": true
+  },
+  "unitTests": "passed in build workflow",
+  "nativeChecks": {
+    "app": "Zhigeng",
+    "version": "0.6.12",
+    "api": 29,
+    "nativeNavigation": "passed",
+    "visibleCuratedCoversLoaded": 2,
+    "latestDirectories": "passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters",
+    "annualRankings": "passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures",
+    "smsDirectory": "passed: native six sites, favorite, hide, hidden filter and restore",
+    "kanjuEntry": "external browser; tested separately; live playback not tested",
+    "screens": 34,
+    "fccProtocolFixture": "passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage",
+    "fccDraftRecovery": "passed: model switch, tab switch, process restart, failure and stop",
+    "fccRealProvider": "not tested: no user gateway or provider credentials",
+    "duckAiOpening": "external browser; tested by android-browser-smoke.py",
+    "duckAiChatSent": false,
+    "accountDownload": "not tested: needs real user credentials"
+  },
+  "readerChecks": {
+    "version": "0.6.12",
+    "api": 29,
+    "engine": "Readium Kotlin 3.1.0",
+    "documents": "original local debug fixtures",
+    "epub": "passed: rendered chapters, minimal chrome, quick day/night switch, table of contents, bookmark, font preview, themes and locator restart",
+    "txt": "passed: offline EPUB adapter, chapter navigation, locator restart, GB18030",
+    "pdf": "passed: native rendering, page navigation, bookmark, page restart",
+    "crashes": false
+  },
+  "upgradeChecks": {
+    "inPlaceUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "favoritesPreserved": true,
+    "restartPreserved": true,
+    "previousVersionCode": 611,
+    "versionCode": 612,
+    "applicationId": "cn.zhigeng.app",
+    "api": 33,
+    "offlineCoversLoaded": 4,
+    "noSecondApp": true,
+    "crashes": false,
+    "screens": 8
+  },
+  "fullBuildWorkflowConclusion": "failure: existing API29 browser launcher-return ActivityRecord assertion; build/unit/native/reader stages passed",
+  "phoneWorkflowRun": 39648591140,
+  "phoneTestCommit": "5db3d1488b38b0ad395b5697e4356164b839921a",
+  "untested": [
+    "live account/network book download",
+    "successful write through a user-selected Save As document",
+    "Android 8/9 Save As flow"
+  ],
+  "phoneChecks": {
+    "versionCode": 612,
+    "api": 33,
+    "directory": "Download/知更",
+    "publicFilesVisible": true,
+    "bytesMatchCompletedDownload": true,
+    "duplicateNamesDoNotOverwrite": true,
+    "saveAsPicker": true,
+    "cancelPreservesFiles": true,
+    "independentOfAppUninstall": true,
+    "sha256": "17b8bf4846de8717c82c4f6c67058162c76ae173c5a4b9edcbb6bf24d99727a5",
+    "files": [
+      "知更本地保存测试 (1).epub",
+      "知更本地保存测试.epub"
+    ],
+    "fixture": "original local EPUB; account/network download is not exercised",
+    "crashes": false
+  },
+  "phoneWorkflowConclusion": "success"
+}

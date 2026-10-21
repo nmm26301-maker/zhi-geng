@@ -63,8 +63,8 @@ jobs:
         if: always()
         run: |
           mkdir -p releases/checks-0.6.12
-          if test -d backups/Zhigeng-0.6.12/checks; then cp -R backups/Zhigeng-0.6.12/checks releases/checks-0.6.12/upgrade; fi
-          if test -d phone-download-check; then cp -R phone-download-check releases/checks-0.6.12/phone; fi
+          if test -d backups/Zhigeng-0.6.12/checks; then mkdir -p releases/checks-0.6.12/upgrade; cp -R backups/Zhigeng-0.6.12/checks/. releases/checks-0.6.12/upgrade/; fi
+          if test -d phone-download-check; then mkdir -p releases/checks-0.6.12/phone; cp -R phone-download-check/. releases/checks-0.6.12/phone/; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add releases/checks-0.6.12
