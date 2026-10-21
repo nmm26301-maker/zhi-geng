@@ -26,7 +26,8 @@ def tap(text,scrolls=5):
     raise AssertionError('Missing website entry: '+text)
 def home():
     # Reset navigation between cases without killing either process or clearing data.
-    adb('shell','am','start','-W','-f','0x14000000','-n',APP+'/.MainActivity')
+    adb('shell','am','start','-W','-a','android.intent.action.MAIN',
+        '-c','android.intent.category.LAUNCHER','-f','0x14000000','-n',APP+'/.MainActivity')
     for retry in range(5):
         if any(n.get('content-desc')=='更多工具' for n in dump().iter('node')):return
         time.sleep(.5)

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- User-supplied bird and open-book artwork, shared by launcher and app header. -->
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/zhigeng_brand"
-    android:gravity="fill"
-    android:filter="true" />

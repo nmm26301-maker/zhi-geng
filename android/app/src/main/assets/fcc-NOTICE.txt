@@ -1,7 +1,0 @@
-Free Claude Code (FCC) compatibility integration
-Upstream: https://github.com/Alishahryar1/free-claude-code
-Reviewed source: c5239619be489ff393fff29caf838c8a5a957454
-Reviewed upstream license: AGPL-3.0-only, Copyright (c) 2026 Ali Khokhar.
-
-Zhigeng uses an independently written Android network client of FCC's public model-list and Anthropic Messages APIs. The Python FCC runtime is not included in this APK. Provider names, identifiers and official credential links in fcc-providers.json are a dated factual directory, not a list of unlocked models or promised free quotas.
-FCC remains an independent open-source project, not an Anthropic endorsement. Providers control accounts, model availability, billing and limits.
