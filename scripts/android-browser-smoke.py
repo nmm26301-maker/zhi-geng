@@ -42,7 +42,7 @@ def external(name,button,host):
 
 query=adb('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW',
           '-c','android.intent.category.BROWSABLE','-d','https://zhigeng-browser.invalid/')
-browsers=set(re.findall(r'^([\w.]+)/',query,re.M));browsers.discard(APP)
+browsers=set(re.findall(r'^\s*([\w.]+)/',query,re.M));browsers.discard(APP)
 assert browsers,query
 # This changes only the disposable emulator, and removes first-use chooser ambiguity.
 preferred='com.android.browser' if 'com.android.browser' in browsers else sorted(browsers)[0]
