@@ -24,10 +24,10 @@ def tap(text,scrolls=5):
     (OUT/'missing-entry.xml').write_bytes(E.tostring(tree,encoding='utf-8'))
     (OUT/'missing-activity.txt').write_text(adb('shell','dumpsys','activity','activities'))
     raise AssertionError('Missing website entry: '+text)
-def home():
+def home(reset=False):
     # Reset navigation between cases without killing either process or clearing data.
     adb('shell','am','start','-W','-a','android.intent.action.MAIN',
-        '-c','android.intent.category.LAUNCHER','-f','0x14000000','-n',APP+'/.MainActivity')
+        '-c','android.intent.category.LAUNCHER','-f','0x10008000' if reset else '0x14000000','-n',APP+'/.MainActivity')
     for retry in range(5):
         if any(n.get('content-desc')=='更多工具' for n in dump().iter('node')):return
         time.sleep(.5)
@@ -73,7 +73,8 @@ preferred='com.android.browser' if 'com.android.browser' in browsers else sorted
 adb('shell','cmd','role','add-role-holder','--user','0','android.app.role.BROWSER',preferred)
 adb('shell','svc','wifi','disable');adb('shell','svc','data','disable')
 
-home();tap('榜单');tap('编辑推荐');tap('我不是药神')
+# The previous suite starts Activities directly with adb; seed a real launcher task once.
+home(reset=True);tap('榜单');tap('编辑推荐');tap('我不是药神')
 external('01-work-source','在浏览器中查看来源资料','search.douban.com')
 tools('看剧 AI');external('02-kanju-home','浏览器打开看剧 AI 官网','kanju.ai')
 tools('看剧 AI');tap('输入想看的片名…');adb('shell','input','text','Zhigeng');adb('shell','input','keyevent','4')
