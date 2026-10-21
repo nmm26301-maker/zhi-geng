@@ -1,0 +1,17 @@
+{
+  "inPlaceUpgrade": true,
+  "sameUid": true,
+  "sameFirstInstallTime": true,
+  "sameDataDir": true,
+  "shelfPreserved": true,
+  "favoritesPreserved": true,
+  "restartPreserved": true,
+  "previousVersionCode": 611,
+  "versionCode": 612,
+  "applicationId": "cn.zhigeng.app",
+  "api": 33,
+  "offlineCoversLoaded": 4,
+  "noSecondApp": true,
+  "crashes": false,
+  "screens": 8
+}
