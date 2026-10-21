@@ -1,0 +1,17 @@
+{
+  "name": "知更",
+  "versionName": "0.6.0",
+  "versionCode": 600,
+  "applicationId": "cn.zhigeng.app",
+  "minimumAndroid": "8.0",
+  "sourceCommit": "57a26e72be102aa68395265d7d0d1f1470b45be7",
+  "buildRun": "https://github.com/nmm26301-maker/zhi-geng/actions/runs/38934967116",
+  "sha256": "d5489349b6092c8c3fd000c6c0effe7ce6a7869ac7c1c49379b4287f7f19a0e6",
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "figma": "https://www.figma.com/design/U1wIxILbo1lK05eGDY9eo8?node-id=6-653",
+  "verification": {
+    "apkSignature": "v2/v3 verified; same signer as 0.5.0",
+    "nativeNavigation": "five-page emulator smoke tests",
+    "realAccountDownload": "not tested; requires user credentials"
+  }
+}

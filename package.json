@@ -1,0 +1,1 @@
+{"name":"zhigeng","version":"0.4.0","private":true,"type":"module","scripts":{"start":"node server/serve.mjs","test":"node --test tests/*.test.mjs"},"devDependencies":{"jsdom":"26.1.0"},"engines":{"node":">=22"}}

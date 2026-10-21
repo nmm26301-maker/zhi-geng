@@ -1,0 +1,92 @@
+name: Refresh metadata and deploy Zhigeng
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '20 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: zhigeng-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  # Update public discovery data independently. A feed/API error cannot block the site.
+  refresh:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Update cached public metadata
+        env:
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/zhi-geng/
+        run: node scripts/refresh.mjs
+      - name: Refresh public multi-year book catalog (keep last good version on failure)
+        run: node scripts/refresh-books.mjs || echo "Keeping previous book catalog"
+      - name: Push metadata (safely)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/weekly.json data/books.json feed.xml
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: refresh discovery feed [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+  # Publish validated source and locally cached posters; never push during deployment.
+  deploy:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Validate source before publication
+        run: |
+          npm ci --no-audit --no-fund
+          node --check assets/zhigeng-v064.js
+          node --check assets/public-annual-catalog.js
+          node --check scripts/build-static-site.mjs
+          npm test
+      - name: Restore verified poster cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/zhigeng-posters
+          key: zhigeng-posters-v1-${{ hashFiles('data/domestic.json') }}
+          restore-keys: zhigeng-posters-v1-
+      - name: Build site with verified same-origin posters
+        run: node scripts/build-static-site.mjs
+      - name: Prepare Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

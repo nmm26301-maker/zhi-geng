@@ -1,0 +1,15 @@
+{
+  "fileKey": "U1wIxILbo1lK05eGDY9eo8",
+  "scope": "single assistant screen and prompt component",
+  "screen": "13:41",
+  "component": "13:38",
+  "fonts": "Noto Sans SC",
+  "descendants": 29,
+  "types": {
+    "FRAME": 6,
+    "TEXT": 19,
+    "INSTANCE": 4
+  },
+  "imageNodes": [],
+  "visualReview": "passed"
+}

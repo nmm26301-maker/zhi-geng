@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#244e40" />
+  <meta name="description" content="知更：聚合电影、电视剧、动漫、综艺与书籍的年度发现雷达。" />
+  <title>知更 · 好作品不会再错过</title>
+  <link rel="stylesheet" href="assets/styles.css?v=20261016-zlib1" />
+    <link rel="stylesheet" href="assets/zhigeng-v064.css?v=20261020-cncover2" />
+  <link rel="stylesheet" href="assets/icon-system.css?v=20261020-icons1" />
+  <link rel="icon" type="image/svg+xml" href="assets/zhigeng-mark.svg" />
+  <link rel="alternate" type="application/rss+xml" title="知更每周新作" href="feed.xml" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="#explore" aria-label="知更首页"><span class="brand-mark">◉</span><span>知更<span class="brand-dot">.</span><small>DISCOVERY RADAR</small></span></a>
+      <div class="side-caption">发现</div>
+      <nav class="side-nav" id="sideNav">
+        <button class="nav-item active" data-page="explore"><span class="nav-icon">⌕</span> 探索发现 <span class="nav-marker"></span></button>
+        <button class="nav-item" data-page="latest"><span class="nav-icon">✦</span> 最新动向</button>
+        <button class="nav-item" data-page="saved"><span class="nav-icon">♡</span> 我的片单 <span id="savedCount" class="count-bubble">0</span></button>
+      </nav>
+      <div class="side-caption categories-caption">内容分类</div>
+      <nav class="side-nav" id="categoryNav">
+        <button class="category-nav active" data-category="all"><span class="cat-icon" style="--category:#d0b3ff">◉</span> 全部发现</button>
+        <button class="category-nav" data-category="movie"><span class="cat-icon" style="--category:#ffa982">▣</span> 电影</button>
+        <button class="category-nav" data-category="tv"><span class="cat-icon" style="--category:#8fc1ff">▤</span> 电视剧</button>
+        <button class="category-nav" data-category="anime"><span class="cat-icon" style="--category:#d2a8fa">✳</span> 动漫</button>
+        <button class="category-nav" data-category="variety"><span class="cat-icon" style="--category:#fbd086">✧</span> 综艺</button>
+        <button class="category-nav" data-category="book"><span class="cat-icon" style="--category:#a4dfbd">▥</span> 书籍</button>
+      </nav>
+      <div class="side-bottom">
+        <div class="mini-highlight"><span class="pulse"></span><div><strong>发现，不再迟到</strong><small>从新作品到遗珠之作</small></div></div>
+        <button class="settings-link" id="settingsButton">⚙ &nbsp;接口与偏好设置</button>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="mobile-brand">◉ <b>知更</b></div>
+        <div class="search-wrap"><span class="search-icon">⌕</span><input id="searchInput" type="search" aria-label="搜索作品或关键词" placeholder="搜索作品、作者、关键词..." autocomplete="off" /><button id="clearSearch" class="clear-search" title="清空搜索" hidden>×</button></div>
+        <div class="header-actions"><span class="header-date" id="headerDate"></span><button id="headerSettings" class="icon-button" aria-label="打开接口设置">⚙</button><a class="avatar" href="#saved" id="avatarButton" aria-label="查看收藏">♡</a></div>
+      </header>
+
+      <main class="content">
+        <section class="hero" aria-label="欢迎使用知更">
+          <div class="hero-content"><div class="eyebrow"><span class="eyebrow-dash"></span> YOUR CULTURE COMPASS</div><h1>好作品，<br /><em>不应该被错过。</em></h1><p>电影 · 电视剧 · 动漫 · 综艺 · 书籍<br />跨越年份与类型，把下一部心头好提前找到。</p><div class="hero-actions"><button class="primary-button" id="heroExplore">开始探索 <span>↗</span></button><button class="quiet-button" id="heroLatest">看看最近上新 <span>→</span></button></div></div>
+          <div class="hero-art" aria-hidden="true"><div class="radar-orbit orbit-one"></div><div class="radar-orbit orbit-two"></div><div class="radar-orbit orbit-three"></div><div class="radar-core">✦</div><span class="floating-label label-one">CINEMA</span><span class="floating-label label-two">STORIES</span><span class="floating-label label-three">DISCOVER</span><span class="star star-a">✳</span><span class="star star-b">+</span></div>
+        </section>
+
+        <section class="stats-row" aria-label="发现功能"><div><span class="stat-symbol">◷</span><div><b>每年都值得回看</b><small>年度好片 / 经典作品</small></div></div><div><span class="stat-symbol">✦</span><div><b>跟上新作动向</b><small>近期更新 / 季度新番</small></div></div><div><span class="stat-symbol">♡</span><div><b>建立私人清单</b><small>想看想读 / 已完成</small></div></div></section>
+
+        <section class="discovery-section" id="discoverySection">
+          <div class="section-heading"><div><div class="section-kicker">CURATED FOR YOUR CURIOSITY</div><h2 id="sectionTitle">探索好作品 <span class="heading-sparkle">✳</span></h2><p id="sectionSubtitle">从热门新作到高分遗珠，发现属于你的下一部。</p></div><div class="view-info"><span class="live-dot"></span><span id="dataMode">实时数据接口</span></div></div>
+          <div class="filters-panel"><div class="filter-line filter-line-primary"><div class="tabs" id="categoryTabs" aria-label="内容类型"><button class="tab active" data-category="all">全部</button><button class="tab" data-category="movie">电影</button><button class="tab" data-category="tv">电视剧</button><button class="tab" data-category="anime">动漫</button><button class="tab" data-category="variety">综艺</button><button class="tab" data-category="book">书籍</button></div><div class="select-area"><label><span>年份</span><select id="yearSelect" aria-label="年份"></select></label><label><span>排序</span><select id="sortSelect" aria-label="排序"><option value="popular">热门优先</option><option value="rating">口碑优先</option><option value="new">最新优先</option><option value="hidden">挖掘遗珠</option></select></label></div></div>
+          <div class="filter-line keyword-line"><span class="tag-intro">灵感关键词</span><div class="tag-list" id="keywordChips"><button data-tag="" class="keyword-chip active">为你精选</button><button data-tag="悬疑" class="keyword-chip">悬疑烧脑</button><button data-tag="科幻" class="keyword-chip">科幻宇宙</button><button data-tag="治愈" class="keyword-chip">温柔治愈</button><button data-tag="喜剧" class="keyword-chip">轻松喜剧</button><button data-tag="动作" class="keyword-chip">动作冒险</button><button data-tag="纪录" class="keyword-chip">纪实探索</button><button data-tag="爱情" class="keyword-chip">心动爱情</button><button data-tag="历史" class="keyword-chip">历史人文</button></div></div></div>
+          <section class="book-hub" id="bookHub" hidden aria-label="图书资源中心">
+            <div class="book-hub-copy"><div class="section-kicker">BOOK CORNER · 阅读资源</div><h3>搜到好书，留给下一次阅读。</h3><p>公开目录与 Z-Library 账号搜索，集中在知更里。选好来源，输入书名就开始。</p></div>
+            <div class="book-hub-actions">
+              <a class="book-action" id="bookHubOpenLibrary" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">Open Library 馆藏 ↗</a>
+              <button class="book-action book-action-main" type="button" id="bookHubSource">Z-Library 站内搜索</button>
+            </div>
+          </section>
+          <section class="book-studio" id="bookStudio" hidden aria-label="图书管理与本地阅读">
+            <div class="book-studio-header">
+              <div><div class="section-kicker">MY READING SPACE</div><h3>我的阅读空间</h3><p>搜索更多书籍，也能把自己的电子书放进书架直接阅读。内容仅保存在本设备。</p></div>
+              <button class="book-action book-action-main" type="button" id="bookImportButton">＋ 导入电子书</button>
+              <input type="file" id="bookFileInput" accept=".epub,.pdf,.txt,application/epub+zip,application/pdf,text/plain" multiple hidden />
+            </div>
+            <div class="zlib-source-row"><label>搜索来源<select id="bookProvider"><option value="public">公开图书目录</option><option value="zlib">Z-Library · 账号搜索</option></select></label><button id="zlibConnect" type="button" class="book-action">连接 Z-Library</button><span id="zlibSessionState">未连接</span></div>
+            <p id="fullVersionHint" class="field-tip" hidden>当前是静态版，账号搜索请 <a href="https://zhigeng-reading.savoryvine10.chatgpt.site" target="_blank" rel="noopener noreferrer">打开完整版知更 ↗</a>。</p>
+            <form id="bookSearchForm" class="book-search-form" role="search">
+              <label for="bookSearchInput">搜索图书、小说或作者 <small>支持中文、英文 · 默认所有年份</small></label>
+              <div class="book-search-control"><span aria-hidden="true">⌕</span><input id="bookSearchInput" type="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="试试：三体、活着、Pride and Prejudice…" /><button type="submit">搜书 ↗</button></div>
+              <p id="bookSearchHint" class="book-search-hint">从公开图书目录和在线书目中搜索，不需要 TMDB 密钥。</p>
+            </form>
+            <details class="book-filter-section" id="bookFilterDetails"><summary>精准找书：语言 / 年份区间 / 在线阅读 <span class="book-filter-chevron">⌄</span></summary>
+              <div class="book-filter-grid">
+                <label>书籍语言<select id="bookLanguage"><option value="">全部语言</option><option value="chi">中文</option><option value="eng">英语</option><option value="jpn">日语</option><option value="fre">法语</option><option value="ger">德语</option><option value="spa">西班牙语</option></select></label>
+                <label>出版时间（起）<input id="bookYearFrom" type="number" min="1400" max="2100" inputmode="numeric" placeholder="不限" /></label>
+                <label>出版时间（止）<input id="bookYearTo" type="number" min="1400" max="2100" inputmode="numeric" placeholder="不限" /></label>
+                <label>文件格式<select id="bookExtension" disabled><option value="">全部格式</option><option value="epub">EPUB</option><option value="pdf">PDF</option><option value="txt">TXT</option><option value="mobi">MOBI</option><option value="azw3">AZW3</option><option value="djvu">DJVU</option><option value="fb2">FB2</option></select></label>
+                <label>可读状态<select id="bookAvailability"><option value="">全部书籍</option><option value="public">在线可读</option><option value="borrowable">可借阅</option></select></label>
+              </div>
+              <div class="book-filter-actions"><label class="book-exact-check"><input type="checkbox" id="bookExact" /> 精确短语搜索</label><button type="button" class="outline-button" id="bookFilterClear">清除条件</button><button type="button" class="primary-button" id="bookFilterApply">应用筛选</button></div>
+            </details>
+            <div class="book-history" id="bookHistory" hidden><span>最近搜索</span><div id="bookHistoryChips" class="book-history-chips"></div><button type="button" id="bookHistoryClear" class="book-link-button">清除</button></div>
+            <div class="book-shelf-header"><div><h4>我的书架 <span id="bookShelfCount">0</span></h4><p>想读、在读、已读及导入的 EPUB / PDF / TXT</p></div><div class="book-shelf-tabs" id="bookShelfTabs"><button type="button" data-shelf-filter="all" class="active">全部</button><button type="button" data-shelf-filter="want">想读</button><button type="button" data-shelf-filter="reading">在读</button><button type="button" data-shelf-filter="finished">已读</button><button type="button" data-shelf-filter="local">本地图书</button></div></div>
+            <div id="bookShelfList" class="book-shelf-list"></div>
+            <p id="bookStudioMessage" class="book-studio-message" role="status" aria-live="polite"></p>
+          </section>
+          <div class="results-top"><div><h3 id="resultsHeading">灵感推荐</h3><span id="resultCount" class="result-count">连接数据源中…</span></div><div class="results-actions"><button id="refreshButton" class="text-button"><span>↻</span> 更新作品</button><button id="guideButton" class="text-button">数据说明 ↗</button></div></div>
+          <div class="notice" id="notice" hidden></div>
+          <div id="loading" class="work-grid loading-grid" aria-live="polite"><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div></div>
+          <div class="work-grid" id="workGrid" aria-live="polite"></div>
+          <div class="empty-state" id="emptyState" hidden><div class="empty-glyph">✧</div><h3 id="emptyTitle">暂时没有匹配的作品</h3><p id="emptyText">换个年份、关键词或内容类型再看看。</p><button class="secondary-button" id="resetButton">重置筛选</button></div>
+          <div class="results-bottom"><button id="moreButton" class="secondary-button" hidden>继续加载更多 ↓</button></div>
+        </section>
+
+        <section class="newsletter-card"><div class="newsletter-icon">✳</div><div><span class="newsletter-eyebrow">NEVER MISS A STORY</span><h3>总有好作品，值得先知道。</h3><p>支持自动生成每周新作 RSS，订阅后不用再靠偶然刷到。</p></div><a class="newsletter-link" href="feed.xml" target="_blank" rel="noopener">订阅 RSS ↗</a></section>
+        <footer class="site-footer"><span>◉ 知更 ZHIGENG · 发现那些值得你花时间的作品</span><span>数据归各来源所有 · 本站不提供未经授权的资源下载</span></footer>
+      </main>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" aria-label="手机导航"><button class="active" data-mobile="explore">⌕<small>发现</small></button><a class="zg-mobile-link" href="#rankings">▥<small>榜单</small></a><a class="zg-mobile-link" href="#kanju">▣<small>看剧</small></a><a class="zg-mobile-link" href="#sms">▥<small>接码</small></a><a class="zg-mobile-link" href="#nodes">◇<small>节点</small></a><a class="zg-mobile-link" href="#memberships">✦<small>AI会员</small></a><a class="zg-mobile-link" href="#library">▤<small>阅读</small></a><a class="zg-mobile-link" href="#assistant">✦<small>AI</small></a><button data-mobile="saved">♡<small>我的</small></button></nav>
+  <div class="modal-backdrop" id="settingsModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="section-kicker">DATA SOURCE SETTINGS</div><h2 id="modalTitle">接口与偏好设置</h2></div><button id="modalClose" class="modal-close" aria-label="关闭">×</button></div><div class="source-status"><div><b>Open Library / Google Books</b><small>书籍主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>Jikan / AniList</b><small>动漫主备接口 · 自动切换</small></div><span class="status-good">已配置</span></div><div class="source-status"><div><b>TVmaze</b><small>电视剧近期播出备用数据 · 无需密钥</small></div><span class="status-good">已配置</span></div><div class="source-status tmdb-source"><div><b>TMDB</b><small>完整电影、剧集、综艺检索 · 需要自己申请 API 密钥</small></div><a href="https://www.themoviedb.org/settings/api" rel="noopener" target="_blank">申请 ↗</a></div><label class="field-label" for="tmdbKey">TMDB 密钥 · API Key（v3）或 API Read Access Token</label><input id="tmdbKey" class="modal-input" autocomplete="off" spellcheck="false" type="password" placeholder="粘贴 32 位 API Key 或 eyJ… Access Token" /><p class="field-tip">两种密钥均可，但认证方式不同。先测试官方接口，成功后再保存。密钥只保存在当前浏览器，不会上传到本网站的服务器；请勿将密钥提交到公开仓库。</p><div id="tmdbStatus" class="tmdb-status" role="status" aria-live="polite">尚未测试 TMDB 连接</div><div class="source-status muted-source"><div><b>Z-Library（外部入口）</b><small>书籍页已提供 heartleo/zlib 账号搜索。这里保留自选的外部网址入口。</small></div><span class="status-pending" id="bookExternalStatus">未设置</span></div>
+          <label class="field-label" for="zlibraryUrl">自选访问网址 / 搜索链接模板</label>
+          <input id="zlibraryUrl" class="modal-input" type="url" spellcheck="false" autocomplete="off" placeholder="https://你信任的网址/search?q={query}" />
+          <p class="field-tip">仅接受 HTTPS 网址。可选填入 <code>{query}</code> 作为书名与作者的搜索占位符；若不填写，点击后直接打开网址。不要在这里粘贴登录令牌或密码，本站不验证外部网站身份。</p>
+          <div class="book-settings-actions"><button type="button" class="outline-button" id="clearZlibraryUrl">清除入口</button><button type="button" class="outline-button" id="saveZlibraryUrl">保存图书入口</button></div>
+          <p class="book-source-status" role="status" id="bookSourceStatus" aria-live="polite">外部入口默认关闭，保存后只在当前浏览器使用。</p><div class="modal-actions tmdb-actions"><button id="clearKey" class="outline-button">清除</button><button id="testTmdb" class="outline-button">测试连接</button><button id="saveSettings" class="primary-button">验证并保存 ↗</button></div></div></div>
+  <div class="modal-backdrop" id="bookResourceModal" hidden>
+    <div class="modal book-resource-dialog" role="dialog" aria-modal="true" aria-labelledby="bookResourceTitle">
+      <div class="modal-top"><div><div class="section-kicker">FIND YOUR NEXT READ</div><h2 id="bookResourceTitle">书籍资源</h2><p class="book-resource-meta" id="bookResourceMeta"></p></div><button type="button" class="modal-close" id="bookResourceClose" aria-label="关闭书籍资源">×</button></div>
+      <p class="book-resource-intro">选择一个图书目录或阅读来源。是否能阅读或借阅取决于作品版权、地区及来源网站的规则。</p>
+      <div class="book-resource-options">
+        <a class="book-resource-option" id="bookOpenLibrary" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer"><span><b>Open Library</b><small>查看馆藏、可借阅版本及书籍资料</small></span><span>↗</span></a>
+        <a class="book-resource-option" id="bookGoogleBooks" href="https://books.google.com/" target="_blank" rel="noopener noreferrer"><span><b>Google Books</b><small>检索版本、试读及出版信息</small></span><span>↗</span></a>
+        <a class="book-resource-option" id="bookGutenberg" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer"><span><b>Project Gutenberg</b><small>查找公版文学与免费合法电子书</small></span><span>↗</span></a>
+        <button class="book-resource-option" type="button" id="bookModalExternal"><span><b>Z-Library · 自选外部入口</b><small>使用你在设置中填写的访问地址</small></span><span>↗</span></button>
+      </div>
+      <div class="book-resource-footer"><button type="button" class="outline-button" id="bookCopyTitle">复制书名与作者</button><button type="button" class="outline-button" id="bookModalSetup">设置入口</button></div>
+      <p id="bookCopyStatus" class="field-tip" role="status" aria-live="polite">知更不托管第三方 APK，也不提供未经授权的图书下载。</p>
+    </div>
+  </div>
+  <div id="bookDetailsModal" class="modal-backdrop" hidden>
+    <div class="modal book-details-dialog" role="dialog" aria-modal="true" aria-labelledby="bookDetailsTitle">
+      <div class="modal-top"><div><div class="section-kicker">BOOK DETAILS · 读书笔记</div><h2 id="bookDetailsTitle">图书详情</h2><p id="bookDetailsMeta" class="book-resource-meta"></p></div><button id="bookDetailsClose" type="button" class="modal-close" aria-label="关闭图书详情">×</button></div>
+      <div class="book-details-main"><img id="bookDetailsCover" alt="书籍封面" hidden /><div><p id="bookDetailsSummary" class="book-details-summary">正在获取图书详情…</p><p id="bookDetailsExtra" class="book-details-extra"></p></div></div>
+      <div class="book-detail-actions">
+        <button id="bookWantButton" type="button" class="outline-button" data-set-read-status="want">＋ 想读</button>
+        <button id="bookReadingButton" type="button" class="outline-button" data-set-read-status="reading">◷ 在读</button>
+        <button id="bookFinishedButton" type="button" class="outline-button" data-set-read-status="finished">✓ 已读</button>
+        <button id="bookRemoveButton" type="button" class="outline-button">移出书架</button>
+      </div>
+      <div class="book-detail-actions">
+        <button id="bookDetailsRead" type="button" class="primary-button" hidden>打开阅读器 ↗</button>
+        <a id="bookDetailsOriginal" class="outline-button" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">查看来源书页 ↗</a>
+        <button id="bookDetailsResource" type="button" class="outline-button">寻找阅读资源 ↗</button>
+      </div>
+      <p class="book-details-note">知更只提供公开图书资料或阅读你自行导入的文件，不会代为获取受版权保护的电子书。</p>
+    </div>
+  </div>
+  <div id="bookReader" class="book-reader" hidden role="dialog" aria-modal="true" aria-labelledby="bookReaderTitle">
+    <div class="book-reader-top"><button type="button" id="bookReaderClose" class="book-reader-back">← 返回书架</button><strong id="bookReaderTitle">阅读器</strong><div class="book-reader-top-actions"><button type="button" id="bookReaderPrev" aria-label="上一页">‹</button><button type="button" id="bookReaderNext" aria-label="下一页">›</button><button type="button" id="bookReaderFontDown" aria-label="缩小字体">A−</button><button type="button" id="bookReaderFontUp" aria-label="放大字体">A＋</button><button type="button" id="bookReaderBookmark">☆ 书签</button></div></div>
+    <div id="bookReaderContent" class="book-reader-content">
+      <div id="bookReaderText" class="book-reader-text" hidden></div>
+      <iframe id="bookReaderPdf" class="book-reader-pdf" title="PDF 阅读器" hidden></iframe>
+      <div id="bookReaderEpub" class="book-reader-epub" hidden></div>
+      <div id="bookReaderStatus" class="book-reader-status" role="status" aria-live="polite"></div>
+    </div>
+    <div class="book-reader-bottom"><span id="bookReaderProgressLabel">已读 0%</span><input id="bookReaderProgress" type="range" min="0" max="100" value="0" aria-label="阅读进度" /><select id="bookReaderBookmarks" aria-label="跳转已保存的书签"><option value="">书签</option></select><button type="button" id="bookReaderFinish">标为已读</button><a id="bookReaderExternal" target="_blank" rel="noopener noreferrer" hidden>系统打开 ↗</a></div>
+  </div>
+  <div class="modal-backdrop" id="zlibModal" hidden><div class="modal zlib-dialog" role="dialog" aria-modal="true" aria-labelledby="zlibTitle">
+    <div class="modal-top"><div><div class="section-kicker">Z-LIBRARY · HEARTLEO/ZLIB</div><h2 id="zlibTitle">连接你的图书账号</h2></div><button type="button" id="zlibClose" class="modal-close" aria-label="关闭账号连接">×</button></div>
+    <p class="field-tip">连接后可在知更内搜索书名、作者并按年份、语言、格式筛选。密码仅用于本次登录；会话只留在当前页面，刷新后需重新连接。</p>
+    <form id="zlibForm">
+    <label class="field-label" for="zlibDomain">账号所在源站</label><select id="zlibDomain" class="modal-input"><option value="https://z-lib.gd">z-lib.gd</option><option value="https://z-lib.gl">z-lib.gl</option><option value="https://z-library.ec">z-library.ec</option><option value="https://article.sk">article.sk</option><option value="https://articles.sk">articles.sk</option><option value="https://zlib.bz">zlib.bz</option><option value="https://1lib.sk">1lib.sk</option><option value="https://z-lib.fm">z-lib.fm</option><option value="https://z-lib.sk">z-lib.sk</option><option value="https://zliba.ru">zliba.ru</option></select>
+    <p class="field-tip">列表来自上游客户端，不能保证所有源站目前可用。请选择自己已确认使用的源站。</p>
+    <div id="zlibPasswordFields"><label class="field-label" for="zlibEmail">账号邮箱</label><input id="zlibEmail" class="modal-input" type="email" autocomplete="username" required /><label class="field-label" for="zlibPassword">密码</label><input id="zlibPassword" class="modal-input" type="password" autocomplete="current-password" required /></div>
+    <label class="book-exact-check zlib-session-toggle"><input type="checkbox" id="zlibUseSession" /> 使用自己的 zlib 已有会话连接</label>
+    <div id="zlibSessionFields" hidden><p class="field-tip">填写你自己客户端会话中的 remix_userid 和 remix_userkey，二者均只用于当前页面。</p><label class="field-label" for="zlibUserId">remix_userid</label><input class="modal-input" id="zlibUserId" inputmode="numeric" autocomplete="off" /><label class="field-label" for="zlibUserKey">remix_userkey</label><input class="modal-input" id="zlibUserKey" type="password" autocomplete="off" /></div>
+    <p id="zlibStatus" class="tmdb-status" role="status" aria-live="polite">请连接你自己的账号。</p><div class="modal-actions"><button type="button" id="zlibDisconnect" class="outline-button" hidden>断开并清除会话</button><button type="submit" id="zlibLogin" class="primary-button">连接账号</button></div></form>
+    <p class="field-tip">搜索适配自 <a href="https://github.com/heartleo/zlib" target="_blank" rel="noopener noreferrer">heartleo/zlib</a>（MIT）。账号与资料以来源站返回为准。</p>
+  </div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="assets/transport.js?v=20261016-zlib1" defer></script>
+  <script src="assets/zlib.js?v=20261016-zlib1" defer></script>
+  <script src="assets/books-catalog.js" defer></script>
+  <script src="assets/book-search.js?v=20261016-zlib1" defer></script>
+  <script src="assets/app.js?v=20261016-zlib1" defer></script>
+  <script src="assets/book-bridge.js?v=20261016-zlib1" defer></script>
+  <script src="assets/book-library.js?v=20261016-zlib1" defer></script>
+  <script src="assets/public-annual-catalog.js?v=20261021-rowspan" defer></script>
+  <script src="assets/annual-rankings.js?v=20261020-cncover3" defer></script>
+  <script src="assets/cover-enrichment.js?v=20261020-curated28" defer></script>
+  <script src="assets/sms-hub.js?v=20261019-sms1" defer></script>
+  <script src="assets/node-directory.js?v=20261020-live4" defer></script>
+  <script src="assets/ai-memberships.js?v=20261020-ai5plus2" defer></script>
+  <script src="assets/kanju-bridge.js?v=20261019-kanju1" defer></script>
+  <script src="assets/zhigeng-v064.js?v=20261021-localposters" defer></script>
+  <script src="assets/reader-experience.js?v=20261019" defer></script>
+  <script src="assets/icon-system.js?v=20261020-icons1" defer></script>
+</body>
+</html>

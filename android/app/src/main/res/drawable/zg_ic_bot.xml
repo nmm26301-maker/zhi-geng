@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 知更独立原创图标 · 24dp / 1.85dp 描边 / 圆端线条 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M7.5,7 H16.5 Q20.5,7 20.5,11 V16 Q20.5,20 16.5,20 H7.5 Q3.5,20 3.5,16 V11 Q3.5,7 7.5,7 Z"/>
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M12,3 V7"/>
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M9,3 H15"/>
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M8,13 h1"/>
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M15,13 h1"/>
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M9,17 H15"/>
+</vector>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 知更独立原创图标 · 24dp / 1.85dp 描边 / 圆端线条 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:fillColor="@android:color/transparent"
+        android:strokeColor="#244E40" android:strokeWidth="1.85"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M20.2,8.5 C20.2,6 18.3,4.2 15.9,4.2 C14.3,4.2 12.8,5.1 12,6.4 C11.2,5.1 9.7,4.2 8.1,4.2 C5.7,4.2 3.8,6 3.8,8.5 C3.8,13.3 12,18.8 12,18.8 C12,18.8 20.2,13.3 20.2,8.5 Z"/>
+</vector>
