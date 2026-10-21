@@ -1,0 +1,221 @@
+{
+  "applicationId": "cn.zhigeng.app",
+  "appLabel": "知更",
+  "versionName": "0.6.11",
+  "versionCode": 611,
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "previousVersionCode": 609,
+  "delivery": "in-place update of the existing production app",
+  "websiteOpening": "external browser",
+  "sha256": "8b461ac4d26cad440e07ad95b6df4b8d42c82e887d6c0e8f28618a3b7653a1f9",
+  "size": 20769835,
+  "sourceCommit": "891e1b8c95231de49cee11f8fb4c4334b57fefa9",
+  "previousVersion": "0.6.9",
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "originalCertificateVerified": true,
+  "upgradeWorkflowRun": 39604242224,
+  "browserWorkflowRun": 39606376704,
+  "browserTestCommit": "b70cc6d7666ed3b74767923f740a3aa22ac18acd",
+  "readerChecks": {
+    "version": "0.6.11",
+    "api": 33,
+    "engine": "Readium Kotlin 3.1.0",
+    "documents": "original local debug fixtures",
+    "epub": "passed: rendered chapters, minimal chrome, quick day/night switch, table of contents, bookmark, font preview, themes and locator restart",
+    "txt": "passed: offline EPUB adapter, chapter navigation, locator restart, GB18030",
+    "pdf": "passed: native rendering, page navigation, bookmark, page restart",
+    "crashes": false,
+    "variant": "debug: same reading implementation, local original fixtures"
+  },
+  "nativeWorkflowRun": 39604012384,
+  "nativeChecks": {
+    "app": "Zhigeng",
+    "version": "0.6.11",
+    "api": 29,
+    "nativeNavigation": "passed",
+    "visibleCuratedCoversLoaded": 2,
+    "latestDirectories": "passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters",
+    "annualRankings": "passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures",
+    "smsDirectory": "passed: native six sites, favorite, hide, hidden filter and restore",
+    "kanjuEntry": "external browser; tested separately; live playback not tested",
+    "screens": 34,
+    "fccProtocolFixture": "passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage",
+    "fccDraftRecovery": "passed: model switch, tab switch, process restart, failure and stop",
+    "fccRealProvider": "not tested: no user gateway or provider credentials",
+    "duckAiOpening": "external browser; tested by android-browser-smoke.py",
+    "duckAiChatSent": false,
+    "accountDownload": "not tested: needs real user credentials"
+  },
+  "api29ReaderChecks": {
+    "version": "0.6.11",
+    "api": 29,
+    "engine": "Readium Kotlin 3.1.0",
+    "documents": "original local debug fixtures",
+    "epub": "passed: rendered chapters, minimal chrome, quick day/night switch, table of contents, bookmark, font preview, themes and locator restart",
+    "txt": "passed: offline EPUB adapter, chapter navigation, locator restart, GB18030",
+    "pdf": "passed: native rendering, page navigation, bookmark, page restart",
+    "crashes": false
+  },
+  "checks": {
+    "inPlaceUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "favoritesPreserved": true,
+    "restartPreserved": true,
+    "previousVersionCode": 609,
+    "versionCode": 611,
+    "applicationId": "cn.zhigeng.app",
+    "api": 33,
+    "offlineCoversLoaded": 4,
+    "noSecondApp": true,
+    "crashes": false,
+    "screens": 8
+  },
+  "browserChecks": {
+    "applicationId": "cn.zhigeng.app",
+    "versionCode": 611,
+    "api": 33,
+    "externalBrowserEntries": [
+      {
+        "entry": "01-work-source",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "search.douban.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": true
+      },
+      {
+        "entry": "02-kanju-home",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "kanju.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "03-kanju-search",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "kanju.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "04-sms",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "freephonenum.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "05-proxy",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "decodo.cn",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "06-directory-details",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "decodo.cn",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "07-ai-membership",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "gamsgo.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "08-ai-alternative",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "universalbus.cn",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "09-duck-ai",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "duck.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "10-duck-menu",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "duck.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "11-fcc-provider",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "build.nvidia.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "12-project",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "github.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      }
+    ],
+    "websiteNetworkRequired": false,
+    "appResumedAfterBrowser": true,
+    "crashes": false
+  },
+  "readerUi": {
+    "engine": "Readium Kotlin 3.1.0 retained",
+    "scope": "native EPUB/TXT controls and typography; PDF chrome colors aligned",
+    "features": [
+      "minimal caption and progress",
+      "icon toolbar",
+      "quick day/night switching",
+      "font-size preview",
+      "scrollable typography settings",
+      "reader-window brightness"
+    ],
+    "storageKeysPreserved": true,
+    "references": [
+      "https://github.com/readium/kotlin-toolkit",
+      "https://github.com/Anxcye/anx-reader",
+      "https://github.com/readest/readest"
+    ]
+  },
+  "productionVerificationWorkflowConclusion": "success",
+  "buildWorkflowConclusion": "Compilation, unit tests, native regression and API 29 reader passed; original browser harness task setup failed and was corrected in browserTestCommit.",
+  "validationLimits": [
+    "Browser tests verify Android Intent handoff and native return with network disabled, not third-party site availability or accounts.",
+    "Reader UI uses original local fixtures in debug builds of the same source; upgrade and browser tests use the original-certificate signed release."
+  ]
+}
