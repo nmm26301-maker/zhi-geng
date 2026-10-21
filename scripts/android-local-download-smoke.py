@@ -1,0 +1,56 @@
+"""Test real shared-storage writes using an original, local completed-download fixture."""
+import hashlib,json,pathlib,re,subprocess,time,xml.etree.ElementTree as E
+APP='cn.zhigeng.app'
+OUT=pathlib.Path('phone-download-check');OUT.mkdir(exist_ok=True)
+def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
+def dump():
+    adb('shell','uiautomator','dump','/sdcard/phone-download.xml')
+    return E.fromstring(adb('shell','cat','/sdcard/phone-download.xml'))
+def tap(value):
+    for n in dump().iter('node'):
+        if value in (n.get('text'),n.get('content-desc')):
+            a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
+            if c>a and d>b:adb('shell','input','tap',(a+c)//2,(b+d)//2);time.sleep(1.5);return
+    raise AssertionError('Missing download action: '+value)
+def save_fixture():
+    adb('shell','am','force-stop',APP)
+    adb('shell','am','start','-W','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER','-n',APP+'/.MainActivity','--ez','download_export_test','true')
+    for _ in range(10):
+        if any(n.get('text')=='已保存到手机本地' for n in dump().iter('node')):break
+        time.sleep(1)
+    else:raise AssertionError('No completed public-copy confirmation')
+    (OUT/'saved.xml').write_bytes(E.tostring(dump(),encoding='utf-8'))
+    (OUT/'saved.png').write_bytes(adb('exec-out','screencap','-p'))
+    assert any('下载/知更/' in n.get('text','') for n in dump().iter('node'))
+
+adb('logcat','-c')
+save_fixture()
+directory='/sdcard/Download/知更'
+names=lambda:adb('shell','ls','-1',directory).decode().splitlines()
+before=names();assert len(before)==1,before
+original=adb('shell','run-as',APP,'cat','files/phone-copy-test.epub')
+first=adb('exec-out','cat',directory+'/'+before[0]);assert first==original
+tap('立即阅读');time.sleep(6)
+assert any('第一章' in n.get('text','') for n in dump().iter('node'))
+save_fixture();after=names();assert len(after)==2 and len(set(after))==2,after
+for name in after:assert adb('exec-out','cat',directory+'/'+name)==original
+# Exercise the real system Save As picker without an account or external network.
+tap('另存到…');time.sleep(2)
+tree=dump();(OUT/'save-as.xml').write_bytes(E.tostring(tree,encoding='utf-8'))
+assert any('SAVE'==n.get('text') or '保存'==n.get('text') for n in tree.iter('node'))
+adb('shell','input','keyevent','4');time.sleep(1)
+adb('shell','input','keyevent','4');time.sleep(1)
+assert not any(n.get('text') in ['SAVE','保存'] for n in dump().iter('node'))
+assert len(names())==2,'Cancelling Save As altered existing copies'
+# Uninstall only the disposable emulator test app: public files must survive it.
+assert b'Success' in adb('uninstall',APP)
+for name in after:assert adb('exec-out','cat',directory+'/'+name)==original
+logs=adb('logcat','-d','-s','AndroidRuntime:E').decode(errors='replace')
+assert 'FATAL EXCEPTION' not in logs,logs
+result=dict(versionCode=612,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),
+    directory='Download/知更',publicFilesVisible=True,bytesMatchCompletedDownload=True,
+    duplicateNamesDoNotOverwrite=True,saveAsPicker=True,cancelPreservesFiles=True,
+    independentOfAppUninstall=True,sha256=hashlib.sha256(original).hexdigest(),files=after,
+    fixture='original local EPUB; account/network download is not exercised',crashes=False)
+(OUT/'result.json').write_text(json.dumps(result,indent=2,ensure_ascii=False))
+print(json.dumps(result,ensure_ascii=False),flush=True)
