@@ -1,5 +1,5 @@
 """Test real shared-storage writes using an original, local completed-download fixture."""
-import hashlib,json,pathlib,re,subprocess,time,xml.etree.ElementTree as E
+import hashlib,json,pathlib,re,shlex,subprocess,time,xml.etree.ElementTree as E
 APP='cn.zhigeng.app'
 OUT=pathlib.Path('phone-download-check');OUT.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
@@ -29,11 +29,12 @@ directory='/sdcard/Download/知更'
 names=lambda:adb('shell','ls','-1',directory).decode().splitlines()
 before=names();assert len(before)==1,before
 original=adb('shell','run-as',APP,'cat','files/phone-copy-test.epub')
-first=adb('exec-out','cat',directory+'/'+before[0]);assert first==original
+first=adb('exec-out','cat',shlex.quote(directory+'/'+before[0]));assert first==original
 tap('立即阅读');time.sleep(6)
+if any(n.get('text')=='GOT IT' for n in dump().iter('node')):tap('GOT IT');time.sleep(2)
 assert any('第一章' in n.get('text','') for n in dump().iter('node'))
 save_fixture();after=names();assert len(after)==2 and len(set(after))==2,after
-for name in after:assert adb('exec-out','cat',directory+'/'+name)==original
+for name in after:assert adb('exec-out','cat',shlex.quote(directory+'/'+name))==original
 # Exercise the real system Save As picker without an account or external network.
 tap('另存到…');time.sleep(2)
 tree=dump();(OUT/'save-as.xml').write_bytes(E.tostring(tree,encoding='utf-8'))
@@ -44,7 +45,7 @@ assert not any(n.get('text') in ['SAVE','保存'] for n in dump().iter('node'))
 assert len(names())==2,'Cancelling Save As altered existing copies'
 # Uninstall only the disposable emulator test app: public files must survive it.
 assert b'Success' in adb('uninstall',APP)
-for name in after:assert adb('exec-out','cat',directory+'/'+name)==original
+for name in after:assert adb('exec-out','cat',shlex.quote(directory+'/'+name))==original
 logs=adb('logcat','-d','-s','AndroidRuntime:E').decode(errors='replace')
 assert 'FATAL EXCEPTION' not in logs,logs
 result=dict(versionCode=612,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),
