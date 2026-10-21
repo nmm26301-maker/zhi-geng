@@ -35,9 +35,9 @@ def tools(name):
     home();tap('更多工具',0);tap(name,0)
 def resumed():
     value=adb('shell','dumpsys','activity','activities')
-    match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?\s([a-zA-Z][\w.]*)/([^\s}]+)\s+t(\d+)',value)
+    match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?ActivityRecord\{(\w+)\s+u\d+\s+([a-zA-Z][\w.]*)/([^\s}]+)\}?\s+t(\d+)',value)
     assert match, value
-    return dict(package=match.group(1),activity=match.group(2),task=match.group(3))
+    return dict(record=match.group(1),package=match.group(2),activity=match.group(3),task=match.group(4))
 def external(name,button,host):
     native=resumed();assert native['package']==APP,native
     adb('logcat','-c');tap(button);time.sleep(1)
