@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T01:38:39.438Z",
+  "updatedAt": "2026-10-22T01:36:55.836Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 360,
@@ -1277,9 +1277,9 @@
       "image": "https://covers.openlibrary.org/b/id/15073759-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42975424W",
-      "score": 3.5421686,
-      "votes": 83,
-      "interest": 3760,
+      "score": 3.5294118,
+      "votes": 85,
+      "interest": 3826,
       "language": [
         "eng"
       ],
@@ -1299,11 +1299,11 @@
       "url": "https://openlibrary.org/works/OL38128674W",
       "score": 4.282051,
       "votes": 39,
-      "interest": 1475,
+      "interest": 1517,
       "language": [
-        "eng",
         "por",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "romance",
@@ -1378,15 +1378,15 @@
       "image": "https://covers.openlibrary.org/b/id/14633291-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL37576476W",
-      "score": 4,
-      "votes": 9,
-      "interest": 376,
+      "score": 3.7,
+      "votes": 10,
+      "interest": 409,
       "language": [
+        "spa",
         "por",
         "eng",
-        "ger",
-        "spa",
-        "dut"
+        "dut",
+        "ger"
       ],
       "subjects": [
         "nyt:combined-print-and-e-book-fiction=2024-06-30",
@@ -1714,7 +1714,7 @@
       "url": "https://openlibrary.org/works/OL37949460W",
       "score": 3.1111112,
       "votes": 9,
-      "interest": 119,
+      "interest": 120,
       "language": [
         "spa",
         "eng"
@@ -2015,14 +2015,14 @@
       "image": "https://covers.openlibrary.org/b/id/14405746-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL34028551W",
-      "score": 4.3157897,
-      "votes": 38,
-      "interest": 1079,
+      "score": 4.3095236,
+      "votes": 42,
+      "interest": 1108,
       "language": [
-        "fre",
+        "spa",
         "ger",
         "eng",
-        "spa"
+        "fre"
       ],
       "subjects": [
         "nyt:combined-print-and-e-book-fiction=2023-11-26",
@@ -2069,10 +2069,10 @@
       "url": "https://openlibrary.org/works/OL34113490W",
       "score": 3.9166667,
       "votes": 12,
-      "interest": 812,
+      "interest": 865,
       "language": [
-        "eng",
         "ger",
+        "eng",
         "dut"
       ],
       "subjects": [
@@ -2607,12 +2607,12 @@
       "image": "https://covers.openlibrary.org/b/id/14425197-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27818823W",
-      "score": 4.087209,
-      "votes": 172,
-      "interest": 5811,
+      "score": 4.097701,
+      "votes": 174,
+      "interest": 5869,
       "language": [
-        "eng",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Romance",
@@ -3042,7 +3042,7 @@
       "url": "https://openlibrary.org/works/OL26770888W",
       "score": 3.5294118,
       "votes": 17,
-      "interest": 550,
+      "interest": 560,
       "language": [
         "eng"
       ],
@@ -3264,13 +3264,13 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.8006644,
-      "votes": 301,
-      "interest": 14917,
+      "score": 3.7861843,
+      "votes": 304,
+      "interest": 15024,
       "language": [
+        "spa",
         "eng",
-        "fre",
-        "spa"
+        "fre"
       ],
       "subjects": [
         "Fiction, romance, multicultural & interracial",
@@ -3299,12 +3299,12 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.6042945,
-      "votes": 326,
-      "interest": 12343,
+      "score": 3.6085627,
+      "votes": 327,
+      "interest": 12412,
       "language": [
-        "ger",
         "spa",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -3336,7 +3336,7 @@
       "url": "https://openlibrary.org/works/OL24178205W",
       "score": 4.1274133,
       "votes": 259,
-      "interest": 9445,
+      "interest": 9450,
       "language": [
         "ita",
         "spa",
@@ -3541,18 +3541,18 @@
       "image": "https://covers.openlibrary.org/b/id/11200092-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21745884W",
-      "score": 4.5163045,
-      "votes": 184,
-      "interest": 1377,
+      "score": 4.531579,
+      "votes": 190,
+      "interest": 1456,
       "language": [
         "dut",
-        "eng",
-        "kor",
-        "fin",
-        "fre",
         "spa",
+        "fin",
         "por",
-        "ger"
+        "tur",
+        "kor",
+        "eng",
+        "fre"
       ],
       "subjects": [
         "hard science-fiction",
@@ -3995,7 +3995,7 @@
       "url": "https://openlibrary.org/works/OL20965973W",
       "score": 4.011494,
       "votes": 87,
-      "interest": 2359,
+      "interest": 2361,
       "language": [
         "gre",
         "por",
@@ -4604,6 +4604,66 @@
       "editionCount": 15
     },
     {
+      "id": "book:/works/OL20793817W",
+      "title": "Anxious People",
+      "author": "Fredrik Backman",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/10087939-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20793817W",
+      "score": 4.347826,
+      "votes": 23,
+      "interest": 372,
+      "language": [
+        "spa",
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "nyt:combined-print-and-e-book-fiction=2020-09-27",
+        "New York Times bestseller",
+        "Fiction, humorous",
+        "Sweden, fiction",
+        "Fiction, humorous, general",
+        "nyt:trade-fiction-paperback=2021-07-25",
+        "Germanic literature",
+        "Hostages",
+        "Fiction",
+        "Married people",
+        "Real estate agents",
+        "Otages",
+        "Romans, nouvelles",
+        "Couples mariés"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 16
+    },
+    {
+      "id": "book:/works/OL21676651W",
+      "title": "Kingdom of the Wicked",
+      "author": "Kerri Maniscalco",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/10526129-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL21676651W",
+      "score": 3.8235295,
+      "votes": 17,
+      "interest": 367,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "nyt:young-adult-hardcover=2020-11-15",
+        "New York Times bestseller",
+        "Young adult fiction, fantasy, historical",
+        "Young adult fiction, fantasy, wizards & witches",
+        "Young adult fiction, fantasy, dark fantasy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 10
+    },
+    {
       "id": "book:/works/OL20652090W",
       "title": "My dark Vanessa",
       "author": "Kate Elizabeth Russell · Grace Gummer",
@@ -4635,66 +4695,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 11
-    },
-    {
-      "id": "book:/works/OL21676651W",
-      "title": "Kingdom of the Wicked",
-      "author": "Kerri Maniscalco",
-      "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/10526129-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL21676651W",
-      "score": 3.9333334,
-      "votes": 15,
-      "interest": 357,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "nyt:young-adult-hardcover=2020-11-15",
-        "New York Times bestseller",
-        "Young adult fiction, fantasy, historical",
-        "Young adult fiction, fantasy, wizards & witches",
-        "Young adult fiction, fantasy, dark fantasy"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 10
-    },
-    {
-      "id": "book:/works/OL20793817W",
-      "title": "Anxious People",
-      "author": "Fredrik Backman",
-      "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/10087939-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20793817W",
-      "score": 4.3636365,
-      "votes": 22,
-      "interest": 346,
-      "language": [
-        "eng",
-        "spa",
-        "ger"
-      ],
-      "subjects": [
-        "nyt:combined-print-and-e-book-fiction=2020-09-27",
-        "New York Times bestseller",
-        "Fiction, humorous",
-        "Sweden, fiction",
-        "Fiction, humorous, general",
-        "nyt:trade-fiction-paperback=2021-07-25",
-        "Germanic literature",
-        "Hostages",
-        "Fiction",
-        "Married people",
-        "Real estate agents",
-        "Otages",
-        "Romans, nouvelles",
-        "Couples mariés"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 16
     },
     {
       "id": "book:/works/OL20759125W",
@@ -4739,17 +4739,17 @@
       "image": "https://covers.openlibrary.org/b/id/13156188-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20646061W",
-      "score": 4.0446925,
-      "votes": 179,
-      "interest": 6385,
+      "score": 4.0331492,
+      "votes": 181,
+      "interest": 6503,
       "language": [
-        "ang",
-        "heb",
-        "por",
-        "eng",
-        "ger",
         "ita",
         "spa",
+        "pol",
+        "heb",
+        "por",
+        "tur",
+        "eng",
         "dut"
       ],
       "subjects": [
@@ -4779,13 +4779,13 @@
       "image": "https://covers.openlibrary.org/b/id/9171544-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20090688W",
-      "score": 4.1776648,
-      "votes": 197,
-      "interest": 5030,
+      "score": 4.181818,
+      "votes": 198,
+      "interest": 5057,
       "language": [
-        "ger",
-        "spa",
         "por",
+        "spa",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -5558,16 +5558,16 @@
       "image": "https://covers.openlibrary.org/b/id/9407338-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19096402W",
-      "score": 4.0574164,
-      "votes": 209,
-      "interest": 5822,
+      "score": 4.0471697,
+      "votes": 212,
+      "interest": 5901,
       "language": [
+        "est",
         "cat",
-        "ger",
         "por",
         "tur",
         "eng",
-        "est"
+        "ger"
       ],
       "subjects": [
         "Fiction, psychological",
@@ -5596,13 +5596,13 @@
       "image": "https://covers.openlibrary.org/b/id/8361789-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17850410W",
-      "score": 4.005988,
-      "votes": 167,
-      "interest": 5734,
+      "score": 4.005848,
+      "votes": 171,
+      "interest": 5802,
       "language": [
-        "dut",
+        "eng",
         "heb",
-        "eng"
+        "dut"
       ],
       "subjects": [
         "Fairies--Fiction.",
@@ -5633,7 +5633,7 @@
       "url": "https://openlibrary.org/works/OL20068530W",
       "score": 3.8837209,
       "votes": 129,
-      "interest": 5403,
+      "interest": 5404,
       "language": [
         "spa",
         "heb",
@@ -5746,15 +5746,15 @@
       "url": "https://openlibrary.org/works/OL20150260W",
       "score": 4.0238094,
       "votes": 84,
-      "interest": 1941,
+      "interest": 1952,
       "language": [
-        "ger",
+        "ita",
+        "spa",
+        "baq",
         "pol",
         "heb",
-        "ita",
         "eng",
-        "baq",
-        "spa"
+        "ger"
       ],
       "subjects": [
         "sex",
@@ -7171,23 +7171,23 @@
     {
       "id": "book:/works/OL16444438W",
       "title": "The Fault in Our Stars",
-      "author": "John Green",
+      "author": "John Green · Laia Font Mateu",
       "year": 2010,
       "image": "https://covers.openlibrary.org/b/id/7418786-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL16444438W",
-      "score": 4.200893,
-      "votes": 224,
-      "interest": 4580,
+      "score": 4.1955557,
+      "votes": 225,
+      "interest": 4592,
       "language": [
-        "ger",
+        "dut",
+        "spa",
+        "pol",
+        "chi",
+        "rus",
         "por",
         "cat",
-        "may",
-        "pol",
-        "kor",
-        "chi",
-        "fre"
+        "may"
       ],
       "subjects": [
         "Young Adult Fiction",
@@ -7206,7 +7206,7 @@
         "Young women"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 83
+      "editionCount": 89
     },
     {
       "id": "book:/works/OL15401200W",
@@ -7472,18 +7472,18 @@
       "image": "https://covers.openlibrary.org/b/id/7396124-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15192743W",
-      "score": 4.2444444,
-      "votes": 90,
-      "interest": 995,
+      "score": 4.252747,
+      "votes": 91,
+      "interest": 1021,
       "language": [
-        "bul",
-        "cat",
-        "jpn",
         "dut",
+        "spa",
+        "pol",
         "chi",
-        "wel",
-        "ger",
-        "fre"
+        "cat",
+        "bul",
+        "jpn",
+        "kor"
       ],
       "subjects": [
         "nyt:series_books=2009-01-10",
@@ -7503,6 +7503,39 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 49
+    },
+    {
+      "id": "book:/works/OL20411060W",
+      "title": "The Forty Rules of Love",
+      "author": "Elif Şafak",
+      "year": 2010,
+      "image": "https://covers.openlibrary.org/b/id/9078986-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20411060W",
+      "score": 3.642857,
+      "votes": 14,
+      "interest": 739,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, general",
+        "Fiction",
+        "Housewives",
+        "Jewish women",
+        "Sufis",
+        "Sufism",
+        "Mevleviyeh",
+        "Homemakers",
+        "Dervishes",
+        "Influence",
+        "Literary agents",
+        "Middle-aged women",
+        "Agents littéraires",
+        "Romans, nouvelles"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 4
     },
     {
       "id": "book:/works/OL15183119W",
@@ -7543,39 +7576,6 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 50
-    },
-    {
-      "id": "book:/works/OL20411060W",
-      "title": "The Forty Rules of Love",
-      "author": "Elif Şafak",
-      "year": 2010,
-      "image": "https://covers.openlibrary.org/b/id/9078986-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20411060W",
-      "score": 3.642857,
-      "votes": 14,
-      "interest": 680,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Fiction, general",
-        "Fiction",
-        "Housewives",
-        "Jewish women",
-        "Sufis",
-        "Sufism",
-        "Mevleviyeh",
-        "Homemakers",
-        "Dervishes",
-        "Influence",
-        "Literary agents",
-        "Middle-aged women",
-        "Agents littéraires",
-        "Romans, nouvelles"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 4
     },
     {
       "id": "book:/works/OL15374110W",
@@ -8128,18 +8128,18 @@
       "image": "https://covers.openlibrary.org/b/id/12059372-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL82560W",
-      "score": 4.241573,
-      "votes": 356,
-      "interest": 4941,
+      "score": 4.2486186,
+      "votes": 362,
+      "interest": 5001,
       "language": [
-        "gre",
         "urd",
-        "arm",
-        "vie",
-        "spa",
-        "pol",
-        "hun",
-        "tha"
+        "chi",
+        "rus",
+        "por",
+        "kor",
+        "alb",
+        "cze",
+        "dan"
       ],
       "subjects": [
         "orphans",
@@ -8579,11 +8579,11 @@
       "url": "https://openlibrary.org/works/OL784051W",
       "score": 3.9302325,
       "votes": 43,
-      "interest": 989,
+      "interest": 1000,
       "language": [
-        "fre",
         "spa",
-        "eng"
+        "eng",
+        "fre"
       ],
       "subjects": [
         "Agricultural laborers",
@@ -8800,9 +8800,9 @@
       "image": "https://covers.openlibrary.org/b/id/402759-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL2941508W",
-      "score": 3.9772727,
-      "votes": 44,
-      "interest": 501,
+      "score": 3.9777777,
+      "votes": 45,
+      "interest": 506,
       "language": [
         "spa",
         "eng"
@@ -8932,17 +8932,17 @@
       "image": "https://covers.openlibrary.org/b/id/980232-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL7924103W",
-      "score": 3.9181035,
-      "votes": 232,
-      "interest": 3587,
+      "score": 3.914163,
+      "votes": 233,
+      "interest": 3596,
       "language": [
-        "ger",
-        "por",
+        "spa",
         "chi",
+        "por",
+        "tur",
         "eng",
         "fre",
-        "tur",
-        "spa"
+        "ger"
       ],
       "subjects": [
         "series:The Wheel of Time",
@@ -8961,7 +8961,7 @@
         "Children's fiction"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 69
+      "editionCount": 70
     },
     {
       "id": "book:/works/OL46881W",
@@ -9176,18 +9176,18 @@
       "image": "https://covers.openlibrary.org/b/id/8413143-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL81606W",
-      "score": 3.95,
-      "votes": 20,
-      "interest": 503,
+      "score": 3.9545455,
+      "votes": 22,
+      "interest": 513,
       "language": [
-        "und",
-        "pol",
-        "por",
-        "rus",
-        "eng",
-        "fre",
+        "ita",
+        "dut",
         "spa",
-        "ita"
+        "pol",
+        "rus",
+        "por",
+        "und",
+        "eng"
       ],
       "subjects": [
         "paranormal",
@@ -9206,7 +9206,7 @@
         "diction"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 64
+      "editionCount": 65
     },
     {
       "id": "book:/works/OL7924135W",
@@ -9801,18 +9801,18 @@
       "image": "https://covers.openlibrary.org/b/id/8489859-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL274574W",
-      "score": 4.09434,
-      "votes": 53,
-      "interest": 620,
+      "score": 4.0925927,
+      "votes": 54,
+      "interest": 651,
       "language": [
-        "jpn",
         "ita",
-        "alb",
-        "tam",
-        "por",
+        "spa",
         "gre",
-        "ger",
-        "cze"
+        "rus",
+        "por",
+        "tam",
+        "ara",
+        "jpn"
       ],
       "subjects": [
         "ritual",
@@ -10570,12 +10570,12 @@
       "url": "https://openlibrary.org/works/OL268217W",
       "score": 4.179487,
       "votes": 39,
-      "interest": 940,
+      "interest": 945,
       "language": [
-        "fre",
+        "dan",
         "spa",
         "eng",
-        "dan"
+        "fre"
       ],
       "subjects": [
         "Children's Middle Grade Books",
@@ -10604,14 +10604,14 @@
       "image": "https://covers.openlibrary.org/b/id/9321656-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL70988W",
-      "score": 4.1976743,
-      "votes": 86,
-      "interest": 893,
+      "score": 4.2134833,
+      "votes": 89,
+      "interest": 934,
       "language": [
         "pol",
         "spa",
-        "rus",
-        "eng"
+        "eng",
+        "rus"
       ],
       "subjects": [
         "Fantasy fiction",
@@ -10981,9 +10981,9 @@
       "image": "https://covers.openlibrary.org/b/id/224762-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL500177W",
-      "score": 3.8333333,
-      "votes": 12,
-      "interest": 185,
+      "score": 3.6923077,
+      "votes": 13,
+      "interest": 188,
       "language": [
         "ger",
         "eng"
