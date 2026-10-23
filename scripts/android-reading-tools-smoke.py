@@ -14,7 +14,7 @@ def wait(value):
 def node(value):
     for _ in range(8):
         for n in dump().iter('node'):
-            if n.get('package')==APP and value in (n.get('text'),n.get('content-desc'),n.get('hint')):
+            if n.get('package') in (APP,'android') and value in (n.get('text'),n.get('content-desc'),n.get('hint')):
                 a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
                 if c>a and d>b:return ((a+c)//2,(b+d)//2)
         scrolls=[n for n in dump().iter('node') if n.get('class')=='android.widget.ScrollView' and n.get('scrollable')=='true']
