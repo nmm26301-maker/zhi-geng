@@ -1,5 +1,5 @@
 """Exercise the new native pages against original local TLS fixtures and real browser intents."""
-import hashlib,json,pathlib,re,subprocess,time,xml.etree.ElementTree as E,zipfile
+import hashlib,json,pathlib,re,subprocess,sys,time,xml.etree.ElementTree as E,zipfile
 APP='cn.zhigeng.app';OUT=pathlib.Path('reading-tools-check');OUT.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
 def dump():
@@ -17,7 +17,12 @@ def node(value):
             if value in (n.get('text'),n.get('content-desc'),n.get('hint')):
                 a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
                 if c>a and d>b:return ((a+c)//2,(b+d)//2)
-        adb('shell','input','swipe',540,1550,540,600,300);time.sleep(.4)
+        scrolls=[n for n in dump().iter('node') if n.get('class')=='android.widget.ScrollView' and n.get('scrollable')=='true']
+        if scrolls:
+            a,b,c,d=map(int,re.findall(r'\d+',scrolls[0].get('bounds')))
+            adb('shell','input','swipe',(a+c)//2,d-60,(a+c)//2,b+60,300)
+        else:adb('shell','input','swipe',540,1400,540,550,300)
+        time.sleep(.4)
     raise AssertionError('Missing action: '+value)
 def tap(value):adb('shell','input','tap',*node(value));time.sleep(.6)
 def fill(value,entry,clear=False):
@@ -27,6 +32,7 @@ def fill(value,entry,clear=False):
         for _ in range(50):adb('shell','input','keyevent','67')
     adb('shell','input','text',entry);adb('shell','input','keyevent','4');time.sleep(.3)
 def screen(name):
+    print('Reading tools checkpoint:',name,flush=True)
     (OUT/(name+'.xml')).write_bytes(E.tostring(dump(),encoding='utf-8'))
     (OUT/(name+'.png')).write_bytes(adb('exec-out','screencap','-p'))
 def launch():
@@ -37,6 +43,12 @@ def browser():
     match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
     assert match and match.group(1) in BROWSERS,state
 
+def failure(kind,value,trace):
+    try:screen('failure-state')
+    except Exception:pass
+    sys.__excepthook__(kind,value,trace)
+sys.excepthook=failure
+
 query=adb('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW','-c','android.intent.category.BROWSABLE','-d','https://zhigeng-browser.invalid/').decode()
 BROWSERS=set(re.findall(r'^\s*([\w.]+)/',query,re.M));BROWSERS.discard(APP);assert BROWSERS,query
 adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
@@ -45,7 +57,7 @@ adb('logcat','-c');launch();menu('极映空间 · 漫画搜索');wait('漫画导
 # the UI smoke verifies a browsable external package and the intended host.
 fill('输入漫画、书名或影视名称','Naruto');adb('logcat','-c');tap('去极映空间搜索');browser()
 logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
-adb('shell','input','keyevent','4');time.sleep(1);wait('漫画导航')
+adb('shell','input','keyevent','4');time.sleep(1);wait('极映空间')
 tap('漫画导航');browser();logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
 adb('shell','input','keyevent','4');time.sleep(1);tap('‹ 返回');menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
