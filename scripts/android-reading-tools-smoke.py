@@ -14,7 +14,7 @@ def wait(value):
 def node(value):
     for _ in range(8):
         for n in dump().iter('node'):
-            if value in (n.get('text'),n.get('content-desc'),n.get('hint')):
+            if n.get('package')==APP and value in (n.get('text'),n.get('content-desc'),n.get('hint')):
                 a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
                 if c>a and d>b:return ((a+c)//2,(b+d)//2)
         scrolls=[n for n in dump().iter('node') if n.get('class')=='android.widget.ScrollView' and n.get('scrollable')=='true']
@@ -43,6 +43,15 @@ def browser():
     match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
     assert match and match.group(1) in BROWSERS,state
 
+def return_resource():
+    # Browsers may consume Back for their keyboard or navigation history first.
+    for _ in range(8):
+        state=adb('shell','dumpsys','activity','activities').decode()
+        resumed=re.findall(r'(?:mResumedActivity|topResumedActivity)[^\n]*',state)
+        if any(APP+'/.ResourceSearchActivity' in line for line in resumed):return
+        adb('shell','input','keyevent','4');time.sleep(1)
+    raise AssertionError('Browser did not return to the native resource screen: '+state)
+
 def failure(kind,value,trace):
     try:screen('failure-state')
     except Exception:pass
@@ -57,9 +66,9 @@ adb('logcat','-c');launch();menu('极映空间 · 漫画搜索');wait('漫画导
 # the UI smoke verifies a browsable external package and the intended host.
 fill('输入漫画、书名或影视名称','Naruto');adb('logcat','-c');tap('去极映空间搜索');browser()
 logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
-adb('shell','input','keyevent','4');time.sleep(1);wait('极映空间')
+return_resource();wait('极映空间')
 tap('漫画导航');browser();logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
-adb('shell','input','keyevent','4');time.sleep(1);tap('‹ 返回');menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
+return_resource();tap('‹ 返回');wait('更多工具');menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
 fill('搜索书名或作者（当前书库）','Spring');tap('搜索书库');wait('找到 1 本书');screen('04-search')
