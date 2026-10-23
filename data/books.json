@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-22T01:36:55.836Z",
+  "updatedAt": "2026-10-23T01:37:42.300Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 360,
+  "count": 361,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -2501,6 +2501,40 @@
       "editionCount": 5
     },
     {
+      "id": "book:/works/OL36042699W",
+      "title": "Mile High",
+      "author": "Liz Tomforde",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/14646460-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL36042699W",
+      "score": 4.125,
+      "votes": 8,
+      "interest": 198,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, romance, contemporary",
+        "Fiction, romance, romantic comedy",
+        "Fiction, romance, general",
+        "Fiction",
+        "Romance",
+        "Comtemporary",
+        "Sports",
+        "Hockey players",
+        "Hockey",
+        "Serie:Windy_City",
+        "Contemporary",
+        "Contemporary Romance",
+        "Sports Romance",
+        "Adult"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL33364737W",
       "title": "A Curse for True Love",
       "author": "Stephanie Garber",
@@ -2857,7 +2891,7 @@
       "url": "https://openlibrary.org/works/OL28181491W",
       "score": 3.8181818,
       "votes": 22,
-      "interest": 920,
+      "interest": 924,
       "language": [
         "spa",
         "eng"
@@ -5633,7 +5667,7 @@
       "url": "https://openlibrary.org/works/OL20068530W",
       "score": 3.8837209,
       "votes": 129,
-      "interest": 5404,
+      "interest": 5405,
       "language": [
         "spa",
         "heb",
@@ -8315,18 +8349,18 @@
       "image": "https://covers.openlibrary.org/b/id/13921600-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5819895W",
-      "score": 3.7772925,
-      "votes": 229,
-      "interest": 1561,
+      "score": 3.775862,
+      "votes": 232,
+      "interest": 1593,
       "language": [
         "ita",
+        "spa",
+        "pol",
         "chi",
         "por",
-        "ger",
+        "eng",
         "fre",
-        "pol",
-        "spa",
-        "eng"
+        "ger"
       ],
       "subjects": [
         "Fantasy",
@@ -8502,18 +8536,18 @@
       "image": "https://covers.openlibrary.org/b/id/12643419-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5720022W",
-      "score": 3.462185,
-      "votes": 119,
-      "interest": 1018,
+      "score": 3.4628098,
+      "votes": 121,
+      "interest": 1028,
       "language": [
-        "por",
-        "eng",
-        "fre",
-        "ger",
-        "rus",
-        "kor",
+        "dut",
+        "spa",
+        "pol",
+        "chi",
         "vie",
-        "chi"
+        "rus",
+        "por",
+        "tur"
       ],
       "subjects": [
         "series:Twilight",
