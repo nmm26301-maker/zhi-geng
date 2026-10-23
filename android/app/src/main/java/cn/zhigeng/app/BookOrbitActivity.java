@@ -72,10 +72,6 @@ public class BookOrbitActivity extends ReadingToolActivity {
             new AlertDialog.Builder(this).setTitle("使用登录链接").setView(link).setNegativeButton("取消",null)
                 .setPositiveButton("连接",(d,w)->connect(true,link.getText().toString(),connect)).show();});
         add(body,text("BookOrbit 是自托管书库，需要已有服务器与账号；这里不会自动部署服务器，也不会附带付费书源。密码仅用于本次登录，会话加密保存在本机。",12,MUTED),22);
-        Button sample=button("体验官方示例书库",false);add(body,sample,12);
-        sample.setOnClickListener(v->{server.setText("https://demo.bookorbit.app");connect(true,
-            "https://demo.bookorbit.app/magic?token=2d92cb900e184cf0eb8b11f72cffc6011673d1016e1b300d750eb3d76abc1572",connect);});
-        add(body,text("官方演示提供公共领域示例书；自己的图书需要连接自己的服务器。",12,MUTED),10);
         Button official=button("BookOrbit 官方项目与部署说明 ↗",false);add(body,official,14);
         official.setOnClickListener(v->BrowserLinks.open(this,"https://github.com/bookorbit/bookorbit"));
         Button demo=button("官方演示与使用说明 ↗",false);add(body,demo,10);

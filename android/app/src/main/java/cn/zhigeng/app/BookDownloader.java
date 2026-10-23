@@ -11,6 +11,7 @@ final class BookDownloader {
         return transfer(ctx,raw,extension,credentials,cancelled,progress,BookOrbitProtocol.base(server));
     }
     private static File transfer(Context ctx,String raw,String extension,Map<String,String> credentials,AtomicBoolean cancelled,Progress progress,String bookOrbit)throws Exception{
+        extension=DownloadPolicy.extension(extension);
         String original=bookOrbit==null?DownloadPolicy.validate(raw):BookOrbitProtocol.downloadUrl(bookOrbit,raw),current=original;File dir=new File(ctx.getFilesDir(),"ebooks");if(!dir.exists()&&!dir.mkdirs())throw new Exception("无法创建图书目录");
         File part=new File(dir,UUID.randomUUID()+".part"),result=new File(dir,UUID.randomUUID()+"."+DownloadPolicy.extension(extension));
         try{

@@ -1,8 +1,6 @@
 name: Verify phone book copies and original signed upgrade
 on:
-  push:
-    branches: [main]
-    paths: ['.github/workflows/android-phone-download.yml', 'scripts/android-local-download-smoke.py']
+  workflow_dispatch:
 permissions:
   contents: write
   actions: read
