@@ -2,7 +2,7 @@ name: Build Zhigeng Android APK
 on:
   push:
     branches: [main]
-    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/android-browser-smoke.py', 'scripts/fcc-protocol-fixture.py', 'scripts/android-reader-smoke.py', 'scripts/android-local-download-smoke.py', 'scripts/prepare-reader-font.py', 'scripts/make-reader-fixtures.py', 'scripts/prepare-android-posters.mjs', 'scripts/build-static-site.mjs', 'data/domestic.json']
+    paths: ['android/**', '.github/workflows/android.yml', 'scripts/android-smoke.py', 'scripts/android-browser-smoke.py', 'scripts/fcc-protocol-fixture.py', 'scripts/android-reader-smoke.py', 'scripts/android-local-download-smoke.py', 'scripts/prepare-reader-font.py', 'scripts/make-reader-fixtures.py', 'scripts/prepare-android-posters.mjs', 'scripts/build-static-site.mjs', 'data/domestic.json', 'scripts/android-reading-tools-smoke.py', 'scripts/bookorbit-protocol-fixture.py']
   workflow_dispatch:
 permissions:
   contents: read
@@ -56,18 +56,20 @@ jobs:
       - name: Package unsigned APK and signing verifier
         run: |
           mkdir -p apk-output
-          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.12-unsigned.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.13-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
           cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.12-unsigned.apk > apk-output/package-info.txt
-          test "$(unzip -p apk-output/Zhigeng-v0.6.12-unsigned.apk classes.dex | wc -c)" -gt 10000
-          ! unzip -l apk-output/Zhigeng-v0.6.12-unsigned.apk | grep -q 'lib/.*\.so'
-          ! unzip -p apk-output/Zhigeng-v0.6.12-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
-          ! unzip -p apk-output/Zhigeng-v0.6.12-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
-          ! unzip -l apk-output/Zhigeng-v0.6.12-unsigned.apk | grep -q 'reader-fixture'
-          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.12-unsigned.apk | grep -q 'fcc_test_ca'
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.13-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.13-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.13-unsigned.apk | grep -q 'lib/.*\.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.13-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! unzip -p apk-output/Zhigeng-v0.6.13-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
+          ! unzip -l apk-output/Zhigeng-v0.6.13-unsigned.apk | grep -q 'reader-fixture'
+          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.13-unsigned.apk | grep -q 'fcc_test_ca'
       - name: Start local FCC protocol fixture
         run: python3 scripts/fcc-protocol-fixture.py > /tmp/fcc-fixture.log 2>&1 &
+      - name: Start local BookOrbit protocol fixture
+        run: python3 scripts/bookorbit-protocol-fixture.py > /tmp/bookorbit-fixture.log 2>&1 &
       - name: Install screenshot verifier
         run: python3 -m pip install Pillow==11.3.0
       - name: Reserve disk and enable KVM
@@ -78,7 +80,7 @@ jobs:
           sudo chmod 666 /dev/kvm
       - uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: 33
           target: default
           arch: x86_64
           profile: pixel_2
@@ -89,6 +91,7 @@ jobs:
           script: |
             python3 scripts/android-smoke.py
             python3 scripts/android-reader-smoke.py
+            python3 scripts/android-reading-tools-smoke.py
             python3 scripts/android-browser-smoke.py
             python3 scripts/android-local-download-smoke.py
       - name: Preserve build and check reports when artifact storage is available
@@ -96,9 +99,11 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: Zhigeng-native-android-v0.6.12-unsigned-build
+          name: Zhigeng-native-android-v0.6.13-unsigned-build
           path: |
             apk-output/
             emulator-check/
             browser-check/
+            reading-tools-check/
+            phone-download-check/
           retention-days: 7
