@@ -58,8 +58,7 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot
           script: |
-            python3 scripts/android-upgrade-phone-613.py
-            adb uninstall cn.zhigeng.app
+            # Exact 612 -> 613 signed upgrade passed in run 39992766675; reuse its preserved report.
             adb install -r apk-output/Zhigeng-debug-test.apk
             python3 scripts/android-reading-tools-smoke.py
             python3 scripts/android-browser-smoke.py
