@@ -26,7 +26,7 @@ def save_fixture():
 adb('logcat','-c')
 save_fixture()
 directory='/sdcard/Download/知更'
-names=lambda:adb('shell','ls','-1',directory).decode().splitlines()
+names=lambda:[name for name in adb('shell','ls','-1',directory).decode().splitlines() if name.startswith('知更本地保存测试')]
 before=names();assert len(before)==1,before
 # Compare against the bundled source bytes, avoiding adb shell binary conversion
 # and exec-out's handling of shell quotes in Unicode/duplicate file names.

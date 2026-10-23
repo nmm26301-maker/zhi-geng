@@ -70,6 +70,9 @@ browsers=set(re.findall(r'^\s*([\w.]+)/',query,re.M));browsers.discard(APP)
 assert browsers,query
 # This changes only the disposable emulator, and removes first-use chooser ambiguity.
 preferred='com.android.browser' if 'com.android.browser' in browsers else sorted(browsers)[0]
+# Isolate this disposable emulator browser from earlier website-entry checks.
+adb('shell','am','force-stop',preferred)
+adb('shell','pm','clear',preferred)
 adb('shell','cmd','role','add-role-holder','--user','0','android.app.role.BROWSER',preferred)
 adb('shell','svc','wifi','disable');adb('shell','svc','data','disable')
 

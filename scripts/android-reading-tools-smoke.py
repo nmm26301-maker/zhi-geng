@@ -37,6 +37,7 @@ def browser():
     match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
     assert match and match.group(1)!=APP,state
 
+adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
 adb('logcat','-c');launch();menu('极映空间 · 漫画搜索');wait('漫画导航');screen('01-resource-page')
 # Search URL is the site's observed q= contract, not a guessed comic API.
 fill('输入漫画、书名或影视名称','Naruto');adb('logcat','-c');tap('去极映空间搜索');browser()
