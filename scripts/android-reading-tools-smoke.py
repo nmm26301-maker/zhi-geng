@@ -35,15 +35,18 @@ def menu(name):tap('更多工具');tap(name)
 def browser():
     state=adb('shell','dumpsys','activity','activities').decode()
     match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
-    assert match and match.group(1)!=APP,state
+    assert match and match.group(1) in BROWSERS,state
 
+query=adb('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW','-c','android.intent.category.BROWSABLE','-d','https://zhigeng-browser.invalid/').decode()
+BROWSERS=set(re.findall(r'^\s*([\w.]+)/',query,re.M));BROWSERS.discard(APP);assert BROWSERS,query
 adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
 adb('logcat','-c');launch();menu('极映空间 · 漫画搜索');wait('漫画导航');screen('01-resource-page')
-# Search URL is the site's observed q= contract, not a guessed comic API.
+# Unit tests check the exact q= URL. Android 13 redacts paths in activity logs;
+# the UI smoke verifies a browsable external package and the intended host.
 fill('输入漫画、书名或影视名称','Naruto');adb('logcat','-c');tap('去极映空间搜索');browser()
-logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'jys66.top/index.html?q=Naruto' in logs,logs
+logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
 adb('shell','input','keyevent','4');time.sleep(1);wait('漫画导航')
-tap('漫画导航');browser();logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'jys66.top/manhua.html' in logs
+tap('漫画导航');browser();logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
 adb('shell','input','keyevent','4');time.sleep(1);tap('‹ 返回');menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
