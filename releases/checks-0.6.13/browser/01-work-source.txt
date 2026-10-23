@@ -1,0 +1,6 @@
+--------- beginning of system
+10-23 18:16:42.659   554  1658 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://search.douban.com/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10126
+10-23 18:16:42.695   554   583 I ActivityManager: Start proc 3916:org.chromium.webview_shell/u0a96 for next-top-activity {org.chromium.webview_shell/org.chromium.webview_shell.WebViewBrowserActivity}
+10-23 18:16:42.991   554   583 I ActivityManager: Start proc 3944:com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i2 for  {org.chromium.webview_shell/org.chromium.content.app.SandboxedProcessService0:0}
+--------- beginning of main
+10-23 18:16:43.490   554   571 I ActivityTaskManager: Displayed org.chromium.webview_shell/.WebViewBrowserActivity: +829ms

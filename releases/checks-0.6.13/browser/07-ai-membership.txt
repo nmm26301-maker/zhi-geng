@@ -1,0 +1,6 @@
+--------- beginning of system
+10-23 18:18:46.995   554  1598 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://www.gamsgo.com/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10126
+10-23 18:18:46.996   554  1598 I ActivityTaskManager: Launching r: ActivityRecord{b1b65f9 u0 org.chromium.webview_shell/.WebViewBrowserActivity} from background: ActivityRecord{8986ecd u0 cn.zhigeng.app/.DirectoryActivity} t11}. New task: false
+10-23 18:18:47.000   554  1598 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (265920)
+--------- beginning of main
+10-23 18:18:47.159   554   571 I ActivityTaskManager: Displayed org.chromium.webview_shell/.WebViewBrowserActivity: +152ms
