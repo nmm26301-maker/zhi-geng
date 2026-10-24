@@ -58,12 +58,20 @@ def browser():
     match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
     assert match and match.group(1) in BROWSERS,state
 
+browser_returns=[]
 def return_resource():
+    method='back'
     # Browsers may consume Back for their keyboard or navigation history first.
     for _ in range(8):
         state=adb('shell','dumpsys','activity','activities').decode()
         resumed=re.findall(r'(?:mResumedActivity|topResumedActivity)[^\n]*',state)
-        if any(APP+'/.ResourceSearchActivity' in line for line in resumed):return
+        if any(APP+'/' in line and 'ResourceSearchActivity' in line for line in resumed):
+            browser_returns.append(method);return
+        if API==26 and any('com.android.launcher' in line for line in resumed):
+            # Android 8 can return a separate browser task to Home. Reopening the
+            # actual launcher entry must preserve the native resource activity.
+            adb('shell','am','start','-W','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER','-f','0x10200000','-n',APP+'/.MainActivity')
+            method='launcher';time.sleep(1);continue
         adb('shell','input','keyevent','4');time.sleep(1)
     raise AssertionError('Browser did not return to the native resource screen: '+state)
 
@@ -128,7 +136,7 @@ events=json.loads((OUT/'protocol.json').read_text())
 for event in ['native-login','native-refresh','libraries','query:Spring:0','detail','download']:assert event in events,events
 report=dict(versionCode=613,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
     saveAsCancellationChecked=API<29,
-    separateNativePages=True,comicCategoryExternal=True,resourceSearchExternal=True,nativeBookOrbitLogin=True,
+    browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=True,resourceSearchExternal=True,nativeBookOrbitLogin=True,
     tokenRefresh=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
     sharedCopyByteExact=True,nativeReader=True,sha256=hashlib.sha256(expected).hexdigest(),crashes=False,
     fixture='original local TLS BookOrbit contract and EPUB; no real user server credentials')
