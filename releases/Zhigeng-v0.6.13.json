@@ -89,8 +89,7 @@
   "delivery": "in-place update of the existing production app",
   "websiteOpening": "external browser",
   "untested": [
-    "live user BookOrbit server and credentials",
-    "new screens on Android 8 (API 26)"
+    "live user BookOrbit server and credentials"
   ],
   "limitations": [
     "BookOrbit requires an existing HTTPS server and user account; server is not bundled in APK",
@@ -252,14 +251,48 @@
       ],
       "fixture": "original local EPUB; account/network download is not exercised",
       "crashes": false
+    },
+    "android8ReadingTools": {
+      "versionCode": 613,
+      "api": 26,
+      "storageStrategy": "SAF",
+      "saveAsCancellationChecked": true,
+      "browserReturnMethods": [
+        "back",
+        "back"
+      ],
+      "separateNativePages": true,
+      "comicCategoryExternal": true,
+      "resourceSearchExternal": true,
+      "nativeBookOrbitLogin": true,
+      "tokenRefresh": true,
+      "librarySearch": true,
+      "encryptedSessionRestart": true,
+      "epubDownload": true,
+      "sharedCopyByteExact": true,
+      "nativeReader": true,
+      "sha256": "9a6f5179ad1f48c0ccd5331e881fadfe4cd31cb19258f65cad3f7d6a76c02880",
+      "crashes": false,
+      "resourceError": "",
+      "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
     }
   },
   "compatibilityWorkflowRuns": {
     "android9ReadingTools": 40114311713,
     "android10Browser": 40114311713,
-    "android10Phone": 40114786302
+    "android10Phone": 40114786302,
+    "android8ReadingTools": 40144476803
   },
   "additionalVerificationDate": "2026-10-25",
   "compatibilityApkChanged": false,
-  "compatibilityResult": "passed: API 28 native reading tools and SAF cancellation/save/read; API 29 12 external-browser routes, native launcher return, MediaStore copies, duplicate-name protection, Save As cancellation and uninstall retention. First compatibility run stopped before phone-copy test on adb logcat clearing; targeted phone-copy retry passed."
+  "compatibilityResult": "passed: API 28 native reading tools and SAF cancellation/save/read; API 29 12 external-browser routes, native launcher return, MediaStore copies, duplicate-name protection, Save As cancellation and uninstall retention. First compatibility run stopped before phone-copy test on adb logcat clearing; targeted phone-copy retry passed. API 26 also passed native resource search/comic external-browser routing and Back return, BookOrbit login/refresh/search/encrypted restart, EPUB download, SAF cancellation/save, byte-exact public copy and native reading; Google APIs x86 emulator with installed WebView Browser Tester. Earlier runs failed on emulator setup, browser availability or UI-harness assumptions; final run passed.",
+  "android8Verification": {
+    "runId": 40144476803,
+    "conclusion": "success",
+    "testCommit": "7d2f9f4fed0b3742c76092136b1f2b3301f03660",
+    "api": 26,
+    "image": "google_apis",
+    "arch": "x86",
+    "apkUnchanged": true
+  }
 }
