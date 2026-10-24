@@ -2,7 +2,10 @@
 import hashlib,json,pathlib,re,subprocess,sys,time,xml.etree.ElementTree as E,zipfile
 API=int(subprocess.check_output(['adb','shell','getprop','ro.build.version.sdk']).strip())
 APP='cn.zhigeng.app';OUT=pathlib.Path('reading-tools-check');OUT.mkdir(exist_ok=True)
-def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
+def adb(*args):
+    try:return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
+    except subprocess.CalledProcessError as error:
+        raise RuntimeError('adb '+repr(args)+' failed: '+error.output.decode(errors='replace')) from error
 def dump():
     adb('shell','uiautomator','dump','/sdcard/reading-tools.xml')
     return E.fromstring(adb('shell','cat','/sdcard/reading-tools.xml'))
@@ -61,7 +64,10 @@ sys.excepthook=failure
 
 query=adb('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW','-c','android.intent.category.BROWSABLE','-d','https://zhigeng-browser.invalid/').decode()
 BROWSERS=set(re.findall(r'^\s*([\w.]+)/',query,re.M));BROWSERS.discard(APP);assert BROWSERS,query
-adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
+# Fresh API 26 emulators already have networking; their legacy svc process can exit 137.
+# The following real HTTPS login still verifies connectivity rather than masking errors.
+if API>=28:
+    adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
 adb('logcat','-c');launch();menu('极映空间 · 漫画搜索');wait('漫画导航');screen('01-resource-page')
 # Unit tests check the exact q= URL. Android 13 redacts paths in activity logs;
 # the UI smoke verifies a browsable external package and the intended host.
