@@ -24,6 +24,9 @@ def text():return ' '.join(n.get('text','')+' '+n.get('content-desc','') for n i
 def wait(value):
     for _ in range(18):
         if value in text():return
+        if API==26 and _>0 and _%3==0:
+            start,end=(1450,500) if (_//3)%2 else (500,1450)
+            adb('shell','input','swipe',540,start,540,end,300)
         time.sleep(.7)
     raise AssertionError('Missing UI: '+value+'\n'+text())
 def node(value):
@@ -57,7 +60,7 @@ def browser():
     for _ in range(30):
         state=adb('shell','dumpsys','activity','activities').decode()
         if API==26 and 'com.android.internal.app.ChooserActivity' in state:
-            tap('Chrome');time.sleep(1);continue
+            tap('WebView Browser Tester');time.sleep(1);continue
         match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
         if match and match.group(1) in BROWSERS:return
         time.sleep(.7)
@@ -115,7 +118,7 @@ except Exception as error:
     screen('resource-failure')
     (OUT/'resource-runtime.txt').write_text(read_logs('AndroidRuntime:E'))
     adb('shell','am','force-stop',APP);launch()
-menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
+menu('BookOrbit 书库');wait('BookOrbit');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
 fill('搜索书名或作者（当前书库）','Spring');tap('搜索书库');wait('找到 1 本书');screen('04-search')
