@@ -39,12 +39,12 @@ jobs:
         run: python3 scripts/bookorbit-protocol-fixture.py > /tmp/bookorbit-fixture.log 2>&1 &
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
-      - name: Verify Android 8 native screen and download preservation
+      - name: Verify Android 8 using Google APIs image
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api }}
-          target: default
-          arch: x86_64
+          target: google_apis
+          arch: x86
           profile: pixel_2
           emulator-boot-timeout: 300
           disable-animations: true
