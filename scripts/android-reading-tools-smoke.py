@@ -1,5 +1,6 @@
 """Exercise the new native pages against original local TLS fixtures and real browser intents."""
 import hashlib,json,pathlib,re,subprocess,sys,time,xml.etree.ElementTree as E,zipfile
+API=int(subprocess.check_output(['adb','shell','getprop','ro.build.version.sdk']).strip())
 APP='cn.zhigeng.app';OUT=pathlib.Path('reading-tools-check');OUT.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
 def dump():
@@ -78,9 +79,28 @@ for value in [b'local-test-password',b'orbit-protocol-access-not-a-secret',b'"re
 adb('shell','am','force-stop',APP);launch();menu('BookOrbit 书库');wait('找到 21 本书')
 # The encrypted session must reconnect after process death without a password.
 fill('搜索书名或作者（当前书库）','Spring');tap('搜索书库');wait('找到 1 本书');tap('查看图书与版本');wait('下载 EPUB · 保存到手机');screen('05-book-detail')
-tap('下载 EPUB · 保存到手机');wait('已保存到手机本地');screen('06-phone-copy')
-names=adb('shell','ls','-1','/sdcard/Download/知更').decode().splitlines();assert 'Spring letter.epub' in names,names
-target=OUT/'downloaded.epub';adb('pull','/sdcard/Download/知更/Spring letter.epub',target)
+tap('下载 EPUB · 保存到手机')
+if API<29:
+    # Android 8/9 uses the real system document picker instead of MediaStore.
+    def picker_save():
+        for _ in range(15):
+            tree=dump()
+            for n in tree.iter('node'):
+                if n.get('package','').endswith('documentsui') and n.get('text','') in ('SAVE','Save','保存'):
+                    a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
+                    if c>a and d>b:return ((a+c)//2,(b+d)//2)
+            time.sleep(.7)
+        raise AssertionError('System Save As picker was not ready: '+E.tostring(tree,encoding='unicode'))
+    picker_save();screen('06a-save-as-picker')
+    adb('shell','input','keyevent','4');time.sleep(1);wait('Spring letter')
+    # Cancelling an export must retain the downloaded book in the original shelf.
+    assert subprocess.run(['adb','shell','test','-e','/sdcard/Download/Spring letter.epub']).returncode!=0
+    tap('Spring letter');tap('保存到手机本地')
+    adb('shell','input','tap',*picker_save())
+wait('已保存到手机本地');screen('06-phone-copy')
+directory='/sdcard/Download/知更' if API>=29 else '/sdcard/Download'
+names=adb('shell','ls','-1',directory).decode().splitlines();assert 'Spring letter.epub' in names,names
+target=OUT/'downloaded.epub';adb('pull',directory+'/Spring letter.epub',target)
 with zipfile.ZipFile('apk-output/Zhigeng-debug-test.apk') as apk:expected=apk.read('assets/reader-fixture.epub')
 assert target.read_bytes()==expected;target.unlink()
 tap('立即阅读');time.sleep(6)
@@ -89,7 +109,8 @@ wait('第一章');screen('07-native-reader');adb('shell','input','keyevent','4')
 logs=adb('logcat','-d','-s','AndroidRuntime:E').decode();assert 'FATAL EXCEPTION' not in logs,logs
 events=json.loads((OUT/'protocol.json').read_text())
 for event in ['native-login','native-refresh','libraries','query:Spring:0','detail','download']:assert event in events,events
-report=dict(versionCode=613,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),
+report=dict(versionCode=613,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
+    saveAsCancellationChecked=API<29,
     separateNativePages=True,comicCategoryExternal=True,resourceSearchExternal=True,nativeBookOrbitLogin=True,
     tokenRefresh=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
     sharedCopyByteExact=True,nativeReader=True,sha256=hashlib.sha256(expected).hexdigest(),crashes=False,
