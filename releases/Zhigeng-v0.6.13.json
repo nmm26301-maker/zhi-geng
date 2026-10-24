@@ -90,12 +90,176 @@
   "websiteOpening": "external browser",
   "untested": [
     "live user BookOrbit server and credentials",
-    "new screens on Android 8/9",
-    "legacy Android 29 launcher-return regression"
+    "new screens on Android 8 (API 26)"
   ],
   "limitations": [
     "BookOrbit requires an existing HTTPS server and user account; server is not bundled in APK",
     "comics and audiobooks are opened on the server in an external browser",
     "official demo magic-link test rejected by automatic approval because the session token was not user-authorized; automatic demo login removed"
-  ]
+  ],
+  "compatibilityChecks": {
+    "android9ReadingTools": {
+      "versionCode": 613,
+      "api": 28,
+      "storageStrategy": "SAF",
+      "saveAsCancellationChecked": true,
+      "separateNativePages": true,
+      "comicCategoryExternal": true,
+      "resourceSearchExternal": true,
+      "nativeBookOrbitLogin": true,
+      "tokenRefresh": true,
+      "librarySearch": true,
+      "encryptedSessionRestart": true,
+      "epubDownload": true,
+      "sharedCopyByteExact": true,
+      "nativeReader": true,
+      "sha256": "9a6f5179ad1f48c0ccd5331e881fadfe4cd31cb19258f65cad3f7d6a76c02880",
+      "crashes": false,
+      "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
+    },
+    "android10Browser": {
+      "applicationId": "cn.zhigeng.app",
+      "versionCode": 613,
+      "api": 29,
+      "externalBrowserEntries": [
+        {
+          "entry": "01-work-source",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "search.douban.com",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": true
+        },
+        {
+          "entry": "02-kanju-home",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "kanju.ai",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "03-kanju-search",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "kanju.ai",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "04-sms",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "freephonenum.com",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "05-proxy",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "decodo.cn",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "06-directory-details",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "decodo.cn",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "07-ai-membership",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "gamsgo.com",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "08-ai-alternative",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "universalbus.cn",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "09-duck-ai",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "duck.ai",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "10-duck-menu",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "duck.ai",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "11-fcc-provider",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "build.nvidia.com",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        },
+        {
+          "entry": "12-project",
+          "browserPackage": "org.chromium.webview_shell",
+          "host": "github.com",
+          "external": true,
+          "separateTask": true,
+          "nativeScreenRestored": true,
+          "backReturned": null
+        }
+      ],
+      "websiteNetworkRequired": false,
+      "appResumedAfterBrowser": true,
+      "crashes": false
+    },
+    "android10Phone": {
+      "versionCode": 613,
+      "api": 29,
+      "directory": "Download/知更",
+      "publicFilesVisible": true,
+      "bytesMatchCompletedDownload": true,
+      "duplicateNamesDoNotOverwrite": true,
+      "saveAsPicker": true,
+      "cancelPreservesFiles": true,
+      "independentOfAppUninstall": true,
+      "sha256": "9a6f5179ad1f48c0ccd5331e881fadfe4cd31cb19258f65cad3f7d6a76c02880",
+      "files": [
+        "知更本地保存测试 (1).epub",
+        "知更本地保存测试.epub"
+      ],
+      "fixture": "original local EPUB; account/network download is not exercised",
+      "crashes": false
+    }
+  },
+  "compatibilityWorkflowRuns": {
+    "android9ReadingTools": 40114311713,
+    "android10Browser": 40114311713,
+    "android10Phone": 40114786302
+  },
+  "additionalVerificationDate": "2026-10-25",
+  "compatibilityApkChanged": false,
+  "compatibilityResult": "passed: API 28 native reading tools and SAF cancellation/save/read; API 29 12 external-browser routes, native launcher return, MediaStore copies, duplicate-name protection, Save As cancellation and uninstall retention. First compatibility run stopped before phone-copy test on adb logcat clearing; targeted phone-copy retry passed."
 }

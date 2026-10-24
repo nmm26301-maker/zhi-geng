@@ -27,4 +27,15 @@
 
 Android 13（API 33）已通过：原正式签名 0.6.12 → 0.6.13 覆盖安装，UID、首次安装时间、书架、收藏和重启数据保留；BookOrbit 原创 TLS 协议登录与令牌续期、搜索、加密会话重启、EPUB 下载、手机副本字节一致及原生阅读；极映空间搜索/漫画分类交给外部浏览器；12 个原有网址入口；共享副本的重名保护、系统另存、取消和卸载后保留。
 
-新增流程与回归：[Actions 40001415779](https://github.com/nmm26301-maker/zhi-geng/actions/runs/40001415779)。原签名升级：[Actions 39992766675](https://github.com/nmm26301-maker/zhi-geng/actions/runs/39992766675)。完整构建中的编译、单元测试、原生基线与 EPUB/TXT/PDF 阅读阶段已通过；该次工作流后续因 Android 13 日志隐去 URL 路径导致旧测试断言失败，修正后专项工作流通过。真实用户服务器及 Android 8/9 新页面尚未验证。正式文件校验值见[发布记录](../releases/Zhigeng-v0.6.13.json)。
+新增流程与回归：[Actions 40001415779](https://github.com/nmm26301-maker/zhi-geng/actions/runs/40001415779)。原签名升级：[Actions 39992766675](https://github.com/nmm26301-maker/zhi-geng/actions/runs/39992766675)。完整构建中的编译、单元测试、原生基线与 EPUB/TXT/PDF 阅读阶段已通过；该次工作流后续因 Android 13 日志隐去 URL 路径导致旧测试断言失败，修正后专项工作流通过。真实用户服务器及 Android 8 新页面尚未验证。正式文件校验值见[发布记录](../releases/Zhigeng-v0.6.13.json)。
+
+
+## 2026-10-25 旧版 Android 补验
+
+使用同一编译产物与原创协议/图书测试服务，无需重新编译或改动正式 APK：
+
+- Android 9（API 28）：两个独立原生页面、搜索/漫画分类外部浏览器、BookOrbit 登录与续期、加密会话重启、搜索下载、系统 SAF 另存、取消后原书架保留、共享文件字节一致与原生阅读通过。
+- Android 10（API 29）：12 个原有浏览器入口、独立任务与原生页面返回通过，原先未验证的启动器返回项已排除；MediaStore 本地副本、同名保护、系统另存取消、文件字节一致和卸载后保留通过。
+- [首轮补验](https://github.com/nmm26301-maker/zhi-geng/actions/runs/40114311713) 的 Android 9 和 Android 10 浏览器阶段通过；随后 ADB 清理日志失败，中止在本地副本测试之前。脚本改为仅清理 main/crash 日志并有限重试，[只补跑本地副本](https://github.com/nmm26301-maker/zhi-geng/actions/runs/40114786302) 已通过。
+
+Android 8（API 26）新页面与真实用户服务器仍未验证。APK 文件、包名、签名及校验值不变。
