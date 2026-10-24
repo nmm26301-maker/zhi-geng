@@ -55,6 +55,9 @@ def launch():
 def menu(name):tap('更多工具');tap(name)
 def browser():
     state=adb('shell','dumpsys','activity','activities').decode()
+    if API==26 and 'com.android.internal.app.ChooserActivity' in state:
+        tap('Chrome');time.sleep(1)
+        state=adb('shell','dumpsys','activity','activities').decode()
     match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
     assert match and match.group(1) in BROWSERS,state
 
