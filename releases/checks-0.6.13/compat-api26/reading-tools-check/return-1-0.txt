@@ -1,0 +1,215 @@
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+Display #0 (activities from top to bottom):
+  Stack #1:
+  mFullscreen=true
+  mBounds=null
+    Task id #8
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{5893c94 #8 A=org.chromium.webview_shell U=0 StackId=1 sz=1}
+      userId=0 effectiveUid=u0a34 mCallingUid=u0a77 mUserSetupComplete=true mCallingPackage=cn.zhigeng.app
+      affinity=org.chromium.webview_shell root=android
+      intent={act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://jys66.top/manhua.html flg=0x3000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity}
+      realActivity=org.chromium.webview_shell/.WebViewBrowserActivity
+      autoRemoveRecents=false isPersistable=false numFullscreen=1 taskType=0 mTaskToReturnTo=0
+      Activities=[ActivityRecord{361547e u0 org.chromium.webview_shell/.WebViewBrowserActivity t8}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=null lastThumbnailFile=/data/system_ce/0/recent_images/8_task_thumbnail.png
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION mSupportsPictureInPicture=false isResizeable=true firstActiveTime=1792886089602 lastActiveTime=1792886089602 (inactive for 4s)
+      * Hist #0: ActivityRecord{361547e u0 org.chromium.webview_shell/.WebViewBrowserActivity t8}
+          packageName=org.chromium.webview_shell processName=org.chromium.webview_shell
+          launchedFromUid=10077 launchedFromPackage=cn.zhigeng.app userId=0
+          app=ProcessRecord{dd4865f 4955:org.chromium.webview_shell/u0a34}
+          Intent { act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://jys66.top/manhua.html flg=0x3000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity }
+          frontOfTask=true task=TaskRecord{5893c94 #8 A=org.chromium.webview_shell U=0 StackId=1 sz=1}
+          taskAffinity=org.chromium.webview_shell
+          realActivity=org.chromium.webview_shell/.WebViewBrowserActivity
+          baseDir=/system/app/Browser2/Browser2.apk
+          dataDir=/data/user/0/org.chromium.webview_shell
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={420dpi} labelRes=0x7f040004 icon=0x7f020001 theme=0x103000c
+          mLastReportedConfigurations:
+           mGlobalConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+           mOverrideConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          CurrentConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          taskDescription: iconFilename=null label="null" primaryColor=ffe6e6e6
+           backgroundColor=ffffffff
+           statusBarColor=ff000000
+           navigationBarColor=ff000000
+          launchFailed=false launchCount=1 lastLaunchTime=-4s104ms
+          haveState=false icicle=null
+          state=RESUMED stopped=false delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=true sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_NOT_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=0
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=true lastVisibleTime=-3s751ms
+          resizeMode=RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION
+          mLastReportedMultiWindowMode=false mLastReportedPictureInPictureMode=false
+    Task id #6
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{a8c0ed8 #6 A=cn.zhigeng.app U=0 StackId=1 sz=2}
+      userId=0 effectiveUid=u0a77 mCallingUid=2000 mUserSetupComplete=true mCallingPackage=null
+      affinity=cn.zhigeng.app
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=cn.zhigeng.app/.MainActivity}
+      realActivity=cn.zhigeng.app/.MainActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=2 taskType=0 mTaskToReturnTo=1
+      rootWasReset=false mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{833f08 u0 cn.zhigeng.app/.MainActivity t6}, ActivityRecord{6222aa9 u0 cn.zhigeng.app/.ResourceSearchActivity t6}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=null lastThumbnailFile=/data/system_ce/0/recent_images/6_task_thumbnail.png
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION mSupportsPictureInPicture=false isResizeable=true firstActiveTime=1792886086294 lastActiveTime=1792886086294 (inactive for 7s)
+      * Hist #1: ActivityRecord{6222aa9 u0 cn.zhigeng.app/.ResourceSearchActivity t6}
+          packageName=cn.zhigeng.app processName=cn.zhigeng.app
+          launchedFromUid=10077 launchedFromPackage=cn.zhigeng.app userId=0
+          app=ProcessRecord{d385231 4310:cn.zhigeng.app/u0a77}
+          Intent { cmp=cn.zhigeng.app/.ResourceSearchActivity }
+          frontOfTask=false task=TaskRecord{a8c0ed8 #6 A=cn.zhigeng.app U=0 StackId=1 sz=2}
+          taskAffinity=cn.zhigeng.app
+          realActivity=cn.zhigeng.app/.ResourceSearchActivity
+          baseDir=/data/app/cn.zhigeng.app-Uai_59dZjtHbNegofO94FA==/base.apk
+          dataDir=/data/user/0/cn.zhigeng.app
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={420dpi} labelRes=0x0 icon=0x7f07005d theme=0x7f0e0005
+          mLastReportedConfigurations:
+           mGlobalConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+           mOverrideConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          CurrentConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          taskDescription: iconFilename=null label="null" primaryColor=fff5f5f5
+           backgroundColor=fffafafa
+           statusBarColor=fff7f5ef
+           navigationBarColor=fff7f5ef
+          launchFailed=false launchCount=0 lastLaunchTime=-32s455ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=792]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_NOT_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=0
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-11s909ms
+          resizeMode=RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION
+          mLastReportedMultiWindowMode=false mLastReportedPictureInPictureMode=false
+      * Hist #0: ActivityRecord{833f08 u0 cn.zhigeng.app/.MainActivity t6}
+          packageName=cn.zhigeng.app processName=cn.zhigeng.app
+          launchedFromUid=2000 launchedFromPackage=null userId=0
+          app=ProcessRecord{d385231 4310:cn.zhigeng.app/u0a77}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=cn.zhigeng.app/.MainActivity }
+          frontOfTask=true task=TaskRecord{a8c0ed8 #6 A=cn.zhigeng.app U=0 StackId=1 sz=2}
+          taskAffinity=cn.zhigeng.app
+          realActivity=cn.zhigeng.app/.MainActivity
+          baseDir=/data/app/cn.zhigeng.app-Uai_59dZjtHbNegofO94FA==/base.apk
+          dataDir=/data/user/0/cn.zhigeng.app
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={420dpi} labelRes=0x0 icon=0x7f07005d theme=0x7f0e0005
+          mLastReportedConfigurations:
+           mGlobalConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+           mOverrideConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          CurrentConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          taskDescription: iconFilename=null label="null" primaryColor=fff5f5f5
+           backgroundColor=fffafafa
+           statusBarColor=fff7f5ef
+           navigationBarColor=fff7f5ef
+          launchFailed=false launchCount=0 lastLaunchTime=-38s465ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=1020]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_REMOVED
+          fullscreen=true noDisplay=false immersive=false launchMode=0
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-37s932ms
+          resizeMode=RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION
+          mLastReportedMultiWindowMode=false mLastReportedPictureInPictureMode=false
+
+    Running activities (most recent first):
+      TaskRecord{5893c94 #8 A=org.chromium.webview_shell U=0 StackId=1 sz=1}
+        Run #2: ActivityRecord{361547e u0 org.chromium.webview_shell/.WebViewBrowserActivity t8}
+      TaskRecord{a8c0ed8 #6 A=cn.zhigeng.app U=0 StackId=1 sz=2}
+        Run #1: ActivityRecord{6222aa9 u0 cn.zhigeng.app/.ResourceSearchActivity t6}
+        Run #0: ActivityRecord{833f08 u0 cn.zhigeng.app/.MainActivity t6}
+
+    mResumedActivity: ActivityRecord{361547e u0 org.chromium.webview_shell/.WebViewBrowserActivity t8}
+    mLastPausedActivity: ActivityRecord{4727264 u0 android/com.android.internal.app.ChooserActivity t-1 f}
+
+  Stack #0:
+  mFullscreen=true
+  mBounds=null
+    Task id #5
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{deb22e3 #5 I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity U=0 StackId=0 sz=1}
+      userId=0 effectiveUid=u0a22 mCallingUid=0 mUserSetupComplete=true mCallingPackage=null
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity}
+      realActivity=com.google.android.apps.nexuslauncher/.NexusLauncherActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 taskType=1 mTaskToReturnTo=1
+      rootWasReset=false mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{9481c05 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t5}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=null lastThumbnailFile=/data/system_ce/0/recent_images/5_task_thumbnail.png
+      stackId=0
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE mSupportsPictureInPicture=false isResizeable=true firstActiveTime=1792886055134 lastActiveTime=1792886055134 (inactive for 38s)
+      * Hist #0: ActivityRecord{9481c05 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t5}
+          packageName=com.google.android.apps.nexuslauncher processName=com.google.android.apps.nexuslauncher
+          launchedFromUid=0 launchedFromPackage=null userId=0
+          app=ProcessRecord{83f58e9 2408:com.google.android.apps.nexuslauncher/u0a22}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity }
+          frontOfTask=true task=TaskRecord{deb22e3 #5 I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity U=0 StackId=0 sz=1}
+          taskAffinity=null
+          realActivity=com.google.android.apps.nexuslauncher/.NexusLauncherActivity
+          baseDir=/system/priv-app/NexusLauncherPrebuilt/NexusLauncherPrebuilt.apk
+          dataDir=/data/user/0/com.google.android.apps.nexuslauncher
+          stateNotNeeded=true componentSpecified=false mActivityType=1
+          compat={420dpi} labelRes=0x7f0c0089 icon=0x7f020040 theme=0x7f120001
+          mLastReportedConfigurations:
+           mGlobalConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+           mOverrideConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          CurrentConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.7}
+          taskDescription: iconFilename=null label="null" primaryColor=fff5f5f5
+           backgroundColor=fffafafa
+           statusBarColor=0
+           navigationBarColor=0
+          launchFailed=false launchCount=0 lastLaunchTime=-57s327ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=3868]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_REMOVED
+          fullscreen=true noDisplay=false immersive=false launchMode=2
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=HOME_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-56s896ms
+          connections=[]
+          resizeMode=RESIZE_MODE_RESIZEABLE
+          mLastReportedMultiWindowMode=false mLastReportedPictureInPictureMode=false
+
+    Running activities (most recent first):
+      TaskRecord{deb22e3 #5 I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity U=0 StackId=0 sz=1}
+        Run #0: ActivityRecord{9481c05 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t5}
+
+    mLastPausedActivity: ActivityRecord{9481c05 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t5}
+
+  ResumedActivity: ActivityRecord{361547e u0 org.chromium.webview_shell/.WebViewBrowserActivity t8}
+  mFocusedStack=ActivityStack{cec1d16 stackId=1, 2 tasks} mLastFocusedStack=ActivityStack{cec1d16 stackId=1, 2 tasks}
+  mSleepTimeout=false
+  mCurTaskIdForUser={0=8}
+  mUserStackInFront={}
+  mActivityContainers={0=ActivtyContainer{0}A, 1=ActivtyContainer{1}A}
+  mLockTaskModeState=NONE  mLockTaskPackages (userId:packages)=
+    0:[]
+ mLockTaskModeTasks[]
+  KeyguardController:
+    mKeyguardShowing=false
+    mKeyguardGoingAway=false
+    mOccluded=false
+    mDismissingKeyguardActivity=null
+    mDismissalRequested=false
+    mVisibilityTransactionDepth=0
