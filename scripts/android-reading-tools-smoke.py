@@ -79,7 +79,7 @@ BROWSERS=set(re.findall(r'^\s*([\w.]+)/',query,re.M));BROWSERS.discard(APP);asse
 # The following real HTTPS login still verifies connectivity rather than masking errors.
 if API>=28:
     adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
-clear_logs();launch();menu('极映空间 · 漫画搜索');wait('漫画导航');screen('01-resource-page')
+clear_logs();launch();menu('极映空间 · 漫画搜索');wait('极映空间');screen('01-resource-page')
 # Unit tests check the exact q= URL. Android 13 redacts paths in activity logs;
 # the UI smoke verifies a browsable external package and the intended host.
 fill('输入漫画、书名或影视名称','Naruto');clear_logs();tap('去极映空间搜索');browser()
