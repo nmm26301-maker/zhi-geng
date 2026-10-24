@@ -1,0 +1,21 @@
+{
+  "versionCode": 613,
+  "api": 26,
+  "storageStrategy": "SAF",
+  "saveAsCancellationChecked": true,
+  "browserReturnMethods": [],
+  "separateNativePages": true,
+  "comicCategoryExternal": false,
+  "resourceSearchExternal": false,
+  "nativeBookOrbitLogin": true,
+  "tokenRefresh": true,
+  "librarySearch": true,
+  "encryptedSessionRestart": true,
+  "epubDownload": true,
+  "sharedCopyByteExact": true,
+  "nativeReader": true,
+  "sha256": "9a6f5179ad1f48c0ccd5331e881fadfe4cd31cb19258f65cad3f7d6a76c02880",
+  "crashes": false,
+  "resourceError": "Missing action: WebView Browser Tester",
+  "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
+}
