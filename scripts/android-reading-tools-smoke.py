@@ -82,7 +82,9 @@ def return_resource():
     raise AssertionError('Browser did not return to the native resource screen: '+state)
 
 def failure(kind,value,trace):
-    try:screen('failure-state')
+    try:
+        (OUT/'runtime-failure.txt').write_text(read_logs('AndroidRuntime:E'))
+        screen('failure-state')
     except Exception:pass
     sys.__excepthook__(kind,value,trace)
 sys.excepthook=failure
