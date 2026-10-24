@@ -2,7 +2,18 @@
 import hashlib,json,pathlib,re,subprocess,time,zipfile,xml.etree.ElementTree as E
 APP='cn.zhigeng.app'
 OUT=pathlib.Path('phone-download-check');OUT.mkdir(exist_ok=True)
-def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
+def adb(*args):
+    try:return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
+    except subprocess.CalledProcessError as error:
+        raise RuntimeError('adb '+repr(args)+' failed: '+error.output.decode(errors='replace')) from error
+def clear_runtime_logs():
+    # Restrict clearing to the buffers used by this check on older Android.
+    for attempt in range(3):
+        try:
+            adb('logcat','-b','main','-b','crash','-c');return
+        except RuntimeError:
+            if attempt==2:raise
+            time.sleep(1)
 def dump():
     adb('shell','uiautomator','dump','/sdcard/phone-download.xml')
     return E.fromstring(adb('shell','cat','/sdcard/phone-download.xml'))
@@ -23,7 +34,7 @@ def save_fixture():
     (OUT/'saved.png').write_bytes(adb('exec-out','screencap','-p'))
     assert any('下载/知更/' in n.get('text','') for n in dump().iter('node'))
 
-adb('logcat','-c')
+clear_runtime_logs()
 save_fixture()
 directory='/sdcard/Download/知更'
 names=lambda:[name for name in adb('shell','ls','-1',directory).decode().splitlines() if name.startswith('知更本地保存测试')]
