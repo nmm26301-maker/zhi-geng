@@ -1,0 +1,101 @@
+{
+  "file": "Zhigeng-v0.6.13.apk",
+  "size": 20782123,
+  "sha256": "844fed487abc5438ee0cc9645ce92722904a6ce9a4a857a21c3069d14adcc8ce",
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "applicationId": "cn.zhigeng.app",
+  "appLabel": "知更",
+  "versionName": "0.6.13",
+  "versionCode": 613,
+  "previousVersionCode": 612,
+  "sourceCommit": "353a11a32203a0638e10eea3dd1eba048054a501",
+  "buildWorkflowRun": 39990113569,
+  "verificationCommit": "59705620b9fb9f05786c9eba79762f6ccb67af63",
+  "originalCertificateVerified": true,
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "checks": "passed: release/debug compilation, unit tests, native/EPUB/TXT/PDF baseline, original-signature 612-to-613 upgrade, native reading tools, external-browser routing and phone-copy regression on Android 13",
+  "verificationWorkflowRun": 40001415779,
+  "upgradeVerificationWorkflowRun": 39992766675,
+  "artifactId": 12518236698,
+  "artifactZipSha256": "b388b6f317a6b4b834505e98bdb30bbdbb175c45a2a50617e2993f399431b311",
+  "backupRestorationVerified": true,
+  "buildWorkflowConclusion": "failure after successful compilation/unit/native/reader stages: original reading-tools smoke asserted full URL in Android 13 redacted logs; corrected targeted verification passed",
+  "verificationWorkflowConclusion": "success",
+  "unitTests": "passed",
+  "readingToolsChecks": {
+    "versionCode": 613,
+    "api": 33,
+    "separateNativePages": true,
+    "comicCategoryExternal": true,
+    "resourceSearchExternal": true,
+    "nativeBookOrbitLogin": true,
+    "tokenRefresh": true,
+    "librarySearch": true,
+    "encryptedSessionRestart": true,
+    "epubDownload": true,
+    "sharedCopyByteExact": true,
+    "nativeReader": true,
+    "sha256": "9a6f5179ad1f48c0ccd5331e881fadfe4cd31cb19258f65cad3f7d6a76c02880",
+    "crashes": false,
+    "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
+  },
+  "upgradeChecks": {
+    "inPlaceUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "favoritesPreserved": true,
+    "restartPreserved": true,
+    "previousVersionCode": 612,
+    "versionCode": 613,
+    "applicationId": "cn.zhigeng.app",
+    "api": 33,
+    "offlineCoversLoaded": 4,
+    "noSecondApp": true,
+    "crashes": false,
+    "screens": 8
+  },
+  "phoneChecks": {
+    "versionCode": 613,
+    "api": 33,
+    "directory": "Download/知更",
+    "publicFilesVisible": true,
+    "bytesMatchCompletedDownload": true,
+    "duplicateNamesDoNotOverwrite": true,
+    "saveAsPicker": true,
+    "cancelPreservesFiles": true,
+    "independentOfAppUninstall": true,
+    "sha256": "9a6f5179ad1f48c0ccd5331e881fadfe4cd31cb19258f65cad3f7d6a76c02880",
+    "files": [
+      "知更本地保存测试 (1).epub",
+      "知更本地保存测试.epub"
+    ],
+    "fixture": "original local EPUB; account/network download is not exercised",
+    "crashes": false
+  },
+  "browserChecks": {
+    "api": 33,
+    "entries": 12,
+    "allExternal": true,
+    "allSeparateTask": true,
+    "allNativeScreenRestored": true,
+    "crashes": false,
+    "report": "releases/checks-0.6.13/browser/result.json"
+  },
+  "delivery": "in-place update of the existing production app",
+  "websiteOpening": "external browser",
+  "untested": [
+    "live user BookOrbit server and credentials",
+    "new screens on Android 8/9",
+    "legacy Android 29 launcher-return regression"
+  ],
+  "limitations": [
+    "BookOrbit requires an existing HTTPS server and user account; server is not bundled in APK",
+    "comics and audiobooks are opened on the server in an external browser",
+    "official demo magic-link test rejected by automatic approval because the session token was not user-authorized; automatic demo login removed"
+  ]
+}
