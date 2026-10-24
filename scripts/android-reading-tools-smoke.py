@@ -62,8 +62,14 @@ browser_returns=[]
 def return_resource():
     method='back'
     # Browsers may consume Back for their keyboard or navigation history first.
-    for _ in range(8):
+    for attempt in range(8):
+        tree=dump()
+        if any(n.get('package')==APP and n.get('text')=='极映空间' for n in tree.iter('node')):
+            browser_returns.append(method);return
         state=adb('shell','dumpsys','activity','activities').decode()
+        if API==26:
+            (OUT/('return-'+str(len(browser_returns))+'-'+str(attempt)+'.txt')).write_text(state)
+            (OUT/('return-'+str(len(browser_returns))+'-'+str(attempt)+'.xml')).write_bytes(E.tostring(tree,encoding='utf-8'))
         resumed=re.findall(r'(?:mResumedActivity|topResumedActivity)[^\n]*',state)
         if any(APP+'/' in line and 'ResourceSearchActivity' in line for line in resumed):
             browser_returns.append(method);return
