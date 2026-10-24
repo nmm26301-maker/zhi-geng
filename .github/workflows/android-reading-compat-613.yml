@@ -39,7 +39,7 @@ jobs:
         run: python3 scripts/bookorbit-protocol-fixture.py > /tmp/bookorbit-fixture.log 2>&1 &
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
-      - name: Verify Android 8 native pages and HTTPS storage flow
+      - name: Verify Android 8 reading tools with legacy logd
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api }}
