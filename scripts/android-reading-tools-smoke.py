@@ -59,10 +59,14 @@ def menu(name):tap('更多工具');tap(name)
 def browser():
     for _ in range(30):
         state=adb('shell','dumpsys','activity','activities').decode()
-        if API==26 and 'com.android.internal.app.ChooserActivity' in state:
-            tap('WebView Browser Tester');time.sleep(1);continue
         match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
         if match and match.group(1) in BROWSERS:return
+        if API==26:
+            tree=dump()
+            # Old dumpsys retains finished chooser records; act only on visible UI.
+            if any(n.get('package') in BROWSERS for n in tree.iter('node')):return
+            if any(n.get('package')=='android' and n.get('text')=='选择外部浏览器' for n in tree.iter('node')):
+                tap('WebView Browser Tester');time.sleep(1);continue
         time.sleep(.7)
     raise AssertionError('External browser did not become ready: '+state)
 
