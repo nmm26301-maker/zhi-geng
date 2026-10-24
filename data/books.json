@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T01:37:42.300Z",
+  "updatedAt": "2026-10-24T01:41:18.825Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 361,
@@ -1417,7 +1417,7 @@
       "url": "https://openlibrary.org/works/OL37889158W",
       "score": 4.1666665,
       "votes": 6,
-      "interest": 271,
+      "interest": 315,
       "language": [
         "ger",
         "eng"
@@ -5592,9 +5592,9 @@
       "image": "https://covers.openlibrary.org/b/id/9407338-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19096402W",
-      "score": 4.0471697,
-      "votes": 212,
-      "interest": 5901,
+      "score": 4.0516434,
+      "votes": 213,
+      "interest": 5917,
       "language": [
         "est",
         "cat",
@@ -5667,7 +5667,7 @@
       "url": "https://openlibrary.org/works/OL20068530W",
       "score": 3.8837209,
       "votes": 129,
-      "interest": 5405,
+      "interest": 5412,
       "language": [
         "spa",
         "heb",
@@ -6426,13 +6426,13 @@
       "image": "https://covers.openlibrary.org/b/id/9219001-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20018811W",
-      "score": 4.0617285,
-      "votes": 81,
-      "interest": 3394,
+      "score": 4.072289,
+      "votes": 83,
+      "interest": 3413,
       "language": [
         "ger",
-        "dut",
-        "eng"
+        "eng",
+        "dut"
       ],
       "subjects": [
         "Long-distance relationships",
@@ -7330,18 +7330,18 @@
       "image": "https://covers.openlibrary.org/b/id/12646459-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL14908941W",
-      "score": 3.8021584,
-      "votes": 278,
-      "interest": 1526,
+      "score": 3.8085105,
+      "votes": 282,
+      "interest": 1542,
       "language": [
-        "gre",
+        "ita",
+        "spa",
+        "pol",
         "heb",
-        "por",
-        "ara",
-        "eng",
-        "fre",
-        "ger",
-        "ita"
+        "gre",
+        "chi",
+        "vie",
+        "rus"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -8428,13 +8428,13 @@
       "url": "https://openlibrary.org/works/OL468658W",
       "score": 4.2178216,
       "votes": 101,
-      "interest": 1243,
+      "interest": 1253,
       "language": [
-        "spa",
         "ita",
-        "ger",
+        "spa",
         "chi",
-        "eng"
+        "eng",
+        "ger"
       ],
       "subjects": [
         "Freundschaft",
@@ -9279,6 +9279,44 @@
       "editionCount": 48
     },
     {
+      "id": "book:/works/OL81600W",
+      "title": "The Dark Tower",
+      "author": "Stephen King",
+      "year": 1990,
+      "image": "https://covers.openlibrary.org/b/id/14656148-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL81600W",
+      "score": 4.32,
+      "votes": 25,
+      "interest": 472,
+      "language": [
+        "ita",
+        "spa",
+        "chi",
+        "por",
+        "eng",
+        "ger"
+      ],
+      "subjects": [
+        "Roland (Fictitious character : King)",
+        "Fiction",
+        "The Dark Tower",
+        "fantasy fiction",
+        "Post-apocalpytic",
+        "Apocalyptic literature",
+        "American fantasy fiction",
+        "Science fiction, fantasy, horror",
+        "Roland (fictitious character : king), fiction",
+        "Fiction, fantasy, epic",
+        "Dark tower (imaginary place), fiction",
+        "Roland of Gilead (Fictitious character)",
+        "Horror tales",
+        "Fiction, fantasy, general"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 40
+    },
+    {
       "id": "book:/works/OL516681W",
       "title": "Homeland",
       "author": "R. A. Salvatore",
@@ -9652,44 +9690,6 @@
       "editionCount": 82
     },
     {
-      "id": "book:/works/OL81600W",
-      "title": "The Dark Tower",
-      "author": "Stephen King",
-      "year": 1990,
-      "image": "https://covers.openlibrary.org/b/id/14656148-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL81600W",
-      "score": 4.3,
-      "votes": 10,
-      "interest": 249,
-      "language": [
-        "ita",
-        "eng",
-        "spa",
-        "por",
-        "chi",
-        "ger"
-      ],
-      "subjects": [
-        "Roland (Fictitious character : King)",
-        "Fiction",
-        "The Dark Tower",
-        "fantasy fiction",
-        "Post-apocalpytic",
-        "Apocalyptic literature",
-        "American fantasy fiction",
-        "Science fiction, fantasy, horror",
-        "Roland (fictitious character : king), fiction",
-        "Fiction, fantasy, epic",
-        "Dark tower (imaginary place), fiction",
-        "Roland of Gilead (Fictitious character)",
-        "Horror tales",
-        "Fiction, fantasy, general"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 40
-    },
-    {
       "id": "book:/works/OL84482W",
       "title": "Chocolate Flava",
       "author": "Zane",
@@ -9875,18 +9875,18 @@
       "image": "https://covers.openlibrary.org/b/id/12015446-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL81623W",
-      "score": 3.925926,
-      "votes": 27,
-      "interest": 597,
+      "score": 3.892857,
+      "votes": 28,
+      "interest": 606,
       "language": [
-        "dut",
-        "tur",
-        "ger",
-        "fre",
-        "rus",
-        "und",
+        "spa",
         "pol",
-        "spa"
+        "rus",
+        "tur",
+        "und",
+        "fre",
+        "eng",
+        "dut"
       ],
       "subjects": [
         "Genetic Engineering",
@@ -9905,7 +9905,7 @@
         "hit men"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 78
+      "editionCount": 79
     },
     {
       "id": "book:/works/OL81605W",
