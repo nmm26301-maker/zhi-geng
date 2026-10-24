@@ -6,6 +6,17 @@ def adb(*args):
     try:return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45)
     except subprocess.CalledProcessError as error:
         raise RuntimeError('adb '+repr(args)+' failed: '+error.output.decode(errors='replace')) from error
+LOG_BASE=set()
+def clear_logs():
+    global LOG_BASE
+    if API<28:
+        # Older emulator logd can reject clearing; compare against a snapshot instead.
+        LOG_BASE=set(adb('logcat','-d').decode(errors='replace').splitlines())
+    else:adb('logcat','-c')
+def read_logs(*filters):
+    raw=adb('logcat','-d','-s',*filters).decode(errors='replace')
+    return '\n'.join(line for line in raw.splitlines() if line not in LOG_BASE) if API<28 else raw
+
 def dump():
     adb('shell','uiautomator','dump','/sdcard/reading-tools.xml')
     return E.fromstring(adb('shell','cat','/sdcard/reading-tools.xml'))
@@ -68,13 +79,13 @@ BROWSERS=set(re.findall(r'^\s*([\w.]+)/',query,re.M));BROWSERS.discard(APP);asse
 # The following real HTTPS login still verifies connectivity rather than masking errors.
 if API>=28:
     adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
-adb('logcat','-c');launch();menu('极映空间 · 漫画搜索');wait('漫画导航');screen('01-resource-page')
+clear_logs();launch();menu('极映空间 · 漫画搜索');wait('漫画导航');screen('01-resource-page')
 # Unit tests check the exact q= URL. Android 13 redacts paths in activity logs;
 # the UI smoke verifies a browsable external package and the intended host.
-fill('输入漫画、书名或影视名称','Naruto');adb('logcat','-c');tap('去极映空间搜索');browser()
-logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
+fill('输入漫画、书名或影视名称','Naruto');clear_logs();tap('去极映空间搜索');browser()
+logs=read_logs('ActivityTaskManager:I','ActivityManager:I');assert 'dat=https://jys66.top/' in logs,logs
 return_resource();wait('极映空间')
-tap('漫画导航');browser();logs=adb('logcat','-d','-s','ActivityTaskManager:I','ActivityManager:I').decode();assert 'dat=https://jys66.top/' in logs,logs
+tap('漫画导航');browser();logs=read_logs('ActivityTaskManager:I','ActivityManager:I');assert 'dat=https://jys66.top/' in logs,logs
 return_resource();tap('‹ 返回');wait('更多工具');menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
@@ -112,7 +123,7 @@ assert target.read_bytes()==expected;target.unlink()
 tap('立即阅读');time.sleep(6)
 if 'GOT IT' in text():tap('GOT IT')
 wait('第一章');screen('07-native-reader');adb('shell','input','keyevent','4');time.sleep(1)
-logs=adb('logcat','-d','-s','AndroidRuntime:E').decode();assert 'FATAL EXCEPTION' not in logs,logs
+logs=read_logs('AndroidRuntime:E');assert 'FATAL EXCEPTION' not in logs,logs
 events=json.loads((OUT/'protocol.json').read_text())
 for event in ['native-login','native-refresh','libraries','query:Spring:0','detail','download']:assert event in events,events
 report=dict(versionCode=613,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
