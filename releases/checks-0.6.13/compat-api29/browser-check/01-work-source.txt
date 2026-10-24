@@ -1,0 +1,13 @@
+--------- beginning of system
+--------- beginning of main
+10-24 17:04:15.291  1915  2016 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://search.douban.com/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10116
+10-24 17:04:15.321  1915  1942 I ActivityManager: Start proc 3766:org.chromium.webview_shell/u0a103 for activity {org.chromium.webview_shell/org.chromium.webview_shell.WebViewBrowserActivity}
+10-24 17:04:15.425  1915  2613 W ActivityManager: Slow operation: 78ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+10-24 17:04:15.835  1915  2613 W ActivityManager: Slow operation: 349ms so far, now at getContentProviderImpl: after updateLruProcess
+10-24 17:04:15.835  1915  2613 W ActivityManager: Slow operation: 349ms so far, now at getContentProviderImpl: before updateOomAdj
+10-24 17:04:15.836  1915  2613 W ActivityManager: Slow operation: 349ms so far, now at getContentProviderImpl: after updateOomAdj
+10-24 17:04:15.836  1915  2613 W ActivityManager: Slow operation: 349ms so far, now at getContentProviderImpl: done!
+10-24 17:04:16.085  1915  1942 I ActivityManager: Start proc 3794:com.android.webview:webview_service/u0a107 for service {com.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+10-24 17:04:16.118  1915  1942 I ActivityManager: Start proc 3811:com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0ai9000 for  {org.chromium.webview_shell/org.chromium.content.app.SandboxedProcessService0}
+10-24 17:04:16.382  1915  2016 I ActivityManager: Killing 3166:com.android.carrierconfig/u0a98 (adj 985): empty #17
+10-24 17:04:17.191  1915  1940 I ActivityTaskManager: Displayed org.chromium.webview_shell/.WebViewBrowserActivity: +1s813ms

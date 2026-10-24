@@ -1,0 +1,7 @@
+--------- beginning of main
+--------- beginning of system
+10-24 17:04:26.147  1915  2613 I ActivityTaskManager: START u0 {cmp=cn.zhigeng.app/.CompanionActivity (has extras)} from uid 10116
+10-24 17:04:28.204  1915  2613 I ActivityManager: Killing 3338:com.android.contacts/u0a95 (adj 985): empty #17
+10-24 17:04:28.475  1915  2016 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://kanju.ai/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10116
+10-24 17:04:28.644  1915  1942 I ActivityManager: Start proc 4043:com.android.webview:sandboxed_process1:org.chromium.content.app.SandboxedProcessService1/u0i1 for  {org.chromium.webview_shell/org.chromium.content.app.SandboxedProcessService1}
+10-24 17:04:28.783  1915  1940 I ActivityTaskManager: Displayed org.chromium.webview_shell/.WebViewBrowserActivity: +302ms

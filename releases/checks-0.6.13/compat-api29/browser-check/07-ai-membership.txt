@@ -1,0 +1,5 @@
+--------- beginning of main
+--------- beginning of system
+10-24 17:05:32.727  1915  2016 I ActivityTaskManager: START u0 {cmp=cn.zhigeng.app/.DirectoryActivity (has extras)} from uid 10116
+10-24 17:05:42.950  1915  2613 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://www.gamsgo.com/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10116
+10-24 17:05:43.177  1915  1940 I ActivityTaskManager: Displayed org.chromium.webview_shell/.WebViewBrowserActivity: +167ms
