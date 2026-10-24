@@ -54,12 +54,14 @@ def launch():
     adb('shell','am','start','-W','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER','-n',APP+'/.MainActivity');time.sleep(1)
 def menu(name):tap('更多工具');tap(name)
 def browser():
-    state=adb('shell','dumpsys','activity','activities').decode()
-    if API==26 and 'com.android.internal.app.ChooserActivity' in state:
-        tap('Chrome');time.sleep(1)
+    for _ in range(30):
         state=adb('shell','dumpsys','activity','activities').decode()
-    match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
-    assert match and match.group(1) in BROWSERS,state
+        if API==26 and 'com.android.internal.app.ChooserActivity' in state:
+            tap('Chrome');time.sleep(1);continue
+        match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',state)
+        if match and match.group(1) in BROWSERS:return
+        time.sleep(.7)
+    raise AssertionError('External browser did not become ready: '+state)
 
 browser_returns=[]
 def return_resource():
@@ -98,14 +100,22 @@ BROWSERS=set(re.findall(r'^\s*([\w.]+)/',query,re.M));BROWSERS.discard(APP);asse
 # The following real HTTPS login still verifies connectivity rather than masking errors.
 if API>=28:
     adb('shell','svc','wifi','enable');adb('shell','svc','data','enable')
-clear_logs();launch();menu('极映空间 · 漫画搜索');wait('极映空间');screen('01-resource-page')
-# Unit tests check the exact q= URL. Android 13 redacts paths in activity logs;
-# the UI smoke verifies a browsable external package and the intended host.
-fill('输入漫画、书名或影视名称','Naruto');clear_logs();tap('去极映空间搜索');browser()
-logs=read_logs('ActivityTaskManager:I','ActivityManager:I');assert 'dat=https://jys66.top/' in logs,logs
-return_resource();wait('极映空间')
-tap('漫画导航');browser();logs=read_logs('ActivityTaskManager:I','ActivityManager:I');assert 'dat=https://jys66.top/' in logs,logs
-return_resource();tap('‹ 返回');wait('更多工具');menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
+resource_error=''
+try:
+    clear_logs();launch();menu('极映空间 · 漫画搜索');wait('极映空间');screen('01-resource-page')
+    # Unit tests check the exact q= URL. Android 13 redacts paths in activity logs;
+    # the UI smoke verifies a browsable external package and the intended host.
+    fill('输入漫画、书名或影视名称','Naruto');clear_logs();tap('去极映空间搜索');browser()
+    logs=read_logs('ActivityTaskManager:I','ActivityManager:I');assert 'dat=https://jys66.top/' in logs,logs
+    return_resource();wait('极映空间')
+    tap('漫画导航');browser();logs=read_logs('ActivityTaskManager:I','ActivityManager:I');assert 'dat=https://jys66.top/' in logs,logs
+    return_resource();tap('‹ 返回');wait('更多工具');
+except Exception as error:
+    resource_error=str(error)
+    screen('resource-failure')
+    (OUT/'resource-runtime.txt').write_text(read_logs('AndroidRuntime:E'))
+    adb('shell','am','force-stop',APP);launch()
+menu('BookOrbit 书库');wait('连接书库');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
 fill('搜索书名或作者（当前书库）','Spring');tap('搜索书库');wait('找到 1 本书');screen('04-search')
@@ -147,8 +157,10 @@ events=json.loads((OUT/'protocol.json').read_text())
 for event in ['native-login','native-refresh','libraries','query:Spring:0','detail','download']:assert event in events,events
 report=dict(versionCode=613,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
     saveAsCancellationChecked=API<29,
-    browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=True,resourceSearchExternal=True,nativeBookOrbitLogin=True,
+    browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=not resource_error,resourceSearchExternal=not resource_error,nativeBookOrbitLogin=True,
     tokenRefresh=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
     sharedCopyByteExact=True,nativeReader=True,sha256=hashlib.sha256(expected).hexdigest(),crashes=False,
-    fixture='original local TLS BookOrbit contract and EPUB; no real user server credentials')
+    resourceError=resource_error,fixture='original local TLS BookOrbit contract and EPUB; no real user server credentials')
 (OUT/'result.json').write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
+
+if resource_error:raise SystemExit('BookOrbit checks passed; resource-browser check remains failed; see result.json')
