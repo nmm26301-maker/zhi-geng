@@ -1,0 +1,88 @@
+name: Verify 0.6.14 signed covering upgrade
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-upgrade-614.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch exact compiled artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12588290334/zip -o build614.zip
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12518236698/zip -o build613.zip
+          echo 'b33d27f3cb7f40e3994b81bd28a1e5c5412ef9757bc9a94eeb4afe8a22ac7d32  build614.zip' | sha256sum --check
+          echo 'b388b6f317a6b4b834505e98bdb30bbdbb175c45a2a50617e2993f399431b311  build613.zip' | sha256sum --check
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Restore exact releases using public certificate blocks
+        run: |
+          mkdir -p "$RUNNER_TEMP/zhigeng-614-signatures" apk-output backups/Zhigeng-0.6.14 android/app/src/debug/assets
+          unzip -p build613.zip apk-output/Zhigeng-v0.6.13-unsigned.apk > "$RUNNER_TEMP/zhigeng-614-signatures/Zhigeng-v0.6.13.apk"
+          unzip -p build614.zip apk-output/Zhigeng-v0.6.14-unsigned.apk > "$RUNNER_TEMP/zhigeng-614-signatures/Zhigeng-v0.6.14.apk"
+          (cd "$RUNNER_TEMP/zhigeng-614-signatures" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.13.patch")
+          (cd "$RUNNER_TEMP/zhigeng-614-signatures" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.14.patch")
+          cp "$RUNNER_TEMP/zhigeng-614-signatures/Zhigeng-v0.6.13.apk" previous.apk
+          cp "$RUNNER_TEMP/zhigeng-614-signatures/Zhigeng-v0.6.14.apk" backups/Zhigeng-0.6.14/Zhigeng-v0.6.14.apk
+          echo '844fed487abc5438ee0cc9645ce92722904a6ce9a4a857a21c3069d14adcc8ce  previous.apk' | sha256sum --check
+          echo '3fd55e7f6d19d025417202faa710474591c2b60b0cb98e71160e0f9d0202c916  backups/Zhigeng-0.6.14/Zhigeng-v0.6.14.apk' | sha256sum --check
+          unzip -p build614.zip apk-output/apksigner.jar > apk-output/apksigner.jar
+          unzip -p build614.zip apk-output/Zhigeng-debug-test.apk > apk-output/Zhigeng-debug-test.apk
+          unzip -p apk-output/Zhigeng-debug-test.apk assets/reader-fixture.epub > android/app/src/debug/assets/reader-fixture.epub
+          java -jar apk-output/apksigner.jar verify --min-sdk-version 26 --verbose --print-certs backups/Zhigeng-0.6.14/Zhigeng-v0.6.14.apk
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Install reader screenshot verifier
+        run: python3 -m pip install Pillow==11.3.0
+      - name: Start original BookOrbit fixture
+        run: python3 scripts/bookorbit-protocol-fixture.py > /tmp/bookorbit-fixture.log 2>&1 &
+      - name: Enable KVM
+        run: sudo chmod 666 /dev/kvm
+      - name: Verify original-signed 613 to 614 upgrade
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
+          script: |
+            python3 scripts/android-upgrade-phone-614.py
+            adb uninstall cn.zhigeng.app
+            adb install -r apk-output/Zhigeng-debug-test.apk
+            adb shell svc wifi enable
+            adb shell svc data enable
+            python3 scripts/android-reader-smoke.py
+            python3 scripts/android-reading-tools-smoke.py
+            python3 scripts/android-browser-smoke.py
+            python3 scripts/android-local-download-smoke.py
+      - name: Preserve verification reports
+        if: always()
+        run: |
+          mkdir -p releases/checks-0.6.14
+          if test -d backups/Zhigeng-0.6.14/checks; then mkdir -p releases/checks-0.6.14/upgrade; cp -R backups/Zhigeng-0.6.14/checks/. releases/checks-0.6.14/upgrade/; fi
+
+
+
+          for directory in emulator-check reading-tools-check browser-check phone-download-check; do
+            if test -d "$directory"; then mkdir -p "releases/checks-0.6.14/$directory"; cp -R "$directory/." "releases/checks-0.6.14/$directory/"; fi
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/checks-0.6.14
+          git diff --cached --quiet || git commit -m 'test: preserve 0.6.14 reading tools and covering-upgrade checks [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
