@@ -125,6 +125,10 @@ except Exception as error:
 menu('BookOrbit 书库');wait('BookOrbit');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
+fill('搜索书名或作者（当前书库）','retry');tap('搜索书库');wait('HTTP 503');tap('重试');wait('找到 1 本书');screen('03a-retry-retains-query')
+fill('搜索书名或作者（当前书库）','expire',clear=True);tap('搜索书库');wait('连接已失效，请重新登录');screen('03b-expired-session');tap('重新登录')
+adb('shell','am','force-stop',APP);launch();menu('BookOrbit 书库');wait('BookOrbit')
+fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password');tap('连接书库');wait('找到 21 本书')
 fill('搜索书名或作者（当前书库）','Spring');tap('搜索书库');wait('找到 1 本书');screen('04-search')
 prefs=adb('exec-out','run-as',APP,'cat','shared_prefs/protected.xml')
 for value in [b'local-test-password',b'orbit-protocol-access-not-a-secret',b'"refresh":']:
@@ -161,11 +165,11 @@ if 'GOT IT' in text():tap('GOT IT')
 wait('第一章');screen('07-native-reader');adb('shell','input','keyevent','4');time.sleep(1)
 logs=read_logs('AndroidRuntime:E');assert 'FATAL EXCEPTION' not in logs,logs
 events=json.loads((OUT/'protocol.json').read_text())
-for event in ['native-login','native-refresh','libraries','query:Spring:0','detail','download']:assert event in events,events
-report=dict(versionCode=613,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
+for event in ['native-login','native-refresh','libraries','transient-error','session-revoked','refresh-revoked','query:Spring:0','detail','download']:assert event in events,events
+report=dict(versionCode=614,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
     saveAsCancellationChecked=API<29,
     browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=not resource_error,resourceSearchExternal=not resource_error,nativeBookOrbitLogin=True,
-    tokenRefresh=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
+    tokenRefresh=True,transientRetry=True,expiredSessionRecovery=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
     sharedCopyByteExact=True,nativeReader=True,sha256=hashlib.sha256(expected).hexdigest(),crashes=False,
     resourceError=resource_error,fixture='original local TLS BookOrbit contract and EPUB; no real user server credentials')
 (OUT/'result.json').write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)

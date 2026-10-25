@@ -25,7 +25,8 @@ public class BookOrbitActivity extends ReadingToolActivity {
     private EditText server,username,password,search;
     private TextView status,pageLabel;
     private LinearLayout results;
-    private Button previous,next;
+    private Button previous,next,retry;
+    private Runnable retryAction;
     private JSONArray libraries=new JSONArray();
     private long libraryId;
     private int page;
@@ -47,7 +48,20 @@ public class BookOrbitActivity extends ReadingToolActivity {
         if(current(request,owner))secrets.put(SESSION,owner.session());
     }
     private void error(int request,BookOrbitClient owner,Exception e) {
-        runOnUiThread(()->{if(current(request,owner))status.setText(message(e));});
+        runOnUiThread(()->{if(current(request,owner))showFailure(e);});
+    }
+    private void showFailure(Exception e) {
+        if(e instanceof BookOrbitClient.AuthRequiredException){
+            try{secrets.put(SESSION,"");}
+            catch(Exception storage){status.setText("暂时无法清除失效连接，请重试");if(retry!=null)retry.setVisibility(View.VISIBLE);return;}
+            ++generation;client=null;libraryId=0;page=0;term="";search=null;retryAction=null;connection();
+            status.setText("连接已失效，请重新登录。书架与本地图书已保留。");
+            new AlertDialog.Builder(this).setTitle("连接已失效，请重新登录").setMessage("书架与本地图书已保留，填写账号后即可继续使用。").setPositiveButton("重新登录",null).show();return;
+        }
+        status.setText(message(e));if(retry!=null&&retryAction!=null)retry.setVisibility(View.VISIBLE);
+    }
+    private void prepareRetry(Runnable action){
+        retryAction=action;if(retry!=null)retry.setVisibility(View.GONE);
     }
     private String message(Exception e) {
         if(e instanceof java.net.SocketTimeoutException)return "连接超时，请检查服务器并重试";
@@ -62,7 +76,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
         add(body,text("服务地址",13,GREEN),22);server=input("https://你的 BookOrbit 服务地址");
         server.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_URI);
         server.setText(getPreferences(MODE_PRIVATE).getString("last_server",""));add(body,server,8);
-        username=input("BookOrbit 用户名");add(body,username,12);password=input("BookOrbit 密码");
+        add(body,text("用户名",13,GREEN),12);username=input("BookOrbit 用户名");add(body,username,12);add(body,text("密码",13,GREEN),12);password=input("BookOrbit 密码");
         password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
         password.setSaveEnabled(false);add(body,password,10);
         Button connect=button("连接书库",true);add(body,connect,14);status=text("",13,MUTED);add(body,status,12);
@@ -98,7 +112,8 @@ public class BookOrbitActivity extends ReadingToolActivity {
         LinearLayout actions=row();Button reload=button("刷新书库",false),disconnect=button("断开连接",false);
         actions.addView(reload,new LinearLayout.LayoutParams(0,-2,1));actions.addView(disconnect,new LinearLayout.LayoutParams(0,-2,1));add(body,actions,16);
         reload.setOnClickListener(v->loadLibraries());disconnect.setOnClickListener(v->disconnect());
-        status=text("正在读取书库…",13,MUTED);add(body,status,14);
+        status=text("正在读取书库…",13,MUTED);status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);add(body,status,14);
+        retry=button("重试",false);retry.setVisibility(View.GONE);retry.setOnClickListener(v->{Runnable action=retryAction;if(action!=null)action.run();});add(body,retry,8);
         search=input("搜索书名或作者（当前书库）");search.setText(term);search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);add(body,search,12);
         Button find=button("搜索书库",true);find.setOnClickListener(v->submit());add(body,find,10);
         search.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_SEARCH){submit();return true;}return false;});
@@ -115,6 +130,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
         term=value;page=0;loadBooks();
     }
     private void loadLibraries() {
+        prepareRetry(this::loadLibraries);
         BookOrbitClient owner=client;int request=++generation;status.setText("正在读取书库…");
         jobs.execute(()->{try{JSONArray data=owner.libraries();persist(request,owner);
             runOnUiThread(()->{if(!current(request,owner))return;libraries=data;chooseLibrary();});
@@ -143,6 +159,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
     }
 
     private void loadBooks() {
+        prepareRetry(this::loadBooks);
         if(libraryId<=0){status.setText("请先连接并选择书库");return;}
         BookOrbitClient owner=client;int request=++generation;long library=libraryId;int requestedPage=page;String query=term;
         previous.setEnabled(false);next.setEnabled(false);results.removeAllViews();status.setText("正在搜索书库…");
@@ -167,6 +184,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
     }
 
     private void detail(long id) {
+        prepareRetry(()->detail(id));
         BookOrbitClient owner=client;int request=++generation;status.setText("正在读取图书信息…");
         jobs.execute(()->{try{JSONObject book=owner.detail(id);persist(request,owner);
             runOnUiThread(()->{if(current(request,owner)){status.setText("图书信息已载入");showDetail(book);}});
@@ -195,6 +213,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
     private ScrollView wrap(LinearLayout view){ScrollView scroll=new ScrollView(this);scroll.addView(view);return scroll;}
 
     private void download(JSONObject book,JSONObject file) {
+        prepareRetry(()->download(book,file));
         BookOrbitClient owner=client;int request=++generation;AtomicBoolean stop=new AtomicBoolean(false);cancelled=stop;
         TextView progress=text("正在准备下载…",14,INK);progress.setPadding(dp(22),dp(18),dp(22),dp(18));
         downloading=new AlertDialog.Builder(this).setTitle(book.optString("title")).setView(progress).setCancelable(false)
@@ -208,7 +227,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
             runOnUiThread(()->{if(!current(request,owner)||stop.get()){result.delete();return;}
                 downloading.dismiss();setResult(RESULT_OK,new Intent().putExtra("downloadedBook",item.toString()));finish();});
         }catch(Exception e){if(downloaded!=null)downloaded.delete();runOnUiThread(()->{if(current(request,owner)){
-            downloading.dismiss();status.setText(stop.get()?"已取消下载，书架未添加文件":message(e));}});}});
+            downloading.dismiss();if(stop.get())status.setText("已取消下载，书架未添加文件");else showFailure(e);}});}});
     }
     private void disconnect() {
         BookOrbitClient old=client;++generation;

@@ -8,6 +8,9 @@ import org.json.*;
 
 /** Per-server session. Credentials never enter URLs, global cookies, logs, or other origins. */
 final class BookOrbitClient {
+    static final class AuthRequiredException extends Exception {
+        AuthRequiredException(){super("连接已失效，请重新登录");}
+    }
     final String base;
     private String access = "", refresh = "";
     private boolean webRefresh;
@@ -99,7 +102,11 @@ final class BookOrbitClient {
                 accept((JSONObject) request("POST", "/auth/refresh", refreshBody(), false));
                 return request(method, path, body, false);
             }
-            if (status == 401) throw new Exception(path.equals("/auth/login")?"用户名或密码错误，或账号不可用":path.equals("/auth/magic-links/login")?"登录链接已失效或账号不可用":"BookOrbit 会话已失效，请重新登录");
+            if (status == 401) {
+                if(path.equals("/auth/login"))throw new Exception("用户名或密码错误，或账号不可用");
+                if(path.equals("/auth/magic-links/login"))throw new Exception("登录链接已失效或账号不可用");
+                access="";refresh="";throw new AuthRequiredException();
+            }
             if (status == 403) throw new Exception("当前账号没有访问这项内容的权限");
             if (status == 429) throw new Exception("请求较多，请稍后重试");
             if (status < 200 || status >= 300) throw new Exception("BookOrbit 服务暂不可用（HTTP " + status + "）");
