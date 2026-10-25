@@ -4,7 +4,13 @@ from PIL import Image
 out=pathlib.Path('emulator-check');out.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*args]).decode(errors='replace')
 def tree():
- adb('shell','uiautomator','dump','/sdcard/reader.xml');return E.fromstring(adb('shell','cat','/sdcard/reader.xml'))
+ for attempt in range(3):
+  try:
+   adb('shell','uiautomator','dump','/sdcard/reader.xml')
+   return E.fromstring(adb('shell','cat','/sdcard/reader.xml'))
+  except (subprocess.CalledProcessError,E.ParseError):
+   if attempt==2:raise
+   time.sleep(1)
 def texts():return [n.get('text','') for n in tree().iter('node')]
 def tap(value):
  for n in tree().iter('node'):
