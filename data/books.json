@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T01:41:18.825Z",
+  "updatedAt": "2026-10-25T01:17:25.506Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 361,
@@ -2477,6 +2477,40 @@
       "editionCount": 9
     },
     {
+      "id": "book:/works/OL36043513W",
+      "title": "Right Move",
+      "author": "Liz Tomforde",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/14646468-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL36043513W",
+      "score": 4.5,
+      "votes": 2,
+      "interest": 209,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, romance, contemporary",
+        "Fiction, romance, romantic comedy",
+        "Fiction, romance, general",
+        "Romance",
+        "Sports Romance",
+        "Sports",
+        "Fake Dating",
+        "Contemporary",
+        "Contemporary Romance",
+        "Basketball players",
+        "Basketball",
+        "Serie:Windy_City",
+        "Fiction",
+        "Adult"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL28095854W",
       "title": "The Stolen Heir",
       "author": "Holly Black",
@@ -2562,40 +2596,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 9
-    },
-    {
-      "id": "book:/works/OL36043513W",
-      "title": "Right Move",
-      "author": "Liz Tomforde",
-      "year": 2023,
-      "image": "https://covers.openlibrary.org/b/id/14646468-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL36043513W",
-      "score": 4.5,
-      "votes": 2,
-      "interest": 193,
-      "language": [
-        "eng",
-        "spa"
-      ],
-      "subjects": [
-        "Fiction, romance, contemporary",
-        "Fiction, romance, romantic comedy",
-        "Fiction, romance, general",
-        "Romance",
-        "Sports Romance",
-        "Sports",
-        "Fake Dating",
-        "Contemporary",
-        "Contemporary Romance",
-        "Basketball players",
-        "Basketball",
-        "Serie:Windy_City",
-        "Fiction",
-        "Adult"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 5
     },
     {
       "id": "book:/works/OL27733867W",
@@ -8047,15 +8047,15 @@
       "image": "https://covers.openlibrary.org/b/id/7893958-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17610507W",
-      "score": 4.3271027,
-      "votes": 107,
-      "interest": 313,
+      "score": 4.336364,
+      "votes": 110,
+      "interest": 316,
       "language": [
-        "ger",
-        "fre",
+        "spa",
         "chi",
         "eng",
-        "spa"
+        "fre",
+        "ger"
       ],
       "subjects": [
         "Fiction",
