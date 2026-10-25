@@ -1,0 +1,6 @@
+--------- beginning of system
+10-25 05:34:44.986   556   890 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://duck.ai/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10127
+10-25 05:34:44.987   556   890 I ActivityTaskManager: Launching r: ActivityRecord{efbb87 u0 org.chromium.webview_shell/.WebViewBrowserActivity} from background: ActivityRecord{ea9c542 u0 cn.zhigeng.app/.AiActivity} t21}. New task: false
+10-25 05:34:44.992   556  4822 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (758223)
+--------- beginning of main
+10-25 05:34:45.190   556   573 I ActivityTaskManager: Displayed org.chromium.webview_shell/.WebViewBrowserActivity: +201ms

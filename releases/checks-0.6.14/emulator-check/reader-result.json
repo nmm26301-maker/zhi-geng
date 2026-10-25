@@ -1,0 +1,10 @@
+{
+  "version": "0.6.14",
+  "api": 33,
+  "engine": "Readium Kotlin 3.1.0",
+  "documents": "original local debug fixtures",
+  "epub": "passed: rendered chapters, minimal chrome, quick day/night switch, table of contents, bookmark, font preview, themes and locator restart",
+  "txt": "passed: offline EPUB adapter, chapter navigation, locator restart, GB18030",
+  "pdf": "passed: native rendering, page navigation, bookmark, page restart",
+  "crashes": false
+}

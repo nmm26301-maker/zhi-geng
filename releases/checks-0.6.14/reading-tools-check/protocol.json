@@ -1,0 +1,22 @@
+[
+  "native-login",
+  "native-refresh",
+  "libraries",
+  "query::0",
+  "query:retry:0",
+  "transient-error",
+  "query:retry:0",
+  "query:expire:0",
+  "session-revoked",
+  "refresh-revoked",
+  "native-login",
+  "native-refresh",
+  "libraries",
+  "query::0",
+  "query:Spring:0",
+  "libraries",
+  "query::0",
+  "query:Spring:0",
+  "detail",
+  "download"
+]
