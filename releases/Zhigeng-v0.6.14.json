@@ -1,0 +1,133 @@
+{
+  "versionName": "0.6.14",
+  "versionCode": 614,
+  "previousVersionCode": 613,
+  "applicationId": "cn.zhigeng.app",
+  "appLabel": "知更",
+  "sourceCommit": "c154dbb93d979af1e2fae4e53895c32a5651351c",
+  "buildWorkflowRun": 40164201036,
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "changes": [
+    "Expired BookOrbit sessions are cleared and return to login with server retained; local shelf and books stay untouched",
+    "Retry failed library/search/detail/download requests without retyping the query",
+    "Visible account/password labels and accessible status feedback"
+  ],
+  "untested": [
+    "live user BookOrbit server and credentials",
+    "0.6.14-specific recovery changes on Android 8/9/10; device-specific physical-phone behavior"
+  ],
+  "file": "Zhigeng-v0.6.14.apk",
+  "size": 20782123,
+  "sha256": "3fd55e7f6d19d025417202faa710474591c2b60b0cb98e71160e0f9d0202c916",
+  "originalCertificateVerified": true,
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "artifactId": 12588290334,
+  "artifactZipSha256": "b33d27f3cb7f40e3994b81bd28a1e5c5412ef9757bc9a94eeb4afe8a22ac7d32",
+  "backupRestorationVerified": true,
+  "checks": "passed: compilation, unit tests, native baseline, EPUB/TXT/PDF reader, BookOrbit transient retry and expired-session recovery, external-browser routing, phone copies and original-signature 613-to-614 covering upgrade on API 33",
+  "verificationWorkflowRun": 40165190962,
+  "verificationCommit": "9bc656edef7d79a2ede1e9e7d1bed64e2d77d78e",
+  "verificationWorkflowConclusion": "success",
+  "buildWorkflowConclusion": "failure after compilation/unit/native success: UIAutomator capture exited 137 during reader smoke; bounded capture retry and independent verification passed against the exact compiled artifact",
+  "nativeChecks": {
+    "app": "Zhigeng",
+    "version": "0.6.14",
+    "api": 33,
+    "nativeNavigation": "passed",
+    "visibleCuratedCoversLoaded": 2,
+    "latestDirectories": "passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters",
+    "annualRankings": "passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures",
+    "smsDirectory": "passed: native six sites, favorite, hide, hidden filter and restore",
+    "kanjuEntry": "external browser; tested separately; live playback not tested",
+    "screens": 34,
+    "fccProtocolFixture": "passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage",
+    "fccDraftRecovery": "passed: model switch, tab switch, process restart, failure and stop",
+    "fccRealProvider": "not tested: no user gateway or provider credentials",
+    "duckAiOpening": "external browser; tested by android-browser-smoke.py",
+    "duckAiChatSent": false,
+    "accountDownload": "not tested: needs real user credentials"
+  },
+  "upgradeChecks": {
+    "inPlaceUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "favoritesPreserved": true,
+    "restartPreserved": true,
+    "previousVersionCode": 613,
+    "versionCode": 614,
+    "applicationId": "cn.zhigeng.app",
+    "api": 33,
+    "offlineCoversLoaded": 4,
+    "noSecondApp": true,
+    "crashes": false,
+    "screens": 8
+  },
+  "readerChecks": {
+    "version": "0.6.14",
+    "api": 33,
+    "engine": "Readium Kotlin 3.1.0",
+    "documents": "original local debug fixtures",
+    "epub": "passed: rendered chapters, minimal chrome, quick day/night switch, table of contents, bookmark, font preview, themes and locator restart",
+    "txt": "passed: offline EPUB adapter, chapter navigation, locator restart, GB18030",
+    "pdf": "passed: native rendering, page navigation, bookmark, page restart",
+    "crashes": false
+  },
+  "readingToolsChecks": {
+    "versionCode": 614,
+    "api": 33,
+    "storageStrategy": "MediaStore",
+    "saveAsCancellationChecked": false,
+    "browserReturnMethods": [
+      "back",
+      "back"
+    ],
+    "separateNativePages": true,
+    "comicCategoryExternal": true,
+    "resourceSearchExternal": true,
+    "nativeBookOrbitLogin": true,
+    "tokenRefresh": true,
+    "transientRetry": true,
+    "expiredSessionRecovery": true,
+    "librarySearch": true,
+    "encryptedSessionRestart": true,
+    "epubDownload": true,
+    "sharedCopyByteExact": true,
+    "nativeReader": true,
+    "sha256": "cf116262d710c01f0120326d4f797fe0792813cd2dfcd44a87a09736b682358b",
+    "crashes": false,
+    "resourceError": "",
+    "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
+  },
+  "phoneChecks": {
+    "versionCode": 614,
+    "api": 33,
+    "directory": "Download/知更",
+    "publicFilesVisible": true,
+    "bytesMatchCompletedDownload": true,
+    "duplicateNamesDoNotOverwrite": true,
+    "saveAsPicker": true,
+    "cancelPreservesFiles": true,
+    "independentOfAppUninstall": true,
+    "sha256": "cf116262d710c01f0120326d4f797fe0792813cd2dfcd44a87a09736b682358b",
+    "files": [
+      "知更本地保存测试 (1).epub",
+      "知更本地保存测试.epub"
+    ],
+    "fixture": "original local EPUB; account/network download is not exercised",
+    "crashes": false
+  },
+  "browserChecks": {
+    "api": 33,
+    "entries": 12,
+    "allExternal": true,
+    "allNativeScreenRestored": true,
+    "crashes": false
+  },
+  "unitTests": "passed",
+  "delivery": "original-signature in-place update; same applicationId and blue bird icon"
+}
