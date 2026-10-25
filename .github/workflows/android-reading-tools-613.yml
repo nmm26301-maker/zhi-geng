@@ -12,6 +12,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: 59705620b9fb9f05786c9eba79762f6ccb67af63
       - name: Fetch exact compiled artifacts
         env:
           GH_TOKEN: ${{ github.token }}

@@ -17,6 +17,8 @@ jobs:
         api: [26]
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: 7d2f9f4fed0b3742c76092136b1f2b3301f03660
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
