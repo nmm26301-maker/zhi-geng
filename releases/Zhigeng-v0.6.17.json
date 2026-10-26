@@ -68,5 +68,46 @@
   },
   "buildWorkflowConclusion": "Compilation and 42 unit tests passed. UI routing test encountered Android redaction of URL paths; exact compiled APK reused with corrected source/URL policy plus UI host checks.",
   "unsignedApkSha256": "5d6e207535d6f543ae9d2b569900cb3e9c6a051758fe97cdcce7d541a916fd52",
-  "libraryFileId": "libfile_bf0393adac5c8191ac65e68c666b7081"
+  "libraryFileId": "libfile_bf0393adac5c8191ac65e68c666b7081",
+  "nativeAnimeBaseline": {
+    "workflowRun": 40365292595,
+    "verificationCommit": "e4e656f9f20311bcdd53f3ec80ed067da8248a19",
+    "evidenceCommit": "93d3bf7dff08f26569d6c59ec0f31f28fcf71e11",
+    "compiledCommit": "e5bc3e796ed4a17030dc7095a0aaf25b2e66aeeb",
+    "apkSha256": "4b26bcb22c284e828a6bea20aabb41c33cf796bcde4206a90e7d8385683880e2",
+    "passed": {
+      "nativeCatalogue": true,
+      "search": true,
+      "hasNextPagePagination": true,
+      "localProgress": true,
+      "offlineRestart": true,
+      "offlineSynopsis": true,
+      "statusFilter": true,
+      "recentSort": true,
+      "filterSortRestart": true,
+      "quickProgress": true,
+      "invalidProgressRejected": true,
+      "removeCancelAndConfirm": true,
+      "transientRetry": true,
+      "graphQlError": true,
+      "detailBrowserAndReturn": true
+    },
+    "interruption": "UI automation did not replace graphql-error with limited; remaining checks rerun against the identical compiled APK using verified text replacement.",
+    "remaining": [
+      "HTTP 429",
+      "official-release browser return",
+      "375dp and 2.0 font scale",
+      "landscape",
+      "phone copies",
+      "original-signature 616-to-617 covering upgrade"
+    ]
+  },
+  "englishChecks": {
+    "workflowRun": 40365292595,
+    "bothEntriesExternal": true,
+    "nativeReturn": true,
+    "exactUrlSourceAndPolicyVerified": true,
+    "websiteContentTested": false,
+    "crashes": false
+  }
 }

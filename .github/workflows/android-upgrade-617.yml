@@ -72,8 +72,7 @@ jobs:
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
           script: |
             adb install -r apk-output/Zhigeng-debug-test.apk
-            python3 scripts/android-english-smoke.py
-            python3 scripts/android-anime-catalog-smoke.py
+            python3 scripts/android-anime-catalog-smoke.py --remaining
             python3 scripts/android-local-download-smoke.py
             python3 scripts/android-upgrade-phone-617.py
       - name: Preserve upgrade checks

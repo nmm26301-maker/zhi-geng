@@ -26,12 +26,13 @@ def tap(value):
     raise AssertionError('Missing anime action: '+value)
 def fill(label,value):
     for attempt in range(3):
-        tap(label);time.sleep(.4);adb('shell','input','keyevent','123')
-        for _ in range(30):adb('shell','input','keyevent','67')
-        adb('shell','input','text',value);time.sleep(.3)
+        tap(label);time.sleep(.5)
+        adb('shell','input','keycombination','113','29');adb('shell','input','keyevent','67')
+        adb('shell','input','text',value);time.sleep(.5)
+        correct=any(n.get('class')=='android.widget.EditText' and n.get('content-desc')==label and n.get('text')==value for n in tree().iter('node'))
         ime=adb('shell','dumpsys','input_method')
-        if 'mInputShown=true' in ime or 'mIsInputViewShown=true' in ime:adb('shell','input','keyevent','4');time.sleep(.4)
-        if any(n.get('class')=='android.widget.EditText' and n.get('content-desc')==label and n.get('text')==value for n in tree().iter('node')):return
+        if 'mInputShown=true' in ime or 'mIsInputViewShown=true' in ime:adb('shell','input','keyevent','4');time.sleep(.5)
+        if correct:return
     raise AssertionError('Anime text input did not retain the requested value: '+label)
 def screen(name):
     print('Anime checkpoint:',name,flush=True);(OUT/(name+'.xml')).write_bytes(E.tostring(tree(),encoding='utf-8'))
@@ -125,5 +126,11 @@ if remaining:
     report['baselineWorkflowRun']=40328181851
     report['baselineCommit']='514f2af13876bb84652b04d4a44560185f3708f4'
     report['baselineApkSha256']='cce2b714c09932f093bf1b2393ac4dab311fe4f5cdc113216fe2599d6d174f9c'
+    if report['versionCode']==617:
+        release=json.loads(pathlib.Path('releases/Zhigeng-v0.6.17.json').read_text());baseline=release['nativeAnimeBaseline']
+        report['baselineWorkflowRun']=baseline['workflowRun'];report['baselineCommit']=baseline['verificationCommit'];report['baselineApkSha256']=release['sha256']
+        report['executedInThisRun']=['HTTP 429','official-release browser return','375dp and 2.0 font scale','landscape']
+        for key in ['statusFilter','recentSort','quickProgress','offlineSynopsis']:report.pop(key,None)
+
 (OUT/'result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False),flush=True)
 adb('shell','am','force-stop',APP)
