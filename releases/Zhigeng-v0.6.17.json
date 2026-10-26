@@ -21,7 +21,8 @@
   ],
   "untested": [
     "physical device variations and this release on older Android versions",
-    "live user BookOrbit server and credentials"
+    "live user BookOrbit server and credentials",
+    "Word Atlas lesson flow and audio playback in the user's browser"
   ],
   "localValidation": {
     "animeUnitTests": 11,
@@ -29,7 +30,7 @@
     "androidPageCompilation": true,
     "uiScriptSyntax": true
   },
-  "verificationStatus": "awaiting exact built APK and emulator reports",
+  "verificationStatus": "passed",
   "compiledCommit": "e5bc3e796ed4a17030dc7095a0aaf25b2e66aeeb",
   "previousBuildBaseline": {
     "run": 40359024744,
@@ -93,18 +94,35 @@
       "detailBrowserAndReturn": true
     },
     "interruption": "UI automation did not replace graphql-error with limited; remaining checks rerun against the identical compiled APK using verified text replacement.",
-    "remaining": [
+    "remainingAtBaseline": [
       "phone copies",
       "original-signature 616-to-617 covering upgrade"
-    ]
+    ],
+    "completedByWorkflow": 40368060589
   },
   "englishChecks": {
-    "workflowRun": 40365292595,
-    "bothEntriesExternal": true,
-    "nativeReturn": true,
-    "exactUrlSourceAndPolicyVerified": true,
+    "versionCode": 617,
+    "api": 33,
+    "entries": [
+      {
+        "entry": "tools",
+        "url": "https://0xlei.tech/words/#/",
+        "externalBrowser": true,
+        "returnedToNative": true
+      },
+      {
+        "entry": "mine",
+        "url": "https://0xlei.tech/words/#/",
+        "externalBrowser": true,
+        "returnedToNative": true
+      }
+    ],
     "websiteContentTested": false,
-    "crashes": false
+    "exactUrlSourceAndPolicyVerified": true,
+    "intentLogRedactsPath": true,
+    "crashes": false,
+    "workflowRun": 40365292595,
+    "evidenceCommit": "93d3bf7dff08f26569d6c59ec0f31f28fcf71e11"
   },
   "nativeAnimeRemaining": {
     "workflowRun": 40367140640,
@@ -118,5 +136,95 @@
     ],
     "sameCompiledApk": true,
     "crashes": false
-  }
+  },
+  "releaseDate": "2026-10-27",
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "verificationWorkflowRun": 40368060589,
+  "verificationCommit": "72ee46bb18d14acadf7e31d42b21933266cdd2b7",
+  "verificationWorkflowConclusion": "success",
+  "evidenceCommit": "d023e41732c36dbdc70a62bb379879ae8e3ab189",
+  "nativeAnimeChecks": {
+    "versionCode": 617,
+    "api": 33,
+    "nativeCatalogue": true,
+    "search": true,
+    "hasNextPagePagination": true,
+    "localWatchlist": true,
+    "progressValidation": true,
+    "offlineRestart": true,
+    "removalConfirmation": true,
+    "transientRetry": true,
+    "graphQlError": true,
+    "rateLimit": true,
+    "detailExternalBrowser": true,
+    "officialReleaseExternal": true,
+    "browserReturns": true,
+    "smallPhone375dp": true,
+    "fontScale": 2,
+    "landscape": true,
+    "desktopPlayerEmbedded": false,
+    "fixture": "original local TLS AniList contract; live availability reported separately",
+    "crashes": false,
+    "verificationMode": "remaining checks on the identical compiled APK",
+    "baselineWorkflowRun": 40365292595,
+    "baselineCommit": "e4e656f9f20311bcdd53f3ec80ed067da8248a19",
+    "baselineApkSha256": "4b26bcb22c284e828a6bea20aabb41c33cf796bcde4206a90e7d8385683880e2",
+    "executedInThisRun": [
+      "HTTP 429",
+      "official-release browser return",
+      "375dp and 2.0 font scale",
+      "landscape"
+    ],
+    "localProgress": true,
+    "offlineSynopsis": true,
+    "statusFilter": true,
+    "recentSort": true,
+    "filterSortRestart": true,
+    "quickProgress": true,
+    "invalidProgressRejected": true,
+    "removeCancelAndConfirm": true,
+    "detailBrowserAndReturn": true,
+    "scope": "Baseline catalogue and new local features plus remaining checks on the identical compiled APK."
+  },
+  "phoneChecks": {
+    "versionCode": 617,
+    "api": 33,
+    "directory": "Download/知更",
+    "publicFilesVisible": true,
+    "bytesMatchCompletedDownload": true,
+    "duplicateNamesDoNotOverwrite": true,
+    "saveAsPicker": true,
+    "cancelPreservesFiles": true,
+    "independentOfAppUninstall": true,
+    "sha256": "d38cedcdedb07179d6317d5c11a2ead2c011dcb811fb3cf0aa7bb1c3db9c983f",
+    "files": [
+      "知更本地保存测试.epub",
+      "知更本地保存测试 (1).epub"
+    ],
+    "fixture": "original local EPUB; account/network download is not exercised",
+    "crashes": false,
+    "workflowRun": 40368060589
+  },
+  "upgradeChecks": {
+    "previousVersionCode": 616,
+    "versionCode": 617,
+    "api": 33,
+    "originalSignatureCoveringUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "legacyWatchlistPreserved": true,
+    "quickProgressPersisted": true,
+    "offlineRestart": true,
+    "noSecondApp": true,
+    "crashes": false,
+    "fixture": "Explicit old-schema SharedPreferences seed, shown by original 0.6.16 before covering upgrade; no real account or network",
+    "workflowRun": 40368060589
+  },
+  "checks": "passed: 42 unit tests; two requested English website entries and browser return; catalogue and offline watchlist status filters, sort, local search aliases, synopsis, progress shortcut and validation; remaining rate-limit and large-font checks on the identical APK; shared copies and original-signed 616-to-617 covering upgrade on API 33.",
+  "visualReview": "Reviewed actual English-entry portrait and legacy-watchlist screenshots; 375dp portrait and landscape screenshots at 2.0 font scale preserve native vertical scrolling."
 }
