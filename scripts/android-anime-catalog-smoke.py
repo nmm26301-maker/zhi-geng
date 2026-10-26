@@ -76,7 +76,20 @@ else:
     top();tap('我的追番');wait('本地追番 · 1 部');events=len(json.loads((OUT/'protocol.json').read_text()))
     adb('shell','svc','wifi','disable');adb('shell','svc','data','disable');launch();wait('本地追番 · 1 部');wait('已看 3 集')
     assert len(json.loads((OUT/'protocol.json').read_text()))==events,'offline watchlist made a catalogue request'
-    screen('04-offline-restart');tap('更新追番');fill('填写已看集数','13');tap('保存追番');wait('已看集数不能超过总集数');tap('取消')
+    screen('04-offline-restart')
+    tap('动漫详情');wait('Original local catalogue fixture.');tap('关闭')
+    top();tap('追番状态筛选');tap('已看完');wait('本地追番 · 0 部')
+    top();tap('追番状态筛选');tap('在看');wait('本地追番 · 1 部')
+    top();tap('追番排序');tap('最近更新');wait('本地追番 · 1 部')
+    launch();wait('本地追番 · 1 部')
+    prefs=E.fromstring(adb('shell','run-as',APP,'cat','shared_prefs/anix_watchlist_v1.xml'))
+    assert next(n for n in prefs if n.get('name')=='filter').get('value')=='2'
+    assert next(n for n in prefs if n.get('name')=='sort').get('value')=='1'
+    tap('看完一集 +1');wait('已看 4 集');screen('04a-offline-quick-progress')
+    launch();wait('本地追番 · 1 部');tap('更新追番');fill('填写已看集数','3');tap('保存追番');wait('已看 3 集')
+    top();tap('追番状态筛选');tap('全部状态');wait('本地追番 · 1 部')
+    assert len(json.loads((OUT/'protocol.json').read_text()))==events,'local filters or quick progress made a network request'
+    tap('更新追番');fill('填写已看集数','13');tap('保存追番');wait('已看集数不能超过总集数');tap('取消')
     top();tap('我的追番');tap('更新追番');tap('移出追番');tap('保留');wait('已看 3 集')
     top();tap('我的追番');tap('更新追番');tap('移出追番');tap('移出');wait('本地追番 · 0 部');screen('05-remove-confirmed')
     adb('shell','svc','wifi','enable');adb('shell','svc','data','enable');top();tap('热门动漫');wait('动漫目录 · 第 1 页 · 2 部')
@@ -106,7 +119,7 @@ else:assert dict(term='limited',page=1) in events,events
 report=dict(versionCode=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP)).group(1)),api=33,nativeCatalogue=True,search=True,
     hasNextPagePagination=True,localWatchlist=True,progressValidation=True,offlineRestart=True,removalConfirmation=True,
     transientRetry=True,graphQlError=True,rateLimit=True,detailExternalBrowser=True,officialReleaseExternal=True,browserReturns=True,smallPhone375dp=True,fontScale=2.0,landscape=True,
-    desktopPlayerEmbedded=False,fixture='original local TLS AniList contract; live availability reported separately',crashes=False)
+    statusFilter=not remaining,recentSort=not remaining,quickProgress=not remaining,offlineSynopsis=not remaining,desktopPlayerEmbedded=False,fixture='original local TLS AniList contract; live availability reported separately',crashes=False)
 if remaining:
     report['verificationMode']='remaining checks on the identical compiled APK'
     report['baselineWorkflowRun']=40328181851
