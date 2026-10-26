@@ -21,7 +21,8 @@ def tap(value):
                 if c>a and d>b:adb('shell','input','tap',(a+c)//2,(b+d)//2);time.sleep(.6);return
         scroll=next((n for n in root.iter('node') if n.get('class')=='android.widget.ScrollView' and n.get('scrollable')=='true'),None)
         assert scroll is not None,'Missing anime action: '+value
-        a,b,c,d=map(int,re.findall(r'\d+',scroll.get('bounds')));adb('shell','input','swipe',(a+c)//2,d-40,(a+c)//2,b+40,220)
+        a,b,c,d=map(int,re.findall(r'\d+',scroll.get('bounds')));height=d-b
+        adb('shell','input','swipe',(a+c)//2,b+int(height*.85),(a+c)//2,b+int(height*.35),250)
     raise AssertionError('Missing anime action: '+value)
 def fill(label,value):
     tap(label);adb('shell','input','keyevent','123')
@@ -51,7 +52,10 @@ def external(host):
     for _ in range(8):
         adb('shell','input','keyevent','4');time.sleep(.7)
         state=adb('shell','dumpsys','activity','activities')
-        if re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*'+re.escape(APP)+r'/[^\n]*AnixTestActivity',state):return
+        if re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*'+re.escape(APP)+r'/[^\n]*AnixTestActivity',state):
+            time.sleep(1);ime=adb('shell','dumpsys','input_method')
+            if 'mInputShown=true' in ime or 'mIsInputViewShown=true' in ime:adb('shell','input','keyevent','4');time.sleep(.7)
+            top();return
     raise AssertionError('Browser did not restore the anime screen')
 adb('logcat','-c');adb('shell','am','start','-W','-n',APP+'/.MainActivity');time.sleep(1)
 tap('更多工具');tap('Anix v1.3.0');wait('搜索动漫名称');screen('00-main-entry')
