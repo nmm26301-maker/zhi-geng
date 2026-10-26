@@ -1,0 +1,257 @@
+{
+  "versionName": "0.6.15",
+  "versionCode": 615,
+  "previousVersionCode": 614,
+  "applicationId": "cn.zhigeng.app",
+  "appLabel": "知更",
+  "sourceCommit": "5ec0b8b7744b18e7b2507818aa0bb31292d164fa",
+  "buildWorkflowRun": 40275539939,
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "changes": [
+    "刷新书库时清除旧列表、选择器与页码，加载期间禁用搜索和翻页",
+    "书库清空或仅剩有声书时清除失效选择，恢复图书书库后可继续搜索",
+    "原书库被移除后切换到可用书库第一页，保留搜索词"
+  ],
+  "untested": [
+    "live user BookOrbit server and credentials",
+    "0.6.15-specific library recovery on Android 8/9/10; device-specific physical-phone behavior"
+  ],
+  "file": "Zhigeng-v0.6.15.apk",
+  "delivery": "original-signature in-place update; same applicationId and blue bird icon",
+  "size": 20782123,
+  "sha256": "e557c76848c743d5e55299142b011d3e0ad08b3c7f727b4d8e685e10cb9fd220",
+  "originalCertificateVerified": true,
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "alignmentVerified": true,
+  "artifactId": 12630872794,
+  "artifactZipSha256": "d6cf1c59df571605f11aab602c658691a510826af8568cf36d28059ea59378da",
+  "buildWorkflowConclusion": "success",
+  "unitTests": "passed",
+  "backupRestorationVerified": true,
+  "libraryFileId": "libfile_7da67fc50b14819199bdf7469c13879d",
+  "verificationWorkflowRun": 40277923731,
+  "verificationCommit": "ae9dc8839e31d7c4eb9889ed51f6bc5b71705bea",
+  "verificationWorkflowConclusion": "success",
+  "upgradeChecks": {
+    "inPlaceUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "favoritesPreserved": true,
+    "restartPreserved": true,
+    "previousVersionCode": 614,
+    "versionCode": 615,
+    "applicationId": "cn.zhigeng.app",
+    "api": 33,
+    "offlineCoversLoaded": 4,
+    "noSecondApp": true,
+    "crashes": false,
+    "screens": 8
+  },
+  "checks": "passed: compilation, unit tests, native baseline, EPUB/TXT/PDF reader, BookOrbit library removal/empty/podcast-only/recovery, session recovery/retry, external-browser routing, phone copies and original-signature 614-to-615 covering upgrade on API 33",
+  "reportLabelCorrection": "Four original build reports retain a legacy fixed 0.6.14 label. Public summaries explicitly preserve it as legacyVersionLabel/legacyVersionCodeLabel and use version 615 / 0.6.15 from the same artifact package-info. Original artifact unchanged; reporting scripts now read the installed package.",
+  "nativeChecks": {
+    "app": "Zhigeng",
+    "version": "0.6.15",
+    "api": 33,
+    "nativeNavigation": "passed",
+    "visibleCuratedCoversLoaded": 2,
+    "latestDirectories": "passed: independent nodes 5+5, extra console bundled, memberships 5+2, local favorite and filters",
+    "annualRankings": "passed: native year/type/region/sort screen and editorial toggle; adapters unit-tested with source fixtures",
+    "smsDirectory": "passed: native six sites, favorite, hide, hidden filter and restore",
+    "kanjuEntry": "external browser; tested separately; live playback not tested",
+    "screens": 34,
+    "fccProtocolFixture": "passed: HTTPS, bearer auth, model names, streaming reply, HTTP 429 and retry, stop, encrypted storage",
+    "fccDraftRecovery": "passed: model switch, tab switch, process restart, failure and stop",
+    "fccRealProvider": "not tested: no user gateway or provider credentials",
+    "duckAiOpening": "external browser; tested by android-browser-smoke.py",
+    "duckAiChatSent": false,
+    "accountDownload": "not tested: needs real user credentials",
+    "legacyVersionLabel": "0.6.14",
+    "versionLabelCorrection": "APK package-info confirms 615 / 0.6.15; the original build artifact retains legacy hardcoded report labels. Reporting scripts now read the installed package."
+  },
+  "readerChecks": {
+    "version": "0.6.15",
+    "api": 33,
+    "engine": "Readium Kotlin 3.1.0",
+    "documents": "original local debug fixtures",
+    "epub": "passed: rendered chapters, minimal chrome, quick day/night switch, table of contents, bookmark, font preview, themes and locator restart",
+    "txt": "passed: offline EPUB adapter, chapter navigation, locator restart, GB18030",
+    "pdf": "passed: native rendering, page navigation, bookmark, page restart",
+    "crashes": false,
+    "legacyVersionLabel": "0.6.14",
+    "versionLabelCorrection": "APK package-info confirms 615 / 0.6.15; the original build artifact retains legacy hardcoded report labels. Reporting scripts now read the installed package."
+  },
+  "readingToolsChecks": {
+    "versionCode": 615,
+    "api": 33,
+    "storageStrategy": "MediaStore",
+    "saveAsCancellationChecked": false,
+    "browserReturnMethods": [
+      "back",
+      "back"
+    ],
+    "separateNativePages": true,
+    "comicCategoryExternal": true,
+    "resourceSearchExternal": true,
+    "nativeBookOrbitLogin": true,
+    "tokenRefresh": true,
+    "transientRetry": true,
+    "expiredSessionRecovery": true,
+    "emptyLibraryRecovery": true,
+    "replacedLibraryPageReset": true,
+    "librarySearch": true,
+    "encryptedSessionRestart": true,
+    "epubDownload": true,
+    "sharedCopyByteExact": true,
+    "nativeReader": true,
+    "sha256": "35a11cbf52013a664eecf9e5eb69cfac0d09acb8d7293111a8aa0a2001c6bca4",
+    "crashes": false,
+    "resourceError": "",
+    "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
+  },
+  "browserChecks": {
+    "applicationId": "cn.zhigeng.app",
+    "versionCode": 615,
+    "api": 33,
+    "externalBrowserEntries": [
+      {
+        "entry": "01-work-source",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "search.douban.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": true
+      },
+      {
+        "entry": "02-kanju-home",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "kanju.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "03-kanju-search",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "kanju.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "04-sms",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "freephonenum.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "05-proxy",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "decodo.cn",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "06-directory-details",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "decodo.cn",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "07-ai-membership",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "gamsgo.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "08-ai-alternative",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "universalbus.cn",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "09-duck-ai",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "duck.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "10-duck-menu",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "duck.ai",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "11-fcc-provider",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "build.nvidia.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      },
+      {
+        "entry": "12-project",
+        "browserPackage": "org.chromium.webview_shell",
+        "host": "github.com",
+        "external": true,
+        "separateTask": true,
+        "nativeScreenRestored": true,
+        "backReturned": null
+      }
+    ],
+    "websiteNetworkRequired": false,
+    "appResumedAfterBrowser": true,
+    "crashes": false,
+    "legacyVersionCodeLabel": 614,
+    "versionLabelCorrection": "APK package-info confirms 615 / 0.6.15; the original build artifact retains legacy hardcoded report labels. Reporting scripts now read the installed package."
+  },
+  "phoneChecks": {
+    "versionCode": 615,
+    "api": 33,
+    "directory": "Download/知更",
+    "publicFilesVisible": true,
+    "bytesMatchCompletedDownload": true,
+    "duplicateNamesDoNotOverwrite": true,
+    "saveAsPicker": true,
+    "cancelPreservesFiles": true,
+    "independentOfAppUninstall": true,
+    "sha256": "35a11cbf52013a664eecf9e5eb69cfac0d09acb8d7293111a8aa0a2001c6bca4",
+    "files": [
+      "知更本地保存测试 (1).epub",
+      "知更本地保存测试.epub"
+    ],
+    "fixture": "original local EPUB; account/network download is not exercised",
+    "crashes": false,
+    "legacyVersionCodeLabel": 614,
+    "versionLabelCorrection": "APK package-info confirms 615 / 0.6.15; the original build artifact retains legacy hardcoded report labels. Reporting scripts now read the installed package."
+  }
+}

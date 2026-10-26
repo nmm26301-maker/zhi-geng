@@ -1,0 +1,20 @@
+{
+  "versionCode": 615,
+  "api": 33,
+  "directory": "Download/知更",
+  "publicFilesVisible": true,
+  "bytesMatchCompletedDownload": true,
+  "duplicateNamesDoNotOverwrite": true,
+  "saveAsPicker": true,
+  "cancelPreservesFiles": true,
+  "independentOfAppUninstall": true,
+  "sha256": "35a11cbf52013a664eecf9e5eb69cfac0d09acb8d7293111a8aa0a2001c6bca4",
+  "files": [
+    "知更本地保存测试 (1).epub",
+    "知更本地保存测试.epub"
+  ],
+  "fixture": "original local EPUB; account/network download is not exercised",
+  "crashes": false,
+  "legacyVersionCodeLabel": 614,
+  "versionLabelCorrection": "APK package-info confirms 615 / 0.6.15; the original build artifact retains legacy hardcoded report labels. Reporting scripts now read the installed package."
+}

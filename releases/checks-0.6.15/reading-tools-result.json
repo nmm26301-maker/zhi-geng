@@ -1,0 +1,28 @@
+{
+  "versionCode": 615,
+  "api": 33,
+  "storageStrategy": "MediaStore",
+  "saveAsCancellationChecked": false,
+  "browserReturnMethods": [
+    "back",
+    "back"
+  ],
+  "separateNativePages": true,
+  "comicCategoryExternal": true,
+  "resourceSearchExternal": true,
+  "nativeBookOrbitLogin": true,
+  "tokenRefresh": true,
+  "transientRetry": true,
+  "expiredSessionRecovery": true,
+  "emptyLibraryRecovery": true,
+  "replacedLibraryPageReset": true,
+  "librarySearch": true,
+  "encryptedSessionRestart": true,
+  "epubDownload": true,
+  "sharedCopyByteExact": true,
+  "nativeReader": true,
+  "sha256": "35a11cbf52013a664eecf9e5eb69cfac0d09acb8d7293111a8aa0a2001c6bca4",
+  "crashes": false,
+  "resourceError": "",
+  "fixture": "original local TLS BookOrbit contract and EPUB; no real user server credentials"
+}

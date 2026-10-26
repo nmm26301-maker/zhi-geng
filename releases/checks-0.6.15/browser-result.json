@@ -1,0 +1,120 @@
+{
+  "applicationId": "cn.zhigeng.app",
+  "versionCode": 615,
+  "api": 33,
+  "externalBrowserEntries": [
+    {
+      "entry": "01-work-source",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "search.douban.com",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": true
+    },
+    {
+      "entry": "02-kanju-home",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "kanju.ai",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "03-kanju-search",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "kanju.ai",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "04-sms",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "freephonenum.com",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "05-proxy",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "decodo.cn",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "06-directory-details",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "decodo.cn",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "07-ai-membership",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "gamsgo.com",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "08-ai-alternative",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "universalbus.cn",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "09-duck-ai",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "duck.ai",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "10-duck-menu",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "duck.ai",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "11-fcc-provider",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "build.nvidia.com",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    },
+    {
+      "entry": "12-project",
+      "browserPackage": "org.chromium.webview_shell",
+      "host": "github.com",
+      "external": true,
+      "separateTask": true,
+      "nativeScreenRestored": true,
+      "backReturned": null
+    }
+  ],
+  "websiteNetworkRequired": false,
+  "appResumedAfterBrowser": true,
+  "crashes": false,
+  "legacyVersionCodeLabel": 614,
+  "versionLabelCorrection": "APK package-info confirms 615 / 0.6.15; the original build artifact retains legacy hardcoded report labels. Reporting scripts now read the installed package."
+}
