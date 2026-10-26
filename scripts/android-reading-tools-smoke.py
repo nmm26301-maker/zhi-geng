@@ -1,5 +1,5 @@
 """Exercise the new native pages against original local TLS fixtures and real browser intents."""
-import hashlib,json,pathlib,re,subprocess,sys,time,xml.etree.ElementTree as E,zipfile
+import hashlib,json,pathlib,re,ssl,subprocess,sys,time,urllib.request,xml.etree.ElementTree as E,zipfile
 API=int(subprocess.check_output(['adb','shell','getprop','ro.build.version.sdk']).strip())
 APP='cn.zhigeng.app';OUT=pathlib.Path('reading-tools-check');OUT.mkdir(exist_ok=True)
 def adb(*args):
@@ -43,6 +43,8 @@ def node(value):
         time.sleep(.4)
     raise AssertionError('Missing action: '+value)
 def tap(value):adb('shell','input','tap',*node(value));time.sleep(.6)
+def top():
+    for _ in range(5):adb('shell','input','swipe',540,450,540,1600,180)
 def fill(value,entry,clear=False):
     tap(value)
     if clear:
@@ -53,6 +55,13 @@ def screen(name):
     print('Reading tools checkpoint:',name,flush=True)
     (OUT/(name+'.xml')).write_bytes(E.tostring(dump(),encoding='utf-8'))
     (OUT/(name+'.png')).write_bytes(adb('exec-out','screencap','-p'))
+def library_mode(mode):
+    request=urllib.request.Request('https://localhost:8444/fixture/libraries',json.dumps({'mode':mode}).encode(),{'Content-Type':'application/json'})
+    # This is the original localhost-only fixture, never a real user's server.
+    with urllib.request.urlopen(request,context=ssl._create_unverified_context(),timeout=5) as response:assert response.status==200
+def disabled(value):
+    node(value)
+    return any(n.get('text')==value and n.get('enabled')=='false' for n in dump().iter('node'))
 def launch():
     adb('shell','am','start','-W','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER','-n',APP+'/.MainActivity');time.sleep(1)
 def menu(name):tap('更多工具');tap(name)
@@ -125,6 +134,15 @@ except Exception as error:
 menu('BookOrbit 书库');wait('BookOrbit');screen('02-bookorbit-connect')
 fill('https://你的 BookOrbit 服务地址','https://10.0.2.2:8444');fill('BookOrbit 用户名','reader');fill('BookOrbit 密码','local-test-password')
 tap('连接书库');wait('找到 21 本书');screen('03-bookorbit-library')
+tap('下一页');wait('第 2 页');library_mode('replaced');top();tap('刷新书库');wait('Replacement fixture library');wait('找到 21 本书')
+node('上一页');wait('第 1 页');assert disabled('上一页');screen('03c-replaced-library-first-page')
+for mode in ['empty','podcasts']:
+    library_mode(mode);top();tap('刷新书库');wait('当前账号没有可浏览的图书书库')
+    assert disabled('搜索书库');assert disabled('上一页');assert disabled('下一页')
+    top();tree=dump();assert not any(n.get('class')=='android.widget.Spinner' for n in tree.iter('node'))
+    assert not any('第 1 页' in n.get('text','') or '第 2 页' in n.get('text','') for n in tree.iter('node'))
+    screen('03d-'+mode+'-library')
+library_mode('original');top();tap('刷新书库');wait('找到 21 本书')
 fill('搜索书名或作者（当前书库）','retry');tap('搜索书库');wait('HTTP 503');tap('重试');wait('找到 1 本书');screen('03a-retry-retains-query')
 fill('搜索书名或作者（当前书库）','expire',clear=True);tap('搜索书库');wait('连接已失效，请重新登录');screen('03b-expired-session');tap('重新登录')
 adb('shell','am','force-stop',APP);launch();menu('BookOrbit 书库');wait('BookOrbit')
@@ -165,13 +183,15 @@ if 'GOT IT' in text():tap('GOT IT')
 wait('第一章');screen('07-native-reader');adb('shell','input','keyevent','4');time.sleep(1)
 logs=read_logs('AndroidRuntime:E');assert 'FATAL EXCEPTION' not in logs,logs
 events=json.loads((OUT/'protocol.json').read_text())
-for event in ['native-login','native-refresh','libraries','transient-error','session-revoked','refresh-revoked','query:Spring:0','detail','download']:assert event in events,events
-report=dict(versionCode=614,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
+for event in ['native-login','native-refresh','libraries','library-query:1:1','library-query:2:0','library-mode:empty','library-mode:podcasts','transient-error','session-revoked','refresh-revoked','query:Spring:0','detail','download']:assert event in events,events
+assert 'library-query:2:1' not in events,'replacement library inherited the previous page'
+report=dict(versionCode=615,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
     saveAsCancellationChecked=API<29,
     browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=not resource_error,resourceSearchExternal=not resource_error,nativeBookOrbitLogin=True,
-    tokenRefresh=True,transientRetry=True,expiredSessionRecovery=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
+    tokenRefresh=True,transientRetry=True,expiredSessionRecovery=True,emptyLibraryRecovery=True,replacedLibraryPageReset=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
     sharedCopyByteExact=True,nativeReader=True,sha256=hashlib.sha256(expected).hexdigest(),crashes=False,
     resourceError=resource_error,fixture='original local TLS BookOrbit contract and EPUB; no real user server credentials')
 (OUT/'result.json').write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
 
 if resource_error:raise SystemExit('BookOrbit checks passed; resource-browser check remains failed; see result.json')
+

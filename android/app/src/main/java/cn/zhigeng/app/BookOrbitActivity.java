@@ -25,7 +25,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
     private EditText server,username,password,search;
     private TextView status,pageLabel;
     private LinearLayout results;
-    private Button previous,next,retry;
+    private Button previous,next,retry,find;
     private Runnable retryAction;
     private JSONArray libraries=new JSONArray();
     private long libraryId;
@@ -115,7 +115,7 @@ public class BookOrbitActivity extends ReadingToolActivity {
         status=text("正在读取书库…",13,MUTED);status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);add(body,status,14);
         retry=button("重试",false);retry.setVisibility(View.GONE);retry.setOnClickListener(v->{Runnable action=retryAction;if(action!=null)action.run();});add(body,retry,8);
         search=input("搜索书名或作者（当前书库）");search.setText(term);search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);add(body,search,12);
-        Button find=button("搜索书库",true);find.setOnClickListener(v->submit());add(body,find,10);
+        find=button("搜索书库",true);find.setOnClickListener(v->submit());add(body,find,10);
         search.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_SEARCH){submit();return true;}return false;});
         results=column();add(body,results,12);pageLabel=text("",12,MUTED);add(body,pageLabel,16);
         LinearLayout pages=row();previous=button("上一页",false);next=button("下一页",false);
@@ -126,15 +126,24 @@ public class BookOrbitActivity extends ReadingToolActivity {
     }
 
     private void submit() {
+        if(libraryId<=0||!search.isEnabled())return;
         String value=search.getText().toString().trim();if(value.length()>200){search.setError("搜索词请控制在200字以内");return;}
         term=value;page=0;loadBooks();
     }
     private void loadLibraries() {
         prepareRetry(this::loadLibraries);
+        clearLibraryViews();
         BookOrbitClient owner=client;int request=++generation;status.setText("正在读取书库…");
         jobs.execute(()->{try{JSONArray data=owner.libraries();persist(request,owner);
             runOnUiThread(()->{if(!current(request,owner))return;libraries=data;chooseLibrary();});
         }catch(Exception e){error(request,owner,e);}});
+    }
+    private void clearLibraryViews() {
+        search.setEnabled(false);find.setEnabled(false);previous.setEnabled(false);next.setEnabled(false);
+        results.removeAllViews();pageLabel.setText("");
+        View old=body.findViewWithTag("bookorbit_libraries");
+        if(old instanceof Spinner)((Spinner)old).setOnItemSelectedListener(null);
+        if(old!=null)body.removeView(old);
     }
     private void chooseLibrary() {
         ArrayList<JSONObject> visible=new ArrayList<>();ArrayList<String> names=new ArrayList<>();
@@ -143,10 +152,11 @@ public class BookOrbitActivity extends ReadingToolActivity {
             String type=item.optString("type","books");if(!type.equals("books"))continue;
             visible.add(item);names.add(item.optString("name","未命名书库"));
         }
-        if(visible.isEmpty()){status.setText("当前账号没有可浏览的图书书库，请在服务器添加图书或授予权限。");results.removeAllViews();return;}
-        int selected=0;for(int i=0;i<visible.size();i++)if(visible.get(i).optLong("id")==libraryId)selected=i;
-        // Reuse the spinner across refreshes; do not leave stale selectors in the screen.
-        View old=body.findViewWithTag("bookorbit_libraries");if(old!=null)body.removeView(old);
+        if(visible.isEmpty()){libraryId=0;page=0;retryAction=null;status.setText("当前账号没有可浏览的图书书库，请在服务器添加图书或授予权限。");return;}
+        int selected=-1;for(int i=0;i<visible.size();i++)if(visible.get(i).optLong("id")==libraryId)selected=i;
+        // A removed library must not carry its old page into a different library.
+        if(selected<0){selected=0;page=0;}
+        libraryId=visible.get(selected).optLong("id");search.setEnabled(true);find.setEnabled(true);
         Spinner spinner=new Spinner(this);spinner.setTag("bookorbit_libraries");spinner.setContentDescription("选择 BookOrbit 书库");
         spinner.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,names));spinner.setSelection(selected);
         body.addView(spinner,3,new LinearLayout.LayoutParams(-1,dp(52)));
@@ -238,3 +248,4 @@ public class BookOrbitActivity extends ReadingToolActivity {
     @Override protected void onSaveInstanceState(Bundle state){super.onSaveInstanceState(state);state.putString("term",search==null?term:search.getText().toString());state.putInt("page",page);state.putLong("library",libraryId);}
     @Override protected void onDestroy(){generation++;if(cancelled!=null)cancelled.set(true);if(downloading!=null)downloading.dismiss();jobs.shutdownNow();super.onDestroy();}
 }
+

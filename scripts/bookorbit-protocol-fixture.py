@@ -7,6 +7,7 @@ ACCESS='orbit-protocol-access-not-a-secret'
 REFRESH='a'*64
 REVOKED=False
 RETRY_REQUESTS=0
+LIBRARY_MODE='original'
 def record(event):
     EVENTS.append(event)
     (REPORT/'protocol.json').write_text(json.dumps(EVENTS,indent=2))
@@ -21,8 +22,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
         assert self.headers.get('Cookie') is None,'native session leaked a web cookie'
         return True
     def do_POST(self):
-        global REVOKED,RETRY_REQUESTS
+        global REVOKED,RETRY_REQUESTS,LIBRARY_MODE
         body=json.loads(self.rfile.read(int(self.headers.get('Content-Length','0'))))
+        if self.path=='/fixture/libraries':
+            assert body['mode'] in ('original','empty','podcasts','replaced')
+            LIBRARY_MODE=body['mode'];record('library-mode:'+LIBRARY_MODE);return self.respond(200,{})
         if self.path=='/api/v1/auth/login':
             assert body=={'username':'reader','password':'local-test-password','clientKind':'native','deviceLabel':'知更 Android'}
             REVOKED=False
@@ -33,9 +37,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self.respond(200,dict(accessToken=ACCESS,refreshToken='b'*64))
         if not self.authorized():return
         if self.path=='/api/v1/auth/logout':record('logout');return self.respond(200,{})
-        if self.path!='/api/v1/libraries/1/books':return self.respond(404,{})
+        expected_library=2 if LIBRARY_MODE=='replaced' else 1
+        assert self.path=='/api/v1/libraries/'+str(expected_library)+'/books','stale library request: '+self.path
+        assert LIBRARY_MODE not in ('empty','podcasts'),'queried a library without books'
         term=body.get('q','');page=body['pagination']['page'];assert body['pagination']['size']==20
         record('query:'+term+':'+str(page))
+        record('library-query:'+str(expected_library)+':'+str(page))
         if term=='expire':
             REVOKED=True;record('session-revoked');return self.respond(401,{})
         if term=='retry':
@@ -50,7 +57,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.authorized():return
         if self.path=='/api/v1/libraries':
-            record('libraries');return self.respond(200,[dict(id=1,name='Original fixture library',type='books')])
+            record('libraries')
+            if LIBRARY_MODE=='empty':return self.respond(200,[])
+            if LIBRARY_MODE=='podcasts':return self.respond(200,[dict(id=3,name='Audio only',type='podcasts')])
+            if LIBRARY_MODE=='replaced':return self.respond(200,[dict(id=2,name='Replacement fixture library',type='books')])
+            return self.respond(200,[dict(id=1,name='Original fixture library',type='books')])
         if self.path=='/api/v1/auth/me':return self.respond(200,dict(username='reader'))
         if self.path=='/api/v1/books/1':
             record('detail');return self.respond(200,dict(id=1,title='Spring letter',description='<p>Original EPUB for protocol checks.</p>',authors=[{'name':'Original local fixture'}],files=[dict(id=7,format='epub',role='primary',sizeBytes=4096)]))
@@ -60,3 +71,4 @@ class Handler(http.server.BaseHTTPRequestHandler):
 base=ROOT/'android/tests/fixtures'
 context=ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER);context.load_cert_chain(base/'local-test-only.crt',base/'local-test-only.key')
 server=http.server.ThreadingHTTPServer(('0.0.0.0',8444),Handler);server.socket=context.wrap_socket(server.socket,server_side=True);server.serve_forever()
+
