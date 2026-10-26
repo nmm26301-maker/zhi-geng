@@ -15,7 +15,7 @@ def wait(value):
 def tap(value):
     for _ in range(12):
         root=tree()
-        for n in root.iter('node'):
+        for n in sorted(root.iter('node'),key=lambda n:n.get('clickable')!='true'):
             if value.casefold() in (n.get('text','').casefold(),n.get('content-desc','').casefold()):
                 a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
                 if c>a and d>b:adb('shell','input','tap',(a+c)//2,(b+d)//2);time.sleep(.6);return
@@ -74,7 +74,7 @@ else:
     tap('动漫详情');adb('logcat','-c');tap('查看 AniList 条目 ↗');external('anilist.co');screen('02a-external-detail-return')
     tap('加入追番');tap('选择追番状态');tap('在看');fill('填写已看集数','3');tap('保存追番');wait('已看 3 集');screen('03-local-progress')
     top();tap('我的追番');wait('本地追番 · 1 部');events=len(json.loads((OUT/'protocol.json').read_text()))
-    adb('shell','svc','wifi','disable');adb('shell','svc','data','disable');launch();wait('本地追番 · 1 部');wait('已看 3 集')
+    adb('shell','svc','wifi','disable');adb('shell','svc','data','disable');launch();wait('本地追番 · 1 部');tap('更新追番');tap('取消');wait('已看 3 集')
     assert len(json.loads((OUT/'protocol.json').read_text()))==events,'offline watchlist made a catalogue request'
     screen('04-offline-restart')
     tap('动漫详情');wait('Original local catalogue fixture.');tap('关闭')
