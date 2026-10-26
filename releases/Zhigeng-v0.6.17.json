@@ -66,5 +66,7 @@
     "errors": 0,
     "skipped": 0
   },
-  "buildWorkflowConclusion": "Compilation and 42 unit tests passed. UI routing test encountered Android redaction of URL paths; exact compiled APK reused with corrected source/URL policy plus UI host checks."
+  "buildWorkflowConclusion": "Compilation and 42 unit tests passed. UI routing test encountered Android redaction of URL paths; exact compiled APK reused with corrected source/URL policy plus UI host checks.",
+  "unsignedApkSha256": "5d6e207535d6f543ae9d2b569900cb3e9c6a051758fe97cdcce7d541a916fd52",
+  "libraryFileId": "libfile_bf0393adac5c8191ac65e68c666b7081"
 }

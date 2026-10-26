@@ -28,9 +28,10 @@ jobs:
           test -n "$artifact_id"
           curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/$artifact_id/zip" -o build617.zip
           python3 - <<'PY'
-          import hashlib,json,pathlib
+          import hashlib,json,pathlib,zipfile
           manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.17.json').read_text())
-          assert hashlib.sha256(pathlib.Path('build617.zip').read_bytes()).hexdigest()==manifest['artifactZipSha256']
+          with zipfile.ZipFile('build617.zip') as archive:
+              assert hashlib.sha256(archive.read('apk-output/Zhigeng-v0.6.17-unsigned.apk')).hexdigest()==manifest['unsignedApkSha256']
           PY
           unzip -p build616.zip apk-output/Zhigeng-v0.6.16-unsigned.apk > signed617-work/Zhigeng-v0.6.16.apk
           unzip -p build617.zip apk-output/Zhigeng-v0.6.17-unsigned.apk > signed617-work/Zhigeng-v0.6.17.apk
