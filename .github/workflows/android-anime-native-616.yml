@@ -1,0 +1,104 @@
+name: Verify 0.6.16 native anime catalogue and offline watchlist
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-anime-native-616.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Check download policy
+        run: |
+          mkdir -p /tmp/zhigeng-tests
+          javac -d /tmp/zhigeng-tests android/app/src/main/java/cn/zhigeng/app/DownloadPolicy.java android/tests/DownloadPolicyTest.java
+          java -cp /tmp/zhigeng-tests cn.zhigeng.app.DownloadPolicyTest
+      - uses: actions/cache@v4
+        id: reader-font
+        with:
+          path: android/app/src/main/assets/fonts/zhigeng-serif.woff2
+          key: reader-font-${{ hashFiles('scripts/prepare-reader-font.py') }}
+      - name: Prepare offline Chinese reading font
+        if: steps.reader-font.outputs.cache-hit != 'true'
+        run: |
+          python3 -m pip install fonttools==4.59.0 brotli==1.1.0
+          python3 scripts/prepare-reader-font.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bundle verified offline posters
+        run: node scripts/prepare-android-posters.mjs
+      - name: Prepare debug reading documents
+        run: python3 scripts/make-reader-fixtures.py
+      - name: Build native application
+        working-directory: android
+        run: gradle :app:testDebugUnitTest :app:assembleRelease :app:assembleDebug --no-daemon
+      - name: Package unsigned APK and signing verifier
+        run: |
+          mkdir -p apk-output
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.16-unsigned.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
+          cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.16-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.16-unsigned.apk | grep -q 'lib/.*\.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
+          ! unzip -l apk-output/Zhigeng-v0.6.16-unsigned.apk | grep -q 'reader-fixture'
+          ! unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | grep -a -q 'AnixTestActivity'
+          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.16-unsigned.apk | grep -q 'fcc_test_ca'
+      - name: Start original local anime fixture
+        run: python3 scripts/anime-catalog-fixture.py > /tmp/anime-fixture.log 2>&1 &
+      - name: Probe live public AniList catalogue once
+        run: python3 scripts/probe-anilist.py
+      - name: Install screenshot verifier
+        run: python3 -m pip install Pillow==11.3.0
+      - name: Reserve disk and enable KVM
+        run: |
+          sudo rm -rf "$ANDROID_HOME/ndk" "$ANDROID_HOME/cmake" /usr/share/dotnet
+          rm -rf "$HOME/.gradle"
+          df -h "$HOME"
+          sudo chmod 666 /dev/kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          disk-size: 2048M
+          emulator-boot-timeout: 240
+          disable-animations: true
+          emulator-options: -memory 2048 -no-window -noaudio -no-boot-anim -dns-server 8.8.8.8,1.1.1.1 -gpu swiftshader_indirect -camera-back none -no-snapshot
+          script: |
+            adb install -r apk-output/Zhigeng-debug-test.apk
+            python3 scripts/android-anime-catalog-smoke.py
+            python3 scripts/android-local-download-smoke.py
+      - name: Preserve build and check reports when artifact storage is available
+        uses: actions/upload-artifact@v4
+        if: always()
+        continue-on-error: true
+        with:
+          name: Zhigeng-native-anime-v0.6.16-unsigned-build
+          path: |
+            apk-output/
+            anix-check/
+            android/app/build/test-results/testDebugUnitTest/
+            reading-tools-check/
+            phone-download-check/
+          retention-days: 7
+
