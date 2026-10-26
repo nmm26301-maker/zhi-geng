@@ -1,12 +1,14 @@
-# Anix v1.3.0 官方入口
+# Anix v1.3.0 · 知更原生动漫目录与追番
 
-知更的「更多工具」、阅读页和我的页面提供独立 Anix 页面。官网、固定 v1.3.0 发布页和扩展说明均交给外部浏览器，返回可继续使用知更。
+入口：更多工具、阅读页与我的页面中的 Anix v1.3.0。原生实现 AniList 动漫搜索、热门目录、按 hasNextPage 翻页、详情及下一集播出时间；状态分为想看、在看、已看完、搁置、弃番，支持已看集数校验、本地分页、确认移出、进程重启与离线查看。追番使用独立本地存储，不改动现有书架，不需要 AniList 密钥或登录，不进行账号同步。
 
-已核对项目 `MaidLover69/Anix` README、MIT LICENSE 与 GitHub release 标签 `1.3`。该版本官方发布资产为 `Anix_1.3.0_amd64.AppImage`，平台为 Linux，未提供 Android APK。知更没有打包 Anix 的 Tauri/Rust、libmpv、扩展引擎，也不把此入口描述为安卓端 Anix 播放器。手机打开官网不能运行桌面 AppImage。
+实现借鉴 MIT 项目 MaidLover69/Anix v1.3.0 的目录/追番设计，并核对其 src-tauri/src/clients/anilist.rs 与 AniList 官方 API 文档，Android 适配独立编写。数据通过 https://graphql.anilist.co 公开只读查询取得；关键词使用 GraphQL variables，默认过滤成人条目，限制响应大小，处理 HTTP/GraphQL 错误和 429 冷却。本地列表离线可用，失败请求不会写入虚假目录。下一集时间来自来源，在设备时区显示。
 
-- 官网：https://anix-linux.vercel.app
+已核对 upstream README、MIT LICENSE 与 release 标签 1.3。官方资产是 Linux 的 Anix_1.3.0_amd64.AppImage。知更没有打包其 Tauri/libmpv 桌面播放器或视频扩展，没有将目录资料描述为可直接播放的视频。官方发布页、官网及 AniList 条目均通过外部浏览器打开。
+
+- 上游：https://github.com/MaidLover69/Anix
 - v1.3.0：https://github.com/MaidLover69/Anix/releases/tag/1.3
-- 扩展说明：https://github.com/MaidLover69/Anix#extensions
-- 许可证：https://github.com/MaidLover69/Anix/blob/main/LICENSE
+- AniList 分页：https://docs.anilist.co/guide/graphql/pagination
+- AniList 限流：https://docs.anilist.co/guide/rate-limiting
 
-本页面独立编写，沿用知更原生界面与浏览器策略，不复制或重新分发上游播放器。
+验证使用原创本地 TLS 元数据；真实公开 API 的只读探测另记 live-api.json，不把本地服务当成真实线上可用性的证据。Android 测试用 Activity 及本地端点只存在于 debug 构建。
