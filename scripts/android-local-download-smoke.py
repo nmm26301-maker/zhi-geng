@@ -36,10 +36,12 @@ def save_fixture():
 
 clear_runtime_logs()
 installed_version=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP).decode()).group(1))
-save_fixture()
 directory='/sdcard/Download/知更'
-names=lambda:[name for name in adb('shell','ls','-1',directory).decode().splitlines() if name.startswith('知更本地保存测试')]
-before=names();assert len(before)==1,before
+def names():
+    try:return [name for name in adb('shell','ls','-1',directory).decode().splitlines() if name.startswith('知更本地保存测试')]
+    except RuntimeError:return []
+existing=set(names());save_fixture()
+before=[name for name in names() if name not in existing];assert len(before)==1,before
 # Compare against the bundled source bytes, avoiding adb shell binary conversion
 # and exec-out's handling of shell quotes in Unicode/duplicate file names.
 with zipfile.ZipFile('apk-output/Zhigeng-debug-test.apk') as apk:
@@ -54,7 +56,7 @@ check_copy(before[0])
 tap('立即阅读');time.sleep(6)
 if any(n.get('text')=='GOT IT' for n in dump().iter('node')):tap('GOT IT');time.sleep(2)
 assert any('第一章' in n.get('text','') for n in dump().iter('node'))
-save_fixture();after=names();assert len(after)==2 and len(set(after))==2,after
+save_fixture();all_names=set(names());after=[name for name in all_names if name not in existing];assert len(after)==2 and len(set(after))==2 and existing.issubset(all_names),after
 for name in after:check_copy(name)
 # Exercise the real system Save As picker without an account or external network.
 tap('另存到…');time.sleep(2)
@@ -63,10 +65,11 @@ assert any('SAVE'==n.get('text') or '保存'==n.get('text') for n in tree.iter('
 adb('shell','input','keyevent','4');time.sleep(1)
 adb('shell','input','keyevent','4');time.sleep(1)
 assert not any(n.get('text') in ['SAVE','保存'] for n in dump().iter('node'))
-assert len(names())==2,'Cancelling Save As altered existing copies'
+assert set(names())==all_names,'Cancelling Save As altered existing copies'
 # Uninstall only the disposable emulator test app: public files must survive it.
 assert b'Success' in adb('uninstall',APP)
 for name in after:check_copy(name)
+assert set(names())==all_names,'Uninstall altered shared copies'
 logs=adb('logcat','-d','-s','AndroidRuntime:E').decode(errors='replace')
 assert 'FATAL EXCEPTION' not in logs,logs
 result=dict(versionCode=installed_version,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),

@@ -94,10 +94,6 @@
     },
     "interruption": "UI automation did not replace graphql-error with limited; remaining checks rerun against the identical compiled APK using verified text replacement.",
     "remaining": [
-      "HTTP 429",
-      "official-release browser return",
-      "375dp and 2.0 font scale",
-      "landscape",
       "phone copies",
       "original-signature 616-to-617 covering upgrade"
     ]
@@ -108,6 +104,19 @@
     "nativeReturn": true,
     "exactUrlSourceAndPolicyVerified": true,
     "websiteContentTested": false,
+    "crashes": false
+  },
+  "nativeAnimeRemaining": {
+    "workflowRun": 40367140640,
+    "verificationCommit": "3dce49bbed84441565ff089c0f51ec693025350e",
+    "evidenceCommit": "4e0d69e2ba6b4565def558f334de4ba5a9efb14d",
+    "passed": [
+      "HTTP 429",
+      "official-release browser return",
+      "375dp and 2.0 font scale",
+      "landscape"
+    ],
+    "sameCompiledApk": true,
     "crashes": false
   }
 }
