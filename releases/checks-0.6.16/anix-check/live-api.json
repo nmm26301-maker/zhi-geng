@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://graphql.anilist.co",
+  "readOnly": true,
+  "checkedAt": 1793018590,
+  "passed": true,
+  "items": 4,
+  "hasNextPage": false
+}
