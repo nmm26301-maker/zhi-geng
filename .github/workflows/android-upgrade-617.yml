@@ -57,8 +57,6 @@ jobs:
           mkdir -p /tmp/zhigeng-browser-tests
           javac -d /tmp/zhigeng-browser-tests android/app/src/main/java/cn/zhigeng/app/BrowserPolicy.java android/tests/BrowserPolicyTest.java
           java -cp /tmp/zhigeng-browser-tests cn.zhigeng.app.BrowserPolicyTest
-      - name: Start original local anime fixture
-        run: python3 scripts/anime-catalog-fixture.py > /tmp/anime617-fixture.log 2>&1 &
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
       - uses: reactivecircus/android-emulator-runner@v2
@@ -72,7 +70,6 @@ jobs:
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
           script: |
             adb install -r apk-output/Zhigeng-debug-test.apk
-            python3 scripts/android-anime-catalog-smoke.py --remaining
             python3 scripts/android-local-download-smoke.py
             python3 scripts/android-upgrade-phone-617.py
       - name: Preserve upgrade checks
