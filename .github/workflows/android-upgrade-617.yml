@@ -1,0 +1,90 @@
+name: Verify 0.6.17 watchlist UI and original-signed upgrade
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-upgrade-617.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Restore exact signed APKs from compiled bytes and public signature patches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p signed617-work apk-output
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12652335515/zip -o build616.zip
+          echo 'caa4832568237946078c746945de0613607ca9a3a6ff92c43abe00fb2148a55b  build616.zip' | sha256sum --check
+          gh api repos/nmm26301-maker/zhi-geng/actions/runs/40362952116/artifacts > build617-artifacts.json
+          artifact_id=$(jq -r '.artifacts[] | select(.name == "Zhigeng-anime-english-v0.6.17-unsigned-build") | .id' build617-artifacts.json)
+          test -n "$artifact_id"
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/$artifact_id/zip" -o build617.zip
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.17.json').read_text())
+          assert hashlib.sha256(pathlib.Path('build617.zip').read_bytes()).hexdigest()==manifest['artifactZipSha256']
+          PY
+          unzip -p build616.zip apk-output/Zhigeng-v0.6.16-unsigned.apk > signed617-work/Zhigeng-v0.6.16.apk
+          unzip -p build617.zip apk-output/Zhigeng-v0.6.17-unsigned.apk > signed617-work/Zhigeng-v0.6.17.apk
+          (cd signed617-work && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.16.patch")
+          (cd signed617-work && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.17.patch")
+          cp signed617-work/Zhigeng-v0.6.16.apk previous.apk
+          cp signed617-work/Zhigeng-v0.6.17.apk Zhigeng-v0.6.17.apk
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.17.json').read_text())
+          assert hashlib.sha256(pathlib.Path('Zhigeng-v0.6.17.apk').read_bytes()).hexdigest()==manifest['sha256']
+          assert hashlib.sha256(pathlib.Path('previous.apk').read_bytes()).hexdigest()=='cce2b714c09932f093bf1b2393ac4dab311fe4f5cdc113216fe2599d6d174f9c'
+          PY
+          unzip -p build617.zip apk-output/apksigner.jar > apk-output/apksigner.jar
+          unzip -p build617.zip apk-output/Zhigeng-debug-test.apk > apk-output/Zhigeng-debug-test.apk
+          java -jar apk-output/apksigner.jar verify --min-sdk-version 26 --verbose --print-certs Zhigeng-v0.6.17.apk
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Verify exact English URL and fragment policy
+        run: |
+          mkdir -p /tmp/zhigeng-browser-tests
+          javac -d /tmp/zhigeng-browser-tests android/app/src/main/java/cn/zhigeng/app/BrowserPolicy.java android/tests/BrowserPolicyTest.java
+          java -cp /tmp/zhigeng-browser-tests cn.zhigeng.app.BrowserPolicyTest
+      - name: Start original local anime fixture
+        run: python3 scripts/anime-catalog-fixture.py > /tmp/anime617-fixture.log 2>&1 &
+      - name: Enable KVM
+        run: sudo chmod 666 /dev/kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
+          script: |
+            adb install -r apk-output/Zhigeng-debug-test.apk
+            python3 scripts/android-english-smoke.py
+            python3 scripts/android-anime-catalog-smoke.py
+            python3 scripts/android-local-download-smoke.py
+            python3 scripts/android-upgrade-phone-617.py
+      - name: Preserve upgrade checks
+        if: always()
+        run: |
+          mkdir -p releases/checks-0.6.17
+          for directory in upgrade617-check english-check anix-check phone-download-check; do
+            if test -d "$directory"; then mkdir -p "releases/checks-0.6.17/$directory"; cp -R "$directory/." "releases/checks-0.6.17/$directory/"; fi
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/checks-0.6.17
+          git diff --cached --quiet || git commit -m 'test: preserve 0.6.17 English routing, watchlist and original-signed upgrade checks [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
