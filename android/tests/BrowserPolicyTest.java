@@ -6,7 +6,7 @@ public final class BrowserPolicyTest {
             "https://kanju.ai/session/new?prompt=%E7%9F%A5%E6%9B%B4",
             "https://xn--4gqx1hgtfdmt.com/#/dashboard",
             "http://example.com:8080/a?q=1&next=%2Fbook#section",
-            "https://duck.ai/", "https://github.com/nmm26301-maker/zhi-geng"
+            "https://0xlei.tech/words/#/", "https://duck.ai/", "https://github.com/nmm26301-maker/zhi-geng"
         };
         for (String url : accepted) {
             if (!url.equals(BrowserPolicy.webUrl(url))) throw new AssertionError("URL changed: " + url);

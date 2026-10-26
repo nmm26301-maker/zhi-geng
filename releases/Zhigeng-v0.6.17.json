@@ -1,0 +1,70 @@
+{
+  "versionName": "0.6.17",
+  "versionCode": 617,
+  "previousVersionCode": 616,
+  "applicationId": "cn.zhigeng.app",
+  "appLabel": "知更",
+  "sourceCommit": "9f4921025c30afea29ecb00fc08c325908a1ea6c",
+  "buildWorkflowRun": 40362952116,
+  "file": "Zhigeng-v0.6.17.apk",
+  "iconChanged": false,
+  "changes": [
+    "Local anime watchlist status filters and stable name/recent-update sorting",
+    "One-episode progress shortcut; planned to watching, known final episode to completed",
+    "Bounded offline synopsis and multilingual search aliases; compatible with legacy watchlist records",
+    "Retained local search/filter/sort settings and local page across configuration recreation",
+    "Requested Word Atlas English learning website in More tools and My page, preserving exact HTTPS fragment URL in external browser"
+  ],
+  "notImplemented": [
+    "Anix Linux libmpv player and community stream extensions",
+    "AniList/MyAnimeList tracker account synchronization"
+  ],
+  "untested": [
+    "physical device variations and this release on older Android versions",
+    "live user BookOrbit server and credentials"
+  ],
+  "localValidation": {
+    "animeUnitTests": 11,
+    "failures": 0,
+    "androidPageCompilation": true,
+    "uiScriptSyntax": true
+  },
+  "verificationStatus": "awaiting exact built APK and emulator reports",
+  "compiledCommit": "e5bc3e796ed4a17030dc7095a0aaf25b2e66aeeb",
+  "previousBuildBaseline": {
+    "run": 40359024744,
+    "sourceCommit": "662c524c82a659c3078595651cbd188b25c22e26",
+    "unitTests": 42,
+    "nativeNavigationAndFcc": true,
+    "epubTxtGb18030PdfReader": true,
+    "bookOrbitAndDownloadIntegrity": true,
+    "interruption": "Anime test waited for a record below the viewport; corrected scroll-to-record and actionable-control selection in final verification script",
+    "englishEntryIncluded": false
+  },
+  "englishLearning": {
+    "url": "https://0xlei.tech/words/#/",
+    "name": "词光 Word Atlas",
+    "entries": [
+      "更多工具 → 英语学习 · 词光",
+      "我的 → 英语学习 · 词光 ↗"
+    ],
+    "opensExternalBrowser": true,
+    "siteHtmlFetched": true,
+    "websiteLearningAndAudioTested": false
+  },
+  "size": 20790315,
+  "sha256": "4b26bcb22c284e828a6bea20aabb41c33cf796bcde4206a90e7d8385683880e2",
+  "artifactId": 12669088495,
+  "artifactZipSha256": "1aef021c7e479e79f010999d3c53fa945b6453f41a9934331ff2c53106d1a0a3",
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "originalCertificateVerified": true,
+  "backupRestorationVerified": true,
+  "alignmentVerified": true,
+  "unitTests": {
+    "tests": 42,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "buildWorkflowConclusion": "Compilation and 42 unit tests passed. UI routing test encountered Android redaction of URL paths; exact compiled APK reused with corrected source/URL policy plus UI host checks."
+}
