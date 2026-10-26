@@ -56,16 +56,16 @@ jobs:
       - name: Package unsigned APK and signing verifier
         run: |
           mkdir -p apk-output
-          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.15-unsigned.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.16-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
           cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.15-unsigned.apk > apk-output/package-info.txt
-          test "$(unzip -p apk-output/Zhigeng-v0.6.15-unsigned.apk classes.dex | wc -c)" -gt 10000
-          ! unzip -l apk-output/Zhigeng-v0.6.15-unsigned.apk | grep -q 'lib/.*\.so'
-          ! unzip -p apk-output/Zhigeng-v0.6.15-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
-          ! unzip -p apk-output/Zhigeng-v0.6.15-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
-          ! unzip -l apk-output/Zhigeng-v0.6.15-unsigned.apk | grep -q 'reader-fixture'
-          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.15-unsigned.apk | grep -q 'fcc_test_ca'
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.16-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | wc -c)" -gt 10000
+          ! unzip -l apk-output/Zhigeng-v0.6.16-unsigned.apk | grep -q 'lib/.*\.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! unzip -p apk-output/Zhigeng-v0.6.16-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
+          ! unzip -l apk-output/Zhigeng-v0.6.16-unsigned.apk | grep -q 'reader-fixture'
+          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.16-unsigned.apk | grep -q 'fcc_test_ca'
       - name: Start local FCC protocol fixture
         run: python3 scripts/fcc-protocol-fixture.py > /tmp/fcc-fixture.log 2>&1 &
       - name: Start local BookOrbit protocol fixture
@@ -99,7 +99,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: Zhigeng-native-android-v0.6.15-unsigned-build
+          name: Zhigeng-native-android-v0.6.16-unsigned-build
           path: |
             apk-output/
             emulator-check/

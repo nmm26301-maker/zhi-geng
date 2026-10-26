@@ -16,9 +16,11 @@ final class DownloadPolicy {
     static void verifyContent(byte[] prefix,String extension,long total,long bytes)throws Exception{
         if(bytes==0||total>=0&&bytes!=total)throw new Exception("文件下载不完整，请重试");
         String head=new String(prefix,java.nio.charset.StandardCharsets.UTF_8).trim().toLowerCase(Locale.ROOT);
-        if(head.startsWith("<!doctype html")||head.startsWith("<html")||head.startsWith("{\"error\""))throw new Exception("来源返回错误页，未加入书架");
+        if(head.startsWith("\ufeff"))head=head.substring(1).trim();
+        if(head.startsWith("<!doctype html")||head.startsWith("<html")||head.matches("(?s)^\\{\\s*\"error\"\\s*:.*"))throw new Exception("来源返回错误页，未加入书架");
         if(extension.equals("pdf")&&!(prefix.length>=4&&prefix[0]=='%'&&prefix[1]=='P'&&prefix[2]=='D'&&prefix[3]=='F'))throw new Exception("来源返回的文件不是 PDF");
         if(extension.equals("epub")&&!(prefix.length>=2&&prefix[0]=='P'&&prefix[1]=='K'))throw new Exception("来源返回的文件不是 EPUB");
     }
     static String extension(String raw){String ext=raw.toLowerCase(Locale.ROOT);return ext.matches("epub|pdf|txt|mobi|azw3|djvu|fb2")?ext:"bin";}
 }
+

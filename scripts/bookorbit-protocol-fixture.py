@@ -8,6 +8,7 @@ REFRESH='a'*64
 REVOKED=False
 RETRY_REQUESTS=0
 LIBRARY_MODE='original'
+DOWNLOAD_MODE='valid'
 def record(event):
     EVENTS.append(event)
     (REPORT/'protocol.json').write_text(json.dumps(EVENTS,indent=2))
@@ -22,8 +23,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
         assert self.headers.get('Cookie') is None,'native session leaked a web cookie'
         return True
     def do_POST(self):
-        global REVOKED,RETRY_REQUESTS,LIBRARY_MODE
+        global REVOKED,RETRY_REQUESTS,LIBRARY_MODE,DOWNLOAD_MODE
         body=json.loads(self.rfile.read(int(self.headers.get('Content-Length','0'))))
+        if self.path=='/fixture/download':
+            assert body['mode'] in ('valid','invalidzip','bomhtml','problemjson')
+            DOWNLOAD_MODE=body['mode'];record('download-mode:'+DOWNLOAD_MODE);return self.respond(200,{})
         if self.path=='/fixture/libraries':
             assert body['mode'] in ('original','empty','podcasts','replaced')
             LIBRARY_MODE=body['mode'];record('library-mode:'+LIBRARY_MODE);return self.respond(200,{})
@@ -66,9 +70,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if self.path=='/api/v1/books/1':
             record('detail');return self.respond(200,dict(id=1,title='Spring letter',description='<p>Original EPUB for protocol checks.</p>',authors=[{'name':'Original local fixture'}],files=[dict(id=7,format='epub',role='primary',sizeBytes=4096)]))
         if self.path=='/api/v1/books/files/7/download':
+            if DOWNLOAD_MODE=='invalidzip':record('invalid-epub');return self.respond(200,b'PK\x03\x04incomplete ZIP archive','application/octet-stream')
+            if DOWNLOAD_MODE=='bomhtml':record('bom-html');return self.respond(200,b'\xef\xbb\xbf  <!DOCTYPE HTML><html>Verification required</html>','application/octet-stream')
+            if DOWNLOAD_MODE=='problemjson':record('problem-json');return self.respond(200,{'type':'about:blank','title':'Download unavailable'},'application/problem+json')
             record('download');return self.respond(200,(ROOT/'android/app/src/debug/assets/reader-fixture.epub').read_bytes(),'application/epub+zip')
         return self.respond(404,{})
 base=ROOT/'android/tests/fixtures'
 context=ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER);context.load_cert_chain(base/'local-test-only.crt',base/'local-test-only.key')
 server=http.server.ThreadingHTTPServer(('0.0.0.0',8444),Handler);server.socket=context.wrap_socket(server.socket,server_side=True);server.serve_forever()
+
 

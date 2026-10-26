@@ -10,6 +10,8 @@ public class DownloadPolicyTest {
         DownloadPolicy.verifyContent(new byte[]{'P','K',3,4},"epub",100,100);
         DownloadPolicy.verifyContent("%PDF-1.7".getBytes(StandardCharsets.UTF_8),"pdf",100,100);
         reject(()->DownloadPolicy.verifyContent("<html>captcha".getBytes(StandardCharsets.UTF_8),"epub",100,100));
+        reject(()->DownloadPolicy.verifyContent("\ufeff  <!DOCTYPE HTML><html>captcha".getBytes(StandardCharsets.UTF_8),"txt",100,100));
+        reject(()->DownloadPolicy.verifyContent("\ufeff{ \n  \"error\" : \"expired\"}".getBytes(StandardCharsets.UTF_8),"txt",100,100));
         reject(()->DownloadPolicy.verifyContent(new byte[]{'P','K'},"epub",101,100));
         reject(()->DownloadPolicy.verifyContent(new byte[]{'x'},"pdf",1,1));
         reject(()->DownloadPolicy.verifyContent(new byte[0],"txt",0,0));
@@ -17,3 +19,4 @@ public class DownloadPolicyTest {
         System.out.println("Download policy checks passed: HTTPS, origins, response signatures, incomplete files and format bounds");
     }
 }
+

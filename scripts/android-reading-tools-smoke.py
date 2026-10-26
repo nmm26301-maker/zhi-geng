@@ -62,6 +62,12 @@ def library_mode(mode):
 def disabled(value):
     node(value)
     return any(n.get('text')==value and n.get('enabled')=='false' for n in dump().iter('node'))
+def download_mode(mode):
+    request=urllib.request.Request('https://localhost:8444/fixture/download',json.dumps({'mode':mode}).encode(),{'Content-Type':'application/json'})
+    with urllib.request.urlopen(request,context=ssl._create_unverified_context(),timeout=5) as response:assert response.status==200
+def downloaded_files():
+    if 'ebooks' not in adb('shell','run-as',APP,'ls','files').decode().splitlines():return set()
+    return set(adb('shell','run-as',APP,'ls','files/ebooks').decode().splitlines())
 def launch():
     adb('shell','am','start','-W','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER','-n',APP+'/.MainActivity');time.sleep(1)
 def menu(name):tap('更多工具');tap(name)
@@ -154,7 +160,12 @@ for value in [b'local-test-password',b'orbit-protocol-access-not-a-secret',b'"re
 adb('shell','am','force-stop',APP);launch();menu('BookOrbit 书库');wait('找到 21 本书')
 # The encrypted session must reconnect after process death without a password.
 fill('搜索书名或作者（当前书库）','Spring');tap('搜索书库');wait('找到 1 本书');tap('查看图书与版本');wait('下载 EPUB · 保存到手机');screen('05-book-detail')
-tap('下载 EPUB · 保存到手机')
+before_files=downloaded_files()
+for index,(mode,message) in enumerate([('invalidzip','下载文件损坏或不是 EPUB'),('bomhtml','来源返回错误页'),('problemjson','来源返回验证页或错误信息')]):
+    download_mode(mode);tap('下载 EPUB · 保存到手机' if index==0 else '重试');wait(message)
+    assert downloaded_files()==before_files,'failed download left a partial file or saved book'
+    screen('05a-rejected-'+mode)
+download_mode('valid');tap('重试')
 if API<29:
     # Android 8/9 uses the real system document picker instead of MediaStore.
     def picker_save():
@@ -183,15 +194,17 @@ if 'GOT IT' in text():tap('GOT IT')
 wait('第一章');screen('07-native-reader');adb('shell','input','keyevent','4');time.sleep(1)
 logs=read_logs('AndroidRuntime:E');assert 'FATAL EXCEPTION' not in logs,logs
 events=json.loads((OUT/'protocol.json').read_text())
-for event in ['native-login','native-refresh','libraries','library-query:1:1','library-query:2:0','library-mode:empty','library-mode:podcasts','transient-error','session-revoked','refresh-revoked','query:Spring:0','detail','download']:assert event in events,events
+for event in ['native-login','native-refresh','libraries','library-query:1:1','library-query:2:0','library-mode:empty','library-mode:podcasts','transient-error','session-revoked','refresh-revoked','query:Spring:0','detail','invalid-epub','bom-html','problem-json','download']:assert event in events,events
 assert 'library-query:2:1' not in events,'replacement library inherited the previous page'
 report=dict(versionCode=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP).decode()).group(1)),api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
     saveAsCancellationChecked=API<29,
     browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=not resource_error,resourceSearchExternal=not resource_error,nativeBookOrbitLogin=True,
     tokenRefresh=True,transientRetry=True,expiredSessionRecovery=True,emptyLibraryRecovery=True,replacedLibraryPageReset=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
+    invalidEpubRejected=True,bomHtmlRejected=True,problemJsonRejected=True,failedDownloadsCleaned=True,validDownloadRetry=True,
     sharedCopyByteExact=True,nativeReader=True,sha256=hashlib.sha256(expected).hexdigest(),crashes=False,
     resourceError=resource_error,fixture='original local TLS BookOrbit contract and EPUB; no real user server credentials')
 (OUT/'result.json').write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
 
 if resource_error:raise SystemExit('BookOrbit checks passed; resource-browser check remains failed; see result.json')
+
 

@@ -9,8 +9,8 @@ android {
         multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 615
-        versionName '0.6.15'
+        versionCode 616
+        versionName '0.6.16'
     }
     buildFeatures { buildConfig true }
     testOptions { unitTests.all { systemProperty "zhigeng.assets", file("src/main/assets").absolutePath } }
@@ -35,5 +35,6 @@ dependencies {
 }
 
 dependencies { implementation 'org.jsoup:jsoup:1.18.3' }
+
 
 
