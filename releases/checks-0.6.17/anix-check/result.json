@@ -1,0 +1,33 @@
+{
+  "versionCode": 617,
+  "api": 33,
+  "nativeCatalogue": true,
+  "search": true,
+  "hasNextPagePagination": true,
+  "localWatchlist": true,
+  "progressValidation": true,
+  "offlineRestart": true,
+  "removalConfirmation": true,
+  "transientRetry": true,
+  "graphQlError": true,
+  "rateLimit": true,
+  "detailExternalBrowser": true,
+  "officialReleaseExternal": true,
+  "browserReturns": true,
+  "smallPhone375dp": true,
+  "fontScale": 2.0,
+  "landscape": true,
+  "desktopPlayerEmbedded": false,
+  "fixture": "original local TLS AniList contract; live availability reported separately",
+  "crashes": false,
+  "verificationMode": "remaining checks on the identical compiled APK",
+  "baselineWorkflowRun": 40365292595,
+  "baselineCommit": "e4e656f9f20311bcdd53f3ec80ed067da8248a19",
+  "baselineApkSha256": "4b26bcb22c284e828a6bea20aabb41c33cf796bcde4206a90e7d8385683880e2",
+  "executedInThisRun": [
+    "HTTP 429",
+    "official-release browser return",
+    "375dp and 2.0 font scale",
+    "landscape"
+  ]
+}
