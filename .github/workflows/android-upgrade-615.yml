@@ -1,0 +1,67 @@
+name: Verify 0.6.15 signed covering upgrade
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-upgrade-615.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch exact compiled artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12588290334/zip -o build614.zip
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12630872794/zip -o build615.zip
+          echo 'b33d27f3cb7f40e3994b81bd28a1e5c5412ef9757bc9a94eeb4afe8a22ac7d32  build614.zip' | sha256sum --check
+          echo 'd6cf1c59df571605f11aab602c658691a510826af8568cf36d28059ea59378da  build615.zip' | sha256sum --check
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Restore and verify exact original-signed releases
+        run: |
+          mkdir -p "$RUNNER_TEMP/zhigeng-615-signatures" apk-output backups/Zhigeng-0.6.15
+          unzip -p build614.zip apk-output/Zhigeng-v0.6.14-unsigned.apk > "$RUNNER_TEMP/zhigeng-615-signatures/Zhigeng-v0.6.14.apk"
+          unzip -p build615.zip apk-output/Zhigeng-v0.6.15-unsigned.apk > "$RUNNER_TEMP/zhigeng-615-signatures/Zhigeng-v0.6.15.apk"
+          (cd "$RUNNER_TEMP/zhigeng-615-signatures" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.14.patch")
+          (cd "$RUNNER_TEMP/zhigeng-615-signatures" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.15.patch")
+          cp "$RUNNER_TEMP/zhigeng-615-signatures/Zhigeng-v0.6.14.apk" previous.apk
+          cp "$RUNNER_TEMP/zhigeng-615-signatures/Zhigeng-v0.6.15.apk" backups/Zhigeng-0.6.15/Zhigeng-v0.6.15.apk
+          echo '3fd55e7f6d19d025417202faa710474591c2b60b0cb98e71160e0f9d0202c916  previous.apk' | sha256sum --check
+          echo 'e557c76848c743d5e55299142b011d3e0ad08b3c7f727b4d8e685e10cb9fd220  backups/Zhigeng-0.6.15/Zhigeng-v0.6.15.apk' | sha256sum --check
+          unzip -p build615.zip apk-output/apksigner.jar > apk-output/apksigner.jar
+          java -jar apk-output/apksigner.jar verify --min-sdk-version 26 --verbose --print-certs backups/Zhigeng-0.6.15/Zhigeng-v0.6.15.apk
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Enable KVM
+        run: sudo chmod 666 /dev/kvm
+      - name: Verify original-signed 614 to 615 upgrade
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
+          script: python3 scripts/android-upgrade-phone-615.py
+      - name: Preserve verification reports
+        if: always()
+        run: |
+          mkdir -p releases/checks-0.6.15/upgrade
+          if test -d backups/Zhigeng-0.6.15/checks; then cp -R backups/Zhigeng-0.6.15/checks/. releases/checks-0.6.15/upgrade/; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/checks-0.6.15
+          git diff --cached --quiet || git commit -m 'test: preserve 0.6.15 original-signature covering-upgrade checks [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
