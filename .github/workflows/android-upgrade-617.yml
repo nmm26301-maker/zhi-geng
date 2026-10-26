@@ -20,7 +20,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p signed617-work apk-output
+          mkdir -p "$RUNNER_TEMP/zhigeng617signed" apk-output
           curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12652335515/zip -o build616.zip
           echo 'caa4832568237946078c746945de0613607ca9a3a6ff92c43abe00fb2148a55b  build616.zip' | sha256sum --check
           gh api repos/nmm26301-maker/zhi-geng/actions/runs/40362952116/artifacts > build617-artifacts.json
@@ -33,12 +33,12 @@ jobs:
           with zipfile.ZipFile('build617.zip') as archive:
               assert hashlib.sha256(archive.read('apk-output/Zhigeng-v0.6.17-unsigned.apk')).hexdigest()==manifest['unsignedApkSha256']
           PY
-          unzip -p build616.zip apk-output/Zhigeng-v0.6.16-unsigned.apk > signed617-work/Zhigeng-v0.6.16.apk
-          unzip -p build617.zip apk-output/Zhigeng-v0.6.17-unsigned.apk > signed617-work/Zhigeng-v0.6.17.apk
-          (cd signed617-work && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.16.patch")
-          (cd signed617-work && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.17.patch")
-          cp signed617-work/Zhigeng-v0.6.16.apk previous.apk
-          cp signed617-work/Zhigeng-v0.6.17.apk Zhigeng-v0.6.17.apk
+          unzip -p build616.zip apk-output/Zhigeng-v0.6.16-unsigned.apk > "$RUNNER_TEMP/zhigeng617signed"/Zhigeng-v0.6.16.apk
+          unzip -p build617.zip apk-output/Zhigeng-v0.6.17-unsigned.apk > "$RUNNER_TEMP/zhigeng617signed"/Zhigeng-v0.6.17.apk
+          (cd "$RUNNER_TEMP/zhigeng617signed" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.16.patch")
+          (cd "$RUNNER_TEMP/zhigeng617signed" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.17.patch")
+          cp "$RUNNER_TEMP/zhigeng617signed"/Zhigeng-v0.6.16.apk previous.apk
+          cp "$RUNNER_TEMP/zhigeng617signed"/Zhigeng-v0.6.17.apk Zhigeng-v0.6.17.apk
           python3 - <<'PY'
           import hashlib,json,pathlib
           manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.17.json').read_text())
