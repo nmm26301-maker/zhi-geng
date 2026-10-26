@@ -1,10 +1,10 @@
 """Native catalogue, retry, local progress and offline restart against original TLS data."""
-import json,pathlib,re,subprocess,time,xml.etree.ElementTree as E
+import json,pathlib,re,subprocess,sys,time,xml.etree.ElementTree as E
 APP='cn.zhigeng.app';OUT=pathlib.Path('anix-check');OUT.mkdir(exist_ok=True)
 def adb(*args):return subprocess.check_output(['adb',*map(str,args)],stderr=subprocess.STDOUT,timeout=45).decode(errors='replace')
 def tree():
     adb('shell','uiautomator','dump','/sdcard/anime.xml');return E.fromstring(adb('shell','cat','/sdcard/anime.xml'))
-def has(value):return any(value in n.get('text','') for n in tree().iter('node'))
+def has(value):return any(value.casefold() in n.get('text','').casefold() for n in tree().iter('node'))
 def top():
     for _ in range(5):adb('shell','input','swipe',540,450,540,1600,160)
 def wait(value):
@@ -16,7 +16,7 @@ def tap(value):
     for _ in range(12):
         root=tree()
         for n in root.iter('node'):
-            if value in (n.get('text'),n.get('content-desc')):
+            if value.casefold() in (n.get('text','').casefold(),n.get('content-desc','').casefold()):
                 a,b,c,d=map(int,re.findall(r'\d+',n.get('bounds')))
                 if c>a and d>b:adb('shell','input','tap',(a+c)//2,(b+d)//2);time.sleep(.6);return
         scroll=next((n for n in root.iter('node') if n.get('class')=='android.widget.ScrollView' and n.get('scrollable')=='true'),None)
@@ -30,6 +30,12 @@ def fill(label,value):
 def screen(name):
     print('Anime checkpoint:',name,flush=True);(OUT/(name+'.xml')).write_bytes(E.tostring(tree(),encoding='utf-8'))
     (OUT/(name+'.png')).write_bytes(subprocess.check_output(['adb','exec-out','screencap','-p'],timeout=45))
+def failed(kind,value,trace):
+    try:
+        screen('failure-state');(OUT/'runtime-failure.txt').write_text(adb('logcat','-d','-s','AndroidRuntime:E'))
+    except Exception:pass
+    sys.__excepthook__(kind,value,trace)
+sys.excepthook=failed
 def launch():
     adb('shell','am','force-stop',APP);adb('shell','am','start','-W','-n',APP+'/.AnixTestActivity');time.sleep(1)
 def external(host):

@@ -1,0 +1,77 @@
+name: Verify 0.6.16 native anime and original-signed upgrade
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-verify-native-616.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Fetch exact compiled releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12630872794/zip -o build615.zip
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12650409164/zip -o build616.zip
+          echo 'd6cf1c59df571605f11aab602c658691a510826af8568cf36d28059ea59378da  build615.zip' | sha256sum --check
+          echo 'fde88f5df9f9b2ae60b07a1dfe0b82159aba7fb01972e0ab73e281bd1df8acdc  build616.zip' | sha256sum --check
+      - name: Restore exact original-signed APKs
+        run: |
+          mkdir -p "$RUNNER_TEMP/zhigeng-native616-signatures" apk-output backups/Zhigeng-0.6.16 anix-check
+          unzip -p build615.zip apk-output/Zhigeng-v0.6.15-unsigned.apk > "$RUNNER_TEMP/zhigeng-native616-signatures/Zhigeng-v0.6.15.apk"
+          unzip -p build616.zip apk-output/Zhigeng-v0.6.16-unsigned.apk > "$RUNNER_TEMP/zhigeng-native616-signatures/Zhigeng-v0.6.16.apk"
+          (cd "$RUNNER_TEMP/zhigeng-native616-signatures" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.15.patch")
+          (cd "$RUNNER_TEMP/zhigeng-native616-signatures" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.16.patch")
+          cp "$RUNNER_TEMP/zhigeng-native616-signatures/Zhigeng-v0.6.15.apk" previous.apk
+          cp "$RUNNER_TEMP/zhigeng-native616-signatures/Zhigeng-v0.6.16.apk" backups/Zhigeng-0.6.16/Zhigeng-v0.6.16.apk
+          echo 'e557c76848c743d5e55299142b011d3e0ad08b3c7f727b4d8e685e10cb9fd220  previous.apk' | sha256sum --check
+          echo '543339ef55d7b3422713798fa87086a5df874dc9b86c65f4c805327cfacb06d4  backups/Zhigeng-0.6.16/Zhigeng-v0.6.16.apk' | sha256sum --check
+          unzip -p build616.zip apk-output/apksigner.jar > apk-output/apksigner.jar
+          unzip -p build616.zip apk-output/Zhigeng-debug-test.apk > apk-output/Zhigeng-debug-test.apk
+          unzip -p build616.zip anix-check/live-api.json > anix-check/live-api.json
+          java -jar apk-output/apksigner.jar verify --min-sdk-version 26 --verbose --print-certs backups/Zhigeng-0.6.16/Zhigeng-v0.6.16.apk
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Start original local anime fixture
+        run: python3 scripts/anime-catalog-fixture.py > /tmp/anime-fixture.log 2>&1 &
+      - name: Enable KVM
+        run: sudo chmod 666 /dev/kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
+          script: |
+            adb install -r apk-output/Zhigeng-debug-test.apk
+            python3 scripts/android-anime-catalog-smoke.py
+            python3 scripts/android-local-download-smoke.py
+            python3 scripts/android-upgrade-phone-616.py
+      - name: Preserve verification reports
+        if: always()
+        run: |
+          mkdir -p releases/checks-0.6.16/upgrade
+          if test -d backups/Zhigeng-0.6.16/checks; then cp -R backups/Zhigeng-0.6.16/checks/. releases/checks-0.6.16/upgrade/; fi
+          for directory in anix-check phone-download-check; do
+            if test -d "$directory"; then mkdir -p "releases/checks-0.6.16/$directory"; cp -R "$directory/." "releases/checks-0.6.16/$directory/"; fi
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/checks-0.6.16
+          git diff --cached --quiet || git commit -m 'test: preserve native anime, phone copies and original-signature 0.6.16 upgrade checks [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
