@@ -1,0 +1,18 @@
+{
+  "versionCode": 617,
+  "api": 33,
+  "directory": "Download/知更",
+  "publicFilesVisible": true,
+  "bytesMatchCompletedDownload": true,
+  "duplicateNamesDoNotOverwrite": true,
+  "saveAsPicker": true,
+  "cancelPreservesFiles": true,
+  "independentOfAppUninstall": true,
+  "sha256": "d38cedcdedb07179d6317d5c11a2ead2c011dcb811fb3cf0aa7bb1c3db9c983f",
+  "files": [
+    "知更本地保存测试.epub",
+    "知更本地保存测试 (1).epub"
+  ],
+  "fixture": "original local EPUB; account/network download is not exercised",
+  "crashes": false
+}
