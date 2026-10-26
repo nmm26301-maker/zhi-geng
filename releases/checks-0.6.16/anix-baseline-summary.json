@@ -1,0 +1,29 @@
+{
+  "workflowRun": 40328181851,
+  "workflowCommit": "514f2af13876bb84652b04d4a44560185f3708f4",
+  "evidenceCommit": "6c5374bd4ee92df8b6f6f1be90b803cc1e4a3f04",
+  "apkSha256": "cce2b714c09932f093bf1b2393ac4dab311fe4f5cdc113216fe2599d6d174f9c",
+  "passed": {
+    "nativeMainEntry": true,
+    "nativeCatalogue": true,
+    "search": true,
+    "hasNextPagePagination": true,
+    "externalDetailAndReturn": true,
+    "localProgressSave": true,
+    "offlineProcessRestart": true,
+    "progressBoundsAndVisibleFeedback": true,
+    "removeCancelAndConfirm": true,
+    "transientRetry": true,
+    "graphQlError": true
+  },
+  "crashes": false,
+  "interruption": "UI automation did not replace graphql-error with limited; remaining tests run separately against the identical compiled APK after verifying typed text",
+  "remaining": [
+    "HTTP 429",
+    "official-release browser return",
+    "375dp and 2.0 font scale",
+    "landscape",
+    "phone copies",
+    "original-signature covering upgrade"
+  ]
+}

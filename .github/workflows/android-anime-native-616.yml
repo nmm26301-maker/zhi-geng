@@ -12,6 +12,8 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: cd1c6cab7b32d300ed877c3a35c2f4e5cea0d3d6
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
