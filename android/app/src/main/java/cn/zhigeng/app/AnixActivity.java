@@ -124,13 +124,15 @@ public class AnixActivity extends ReadingToolActivity {
         Spinner state=new Spinner(this);state.setContentDescription("选择追番状态");state.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,AnimeWatchlist.STATES));add(content,state,8);
         if(saved!=null)for(int i=0;i<AnimeWatchlist.STATES.length;i++)if(AnimeWatchlist.STATES[i].equals(saved.optString("state")))state.setSelection(i);
         add(content,text("已看集数",15,INK),12);EditText progress=input("填写已看集数");progress.setInputType(InputType.TYPE_CLASS_NUMBER);progress.setText(Integer.toString(saved==null?0:saved.optInt("progress")));add(content,progress,8);
-        AlertDialog dialog=new AlertDialog.Builder(this).setTitle(AnimeCatalogClient.title(media)).setView(content).setNegativeButton("取消",null)
+        TextView validation=text("",14,INK);validation.setVisibility(View.GONE);validation.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);add(content,validation,8);
+        ScrollView form=new ScrollView(this);form.addView(content);
+        AlertDialog dialog=new AlertDialog.Builder(this).setTitle(AnimeCatalogClient.title(media)).setView(form).setNegativeButton("取消",null)
             .setPositiveButton("保存追番",null).setNeutralButton(saved==null?null:"移出追番",(d,w)->remove(media)).create();
         dialog.setOnShowListener(d->dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{try{
             int count=Integer.parseInt(progress.getText().toString().trim());String value=state.getSelectedItem().toString();
             if(value.equals("已看完")&&media.optInt("episodes",0)>0)count=media.optInt("episodes");
             if(save(AnimeWatchlist.update(watchlist,media,value,count))){dialog.dismiss();redraw();Toast.makeText(this,"追番已保存到本机",Toast.LENGTH_SHORT).show();}
-        }catch(Exception e){progress.setError(e instanceof NumberFormatException?"请填写有效集数":e.getMessage());}}));dialog.show();
+        }catch(Exception e){String message=e instanceof NumberFormatException?"请填写有效集数":e.getMessage();progress.setError(message);validation.setText(message);validation.setVisibility(View.VISIBLE);form.post(()->form.fullScroll(View.FOCUS_DOWN));}}));dialog.show();
     }
     private boolean save(JSONObject updated) {
         if(!preferences.edit().putString("entries",updated.toString()).commit()){status.setText("追番未能保存，请重试");return false;}
@@ -140,7 +142,7 @@ public class AnixActivity extends ReadingToolActivity {
         new AlertDialog.Builder(this).setTitle("移出追番？").setMessage("将移除这部动漫在本机的追番状态与已看集数。")
             .setNegativeButton("保留",null).setPositiveButton("移出",(d,w)->{try{if(save(AnimeWatchlist.remove(watchlist,media.optLong("id"))))redraw();}catch(Exception e){status.setText("暂时无法移出追番，请重试");}}).show();
     }
-    private void redraw(){if(local)showLocal(search.getText().toString().trim());else showPage(shown,page,hasNext);}
+    private void redraw(){if(local)showLocal(search.getText().toString().trim(),localPage);else showPage(shown,page,hasNext);}
     private void official() {
         new AlertDialog.Builder(this).setTitle("Anix v1.3.0 · Linux 桌面版").setMessage("官方没有 Android 安装包。本页的动漫目录与追番由知更原生实现，未打包桌面播放器或视频扩展。")
             .setPositiveButton("进入 Anix 官网 ↗",(d,w)->BrowserLinks.open(this,"https://anix-linux.vercel.app"))
