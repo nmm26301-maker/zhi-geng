@@ -68,7 +68,7 @@ assert b'Success' in adb('uninstall',APP)
 for name in after:check_copy(name)
 logs=adb('logcat','-d','-s','AndroidRuntime:E').decode(errors='replace')
 assert 'FATAL EXCEPTION' not in logs,logs
-result=dict(versionCode=614,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),
+result=dict(versionCode=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP).decode()).group(1)),api=int(adb('shell','getprop','ro.build.version.sdk').strip()),
     directory='Download/知更',publicFilesVisible=True,bytesMatchCompletedDownload=True,
     duplicateNamesDoNotOverwrite=True,saveAsPicker=True,cancelPreservesFiles=True,
     independentOfAppUninstall=True,sha256=hashlib.sha256(original).hexdigest(),files=after,

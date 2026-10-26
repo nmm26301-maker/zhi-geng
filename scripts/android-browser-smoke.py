@@ -98,7 +98,7 @@ home();tap('我的');external('12-project','开源项目与许可 ↗','github.c
 home();tap('书架')
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(logs)
 assert 'FATAL EXCEPTION' not in logs,logs
-report=dict(applicationId=APP,versionCode=614,api=int(adb('shell','getprop','ro.build.version.sdk').strip()),externalBrowserEntries=results,
+report=dict(applicationId=APP,versionCode=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP)).group(1)),api=int(adb('shell','getprop','ro.build.version.sdk').strip()),externalBrowserEntries=results,
             websiteNetworkRequired=False,appResumedAfterBrowser=True,crashes=False)
 (OUT/'result.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
 print('Website routing passed:',len(results),'native entries opened the external browser')

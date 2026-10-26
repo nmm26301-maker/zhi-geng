@@ -185,7 +185,7 @@ logs=read_logs('AndroidRuntime:E');assert 'FATAL EXCEPTION' not in logs,logs
 events=json.loads((OUT/'protocol.json').read_text())
 for event in ['native-login','native-refresh','libraries','library-query:1:1','library-query:2:0','library-mode:empty','library-mode:podcasts','transient-error','session-revoked','refresh-revoked','query:Spring:0','detail','download']:assert event in events,events
 assert 'library-query:2:1' not in events,'replacement library inherited the previous page'
-report=dict(versionCode=615,api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
+report=dict(versionCode=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP).decode()).group(1)),api=API,storageStrategy='MediaStore' if API>=29 else 'SAF',
     saveAsCancellationChecked=API<29,
     browserReturnMethods=browser_returns,separateNativePages=True,comicCategoryExternal=not resource_error,resourceSearchExternal=not resource_error,nativeBookOrbitLogin=True,
     tokenRefresh=True,transientRetry=True,expiredSessionRecovery=True,emptyLibraryRecovery=True,replacedLibraryPageReset=True,librarySearch=True,encryptedSessionRestart=True,epubDownload=True,
