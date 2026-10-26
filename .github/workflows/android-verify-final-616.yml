@@ -1,4 +1,4 @@
-name: Verify 0.6.16 native anime and original-signed upgrade
+name: Verify remaining 0.6.16 anime checks and original-signed upgrade
 on:
   push:
     branches: [main]
@@ -58,7 +58,7 @@ jobs:
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
           script: |
             adb install -r apk-output/Zhigeng-debug-test.apk
-            python3 scripts/android-anime-catalog-smoke.py
+            python3 scripts/android-anime-catalog-smoke.py --remaining
             python3 scripts/android-local-download-smoke.py
             python3 scripts/android-upgrade-phone-616.py
       - name: Preserve verification reports
