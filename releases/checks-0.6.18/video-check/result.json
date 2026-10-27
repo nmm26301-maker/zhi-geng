@@ -1,8 +1,16 @@
 {
   "versionCode": 618,
   "cases": {
-    "platformBrowserRouting": true
+    "platformBrowserRouting": true,
+    "nativePlaybackResumeAndWatchlist": {
+      "checkpointMs": 7749,
+      "resumedSeconds": 10,
+      "progress": 1
+    },
+    "pauseRestartResumeAndBackgroundDownload": true,
+    "safPlaylistImport": true,
+    "hlsDownloadAndHtmlRejection": true
   },
   "fixture": "original generated 24-second moving H264/AAC MP4 and HLS",
-  "failure": "RuntimeError(\"('shell', 'run-as', 'cn.zhigeng.app', 'cat', 'shared_prefs/anix_watchlist_v1.xml'): cat: shared_prefs/anix_watchlist_v1.xml: No such file or directory\\n\")"
+  "failure": "AssertionError('Missing video action: 缓存第1集')"
 }
