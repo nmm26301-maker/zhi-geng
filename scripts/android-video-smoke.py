@@ -4,7 +4,7 @@ Only a disposable emulator test installation is cleared. All video bytes are an
 original generated fixture. No production account or third-party stream is used.
 """
 import hashlib,io,json,os,pathlib,re,signal,subprocess,sys,time,xml.etree.ElementTree as E
-from PIL import Image
+from PIL import Image,ImageChops
 APP='cn.zhigeng.app';OUT=pathlib.Path('video-check');OUT.mkdir(exist_ok=True)
 BASE='https://10.0.2.2:8446';RESULT={'versionCode':618,'cases':{},'fixture':'original generated 24-second moving H264/AAC MP4 and HLS'}
 def adb(*args):
@@ -72,21 +72,25 @@ def seconds(t):
         if m:return int(m[1])*60+int(m[2])
     return -1
 def decoded(name):
-    t=tree();frame=nodes(APP+':id/exo_content_frame',t);assert frame,'No native video surface'
+    # uiautomator's idle wait stalls while both native playback clocks update.
+    # Inspect the actual video pixels without requesting an idle UI hierarchy.
     image=Image.open(io.BytesIO(adb('exec-out','screencap','-p'))).convert('RGB')
-    a,b,c,d=bounds(frame[0]);region=image.crop((a,b,c,d))
+    width,height=image.size
+    region=image.crop((width//10,height//4,width*9//10,height*3//5))
     colourful=sum(1 for r,g,b in region.getdata() if max(r,g,b)-min(r,g,b)>70 and max(r,g,b)>100)
-    assert colourful>2000,dict(colourfulPixels=colourful,bounds=bounds(frame[0]))
+    assert colourful>10000,dict(colourfulPixels=colourful,size=image.size)
     image.save(OUT/(name+'.png'))
-    (OUT/(name+'.xml')).write_bytes(E.tostring(t,encoding='utf-8'))
-    return colourful
+    return region
 def play(episode,offline=False):
     tap('播放第'+str(episode)+'集')
-    t=wait(lambda t:seconds(t)>=1,35);first=seconds(t)
-    t=wait(lambda t:seconds(t)>first,15)
-    if offline:assert any('离线' in n.get('text','') for n in t.iter('node'))
-    decoded('decoded-'+str(episode)+('-offline' if offline else ''))
-    return seconds(t)
+    time.sleep(2);first=decoded('decoded-'+str(episode)+'-first')
+    time.sleep(2);second=decoded('decoded-'+str(episode)+('-offline' if offline else ''))
+    changed=sum(1 for pixel in ImageChops.difference(first,second).getdata() if max(pixel)>20)
+    assert changed>1000,dict(changedPixels=changed,episode=episode)
+    time.sleep(2)
+    position=saved(episode)['position']
+    assert position>=1000,dict(episode=episode,checkpoint=position)
+    return position//1000
 def cache(episode):
     tap('缓存第'+str(episode)+'集');tap('开始缓存')
     for _ in range(4):
@@ -141,10 +145,11 @@ adb('shell','cmd','role','add-role-holder','--user','0','android.app.role.BROWSE
 tap('查询播出平台');wait(lambda t:has('Original platform · example.org',t));adb('logcat','-c');tap('Original platform · example.org')
 time.sleep(1);logs=txt('logcat','-d','-s','ActivityTaskManager:I');assert 'dat=https://example.org/' in logs
 restart();mark('platformBrowserRouting')
-add(1,'/clip.mp4');play(1);wait(lambda t:seconds(t)>=6,15);screen('01-native-video');back();time.sleep(1)
+add(1,'/clip.mp4');play(1);back();time.sleep(1)
 checkpoint=saved(1)['position'];assert checkpoint>=5000
-restart();resumed=play(1);assert resumed>=checkpoint//1000-1,(checkpoint,resumed);screen('02-resumed')
-tap('前进10秒');tap('前进10秒');wait(lambda t:any('播放结束' in n.get('text','') for n in t.iter('node')),25)
+restart();resumed=play(1);assert resumed>=checkpoint//1000-1,(checkpoint,resumed)
+ended=wait(lambda t:any('播放结束' in n.get('text','') for n in t.iter('node')),30)
+rotate_bounds=bounds(nodes('横屏 / 竖屏',ended)[0]);screen('02-resumed-and-completed')
 assert pref('anix_watchlist_v1','entries')['7']['progress']==1
 back();mark('nativePlaybackResumeAndWatchlist',{'checkpointMs':checkpoint,'resumedSeconds':resumed,'progress':1})
 add(2,'/slow.mp4');cache(2);tap('暂停缓存第2集');wait(lambda t:any('缓存已暂停' in n.get('text','') for n in nodes('第2集缓存状态',t)))
@@ -166,13 +171,13 @@ cache(1);cached(1);export(1);adb('pull','/sdcard/Download/zhigeng-video-export.m
 original=pathlib.Path('video-fixture/clip.mp4').read_bytes();assert (OUT/'export.mp4').read_bytes()==original
 before=exported();tap('导出第1集视频');back();time.sleep(.5);assert exported()==before;mark('exportExactBytesAndCancel',{'bytes':len(original),'sha256':hashlib.sha256(original).hexdigest()});(OUT/'export.mp4').unlink()
 tap('导入本地视频');fill('起始集数','5');tap('继续');picker_downloads();tap('zhigeng-original-video.mp4');wait(lambda t:any('已关联剧集 · 5 集'==n.get('text') for n in t.iter('node')))
-restart();play(5);screen('05-local-file');back();mark('safLocalGrantSurvivesRestart')
+restart();play(5);back();mark('safLocalGrantSurvivesRestart')
 # Kill the origin and disable network before cached MP4, HLS and local playback.
 os.kill(int((OUT/'fixture.pid').read_text()),signal.SIGTERM);adb('shell','svc','wifi','disable');adb('shell','svc','data','disable')
 for episode in (2,3,5):
-    play(episode,episode!=5);wait(lambda t:seconds(t)>=3,12);screen('06-offline-'+str(episode));back()
+    play(episode,episode!=5);decoded('06-offline-'+str(episode));back()
 mark('offlineMp4HlsAndLocalDecoded')
-play(2,True);before=seconds(tree());tap('横屏 / 竖屏');wait(lambda t:seconds(t)>=before,25);decoded('decoded-landscape');after=seconds(tree());assert after>=before-1,(before,after);screen('07-landscape');back();mark('rotationRetainsPlayback')
+play(2,True);before=saved(2)['position'];a,b,c,d=rotate_bounds;adb('shell','input','tap',(a+c)//2,(b+d)//2);time.sleep(6);decoded('07-landscape');after=saved(2)['position'];assert after>=before,(before,after);back();mark('rotationRetainsPlayback')
 logs=txt('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
 RESULT['crashes']=False;RESULT['api']=int(txt('shell','getprop','ro.build.version.sdk'));mark('completed')
 adb('shell','svc','wifi','enable');adb('shell','svc','data','enable');adb('shell','am','force-stop',APP)
