@@ -61,7 +61,9 @@
     },
     "crashes": false,
     "api": 33,
-    "workflowRun": 40439569830
+    "workflowRun": 40439569830,
+    "buildVariant": "Debug companion from the same exact build; shared production player/cache/export code, with the local fixture activity and CA included only in debug.",
+    "debugApkSha256": "b02e59a6a9823a76d7aeffb311c658f29c9458bf5ca53981ff37d75fa2febe67"
   },
   "verificationScope": "51 unit tests; retained native decode/cache/export/offline checks from 40437092864 and 40439569830 on identical APK; final original-signed upgrade and English routing in verificationRun",
   "upgradeChecks": {
@@ -78,7 +80,9 @@
     "offlineRestart": true,
     "noSecondApp": true,
     "crashes": false,
-    "fixture": "Explicit old-schema SharedPreferences seed, shown by original 0.6.17 before covering upgrade; no real account or network"
+    "fixture": "Explicit old-schema SharedPreferences seed, shown by original 0.6.17 before covering upgrade; no real account or network",
+    "buildVariant": "Original-signed release APK",
+    "apkSha256": "b3c81d5bd9ff66052a8318005fa3bab6f06ce43e4ff9b7107fda0128d3f74c40"
   },
   "englishChecks": {
     "versionCode": 618,
@@ -102,5 +106,5 @@
     "intentLogRedactsPath": true,
     "crashes": false
   },
-  "visualReview": "Original generated moving test pattern decoded to native video surface; pixel and advancing-clock assertions on MP4/HLS/local and offline sources. Physical devices not tested."
+  "visualReview": "Reviewed actual offline HLS portrait and MP4 landscape video screenshots; video visible, native controls readable, footer scrollable. Physical devices and large-font playback not tested."
 }
