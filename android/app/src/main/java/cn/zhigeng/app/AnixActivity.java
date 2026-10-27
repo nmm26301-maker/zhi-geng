@@ -63,8 +63,9 @@ public class AnixActivity extends ReadingToolActivity {
         pages.addView(previous,new LinearLayout.LayoutParams(0,-2,1));LinearLayout.LayoutParams ng=new LinearLayout.LayoutParams(0,-2,1);ng.leftMargin=dp(8);pages.addView(next,ng);add(body,pages,8);
         previous.setOnClickListener(v->{if(local)showLocal(search.getText().toString().trim(),localPage-1);else if(page>1)load(page-1);});
         next.setOnClickListener(v->{if(local)showLocal(search.getText().toString().trim(),localPage+1);else if(hasNext)load(page+1);});
+        Button videos=action("本地视频与离线缓存",false);add(body,videos,16);videos.setOnClickListener(v->startActivity(new android.content.Intent(this,AnimeVideoLibraryActivity.class)));
         Button official=action("Anix 官方项目与使用说明",false);add(body,official,24);official.setOnClickListener(v->official());
-        add(body,text("追番状态与已看集数保存在本机，可离线查看；不登录或同步 AniList / MyAnimeList 账号。当前未移植 Anix 的 Linux 播放器及社区视频扩展。",14,INK),16);
+        add(body,text("追番状态与已看集数保存在本机，可离线查看；不登录或同步 AniList / MyAnimeList 账号。本地与已关联的视频可原生播放、缓存；社区视频扩展和账号同步仍需继续适配。",14,INK),16);
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             public void onNothingSelected(AdapterView<?> parent){}
             public void onItemSelected(AdapterView<?> parent,View view,int index,long id){if(index!=filterIndex){filterIndex=index;rememberMode();if(local)showLocal(search.getText().toString().trim());}}
@@ -128,6 +129,7 @@ public class AnixActivity extends ReadingToolActivity {
         if(saved!=null)add(card,text(saved.optString("state")+" · 已看 "+saved.optInt("progress")+" 集",15,GREEN),8);
         JSONObject airing=media.optJSONObject("nextAiringEpisode");
         if(airing!=null&&airing.optLong("airingAt")>0)add(card,text((local?"上次保存：":"")+"第 "+airing.optInt("episode")+" 集 · "+DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT).format(new Date(airing.optLong("airingAt")*1000)),13,INK),8);
+        Button episode=action("播放与下载剧集",false);add(card,episode,10);episode.setOnClickListener(v->AnimeVideoLibraryActivity.open(this,media));
         Button detail=action("动漫详情",false),track=action(saved==null?"加入追番":"更新追番",true);add(card,detail,12);add(card,track,8);
         detail.setOnClickListener(v->details(media));track.setOnClickListener(v->edit(media));
         if(AnimeWatchlist.canAdvance(saved)) {
@@ -171,7 +173,7 @@ public class AnixActivity extends ReadingToolActivity {
     }
     private void redraw(){if(local)showLocal(search.getText().toString().trim(),localPage);else showPage(shown,page,hasNext);}
     private void official() {
-        new AlertDialog.Builder(this).setTitle("Anix v1.3.0 · Linux 桌面版").setMessage("官方没有 Android 安装包。本页的动漫目录与追番由知更原生实现，未打包桌面播放器或视频扩展。")
+        new AlertDialog.Builder(this).setTitle("Anix v1.3.0 · Linux 桌面版").setMessage("官方没有 Android 安装包。本页的动漫目录与追番由知更原生实现，本地与已关联的视频使用知更原生播放器；未打包桌面播放器或社区扩展。")
             .setPositiveButton("进入 Anix 官网 ↗",(d,w)->BrowserLinks.open(this,"https://anix-linux.vercel.app"))
             .setNeutralButton("查看 v1.3.0 官方发布 ↗",(d,w)->BrowserLinks.open(this,"https://github.com/MaidLover69/Anix/releases/tag/1.3"))
             .setNegativeButton("关闭",null).show();

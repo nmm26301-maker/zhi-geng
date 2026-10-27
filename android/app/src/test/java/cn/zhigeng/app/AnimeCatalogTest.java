@@ -39,4 +39,14 @@ public class AnimeCatalogTest {
         JSONObject saved=AnimeWatchlist.update(new JSONObject(),media,"在看",55);
         assertEquals(55,saved.getJSONObject("2").getInt("progress"));
     }
+    @Test public void platformLookupIsReadonlyAndUsesIdVariables()throws Exception {
+        JSONObject body=AnimeCatalogClient.platformBody(7);assertEquals(7,body.getJSONObject("variables").getInt("id"));
+        assertTrue(body.getString("query").contains("streamingEpisodes"));assertFalse(body.getString("query").contains("mutation"));
+        for(long id:new long[]{0,-1,((long)Integer.MAX_VALUE)+1})try{AnimeCatalogClient.platformBody(id);fail();}catch(Exception expected){}
+    }
+    @Test public void platformLinksFilterMetadataSitesAndRejectUnsafeAddresses()throws Exception {
+        JSONObject response=new JSONObject("{\"data\":{\"Media\":{\"id\":7,\"streamingEpisodes\":[{\"site\":\"Video\",\"url\":\"https://example.com/play\"}],\"externalLinks\":[{\"type\":\"STREAMING\",\"url\":\"https://example.com/play\"},{\"type\":\"INFO\",\"url\":\"https://example.com/info\"},{\"type\":\"STREAMING\",\"url\":\"javascript:alert(1)\"}]}}}");
+        JSONArray links=AnimeCatalogClient.platforms(response);assertEquals(1,links.length());assertEquals("https://example.com/play",links.getJSONObject(0).getString("url"));
+        response.put("errors",new JSONArray().put(new JSONObject().put("message","offline")));try{AnimeCatalogClient.platforms(response);fail();}catch(Exception expected){}
+    }
 }

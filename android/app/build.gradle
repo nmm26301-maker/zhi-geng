@@ -9,8 +9,8 @@ android {
         multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 617
-        versionName '0.6.17'
+        versionCode 618
+        versionName '0.6.18'
     }
     buildFeatures { buildConfig true }
     testOptions { unitTests.all { systemProperty "zhigeng.assets", file("src/main/assets").absolutePath } }
@@ -38,3 +38,10 @@ dependencies { implementation 'org.jsoup:jsoup:1.18.3' }
 
 
 
+
+dependencies {
+    implementation "androidx.media3:media3-exoplayer:1.8.0"
+    implementation "androidx.media3:media3-exoplayer-hls:1.8.0"
+    implementation "androidx.media3:media3-exoplayer-dash:1.8.0"
+    implementation "androidx.media3:media3-ui:1.8.0"
+}

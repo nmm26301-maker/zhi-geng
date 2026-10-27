@@ -2,11 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <queries>
         <intent><action android:name="android.intent.action.VIEW" /><category android:name="android.intent.category.BROWSABLE" /><data android:scheme="https" /></intent>
         <intent><action android:name="android.intent.action.VIEW" /><category android:name="android.intent.category.BROWSABLE" /><data android:scheme="http" /></intent>
     </queries>
     <application android:allowBackup="false" android:label="${appLabel}" android:icon="@drawable/ic_launcher" android:roundIcon="@drawable/ic_launcher" android:theme="@style/AppTheme" android:usesCleartextTraffic="false" android:supportsRtl="true">
+        <service android:name=".AnimeDownloadService" android:exported="false" android:foregroundServiceType="dataSync" />
+        <activity android:name=".AnimeVideoLibraryActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AnimeVideoPlayerActivity" android:exported="false" />
         <activity android:name=".AnixActivity" android:exported="false" />
         <activity android:name=".BookOrbitActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ResourceSearchActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
