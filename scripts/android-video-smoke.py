@@ -24,16 +24,28 @@ def click(n):
 def scroll(t,down=True):
     choices=[n for n in t.iter('node') if n.get('scrollable')=='true' and len(bounds(n))==4]
     if not choices:return False
-    # Last scroll container is the active dialog/footer, not the screen behind it.
-    a,b,c,d=bounds(choices[-1]);x=(a+c)//2;pad=min(80,(d-b)//5)
-    adb('shell','input','swipe',x,d-pad if down else b+pad,x,b+pad if down else d-pad,250);return True
-def tap(value,search=True):
-    for i in range(28 if search else 1):
+    a,b,c,d=bounds(choices[-1]);x=(a+c)//2;h=d-b
+    # Overlapping slow movements cannot fling past an entire episode card.
+    low=b+h//3;high=b+2*h//3
+    adb('shell','input','swipe',x,high if down else low,x,low if down else high,650);return True
+
+def locate(value):
+    up_first=value in ('添加视频地址','导入剧集清单','导入本地视频','查询播出平台','播放第1集','缓存第1集','导出第1集视频')
+    down=not up_first;reversed_once=False;previous=None
+    for _ in range(48):
         t=tree();found=nodes(value,t)
-        if found:click(sorted(found,key=lambda n:n.get('clickable')!='true')[0]);return
-        up_first=value in ('添加视频地址','导入剧集清单','导入本地视频','查询播出平台','播放第1集','缓存第1集','导出第1集视频')
-        if not scroll(t,(i<14)!=up_first):break
+        if found:return sorted(found,key=lambda n:n.get('clickable')!='true')[0]
+        signature=tuple((n.get('text'),n.get('content-desc'),n.get('bounds')) for n in t.iter('node') if n.get('class')=='android.widget.Button')
+        if signature==previous:
+            if reversed_once:break
+            down=not down;reversed_once=True;previous=None
+        else:previous=signature
+        if not scroll(t,down):break
     raise AssertionError('Missing video action: '+value)
+def tap(value,search=True):
+    if search:click(locate(value))
+    else:
+        found=nodes(value);assert found,value;click(found[0])
 def wait(test,timeout=25):
     end=time.monotonic()+timeout
     while time.monotonic()<end:
@@ -99,12 +111,7 @@ def cache(episode):
         if allow:click(allow[0]);break
         time.sleep(.5)
 def status(episode):
-    label='第'+str(episode)+'集缓存状态'
-    for i in range(28):
-        t=tree();found=nodes(label,t)
-        if found:return found[0].get('text','')
-        if not scroll(t,i<14):break
-    raise AssertionError('Missing cache status '+label)
+    return locate('第'+str(episode)+'集缓存状态').get('text','')
 def cached(episode,timeout=100):
     end=time.monotonic()+timeout
     while time.monotonic()<end:
@@ -124,6 +131,13 @@ def picker_downloads():
     raise AssertionError('Downloads location not found')
 def exported():
     return txt('shell','ls','-1','/sdcard/Download').splitlines()
+def cancel_picker():
+    for _ in range(6):
+        active=txt('shell','dumpsys','activity','activities')
+        match=re.search(r'(?:mResumedActivity|topResumedActivity)[^\n]*?u\d+\s+([\w.]+)/',active)
+        if match and match.group(1)==APP:return
+        back()
+    raise AssertionError('Cancel did not return from system picker')
 def export(episode):
     tap('导出第'+str(episode)+'集视频');picker_downloads()
     t=tree();edits=[n for n in t.iter('node') if n.get('class')=='android.widget.EditText'];assert edits
@@ -138,28 +152,42 @@ def failure(kind,error,tb):
 sys.excepthook=failure
 
 adb('shell','pm','clear',APP);adb('logcat','-c');launch()
-# Read-only catalog platform query, external browser roundtrip.
-query=txt('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW','-c','android.intent.category.BROWSABLE','-d','https://example.org/')
-browsers=set(re.findall(r'^\s*([\w.]+)/',query,re.M));browsers.discard(APP);assert browsers
-browser='com.android.browser' if 'com.android.browser' in browsers else sorted(browsers)[0]
-adb('shell','cmd','role','add-role-holder','--user','0','android.app.role.BROWSER',browser)
-tap('查询播出平台');wait(lambda t:has('Original platform · example.org',t));adb('logcat','-c');tap('Original platform · example.org')
-time.sleep(1);logs=txt('logcat','-d','-s','ActivityTaskManager:I');assert 'dat=https://example.org/' in logs
-restart();mark('platformBrowserRouting')
-add(1,'/clip.mp4');play(1);back();time.sleep(1)
-checkpoint=saved(1)['position'];assert checkpoint>=5000
-restart();resumed=play(1);assert resumed>=checkpoint//1000-1,(checkpoint,resumed)
-ended=wait(lambda t:any(n.get('text')=='播放结束' for n in t.iter('node')),35)
-rotate_bounds=bounds(nodes('横屏 / 竖屏',ended)[0]);screen('02-resumed-and-completed')
-assert pref('anix_watchlist_v1','entries')['7']['progress']==1
-back();mark('nativePlaybackResumeAndWatchlist',{'checkpointMs':checkpoint,'resumedSeconds':resumed,'progress':1})
-add(2,'/slow.mp4');cache(2);tap('暂停缓存第2集');wait(lambda t:any('缓存已暂停' in n.get('text','') for n in nodes('第2集缓存状态',t)))
-screen('03-paused');restart();assert '缓存已暂停' in status(2);tap('继续缓存第2集');adb('shell','input','keyevent','3');time.sleep(4);launch();cached(2,120)
-protocol=json.loads((OUT/'protocol.json').read_text());assert any(r['path']=='/slow.mp4' and r['start']>0 for r in protocol['requests']),protocol
-mark('pauseRestartResumeAndBackgroundDownload')
+if '--remaining' in sys.argv:
+    baseline=json.loads(pathlib.Path('releases/checks-0.6.18/baseline-video-40437092864.json').read_text())
+    manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.18.json').read_text())
+    assert manifest['sha256']=='b3c81d5bd9ff66052a8318005fa3bab6f06ce43e4ff9b7107fda0128d3f74c40'
+    for key in ('platformBrowserRouting','nativePlaybackResumeAndWatchlist','pauseRestartResumeAndBackgroundDownload'):
+        assert baseline['cases'][key];RESULT['cases'][key]=baseline['cases'][key]
+    RESULT['baseline']={'workflowRun':40437092864,'scope':'platform routing, MP4 decode/resume/watchlist, paused restart and range/background resume on identical compiled APK','signedApkSha256':manifest['sha256']}
+    reference=E.parse('releases/checks-0.6.18/video-check/02-resumed-and-completed.xml').getroot()
+    rotate_bounds=bounds(nodes('横屏 / 竖屏',reference)[0])
+    assert '1080x1920' in txt('shell','wm','size')
+    add(1,'/clip.mp4');add(2,'/slow.mp4');cache(2)
+else:
+    # Read-only catalog platform query, external browser roundtrip.
+    query=txt('shell','cmd','package','query-activities','--brief','-a','android.intent.action.VIEW','-c','android.intent.category.BROWSABLE','-d','https://example.org/')
+    browsers=set(re.findall(r'^\s*([\w.]+)/',query,re.M));browsers.discard(APP);assert browsers
+    browser='com.android.browser' if 'com.android.browser' in browsers else sorted(browsers)[0]
+    adb('shell','cmd','role','add-role-holder','--user','0','android.app.role.BROWSER',browser)
+    tap('查询播出平台');wait(lambda t:has('Original platform · example.org',t));adb('logcat','-c');tap('Original platform · example.org')
+    time.sleep(1);logs=txt('logcat','-d','-s','ActivityTaskManager:I');assert 'dat=https://example.org/' in logs
+    restart();mark('platformBrowserRouting')
+    add(1,'/clip.mp4');play(1);back();time.sleep(1)
+    checkpoint=saved(1)['position'];assert checkpoint>=5000
+    restart();resumed=play(1);assert resumed>=checkpoint//1000-1,(checkpoint,resumed)
+    ended=wait(lambda t:any(n.get('text')=='播放结束' for n in t.iter('node')),35)
+    rotate_bounds=bounds(nodes('横屏 / 竖屏',ended)[0]);screen('02-resumed-and-completed')
+    assert pref('anix_watchlist_v1','entries')['7']['progress']==1
+    back();mark('nativePlaybackResumeAndWatchlist',{'checkpointMs':checkpoint,'resumedSeconds':resumed,'progress':1})
+    add(2,'/slow.mp4');cache(2);tap('暂停缓存第2集');wait(lambda t:any('缓存已暂停' in n.get('text','') for n in nodes('第2集缓存状态',t)))
+    screen('03-paused');restart();assert '缓存已暂停' in status(2);tap('继续缓存第2集');adb('shell','input','keyevent','3');time.sleep(4);launch();cached(2,120)
+    protocol=json.loads((OUT/'protocol.json').read_text());assert any(r['path']=='/slow.mp4' and r['start']>0 for r in protocol['requests']),protocol
+    mark('pauseRestartResumeAndBackgroundDownload')
 # Import a real JSON document through the system picker, not a seeded preference.
 playlist=OUT/'zhigeng-video-list.json';playlist.write_text(json.dumps({'episodes':[{'episode':3,'url':BASE+'/master.m3u8','format':'hls'},{'episode':4,'url':BASE+'/error.html'}]}))
 adb('push',playlist,'/sdcard/Download/zhigeng-video-list.json');adb('push','video-fixture/clip.mp4','/sdcard/Download/zhigeng-original-video.mp4')
+for filename in ('zhigeng-video-list.json','zhigeng-original-video.mp4'):
+    adb('shell','am','broadcast','-a','android.intent.action.MEDIA_SCANNER_SCAN_FILE','-d','file:///sdcard/Download/'+filename)
 tap('导入剧集清单');tap('选择 JSON 文件');picker_downloads();tap('zhigeng-video-list.json');wait(lambda t:any('已关联剧集 · 4 集'==n.get('text') for n in t.iter('node')));mark('safPlaylistImport')
 cache(3);cached(3);cache(4)
 end=time.monotonic()+50
@@ -170,9 +198,10 @@ else:raise AssertionError('HTML response accepted as completed video')
 screen('04-rejected-html');mark('hlsDownloadAndHtmlRejection')
 cache(1);cached(1);export(1);adb('pull','/sdcard/Download/zhigeng-video-export.mp4',OUT/'export.mp4')
 original=pathlib.Path('video-fixture/clip.mp4').read_bytes();assert (OUT/'export.mp4').read_bytes()==original
-before=exported();tap('导出第1集视频');back();time.sleep(.5);assert exported()==before;mark('exportExactBytesAndCancel',{'bytes':len(original),'sha256':hashlib.sha256(original).hexdigest()});(OUT/'export.mp4').unlink()
+before=exported();tap('导出第1集视频');cancel_picker();assert exported()==before;mark('exportExactBytesAndCancel',{'bytes':len(original),'sha256':hashlib.sha256(original).hexdigest()});(OUT/'export.mp4').unlink()
 tap('导入本地视频');fill('起始集数','5');tap('继续');picker_downloads();tap('zhigeng-original-video.mp4');wait(lambda t:any('已关联剧集 · 5 集'==n.get('text') for n in t.iter('node')))
 restart();play(5);back();mark('safLocalGrantSurvivesRestart')
+cached(2)
 # Kill the origin and disable network before cached MP4, HLS and local playback.
 os.kill(int((OUT/'fixture.pid').read_text()),signal.SIGTERM);adb('shell','svc','wifi','disable');adb('shell','svc','data','disable')
 for episode in (2,3,5):

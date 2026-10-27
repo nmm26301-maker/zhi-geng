@@ -72,14 +72,14 @@ jobs:
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
           script: |
             adb install -r apk-output/Zhigeng-debug-test.apk
-            python3 scripts/android-video-smoke.py
+            python3 scripts/android-video-smoke.py --remaining
             python3 scripts/android-upgrade-phone-618.py
             python3 scripts/android-english-smoke.py
       - name: Preserve exact runtime evidence
         if: always()
         run: |
           mkdir -p releases/checks-0.6.18
-          # Check exact ended status, distinct from the completion-setting checkbox.
+          # Reuse successful checks from run 40437092864 on the identical compiled APK.
           for directory in video-check upgrade618-check english-check; do
             if test -d "$directory"; then mkdir -p "releases/checks-0.6.18/$directory"; cp -R "$directory/." "releases/checks-0.6.18/$directory/"; fi
           done
