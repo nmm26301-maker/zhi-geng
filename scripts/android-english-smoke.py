@@ -45,6 +45,6 @@ for entry,button in [('tools','英语学习 · 词光'),('mine','英语学习 ·
     else:raise AssertionError('English browser did not return to Zhigeng')
     cases.append(dict(entry=entry,url=URL,externalBrowser=True,returnedToNative=True));screen(entry+'-returned')
 logs=adb('logcat','-d','-s','AndroidRuntime:E');assert 'FATAL EXCEPTION' not in logs,logs
-(OUT/'result.json').write_text(json.dumps(dict(versionCode=617,api=33,entries=cases,websiteContentTested=False,exactUrlSourceAndPolicyVerified=True,intentLogRedactsPath=True,crashes=False),ensure_ascii=False,indent=2))
+(OUT/'result.json').write_text(json.dumps(dict(versionCode=int(re.search(r'versionCode=(\d+)',adb('shell','dumpsys','package',APP)).group(1)),api=int(adb('shell','getprop','ro.build.version.sdk')),entries=cases,websiteContentTested=False,exactUrlSourceAndPolicyVerified=True,intentLogRedactsPath=True,crashes=False),ensure_ascii=False,indent=2))
 print('English website routing passed for both native entries',flush=True)
 adb('shell','svc','wifi','enable');adb('shell','svc','data','enable');adb('shell','am','force-stop',APP)

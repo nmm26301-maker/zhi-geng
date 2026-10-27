@@ -3,7 +3,8 @@
 Only a disposable emulator test installation is cleared. All video bytes are an
 original generated fixture. No production account or third-party stream is used.
 """
-import hashlib,json,os,pathlib,re,signal,subprocess,sys,time,xml.etree.ElementTree as E
+import hashlib,io,json,os,pathlib,re,signal,subprocess,sys,time,xml.etree.ElementTree as E
+from PIL import Image
 APP='cn.zhigeng.app';OUT=pathlib.Path('video-check');OUT.mkdir(exist_ok=True)
 BASE='https://10.0.2.2:8446';RESULT={'versionCode':618,'cases':{},'fixture':'original generated 24-second moving H264/AAC MP4 and HLS'}
 def adb(*args):
@@ -70,10 +71,21 @@ def seconds(t):
         m=re.search(r'进度 (\d+):(\d+) /',n.get('text',''))
         if m:return int(m[1])*60+int(m[2])
     return -1
+def decoded(name):
+    t=tree();frame=nodes(APP+':id/exo_content_frame',t);assert frame,'No native video surface'
+    image=Image.open(io.BytesIO(adb('exec-out','screencap','-p'))).convert('RGB')
+    a,b,c,d=bounds(frame[0]);region=image.crop((a,b,c,d))
+    colourful=sum(1 for r,g,b in region.getdata() if max(r,g,b)-min(r,g,b)>70 and max(r,g,b)>100)
+    assert colourful>2000,dict(colourfulPixels=colourful,bounds=bounds(frame[0]))
+    image.save(OUT/(name+'.png'))
+    (OUT/(name+'.xml')).write_bytes(E.tostring(t,encoding='utf-8'))
+    return colourful
 def play(episode,offline=False):
-    tap('播放第'+str(episode)+'集');wait(lambda t:has('视频画面已显示',t),35)
-    t=wait(lambda t:seconds(t)>=1,15)
+    tap('播放第'+str(episode)+'集')
+    t=wait(lambda t:seconds(t)>=1,35);first=seconds(t)
+    t=wait(lambda t:seconds(t)>first,15)
     if offline:assert any('离线' in n.get('text','') for n in t.iter('node'))
+    decoded('decoded-'+str(episode)+('-offline' if offline else ''))
     return seconds(t)
 def cache(episode):
     tap('缓存第'+str(episode)+'集');tap('开始缓存')
@@ -160,7 +172,7 @@ os.kill(int((OUT/'fixture.pid').read_text()),signal.SIGTERM);adb('shell','svc','
 for episode in (2,3,5):
     play(episode,episode!=5);wait(lambda t:seconds(t)>=3,12);screen('06-offline-'+str(episode));back()
 mark('offlineMp4HlsAndLocalDecoded')
-play(2,True);before=seconds(tree());tap('横屏 / 竖屏');wait(lambda t:has('视频画面已显示',t),25);after=seconds(tree());assert after>=before-1,(before,after);screen('07-landscape');back();mark('rotationRetainsPlayback')
+play(2,True);before=seconds(tree());tap('横屏 / 竖屏');wait(lambda t:seconds(t)>=before,25);decoded('decoded-landscape');after=seconds(tree());assert after>=before-1,(before,after);screen('07-landscape');back();mark('rotationRetainsPlayback')
 logs=txt('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
 RESULT['crashes']=False;RESULT['api']=int(txt('shell','getprop','ro.build.version.sdk'));mark('completed')
 adb('shell','svc','wifi','enable');adb('shell','svc','data','enable');adb('shell','am','force-stop',APP)

@@ -57,6 +57,8 @@ jobs:
           command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
           python3 scripts/prepare-video-fixture.py
           python3 scripts/anime-video-fixture.py > /tmp/video-fixture.log 2>&1 &
+      - name: Install screenshot pixel verifier
+        run: python3 -m pip install Pillow==11.3.0
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
       - uses: reactivecircus/android-emulator-runner@v2
@@ -77,6 +79,7 @@ jobs:
         if: always()
         run: |
           mkdir -p releases/checks-0.6.18
+          # Playback assertions also inspect actual coloured video pixels.
           for directory in video-check upgrade618-check english-check; do
             if test -d "$directory"; then mkdir -p "releases/checks-0.6.18/$directory"; cp -R "$directory/." "releases/checks-0.6.18/$directory/"; fi
           done
