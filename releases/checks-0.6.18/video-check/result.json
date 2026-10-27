@@ -4,5 +4,5 @@
     "platformBrowserRouting": true
   },
   "fixture": "original generated 24-second moving H264/AAC MP4 and HLS",
-  "failure": "AssertionError('Timed out waiting for video state')"
+  "failure": "RuntimeError(\"('shell', 'run-as', 'cn.zhigeng.app', 'cat', 'shared_prefs/anix_watchlist_v1.xml'): cat: shared_prefs/anix_watchlist_v1.xml: No such file or directory\\n\")"
 }
