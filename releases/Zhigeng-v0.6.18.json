@@ -17,7 +17,7 @@
     "failures": 0,
     "errors": 0
   },
-  "verificationStatus": "runtime verification pending",
+  "verificationStatus": "passed",
   "notImplemented": [
     "Community Anix/Seanime JavaScript source-extension runtime",
     "AniList/MyAnimeList account authorization and tracker synchronization"
@@ -28,5 +28,79 @@
   ],
   "libraryFileId": "libfile_c98d706cd1088191b279062a3abb77d4",
   "originalCertificateVerified": true,
-  "alignmentVerified": true
+  "alignmentVerified": true,
+  "verificationRun": 40440651778,
+  "verificationCommit": "c48f3f33929008dd096c1fa46281bf2b422ab6b8",
+  "delivery": "releases/Zhigeng-v0.6.18.apk",
+  "videoChecks": {
+    "versionCode": 618,
+    "cases": {
+      "platformBrowserRouting": true,
+      "nativePlaybackResumeAndWatchlist": {
+        "checkpointMs": 7749,
+        "resumedSeconds": 10,
+        "progress": 1
+      },
+      "pauseRestartResumeAndBackgroundDownload": true,
+      "safPlaylistImport": true,
+      "hlsDownloadAndHtmlRejection": true,
+      "exportExactBytesAndCancel": {
+        "bytes": 3390549,
+        "sha256": "ca38c55c0bd78113c7aef1c5cdc28549cbcd75250c1d5e6e70e2452b03975dd4"
+      },
+      "safLocalGrantSurvivesRestart": true,
+      "offlineMp4HlsAndLocalDecoded": true,
+      "rotationRetainsPlayback": true,
+      "completed": true
+    },
+    "fixture": "original generated 24-second moving H264/AAC MP4 and HLS",
+    "baseline": {
+      "workflowRun": 40437092864,
+      "scope": "platform routing, MP4 decode/resume/watchlist, paused restart and range/background resume on identical compiled APK",
+      "signedApkSha256": "b3c81d5bd9ff66052a8318005fa3bab6f06ce43e4ff9b7107fda0128d3f74c40"
+    },
+    "crashes": false,
+    "api": 33,
+    "workflowRun": 40439569830
+  },
+  "verificationScope": "51 unit tests; retained native decode/cache/export/offline checks from 40437092864 and 40439569830 on identical APK; final original-signed upgrade and English routing in verificationRun",
+  "upgradeChecks": {
+    "previousVersionCode": 617,
+    "versionCode": 618,
+    "api": 33,
+    "originalSignatureCoveringUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "legacyWatchlistPreserved": true,
+    "quickProgressPersisted": true,
+    "offlineRestart": true,
+    "noSecondApp": true,
+    "crashes": false,
+    "fixture": "Explicit old-schema SharedPreferences seed, shown by original 0.6.17 before covering upgrade; no real account or network"
+  },
+  "englishChecks": {
+    "versionCode": 618,
+    "api": 33,
+    "entries": [
+      {
+        "entry": "tools",
+        "url": "https://0xlei.tech/words/#/",
+        "externalBrowser": true,
+        "returnedToNative": true
+      },
+      {
+        "entry": "mine",
+        "url": "https://0xlei.tech/words/#/",
+        "externalBrowser": true,
+        "returnedToNative": true
+      }
+    ],
+    "websiteContentTested": false,
+    "exactUrlSourceAndPolicyVerified": true,
+    "intentLogRedactsPath": true,
+    "crashes": false
+  },
+  "visualReview": "Original generated moving test pattern decoded to native video surface; pixel and advancing-clock assertions on MP4/HLS/local and offline sources. Physical devices not tested."
 }
