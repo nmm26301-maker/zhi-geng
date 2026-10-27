@@ -1,0 +1,8 @@
+{
+  "versionCode": 618,
+  "cases": {
+    "platformBrowserRouting": true
+  },
+  "fixture": "original generated 24-second moving H264/AAC MP4 and HLS",
+  "failure": "AssertionError('Timed out waiting for video state')"
+}
