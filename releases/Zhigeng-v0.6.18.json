@@ -1,0 +1,29 @@
+{
+  "versionName": "0.6.18",
+  "versionCode": 618,
+  "previousVersionCode": 617,
+  "applicationId": "cn.zhigeng.app",
+  "iconChanged": false,
+  "sourceCommit": "34e6ecbd4b2141a44ab48dd9c9239aee5ef4dcef",
+  "compiledCommit": "a23e0a49e6c0d96b21359a5476fb4767f59d8c0d",
+  "buildWorkflowRun": 40434349107,
+  "artifactId": 12703079241,
+  "unsignedApkSha256": "0ded9c1446c459941c6afaa627d2c2bff36252127c0a352137dc1af1f2b35202",
+  "sha256": "b3c81d5bd9ff66052a8318005fa3bab6f06ce43e4ff9b7107fda0128d3f74c40",
+  "size": 21892986,
+  "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
+  "unitTests": {
+    "tests": 51,
+    "failures": 0,
+    "errors": 0
+  },
+  "verificationStatus": "runtime verification pending",
+  "notImplemented": [
+    "Community Anix/Seanime JavaScript source-extension runtime",
+    "AniList/MyAnimeList account authorization and tracker synchronization"
+  ],
+  "untested": [
+    "Physical Android devices and varied codecs/providers",
+    "Word Atlas lesson and audio flow in user browser"
+  ]
+}
