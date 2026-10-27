@@ -15,7 +15,7 @@ jobs:
       - name: Stop superseded environment preparation
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api -X POST repos/nmm26301-maker/zhi-geng/actions/runs/40438051116/cancel || true
+        run: gh api -X POST repos/nmm26301-maker/zhi-geng/actions/runs/40438843412/cancel || true
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
@@ -57,15 +57,18 @@ jobs:
           packages: platform-tools
           log-accepted-android-sdk-licenses: false
       - name: Generate original MP4 and HLS fixture and start HTTPS origin
-        timeout-minutes: 5
-        env:
-          DEBIAN_FRONTEND: noninteractive
+        timeout-minutes: 3
         run: |
-          if ! command -v ffmpeg; then
-            sudo apt-get -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o Acquire::Retries=0 update || true
-            sudo apt-get -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o Acquire::Retries=0 install --no-install-recommends -y ffmpeg
-          fi
-          python3 scripts/prepare-video-fixture.py
+          curl --fail --location --retry 2 --connect-timeout 15 --max-time 120 https://github.com/eugeneware/ffmpeg-static/releases/download/b6.1.1/ffmpeg-linux-x64.gz -o "$RUNNER_TEMP/zhigeng-test-ffmpeg.gz"
+          python3 - <<'PYTOOLS'
+          import gzip,hashlib,os,pathlib
+          root=pathlib.Path(os.environ['RUNNER_TEMP']);raw=(root/'zhigeng-test-ffmpeg.gz').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='bfe8a8fc511530457b528c48d77b5737527b504a3797a9bc4866aeca69c2dffa'
+          target=root/'zhigeng-test-ffmpeg';target.write_bytes(gzip.decompress(raw));target.chmod(0o700)
+          assert hashlib.sha256(target.read_bytes()).hexdigest()=='e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99'
+          PYTOOLS
+          # GPL-3.0 test-only tool from the pinned upstream release; never bundled in APK.
+          ZHIGENG_TEST_FFMPEG="$RUNNER_TEMP/zhigeng-test-ffmpeg" python3 scripts/prepare-video-fixture.py
           python3 scripts/anime-video-fixture.py > /tmp/video-fixture.log 2>&1 &
       - name: Install screenshot pixel verifier
         run: python3 -m pip install Pillow==11.3.0
