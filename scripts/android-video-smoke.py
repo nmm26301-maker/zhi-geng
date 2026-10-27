@@ -31,7 +31,8 @@ def tap(value,search=True):
     for i in range(28 if search else 1):
         t=tree();found=nodes(value,t)
         if found:click(sorted(found,key=lambda n:n.get('clickable')!='true')[0]);return
-        if not scroll(t,i<14):break
+        up_first=value in ('添加视频地址','导入剧集清单','导入本地视频','查询播出平台','播放第1集','缓存第1集','导出第1集视频')
+        if not scroll(t,(i<14)!=up_first):break
     raise AssertionError('Missing video action: '+value)
 def wait(test,timeout=25):
     end=time.monotonic()+timeout
@@ -148,7 +149,7 @@ restart();mark('platformBrowserRouting')
 add(1,'/clip.mp4');play(1);back();time.sleep(1)
 checkpoint=saved(1)['position'];assert checkpoint>=5000
 restart();resumed=play(1);assert resumed>=checkpoint//1000-1,(checkpoint,resumed)
-ended=wait(lambda t:any('播放结束' in n.get('text','') for n in t.iter('node')),30)
+ended=wait(lambda t:any(n.get('text')=='播放结束' for n in t.iter('node')),35)
 rotate_bounds=bounds(nodes('横屏 / 竖屏',ended)[0]);screen('02-resumed-and-completed')
 assert pref('anix_watchlist_v1','entries')['7']['progress']==1
 back();mark('nativePlaybackResumeAndWatchlist',{'checkpointMs':checkpoint,'resumedSeconds':resumed,'progress':1})

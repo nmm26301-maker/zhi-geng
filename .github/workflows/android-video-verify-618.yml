@@ -79,7 +79,7 @@ jobs:
         if: always()
         run: |
           mkdir -p releases/checks-0.6.18
-          # Inspect moving video pixels without uiautomator idle waits during playback.
+          # Check exact ended status, distinct from the completion-setting checkbox.
           for directory in video-check upgrade618-check english-check; do
             if test -d "$directory"; then mkdir -p "releases/checks-0.6.18/$directory"; cp -R "$directory/." "releases/checks-0.6.18/$directory/"; fi
           done
