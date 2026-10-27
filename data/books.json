@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-26T01:18:33.949Z",
+  "updatedAt": "2026-10-27T02:09:36.355Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 361,
+  "count": 363,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -33,6 +33,34 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL45084051W",
+      "title": "Starside",
+      "author": "Alex Aster",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15248355-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45084051W",
+      "score": 5,
+      "votes": 1,
+      "interest": 42,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fantasy",
+        "Romantasy",
+        "Romance",
+        "Enemies To Lovers",
+        "Fantasy Romance",
+        "Magic",
+        "Adult",
+        "Fiction",
+        "Spicy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 2
     },
     {
       "id": "book:/works/OL44800712W",
@@ -74,34 +102,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
-    },
-    {
-      "id": "book:/works/OL45084051W",
-      "title": "Starside",
-      "author": "Alex Aster",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15248355-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45084051W",
-      "score": 5,
-      "votes": 1,
-      "interest": 27,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Fantasy",
-        "Romantasy",
-        "Romance",
-        "Enemies To Lovers",
-        "Fantasy Romance",
-        "Magic",
-        "Adult",
-        "Fiction",
-        "Spicy"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 2
     },
     {
       "id": "book:/works/OL44063672W",
@@ -1208,6 +1208,40 @@
       "editionCount": 5
     },
     {
+      "id": "book:/works/OL42419161W",
+      "title": "Bury Our Bones in the Midnight Soil",
+      "author": "V. E. Schwab",
+      "year": 2025,
+      "image": "https://covers.openlibrary.org/b/id/15093836-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL42419161W",
+      "score": 3,
+      "votes": 2,
+      "interest": 46,
+      "language": [
+        "eng",
+        "dut"
+      ],
+      "subjects": [
+        "Fantasy",
+        "Romance",
+        "Vampires",
+        "Horror",
+        "Fiction",
+        "LGBT",
+        "Queer",
+        "Historical Fiction",
+        "Adult",
+        "Lesbian",
+        "Paranormal",
+        "LGBTQ+",
+        "Sapphic",
+        "Dark Romance"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL42394591W",
       "title": "The Emperor of Gladness",
       "author": "Ocean Vuong",
@@ -1234,40 +1268,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL42419161W",
-      "title": "Bury Our Bones in the Midnight Soil",
-      "author": "V. E. Schwab",
-      "year": 2025,
-      "image": "https://covers.openlibrary.org/b/id/15126919-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL42419161W",
-      "score": 3,
-      "votes": 2,
-      "interest": 44,
-      "language": [
-        "dut",
-        "eng"
-      ],
-      "subjects": [
-        "Fantasy",
-        "Romance",
-        "Vampires",
-        "Horror",
-        "Fiction",
-        "LGBT",
-        "Queer",
-        "Historical Fiction",
-        "Adult",
-        "Lesbian",
-        "Paranormal",
-        "LGBTQ+",
-        "Sapphic",
-        "Dark Romance"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 5
     },
     {
       "id": "book:/works/OL42975424W",
@@ -1332,9 +1332,9 @@
       "image": "https://covers.openlibrary.org/b/id/14644120-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL37855093W",
-      "score": 4,
-      "votes": 19,
-      "interest": 944,
+      "score": 4.0434785,
+      "votes": 23,
+      "interest": 986,
       "language": [
         "eng"
       ],
@@ -2643,7 +2643,7 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.097701,
       "votes": 174,
-      "interest": 5869,
+      "interest": 5879,
       "language": [
         "spa",
         "eng"
@@ -2709,9 +2709,9 @@
       "image": "https://covers.openlibrary.org/b/id/13588136-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL28744393W",
-      "score": 4.246154,
-      "votes": 65,
-      "interest": 3661,
+      "score": 4.257576,
+      "votes": 66,
+      "interest": 3713,
       "language": [
         "spa",
         "eng"
@@ -2734,16 +2734,16 @@
       "image": "https://covers.openlibrary.org/b/id/15105883-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27729743W",
-      "score": 3.625,
-      "votes": 24,
-      "interest": 2217,
+      "score": 3.52,
+      "votes": 25,
+      "interest": 2307,
       "language": [
-        "dut",
-        "ger",
+        "spa",
+        "pol",
         "por",
         "eng",
-        "pol",
-        "spa"
+        "dut",
+        "ger"
       ],
       "subjects": [
         "nyt:trade-fiction-paperback=2023-05-14",
@@ -2796,6 +2796,36 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL34224558W",
+      "title": "Never Lie",
+      "author": "Freida McFadden",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/13198561-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL34224558W",
+      "score": 3.3333333,
+      "votes": 21,
+      "interest": 1390,
+      "language": [
+        "por",
+        "ger",
+        "eng",
+        "fre"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Crime",
+        "Psychological Thriller",
+        "Contemporary"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 9
+    },
+    {
       "id": "book:/works/OL26955716W",
       "title": "Things We Never Got Over",
       "author": "Lucy Score",
@@ -2828,36 +2858,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
-    },
-    {
-      "id": "book:/works/OL34224558W",
-      "title": "Never Lie",
-      "author": "Freida McFadden",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/13198561-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL34224558W",
-      "score": 3.25,
-      "votes": 20,
-      "interest": 1325,
-      "language": [
-        "ger",
-        "eng",
-        "fre",
-        "por"
-      ],
-      "subjects": [
-        "Thriller",
-        "Mystery",
-        "Mystery Thriller",
-        "Fiction",
-        "Suspense",
-        "Crime",
-        "Psychological Thriller",
-        "Contemporary"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 9
     },
     {
       "id": "book:/works/OL29046643W",
@@ -3255,6 +3255,33 @@
       "editionCount": 15
     },
     {
+      "id": "book:/works/OL31191485W",
+      "title": "The Inmate",
+      "author": "Freida McFadden",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/15125020-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL31191485W",
+      "score": 4.6,
+      "votes": 5,
+      "interest": 492,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Psychological Thriller",
+        "Crime"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 6
+    },
+    {
       "id": "book:/works/OL25344431W",
       "title": "Lessons in Chemistry",
       "author": "Bonnie Garmus",
@@ -3298,9 +3325,9 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.7861843,
-      "votes": 304,
-      "interest": 15024,
+      "score": 3.790164,
+      "votes": 305,
+      "interest": 15069,
       "language": [
         "spa",
         "eng",
@@ -3333,9 +3360,9 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.6085627,
-      "votes": 327,
-      "interest": 12412,
+      "score": 3.6079028,
+      "votes": 329,
+      "interest": 12476,
       "language": [
         "spa",
         "ger",
@@ -3473,9 +3500,9 @@
       "image": "https://covers.openlibrary.org/b/id/11182600-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24542623W",
-      "score": 3.7162163,
-      "votes": 74,
-      "interest": 3337,
+      "score": 3.75,
+      "votes": 76,
+      "interest": 3454,
       "language": [
         "eng"
       ],
@@ -4196,6 +4223,34 @@
       "editionCount": 7
     },
     {
+      "id": "book:/works/OL42611094W",
+      "title": "Gunaho ka Devta",
+      "author": "",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/14851422-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL42611094W",
+      "score": 3.3636363,
+      "votes": 33,
+      "interest": 869,
+      "language": [
+        "hin"
+      ],
+      "subjects": [
+        "Fiction",
+        "Classics",
+        "Indian Literature",
+        "India",
+        "Novels",
+        "Romance",
+        "Love",
+        "Literature",
+        "Drama"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
       "id": "book:/works/OL28708075W",
       "title": "Brutal Prince",
       "author": "Sophie Lark",
@@ -4281,34 +4336,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 11
-    },
-    {
-      "id": "book:/works/OL42611094W",
-      "title": "Gunaho ka Devta",
-      "author": "",
-      "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/14851422-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL42611094W",
-      "score": 3.4375,
-      "votes": 32,
-      "interest": 796,
-      "language": [
-        "hin"
-      ],
-      "subjects": [
-        "Fiction",
-        "Classics",
-        "Indian Literature",
-        "India",
-        "Novels",
-        "Romance",
-        "Love",
-        "Literature",
-        "Drama"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 1
     },
     {
       "id": "book:/works/OL20734329W",
@@ -5630,9 +5657,9 @@
       "image": "https://covers.openlibrary.org/b/id/8361789-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17850410W",
-      "score": 4.005848,
-      "votes": 171,
-      "interest": 5802,
+      "score": 4.005814,
+      "votes": 172,
+      "interest": 5814,
       "language": [
         "eng",
         "heb",
@@ -6572,16 +6599,16 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.142857,
       "votes": 84,
-      "interest": 1849,
+      "interest": 1928,
       "language": [
-        "por",
-        "fre",
-        "eng",
-        "ger",
         "spa",
+        "pol",
         "chi",
+        "por",
         "tur",
-        "pol"
+        "eng",
+        "fre",
+        "ger"
       ],
       "subjects": [
         "Love & Romance",
@@ -7210,9 +7237,9 @@
       "image": "https://covers.openlibrary.org/b/id/7418786-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL16444438W",
-      "score": 4.1955557,
-      "votes": 225,
-      "interest": 4592,
+      "score": 4.1885967,
+      "votes": 228,
+      "interest": 4621,
       "language": [
         "dut",
         "spa",
@@ -7621,16 +7648,16 @@
       "url": "https://openlibrary.org/works/OL15374110W",
       "score": 4.021739,
       "votes": 46,
-      "interest": 623,
+      "interest": 633,
       "language": [
-        "ger",
-        "pol",
-        "fre",
-        "rus",
-        "eng",
-        "chi",
         "spa",
-        "dut"
+        "pol",
+        "chi",
+        "rus",
+        "fre",
+        "eng",
+        "dut",
+        "ger"
       ],
       "subjects": [
         "Chevrolet Suburbans",
@@ -7649,7 +7676,7 @@
         "serial killers"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 41
+      "editionCount": 42
     },
     {
       "id": "book:/works/OL12489W",
@@ -8279,17 +8306,17 @@
       "image": "https://covers.openlibrary.org/b/id/11408459-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL76833W",
-      "score": 3.6319702,
-      "votes": 269,
-      "interest": 1889,
+      "score": 3.6346862,
+      "votes": 271,
+      "interest": 1910,
       "language": [
-        "ara",
-        "fre",
-        "srp",
-        "dut",
         "cmn",
-        "pol",
-        "eng",
+        "chi",
+        "rus",
+        "por",
+        "ice",
+        "cze",
+        "dan",
         "spa"
       ],
       "subjects": [
@@ -8682,18 +8709,18 @@
       "image": "https://covers.openlibrary.org/b/id/6413803-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5962664W",
-      "score": 3.3846154,
-      "votes": 78,
-      "interest": 750,
+      "score": 3.3703704,
+      "votes": 81,
+      "interest": 763,
       "language": [
-        "jpn",
-        "dut",
         "ita",
+        "dut",
+        "spa",
+        "heb",
+        "pol",
         "chi",
-        "per",
-        "swe",
-        "ger",
-        "fre"
+        "vie",
+        "rus"
       ],
       "subjects": [
         "Murder",
@@ -8957,6 +8984,44 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 47
+    },
+    {
+      "id": "book:/works/OL1835957W",
+      "title": "Fun Home",
+      "author": "Alison Bechdel",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/12366765-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL1835957W",
+      "score": 4.072727,
+      "votes": 55,
+      "interest": 377,
+      "language": [
+        "spa",
+        "baq",
+        "por",
+        "eng",
+        "fre",
+        "ger"
+      ],
+      "subjects": [
+        "Cartoonists",
+        "Graphic novels",
+        "Comic books, strips",
+        "Closeted gays",
+        "Homosexuality",
+        "Lesbians",
+        "Family relationships",
+        "Lesbian cartoonists",
+        "Biography",
+        "Novela gráfica",
+        "Novelas gráficas",
+        "Caricaturistas",
+        "Muñequitos, tiras cómicas",
+        "Reading Level-Grade 7"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 21
     },
     {
       "id": "book:/works/OL7924103W",
@@ -10469,9 +10534,9 @@
       "image": "https://covers.openlibrary.org/b/id/6773410-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL11277303W",
-      "score": 3.8095238,
-      "votes": 21,
-      "interest": 149,
+      "score": 3.8181818,
+      "votes": 22,
+      "interest": 148,
       "language": [
         "eng"
       ],

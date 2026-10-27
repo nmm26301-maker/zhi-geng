@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T01:18:24.792Z",
+  "updatedAt": "2026-10-27T02:09:12.602Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -7,18 +7,6 @@
     "Open Library"
   ],
   "items": [
-    {
-      "id": "anilist:195516",
-      "title": "The Apothecary Diaries Season 3",
-      "url": "https://anilist.co/anime/195516",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx195516-MJpUZlOberqH.jpg",
-      "year": 2026,
-      "score": 8.5,
-      "source": "AniList",
-      "description": "In the aftermath of the Shi Clan’s rebellion, things have finally settled down, and Maomao has returned to her old life as a pharmacist in the pleasure district.\n<br><br>\nOne day, triggered by a breakfast served at the Verdigris House, Maomao senses an anomaly and begins investigating its true nature.\n<br><br>\nMeanwhile, Jinshi, who has revealed his true identity as the Imperial brother and begun to face his heavy responsibilities, is deeply troubled by the final message left by Loulan: a warning of an impending \"disaster that will strike the nation.\"\n<br><br>\nTo make matters worse, rumors of a mysterious shrine maiden who deceives the people begin to spread, casting a dark shadow over the country of Li once again.\n<br><br>\nFrom the depths of the inner court to the city streets, and across foreign borders—the world grows wider, and the stakes even higher for Maomao and Jinshi.\n<br><br>\n(Source: Crunchyroll)"
-    },
     {
       "id": "anilist:195539",
       "title": "Cyberpunk: Edgerunners 2",
@@ -30,6 +18,18 @@
       "score": 8.4,
       "source": "AniList",
       "description": "<i>Cyberpunk: Edgerunners 2</i> pulls you back into Night City, where lives become entangled to the extreme. Weak, a washed-up cyberpunk legend, is now forced to live without chrome as he searches for a sense of purpose in a world that’s passed him by. Meanwhile, the deadly nomad D sets out on a path to revenge that brings him close to corpo secrets never meant to be found. Across this ten-episode standalone series, uncover a story of family, obsession, legacy — and how your lens reflects the stories of the people around you..<br><br>\n\nWhen the world is blinded by spectacle, what extremes do you have to go to make your story matter?<br><br>\n(Source: Cyberpunk: Edgerunners 2 Official Site, Official Twitter)"
+    },
+    {
+      "id": "anilist:195516",
+      "title": "The Apothecary Diaries Season 3",
+      "url": "https://anilist.co/anime/195516",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx195516-MJpUZlOberqH.jpg",
+      "year": 2026,
+      "score": 8.5,
+      "source": "AniList",
+      "description": "In the aftermath of the Shi Clan’s rebellion, things have finally settled down, and Maomao has returned to her old life as a pharmacist in the pleasure district.\n<br><br>\nOne day, triggered by a breakfast served at the Verdigris House, Maomao senses an anomaly and begins investigating its true nature.\n<br><br>\nMeanwhile, Jinshi, who has revealed his true identity as the Imperial brother and begun to face his heavy responsibilities, is deeply troubled by the final message left by Loulan: a warning of an impending \"disaster that will strike the nation.\"\n<br><br>\nTo make matters worse, rumors of a mysterious shrine maiden who deceives the people begin to spread, casting a dark shadow over the country of Li once again.\n<br><br>\nFrom the depths of the inner court to the city streets, and across foreign borders—the world grows wider, and the stakes even higher for Maomao and Jinshi.\n<br><br>\n(Source: Crunchyroll)"
     },
     {
       "id": "anilist:195604",
@@ -92,18 +92,6 @@
       "description": "In the 2nd STAGE, a desert crossing spanning roughly 750 miles- the land that Johnny Joestar and Gyro Zeppeli must challenge, is home to the area that is feared as the \"Devil's Palm.\" In 1875, a threat lurking in said desert wiped out a cavalry of 26 people, eliciting fear from the local native people. As ominous incidents begin to unfold, they are forced to realize that this race is far more than a mere competition. The two press forward, where countless hidden motives collide..<br><br>\n\n(Source: Warner Bros. Japan Anime, Netflix Anime, edited)"
     },
     {
-      "id": "anilist:160275",
-      "title": "Made in Abyss: Mezameru Shinpi",
-      "url": "https://anilist.co/anime/160275",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx160275-cBOWJpcCGeMq.jpg",
-      "year": 2026,
-      "score": 8,
-      "source": "AniList",
-      "description": "Sequel to <i>Made in Abyss: Retsujitsu no Ougonkyou.</i><br><br>\n"
-    },
-    {
       "id": "anilist:205909",
       "title": "Firefly Wedding",
       "url": "https://anilist.co/anime/205909",
@@ -114,6 +102,18 @@
       "score": 7.5,
       "source": "AniList",
       "description": "On the surface, Satoko has it all—she’s beautiful, the daughter of a nobleman, and at a prime age for marriage. Unfortunately, she is also quite ill and only has a short time left to live. Before she can secure a marriage that will redeem her worth in her family’s eyes, she finds herself the target of the mysterious assassin Shinpei, and her plans are put in jeopardy. In order to save herself, she makes a desperate proposal—of marriage! When it comes to love, however, Shinpei takes “until death do we part” seriously.<br>\n<br>\n(Source: VIZ Media)"
+    },
+    {
+      "id": "anilist:160275",
+      "title": "Made in Abyss: Mezameru Shinpi",
+      "url": "https://anilist.co/anime/160275",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx160275-cBOWJpcCGeMq.jpg",
+      "year": 2026,
+      "score": 8,
+      "source": "AniList",
+      "description": "Sequel to <i>Made in Abyss: Retsujitsu no Ougonkyou.</i><br><br>\n"
     },
     {
       "id": "anilist:191656",
@@ -212,6 +212,18 @@
       "description": "Ana Huang"
     },
     {
+      "id": "ol:/works/OL45084051W",
+      "title": "Starside",
+      "url": "https://openlibrary.org/works/OL45084051W",
+      "category": "书籍",
+      "type": "book",
+      "image": "https://covers.openlibrary.org/b/id/15248355-M.jpg",
+      "year": 2026,
+      "score": 5,
+      "source": "Open Library",
+      "description": "Alex Aster"
+    },
+    {
       "id": "ol:/works/OL44800712W",
       "title": "Dear Debbie",
       "url": "https://openlibrary.org/works/OL44800712W",
@@ -234,18 +246,6 @@
       "score": 4,
       "source": "Open Library",
       "description": "Alice Feeney"
-    },
-    {
-      "id": "ol:/works/OL45084051W",
-      "title": "Starside",
-      "url": "https://openlibrary.org/works/OL45084051W",
-      "category": "书籍",
-      "type": "book",
-      "image": "https://covers.openlibrary.org/b/id/15248355-M.jpg",
-      "year": 2026,
-      "score": 5,
-      "source": "Open Library",
-      "description": "Alex Aster"
     },
     {
       "id": "ol:/works/OL44063672W",
