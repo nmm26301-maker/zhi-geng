@@ -1,0 +1,3 @@
+--------- beginning of system
+10-27 02:53:49.213   559  3471 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=https://0xlei.tech/... flg=0x10000000 pkg=org.chromium.webview_shell cmp=org.chromium.webview_shell/.WebViewBrowserActivity} from uid 10126
+10-27 02:53:49.214   559  3471 I ActivityTaskManager: Launching r: ActivityRecord{dba58d5 u0 org.chromium.webview_shell/.WebViewBrowserActivity} from background: ActivityRecord{16370e9 u0 cn.zhigeng.app/.MainActivity} t17}. New task: false

@@ -1,0 +1,22 @@
+{
+  "versionCode": 618,
+  "api": 33,
+  "entries": [
+    {
+      "entry": "tools",
+      "url": "https://0xlei.tech/words/#/",
+      "externalBrowser": true,
+      "returnedToNative": true
+    },
+    {
+      "entry": "mine",
+      "url": "https://0xlei.tech/words/#/",
+      "externalBrowser": true,
+      "returnedToNative": true
+    }
+  ],
+  "websiteContentTested": false,
+  "exactUrlSourceAndPolicyVerified": true,
+  "intentLogRedactsPath": true,
+  "crashes": false
+}
