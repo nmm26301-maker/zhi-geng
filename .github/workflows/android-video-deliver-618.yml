@@ -1,0 +1,90 @@
+name: Deliver verified original-signed Zhigeng 0.6.18 APK
+on:
+  workflow_run:
+    workflows: ['Verify 0.6.18 decoded video, offline files and original signed upgrade']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  deliver:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Require complete runtime verification and restore original signed bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERIFY_RUN: ${{ github.event.workflow_run.id }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/zhigeng618deliver"
+          gh api repos/nmm26301-maker/zhi-geng/actions/workflows/android-video-verify-618.yml/runs?per_page=1 > latest-verification.json
+          python3 - <<'PY'
+          import json,pathlib
+          latest=json.loads(pathlib.Path('latest-verification.json').read_text())['workflow_runs'][0]
+          assert latest['conclusion']=='success',latest['conclusion']
+          video=json.loads(pathlib.Path('releases/checks-0.6.18/video-check/result.json').read_text())
+          assert video['versionCode']==618 and not video.get('failure') and video['cases']['completed']
+          for key in ['nativePlaybackResumeAndWatchlist','pauseRestartResumeAndBackgroundDownload','safPlaylistImport','hlsDownloadAndHtmlRejection','exportExactBytesAndCancel','safLocalGrantSurvivesRestart','offlineMp4HlsAndLocalDecoded','rotationRetainsPlayback']:
+              assert video['cases'][key],key
+          upgrade=json.loads(pathlib.Path('releases/checks-0.6.18/upgrade618-check/result.json').read_text())
+          assert upgrade['versionCode']==618 and upgrade['originalSignatureCoveringUpgrade'] and upgrade['shelfPreserved'] and upgrade['legacyWatchlistPreserved']
+          english=json.loads(pathlib.Path('releases/checks-0.6.18/english-check/result.json').read_text())
+          assert english['versionCode']==618 and len(english['entries'])==2
+          PY
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12703079241/zip -o build618.zip
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.18.json').read_text())
+          with zipfile.ZipFile('build618.zip') as z:
+              raw=z.read('apk-output/Zhigeng-v0.6.18-unsigned.apk')
+              assert hashlib.sha256(raw).hexdigest()==manifest['unsignedApkSha256']
+              (pathlib.Path(os.environ['RUNNER_TEMP'])/'zhigeng618deliver/Zhigeng-v0.6.18.apk').write_bytes(raw)
+              pathlib.Path('apksigner.jar').write_bytes(z.read('apk-output/apksigner.jar'))
+          PY
+          (cd "$RUNNER_TEMP/zhigeng618deliver" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.18.patch")
+          cp "$RUNNER_TEMP/zhigeng618deliver/Zhigeng-v0.6.18.apk" releases/Zhigeng-v0.6.18.apk
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          manifest=json.loads(pathlib.Path('releases/Zhigeng-v0.6.18.json').read_text())
+          assert hashlib.sha256(pathlib.Path('releases/Zhigeng-v0.6.18.apk').read_bytes()).hexdigest()==manifest['sha256']
+          PY
+          java -jar apksigner.jar verify --min-sdk-version 26 --verbose --print-certs releases/Zhigeng-v0.6.18.apk | tee signature-verification.txt
+          grep -q '39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c' signature-verification.txt
+      - name: Publish checked APK and verification record
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('releases/Zhigeng-v0.6.18.json');m=json.loads(p.read_text())
+          latest=json.loads(pathlib.Path('latest-verification.json').read_text())['workflow_runs'][0]
+          m.update(verificationStatus='passed',verificationRun=latest['id'],verificationCommit=latest['head_sha'],originalCertificateVerified=True,alignmentVerified=True,delivery='releases/Zhigeng-v0.6.18.apk')
+          m['videoChecks']=json.loads(pathlib.Path('releases/checks-0.6.18/video-check/result.json').read_text())
+          m['upgradeChecks']=json.loads(pathlib.Path('releases/checks-0.6.18/upgrade618-check/result.json').read_text())
+          m['englishChecks']=json.loads(pathlib.Path('releases/checks-0.6.18/english-check/result.json').read_text())
+          m['visualReview']='Original generated moving test pattern decoded to native video surface; pixel and advancing-clock assertions on MP4/HLS/local and offline sources. Physical devices not tested.'
+          p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+          p=pathlib.Path('README.md');s=p.read_text()
+          text='> **2026-10-27 · Android 0.6.18：原生视频播放与离线缓存**。本地视频与 HTTPS MP4/HLS/DASH 直链接入原生 Media3 播放器，支持续播、上下集、倍速、横竖屏、暂停续传及普通视频导出；播放结束可更新本地追番，保留英语学习入口。51 项单元测试、Android 13 实际画面与进度、断网 MP4/HLS/本地播放、导出字节一致性和原签名 617 → 618 数据保留升级通过。图标与包名不变。社区视频扩展与账号同步仍未实现。**[下载安装包](releases/Zhigeng-v0.6.18.apk?raw=true)** · [核验记录](releases/Zhigeng-v0.6.18.json) · [使用说明](docs/anime-playback.md)。\n\n'
+          if 'Android 0.6.18：原生视频播放' not in s:s=s.replace('# 知更 · Android App\n\n','# 知更 · Android App\n\n'+text,1)
+          p.write_text(s)
+          p=pathlib.Path('android/README.md');s=p.read_text().replace('# 知更 Android 0.6.16','# 知更 Android 0.6.18',1)
+          s=s.replace('当前版本：所有网站交给手机外部浏览器；本地图书继续在 App 内阅读。','当前版本：网站交给手机外部浏览器；本地图书在 App 内阅读，用户导入的本地视频或 HTTPS 视频直链在原生播放器观看。',1)
+          text='## 0.6.18 · 原生视频与离线缓存\n\n更多工具 / 我的 → 视频与离线缓存，或 Anix 条目 → 播放与下载剧集。支持系统文件导入、HTTPS 直链与 JSON 剧集清单、续播、倍速、上下集、横竖屏、离线缓存和普通视频导出。详情与许可见 [原生播放说明](../docs/anime-playback.md)。51 项单元测试、Android 13 原生视频与原签名 617 → 618 覆盖升级通过。社区视频源扩展运行时及 AniList/MyAnimeList 账号同步仍未实现；英语学习入口保留。\n\n'
+          if '## 0.6.18 · 原生视频与离线缓存' not in s:s=s.replace('## 构建',text+'## 构建',1)
+          p.write_text(s)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/Zhigeng-v0.6.18.apk releases/Zhigeng-v0.6.18.json README.md android/README.md
+          git diff --cached --quiet || git commit -m 'release: deliver verified original-signed 0.6.18 native video APK [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
