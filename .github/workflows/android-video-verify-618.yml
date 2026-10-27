@@ -1,0 +1,90 @@
+name: Verify 0.6.18 decoded video, offline files and original signed upgrade
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-video-verify-618.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Restore exact compiled APKs and original certificate signatures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/zhigeng618signed" apk-output
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12669088495/zip -o build617.zip
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12703079241/zip -o build618.zip
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          for version in ('617','618'):
+              name='0.6.'+version[-2:]
+              manifest=json.loads(pathlib.Path('releases/Zhigeng-v'+name+'.json').read_text())
+              with zipfile.ZipFile('build'+version+'.zip') as z:
+                  raw=z.read('apk-output/Zhigeng-v'+name+'-unsigned.apk')
+                  assert hashlib.sha256(raw).hexdigest()==manifest['unsignedApkSha256']
+                  (pathlib.Path(os.environ['RUNNER_TEMP'])/'zhigeng618signed'/('Zhigeng-v'+name+'.apk')).write_bytes(raw)
+                  if version=='618':
+                      pathlib.Path('apk-output/apksigner.jar').write_bytes(z.read('apk-output/apksigner.jar'))
+                      pathlib.Path('apk-output/Zhigeng-debug-test.apk').write_bytes(z.read('apk-output/Zhigeng-debug-test.apk'))
+          PY
+          (cd "$RUNNER_TEMP/zhigeng618signed" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.17.patch")
+          (cd "$RUNNER_TEMP/zhigeng618signed" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.18.patch")
+          cp "$RUNNER_TEMP/zhigeng618signed/Zhigeng-v0.6.17.apk" previous.apk
+          cp "$RUNNER_TEMP/zhigeng618signed/Zhigeng-v0.6.18.apk" Zhigeng-v0.6.18.apk
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          for version,file in [('0.6.17','previous.apk'),('0.6.18','Zhigeng-v0.6.18.apk')]:
+              manifest=json.loads(pathlib.Path('releases/Zhigeng-v'+version+'.json').read_text())
+              assert hashlib.sha256(pathlib.Path(file).read_bytes()).hexdigest()==manifest['sha256']
+          PY
+          java -jar apk-output/apksigner.jar verify --min-sdk-version 26 --verbose --print-certs Zhigeng-v0.6.18.apk
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Generate original MP4 and HLS fixture and start HTTPS origin
+        run: |
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          python3 scripts/prepare-video-fixture.py
+          python3 scripts/anime-video-fixture.py > /tmp/video-fixture.log 2>&1 &
+      - name: Enable KVM
+        run: sudo chmod 666 /dev/kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
+          script: |
+            adb install -r apk-output/Zhigeng-debug-test.apk
+            python3 scripts/android-video-smoke.py
+            python3 scripts/android-upgrade-phone-618.py
+            python3 scripts/android-english-smoke.py
+      - name: Preserve exact runtime evidence
+        if: always()
+        run: |
+          mkdir -p releases/checks-0.6.18
+          for directory in video-check upgrade618-check english-check; do
+            if test -d "$directory"; then mkdir -p "releases/checks-0.6.18/$directory"; cp -R "$directory/." "releases/checks-0.6.18/$directory/"; fi
+          done
+          rm -f releases/checks-0.6.18/video-check/fixture.pid releases/checks-0.6.18/video-check/*.mp4
+          cp /tmp/video-fixture.log releases/checks-0.6.18/video-origin.log || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/checks-0.6.18
+          git diff --cached --quiet || git commit -m 'test: preserve 0.6.18 native playback, download and upgrade evidence [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
