@@ -6,16 +6,12 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  actions: write
+  actions: read
 jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
-      - name: Stop superseded environment preparation
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api -X POST repos/nmm26301-maker/zhi-geng/actions/runs/40438843412/cancel || true
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
@@ -74,6 +70,15 @@ jobs:
         run: python3 -m pip install Pillow==11.3.0
       - name: Enable KVM
         run: sudo chmod 666 /dev/kvm
+      - name: Check verification scripts and retained baseline before starting emulator
+        run: |
+          python3 -m py_compile scripts/android-video-smoke.py scripts/android-upgrade-phone-618.py scripts/android-english-smoke.py
+          python3 - <<'PYBASE'
+          import json,pathlib,xml.etree.ElementTree as E
+          baseline=json.loads(pathlib.Path('releases/checks-0.6.18/baseline-video-40437092864.json').read_text())
+          assert baseline['versionCode']==618 and len(baseline['cases'])==5
+          E.parse('releases/checks-0.6.18/video-check/02-resumed-and-completed.xml')
+          PYBASE
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 33
