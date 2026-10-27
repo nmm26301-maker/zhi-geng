@@ -68,6 +68,8 @@ jobs:
           latest=json.loads(pathlib.Path('latest-verification.json').read_text())['workflow_runs'][0]
           m.update(verificationStatus='passed',verificationRun=latest['id'],verificationCommit=latest['head_sha'],originalCertificateVerified=True,alignmentVerified=True,delivery='releases/Zhigeng-v0.6.18.apk')
           m['videoChecks']=json.loads(pathlib.Path('releases/checks-0.6.18/video-check/result.json').read_text())
+          m['videoChecks']['workflowRun']=40439569830
+          m['verificationScope']='51 unit tests; retained native decode/cache/export/offline checks from 40437092864 and 40439569830 on identical APK; final original-signed upgrade and English routing in verificationRun'
           m['upgradeChecks']=json.loads(pathlib.Path('releases/checks-0.6.18/upgrade618-check/result.json').read_text())
           m['englishChecks']=json.loads(pathlib.Path('releases/checks-0.6.18/english-check/result.json').read_text())
           m['visualReview']='Original generated moving test pattern decoded to native video surface; pixel and advancing-clock assertions on MP4/HLS/local and offline sources. Physical devices not tested.'
