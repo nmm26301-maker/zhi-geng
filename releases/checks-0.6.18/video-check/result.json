@@ -1,16 +1,6 @@
 {
   "versionCode": 618,
-  "cases": {
-    "platformBrowserRouting": true,
-    "nativePlaybackResumeAndWatchlist": {
-      "checkpointMs": 7749,
-      "resumedSeconds": 10,
-      "progress": 1
-    },
-    "pauseRestartResumeAndBackgroundDownload": true,
-    "safPlaylistImport": true,
-    "hlsDownloadAndHtmlRejection": true
-  },
+  "cases": {},
   "fixture": "original generated 24-second moving H264/AAC MP4 and HLS",
-  "failure": "AssertionError('Missing video action: 缓存第1集')"
+  "failure": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')"
 }
