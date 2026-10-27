@@ -30,6 +30,7 @@ def anime():tap('更多工具');tap('Anix v1.3.0');wait('本地追番 · 1 部')
 def screen(name):
     (OUT/(name+'.xml')).write_bytes(E.tostring(tree(),encoding='utf-8'))
     (OUT/(name+'.png')).write_bytes(subprocess.check_output(['adb','exec-out','screencap','-p'],timeout=45))
+assert pathlib.Path('previous.apk').is_file() and pathlib.Path('Zhigeng-v0.6.18.apk').is_file()
 try:adb('uninstall',APP)
 except subprocess.CalledProcessError:pass
 adb('logcat','-c');assert 'Success' in adb('install','previous.apk');before=identity();assert before['versionCode']=='617'
@@ -46,7 +47,7 @@ folder='/data/user/0/'+APP+'/shared_prefs';target=folder+'/anix_watchlist_v1.xml
 adb('shell','mkdir','-p',folder);adb('push',fixture,target);adb('shell','chown',before['uid']+':'+before['uid'],folder,target)
 adb('shell','chmod','660',target);adb('shell','restorecon','-RF',folder)
 launch();anime();tap('动漫详情');wait('暂无离线简介');tap('关闭');wait('已看 3 集');screen('02-old-watchlist')
-assert 'Success' in adb('install','-r','Zhigeng-v0.6.17.apk');after=identity();assert after['versionCode']=='618'
+assert 'Success' in adb('install','-r','Zhigeng-v0.6.18.apk');after=identity();assert after['versionCode']=='618'
 assert all(before[k]==after[k] for k in ('uid','firstInstallTime','dataDir')),(before,after)
 launch();tap('书架');wait('我不是药神');screen('03-new-shelf')
 launch();anime();tap('动漫详情');wait('暂无离线简介');tap('关闭');wait('已看 3 集');screen('04-legacy-watchlist-preserved')
@@ -58,5 +59,5 @@ logs=adb('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(l
 result=dict(previousVersionCode=617,versionCode=618,api=33,originalSignatureCoveringUpgrade=True,sameUid=True,
     sameFirstInstallTime=True,sameDataDir=True,shelfPreserved=True,legacyWatchlistPreserved=True,
     quickProgressPersisted=True,offlineRestart=True,noSecondApp=True,crashes=False,
-    fixture='Explicit old-schema SharedPreferences seed, shown by original 0.6.16 before covering upgrade; no real account or network')
+    fixture='Explicit old-schema SharedPreferences seed, shown by original 0.6.17 before covering upgrade; no real account or network')
 (OUT/'result.json').write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True)

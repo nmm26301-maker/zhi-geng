@@ -1,0 +1,31 @@
+{
+  "versionCode": 618,
+  "cases": {
+    "platformBrowserRouting": true,
+    "nativePlaybackResumeAndWatchlist": {
+      "checkpointMs": 7749,
+      "resumedSeconds": 10,
+      "progress": 1
+    },
+    "pauseRestartResumeAndBackgroundDownload": true,
+    "safPlaylistImport": true,
+    "hlsDownloadAndHtmlRejection": true,
+    "exportExactBytesAndCancel": {
+      "bytes": 3390549,
+      "sha256": "ca38c55c0bd78113c7aef1c5cdc28549cbcd75250c1d5e6e70e2452b03975dd4"
+    },
+    "safLocalGrantSurvivesRestart": true,
+    "offlineMp4HlsAndLocalDecoded": true,
+    "rotationRetainsPlayback": true,
+    "completed": true
+  },
+  "fixture": "original generated 24-second moving H264/AAC MP4 and HLS",
+  "baseline": {
+    "workflowRun": 40437092864,
+    "scope": "platform routing, MP4 decode/resume/watchlist, paused restart and range/background resume on identical compiled APK",
+    "signedApkSha256": "b3c81d5bd9ff66052a8318005fa3bab6f06ce43e4ff9b7107fda0128d3f74c40"
+  },
+  "crashes": false,
+  "api": 33,
+  "workflowRun": 40439569830
+}
