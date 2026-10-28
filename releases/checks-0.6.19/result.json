@@ -1,0 +1,20 @@
+{
+  "versionCode": 619,
+  "scope": "original local TypeScript provider and fake OAuth service; not a production login",
+  "cases": {
+    "installTypeScriptRepository": true,
+    "providerSearchResolveNativeDecodeHeadersSubtitles": true,
+    "providerOfflineCacheDecode": true,
+    "anilistCallbackEncryptedImportCancelConfirmedUpload": true,
+    "anilistDisconnectPreservesLocal": true,
+    "malCallbackEncryptedImportCancelConfirmedUpload": true,
+    "malDisconnectPreservesLocal": true,
+    "malRefreshAndNoCrashes": {
+      "aniWrites": 1,
+      "malWrites": 1,
+      "refreshes": 1,
+      "mediaWithReferer": 2
+    },
+    "completed": true
+  }
+}
