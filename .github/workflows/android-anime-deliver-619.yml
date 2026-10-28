@@ -1,0 +1,114 @@
+name: Verify and deliver original-signed 0.6.19
+on:
+  push:
+    branches: [codex/anime-619]
+    paths: ['.github/workflows/android-anime-deliver-619.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Restore exact compiled APKs and original certificate signatures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/zhigeng619signed" apk-output
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12703079241/zip -o build618.zip
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12783772325/zip -o build619.zip
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          for version in ('618','619'):
+              name='0.6.'+version[-2:]
+              manifest=json.loads(pathlib.Path('releases/Zhigeng-v'+name+'.json').read_text())
+              with zipfile.ZipFile('build'+version+'.zip') as z:
+                  raw=z.read('apk-output/Zhigeng-v'+name+'-unsigned.apk')
+                  assert hashlib.sha256(raw).hexdigest()==manifest['unsignedApkSha256']
+                  (pathlib.Path(os.environ['RUNNER_TEMP'])/'zhigeng619signed'/('Zhigeng-v'+name+'.apk')).write_bytes(raw)
+                  if version=='619':
+                      pathlib.Path('apk-output/apksigner.jar').write_bytes(z.read('apk-output/apksigner.jar'))
+                      pathlib.Path('apk-output/Zhigeng-debug-test.apk').write_bytes(z.read('apk-output/Zhigeng-debug-test.apk'))
+          PY
+          (cd "$RUNNER_TEMP/zhigeng619signed" && git apply --binary -p2 "$GITHUB_WORKSPACE/releases/signatures/v0.6.18.patch")
+          (cd "$RUNNER_TEMP/zhigeng619signed" && git apply --binary -p1 "$GITHUB_WORKSPACE/releases/signatures/v0.6.19.patch")
+          cp "$RUNNER_TEMP/zhigeng619signed/Zhigeng-v0.6.18.apk" previous.apk
+          cp "$RUNNER_TEMP/zhigeng619signed/Zhigeng-v0.6.19.apk" Zhigeng-v0.6.19.apk
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          for version,file in [('0.6.18','previous.apk'),('0.6.19','Zhigeng-v0.6.19.apk')]:
+              manifest=json.loads(pathlib.Path('releases/Zhigeng-v'+version+'.json').read_text())
+              assert hashlib.sha256(pathlib.Path(file).read_bytes()).hexdigest()==manifest['sha256']
+          PY
+          java -jar apk-output/apksigner.jar verify --min-sdk-version 26 --verbose --print-certs Zhigeng-v0.6.19.apk
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Enable KVM
+        run: sudo chmod 666 /dev/kvm
+      - name: Require completed provider and tracker UI checks
+        run: |
+          python3 - <<'PYCHK'
+          import json,pathlib
+          r=json.loads(pathlib.Path('releases/checks-0.6.19/result.json').read_text())
+          assert r['versionCode']==619 and not r.get('failure') and r['cases']['completed']
+          PYCHK
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
+          script: |
+            python3 scripts/android-upgrade-phone-619.py
+            python3 scripts/android-english-smoke.py
+      - name: Preserve exact upgrade and routing evidence
+        if: always()
+        run: |
+          mkdir -p releases/checks-0.6.19
+          for directory in upgrade619-check english-check; do
+            if test -d "$directory"; then mkdir -p "releases/checks-0.6.19/$directory"; cp -R "$directory/." "releases/checks-0.6.19/$directory/"; fi
+          done
+      - name: Publish checked APK with precise verification scope
+        run: |
+          python3 - <<'PYRELEASE'
+          import json,pathlib,hashlib,os
+          p=pathlib.Path('releases/Zhigeng-v0.6.19.json');m=json.loads(p.read_text())
+          source=pathlib.Path('Zhigeng-v0.6.19.apk');assert hashlib.sha256(source.read_bytes()).hexdigest()==m['sha256']
+          m['upgradeChecks']=json.loads(pathlib.Path('upgrade619-check/result.json').read_text())
+          m['englishChecks']=json.loads(pathlib.Path('english-check/result.json').read_text())
+          m['providerAndTrackerChecks']=json.loads(pathlib.Path('releases/checks-0.6.19/result.json').read_text())
+          assert m['upgradeChecks']['originalSignatureCoveringUpgrade'] and m['upgradeChecks']['shelfPreserved'] and m['upgradeChecks']['legacyWatchlistPreserved']
+          assert len(m['englishChecks']['entries'])==2
+          m.update(verificationStatus='passed',originalCertificateVerified=True,verificationRun=int(os.environ['GITHUB_RUN_ID']),delivery='releases/Zhigeng-v0.6.19.apk')
+          p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+          pathlib.Path('releases/Zhigeng-v0.6.19.apk').write_bytes(source.read_bytes())
+          PYRELEASE
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python3 - <<'PYREADME'
+          import pathlib
+          p=pathlib.Path('README.md');s=p.read_text()
+          text='> **2026-10-28 · Android 0.6.19：社区扩展与追番同步**。支持安装 JS / TS 视频源扩展并接到原生播放和离线缓存；支持 AniList / MyAnimeList 授权与逐条导入上传。68 项单元测试、Android 13 原创扩展/模拟账号协议、离线解码、原签名 618 → 619 数据保留升级和两个英语入口通过。**真实账号登录仍需有效 Client ID 与用户官网授权**，未预装社区源；实体手机尚未验证。**[下载安装包](releases/Zhigeng-v0.6.19.apk?raw=true)** · [核验记录](releases/Zhigeng-v0.6.19.json) · [使用说明](docs/anime-community-accounts.md)。\n\n'
+          if 'Android 0.6.19：社区扩展与追番同步' not in s:s=s.replace('# 知更 · Android App\n\n','# 知更 · Android App\n\n'+text,1)
+          p.write_text(s)
+          PYREADME
+          git add README.md releases/checks-0.6.19 releases/Zhigeng-v0.6.19.apk releases/Zhigeng-v0.6.19.json
+          git commit -m 'release: verified original-signed 0.6.19 provider runtime and tracker sync [skip ci]'
+          git stash --include-untracked
+          git pull --rebase origin codex/anime-619
+          git push origin HEAD:codex/anime-619
+          git fetch origin main
+          git merge --no-edit origin/main
+          git push origin HEAD:main
