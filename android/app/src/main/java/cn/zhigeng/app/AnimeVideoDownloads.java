@@ -21,20 +21,29 @@ final class AnimeVideoDownloads {
         if(manager==null){
             Context app=context.getApplicationContext();StandaloneDatabaseProvider database=new StandaloneDatabaseProvider(app);
             cache=new SimpleCache(new File(app.getFilesDir(),"anime-video-cache"),new NoOpCacheEvictor(),database);
-            manager=new DownloadManager(app,database,cache,http(),Runnable::run);
+            manager=new DownloadManager(app,new DefaultDownloadIndex(database),request->{
+                try{JSONObject entry=new JSONObject(new String(request.data,StandardCharsets.UTF_8));return new DefaultDownloaderFactory(factory(false,entry),Runnable::run).createDownloader(request);}
+                catch(Exception e){throw new IllegalArgumentException("缓存任务信息不可用",e);}
+            });
             manager.setMaxParallelDownloads(2);manager.setMinRetryCount(1);manager.setRequirements(new Requirements(Requirements.NETWORK));manager.resumeDownloads();
         }return manager;
     }
-    private static DefaultHttpDataSource.Factory http() {
-        return new DefaultHttpDataSource.Factory().setUserAgent("Zhigeng/0.6.18").setConnectTimeoutMs(12000).setReadTimeoutMs(18000)
+    private static DefaultHttpDataSource.Factory http(JSONObject entry) {
+        HashMap<String,String> headers=new HashMap<>();JSONObject values=entry.optJSONObject("headers");if(values!=null)for(String k:new String[]{"User-Agent","Referer","Origin"})if(values.has(k))headers.put(k,values.optString(k));
+        return new DefaultHttpDataSource.Factory().setDefaultRequestProperties(headers).setUserAgent(headers.containsKey("User-Agent")?headers.get("User-Agent"):"Zhigeng/0.6.19").setConnectTimeoutMs(12000).setReadTimeoutMs(18000)
             .setAllowCrossProtocolRedirects(false).setContentTypePredicate(type->{String value=type==null?"":type.toLowerCase(Locale.ROOT);return !value.contains("text/html")&&!value.contains("application/json")&&!value.contains("+json");});
     }
     static DataSource.Factory playback(Context context,boolean offline) {
-        manager(context);return new CacheDataSource.Factory().setCache(cache).setCacheWriteDataSinkFactory(null)
-            .setUpstreamDataSourceFactory(offline?null:http());
+        return playback(context,offline,new JSONObject());
     }
+    private static CacheDataSource.Factory factory(boolean offline,JSONObject entry){String scope=entry.optString("cacheScope");return new CacheDataSource.Factory().setCache(cache).setCacheKeyFactory(spec->scope.isEmpty()?spec.uri.toString():scope+":"+spec.uri).setUpstreamDataSourceFactory(offline?null:http(entry));}
+    static DataSource.Factory playback(Context context,boolean offline,JSONObject entry){manager(context);return factory(offline,entry).setCacheWriteDataSinkFactory(null);}
     static MediaItem item(JSONObject entry) {
+        return item(entry,true);
+    }
+    static MediaItem item(JSONObject entry,boolean subtitles) {
         MediaItem.Builder b=new MediaItem.Builder().setUri(entry.optString("uri")).setMediaId(entry.optString("id"));
+        if(subtitles){ArrayList<MediaItem.SubtitleConfiguration> tracks=new ArrayList<>();JSONArray rows=entry.optJSONArray("subtitles");if(rows!=null)for(int i=0;i<rows.length();i++){JSONObject s=rows.optJSONObject(i);if(s==null)continue;String f=s.optString("format");tracks.add(new MediaItem.SubtitleConfiguration.Builder(Uri.parse(s.optString("url"))).setMimeType(f.equals("srt")?"application/x-subrip":f.equals("vtt")?"text/vtt":"text/x-ssa").setLanguage(s.optString("language","und")).setLabel(s.optString("label","字幕")).build());}b.setSubtitleConfigurations(tracks);}
         if(entry.optString("format").equals("hls"))b.setMimeType("application/x-mpegURL");
         if(entry.optString("format").equals("dash"))b.setMimeType("application/dash+xml");return b.build();
     }

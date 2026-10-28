@@ -52,6 +52,7 @@ public class AnimeVideoLibraryActivity extends ReadingToolActivity {
             Button local=button("导入本地视频",true),link=button("添加视频地址",false),playlist=button("导入剧集清单",false),downloads=button("离线缓存管理",false);
             for(Button b:new Button[]{local,link,playlist,downloads})add(body,b,10);
             if(anime.optLong("id")>0){Button platforms=button("查询播出平台",false);add(body,platforms,10);platforms.setOnClickListener(v->platforms(platforms));}
+            Button source=button("从社区视频源搜索剧集",false);add(body,source,10);source.setOnClickListener(v->startActivity(new Intent(this,AnimeExtensionsActivity.class).putExtra("anime",anime.toString())));
             local.setOnClickListener(v->pickStart());link.setOnClickListener(v->network(null));playlist.setOnClickListener(v->importMenu());downloads.setOnClickListener(v->startActivity(new Intent(this,AnimeVideoLibraryActivity.class).putExtra("downloads",true)));
         }else add(body,text("缓存可暂停、继续或清除。普通视频完成后可导出独立文件；HLS/DASH 使用应用内离线播放。",14,INK),10);
         status=text("",14,INK);status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);add(body,status,14);entriesView=column();add(body,entriesView,8);
@@ -150,7 +151,7 @@ public class AnimeVideoLibraryActivity extends ReadingToolActivity {
         String name=(AnimeCatalogClient.title(entry.getJSONObject("media"))+"-第"+entry.optInt("episode")+"集").replaceAll("[\\\\/:*?\"<>|\\p{Cntrl}]","_");if(name.length()>100)name=name.substring(0,100);
         startActivityForResult(new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType(extension.equals("bin")?"application/octet-stream":"video/"+(extension.equals("mkv")?"x-matroska":extension)).putExtra(Intent.EXTRA_TITLE,name+"."+extension),EXPORT);
     }catch(Exception e){message(new Exception("未找到系统保存位置选择器"));}}
-    private void writeExport(JSONObject entry,Uri target){status.setText("正在导出视频…");io.execute(()->{DataSource source=AnimeVideoDownloads.playback(this,true).createDataSource();try{
+    private void writeExport(JSONObject entry,Uri target){status.setText("正在导出视频…");io.execute(()->{DataSource source=AnimeVideoDownloads.playback(this,true,entry).createDataSource();try{
         source.open(new DataSpec(Uri.parse(entry.getString("uri"))));try(OutputStream out=getContentResolver().openOutputStream(target,"wt")){if(out==null)throw new IOException("无法打开保存位置");byte[] buffer=new byte[65536];int count;while((count=source.read(buffer,0,buffer.length))!=-1){if(Thread.currentThread().isInterrupted())throw new IOException("导出已中止");out.write(buffer,0,count);}}
         ui.post(()->{if(!destroyed){status.setText("视频已导出到手机");Toast.makeText(this,"视频已导出到手机",Toast.LENGTH_LONG).show();}});
     }catch(Exception e){try{android.provider.DocumentsContract.deleteDocument(getContentResolver(),target);}catch(Exception ignored){}ui.post(()->{if(!destroyed)message(e);});}finally{try{source.close();}catch(Exception ignored){}}});}

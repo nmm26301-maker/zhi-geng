@@ -69,7 +69,7 @@ public final class AnimeVideoPlayerActivity extends Activity {
         if(isFinishing())return;failed=false;retry.setVisibility(View.GONE);
         boolean local=entry.optString("uri").startsWith("content://");androidx.media3.exoplayer.offline.Download d=AnimeVideoDownloads.find(this,entry.optString("id"));
         boolean offline=d!=null&&d.state==androidx.media3.exoplayer.offline.Download.STATE_COMPLETED;usingOffline=offline;surface.setContentDescription("动漫视频播放器");
-        DefaultMediaSourceFactory sources=new DefaultMediaSourceFactory(local?new DefaultDataSource.Factory(this):AnimeVideoDownloads.playback(this,offline));
+        DefaultMediaSourceFactory sources=new DefaultMediaSourceFactory(local?new DefaultDataSource.Factory(this):AnimeVideoDownloads.playback(this,offline,entry));
         player=new ExoPlayer.Builder(this).setMediaSourceFactory(sources).build();surface.setPlayer(player);
         player.setAudioAttributes(new AudioAttributes.Builder().setUsage(C.USAGE_MEDIA).setContentType(C.AUDIO_CONTENT_TYPE_MOVIE).build(),true);
         player.addListener(new Player.Listener(){
@@ -79,7 +79,7 @@ public final class AnimeVideoPlayerActivity extends Activity {
                 completed=true;checkpoint();if(track.isChecked()&&entry.optJSONObject("media").optLong("id")>0)try{AnimeVideoStore.finish(AnimeVideoPlayerActivity.this,entry);Toast.makeText(AnimeVideoPlayerActivity.this,"本地追番已更新",Toast.LENGTH_SHORT).show();}catch(Exception e){Toast.makeText(AnimeVideoPlayerActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();}
                 if(continuous.isChecked())ui.postDelayed(()->{if(started&&player!=null)move(1);},500);
             }}
-        });player.setMediaItem(AnimeVideoDownloads.item(entry));player.seekTo(Math.max(0,position));player.prepare();player.setPlayWhenReady(play);
+        });player.setMediaItem(AnimeVideoDownloads.item(entry,!offline));player.seekTo(Math.max(0,position));player.prepare();player.setPlayWhenReady(play);
     }
     private void caption(){title.setText("第 "+entry.optInt("episode")+" 集 · "+entry.optString("title"));previous.setEnabled(neighbor(-1)!=null);next.setEnabled(neighbor(1)!=null);}
     private JSONObject neighbor(int direction){try{ArrayList<JSONObject> all=AnimeVideoModel.list(store.entries());JSONObject result=null;int current=entry.optInt("episode");for(JSONObject e:all){int n=e.optInt("episode");if(direction>0&&n>current)return e;if(direction<0&&n<current)result=e;}return direction<0?result:null;}catch(Exception ignored){return null;}}

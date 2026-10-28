@@ -1,0 +1,11 @@
+package cn.zhigeng.app;
+import org.junit.Test;
+import org.json.*;
+import static org.junit.Assert.*;
+public class AnimeProviderModelTest {
+    private JSONObject anime()throws Exception{return new JSONObject("{\"id\":7,\"episodes\":12,\"title\":{\"romaji\":\"Original\"}}");}
+    @Test public void seanimeWireShapeAndNaturalEpisodes()throws Exception{JSONObject q=AnimeProviderModel.search(anime(),"Original",false);assertEquals(7,q.getJSONObject("media").getInt("id"));JSONArray episodes=AnimeProviderModel.episodes("[{\"id\":\"b\",\"number\":10},{\"id\":\"a\",\"number\":2},{\"id\":\"a\",\"number\":3}]");assertEquals(2,episodes.length());assertEquals(2,episodes.getJSONObject(0).getInt("number"));}
+    @Test public void streamHeadersAndCacheIdentity()throws Exception{JSONArray rows=AnimeProviderModel.streams("{\"headers\":{\"Referer\":\"https://example.org/\"},\"videoSources\":[{\"url\":\"https://example.org/clip.mp4\",\"type\":\"mp4\"}]}");JSONObject source=rows.getJSONObject(0);JSONObject entries=AnimeVideoModel.put(new JSONObject(),anime(),1,"Episode",source.getString("url"),source.getString("format"));JSONObject before=entries.getJSONObject("1");entries=AnimeVideoModel.transport(entries,1,source.getJSONObject("options"));assertNotEquals(before.getString("id"),entries.getJSONObject("1").getString("id"));assertEquals(entries.getJSONObject("1").getString("id"),entries.getJSONObject("1").getString("cacheScope"));assertEquals("https://example.org/",entries.getJSONObject("1").getJSONObject("headers").getString("Referer"));}
+    @Test public void credentialsNotPassedToPlayerAndCrLfRejected()throws Exception{JSONObject entries=AnimeVideoModel.put(new JSONObject(),anime(),1,"Episode","https://example.org/video","file");assertThrows(Exception.class,()->AnimeVideoModel.transport(entries,1,new JSONObject().put("headers",new JSONObject().put("Authorization","secret"))));assertThrows(Exception.class,()->AnimeVideoModel.transport(entries,1,new JSONObject().put("headers",new JSONObject().put("Referer","ok\r\nInjected: yes"))));}
+    @Test public void localProviderAuthorityCanContainUnderscore()throws Exception{assertEquals("content://com.example.file_provider/document/7",AnimeVideoModel.source("content://com.example.file_provider/document/7"));}
+}

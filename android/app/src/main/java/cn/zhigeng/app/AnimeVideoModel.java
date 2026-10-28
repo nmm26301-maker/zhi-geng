@@ -14,7 +14,8 @@ final class AnimeVideoModel {
         if(raw==null||raw.length()>4096)throw new Exception("视频地址为空或过长");
         String value=raw.trim();for(int i=0;i<value.length();i++)if(Character.isISOControl(value.charAt(i)))throw new Exception("视频地址包含无效字符");
         URI uri=new URI(value);String scheme=uri.getScheme();
-        if(!("https".equalsIgnoreCase(scheme)||"content".equalsIgnoreCase(scheme))||uri.getHost()==null||uri.getUserInfo()!=null||uri.getPort()>65535)
+        boolean valid="https".equalsIgnoreCase(scheme)?uri.getHost()!=null:"content".equalsIgnoreCase(scheme)&&uri.getRawAuthority()!=null&&uri.getRawAuthority().matches("[A-Za-z0-9._-]+");
+        if(!valid||uri.getUserInfo()!=null||uri.getPort()>65535)
             throw new Exception("请选择本地视频，或填写 HTTPS 视频地址");
         return scheme.toLowerCase(Locale.ROOT)+uri.toASCIIString().substring(scheme.length());
     }
@@ -45,6 +46,18 @@ final class AnimeVideoModel {
         JSONObject copy=new JSONObject(current.toString()),entry=copy.optJSONObject(Integer.toString(number));
         if(entry==null||!expectedId.equals(entry.optString("id")))return copy;
         long length=Math.max(0,duration);entry.put("duration",length).put("position",Math.max(0,length>0?Math.min(position,length):position));return copy;
+    }
+    static JSONObject transport(JSONObject entries,int number,JSONObject options)throws Exception {
+        JSONObject copy=new JSONObject(entries.toString()),entry=copy.getJSONObject(Integer.toString(number)),headers=new JSONObject(),given=options.optJSONObject("headers");
+        if(given!=null){Iterator<String> keys=given.keys();while(keys.hasNext()){String k=keys.next(),value=given.getString(k),canonical="";
+            for(String allowed:new String[]{"User-Agent","Referer","Origin"})if(allowed.equalsIgnoreCase(k))canonical=allowed;
+            if(canonical.isEmpty())throw new Exception("视频源要求尚不支持的请求头："+k);
+            if(value.length()>4096||value.indexOf('\r')>=0||value.indexOf('\n')>=0)throw new Exception("视频请求头无效");headers.put(canonical,value);
+        }}
+        JSONArray subtitles=new JSONArray(),givenSubs=options.optJSONArray("subtitles");if(givenSubs!=null){if(givenSubs.length()>30)throw new Exception("外置字幕过多");for(int i=0;i<givenSubs.length();i++){JSONObject row=givenSubs.getJSONObject(i);String url=source(row.getString("url"));if(!url.startsWith("https://"))throw new Exception("字幕需要 HTTPS 地址");String format=row.optString("format").toLowerCase(Locale.ROOT);if(format.isEmpty()){String path=new URI(url).getPath().toLowerCase(Locale.ROOT);format=path.endsWith(".srt")?"srt":path.endsWith(".ass")||path.endsWith(".ssa")?"ass":"vtt";}
+            if(!Arrays.asList("srt","vtt","ass","ssa").contains(format))throw new Exception("字幕格式暂不支持");subtitles.put(new JSONObject().put("url",url).put("format",format).put("language",row.optString("language",row.optString("lang","und"))).put("label",row.optString("label",row.optString("language","字幕"))));}}
+        StringBuilder material=new StringBuilder(entry.getString("uri")).append('\n').append(entry.getString("format"));for(String k:new String[]{"User-Agent","Referer","Origin"})material.append('\n').append(headers.optString(k));material.append(subtitles.toString());
+        String id=key(entry.getJSONObject("media").getLong("id"),number,material.toString());entry.put("id",id).put("cacheScope",id).put("headers",headers).put("subtitles",subtitles);return copy;
     }
     static JSONObject finished(JSONObject watchlist,JSONObject episode)throws Exception {
         JSONObject anime=episode.getJSONObject("media");if(anime.optLong("id")<=0)return new JSONObject(watchlist.toString());

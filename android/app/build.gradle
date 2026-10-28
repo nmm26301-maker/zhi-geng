@@ -9,8 +9,8 @@ android {
         multiDexEnabled true
         minSdk 26
         targetSdk 34
-        versionCode 618
-        versionName '0.6.18'
+        versionCode 619
+        versionName '0.6.19'
     }
     buildFeatures { buildConfig true }
     testOptions { unitTests.all { systemProperty "zhigeng.assets", file("src/main/assets").absolutePath } }
@@ -18,7 +18,6 @@ android {
         release { minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
         debug { minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
     }
-    kotlinOptions { jvmTarget = "17" }
     packaging { resources { excludes += ["META-INF/DEPENDENCIES"]; merges += ["META-INF/LICENSE*", "META-INF/NOTICE*"] } }
     compileOptions { coreLibraryDesugaringEnabled true; sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
 }
@@ -45,3 +44,13 @@ dependencies {
     implementation "androidx.media3:media3-exoplayer-dash:1.8.0"
     implementation "androidx.media3:media3-ui:1.8.0"
 }
+
+dependencies { implementation "io.github.dokar3:quickjs-kt:1.0.15" }
+
+configurations.matching { it.name.endsWith("UnitTestRuntimeClasspath") }.configureEach {
+    resolutionStrategy.dependencySubstitution {
+        substitute(module("io.github.dokar3:quickjs-kt-android")).using(module("io.github.dokar3:quickjs-kt-jvm:1.0.15"))
+    }
+}
+
+kotlin { compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) } }

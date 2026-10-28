@@ -8,7 +8,7 @@ import org.json.*;
 /** Public AniList catalogue queries, independently adapted for Android; no tracker credentials. */
 class AnimeCatalogClient {
     static final String ENDPOINT="https://graphql.anilist.co";
-    static final String QUERY="query ($search: String, $page: Int, $sort: [MediaSort]) { Page(page: $page, perPage: 20) { pageInfo { hasNextPage } media(type: ANIME, isAdult: false, search: $search, sort: $sort) { id isAdult title { userPreferred native romaji english } episodes format status seasonYear description(asHtml: false) nextAiringEpisode { episode airingAt } } } }";
+    static final String QUERY="query ($search: String, $page: Int, $sort: [MediaSort]) { Page(page: $page, perPage: 20) { pageInfo { hasNextPage } media(type: ANIME, isAdult: false, search: $search, sort: $sort) { id idMal isAdult title { userPreferred native romaji english } episodes format status seasonYear description(asHtml: false) nextAiringEpisode { episode airingAt } } } }";
     private final String endpoint;
     private volatile HttpURLConnection active;
     private long retryAt;
