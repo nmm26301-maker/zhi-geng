@@ -18,11 +18,11 @@ jobs:
           java-version: '17'
       - uses: android-actions/setup-android@v3
         with:
-          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
           log-accepted-android-sdk-licenses: false
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.9'
+          gradle-version: '9.3.1'
       - name: Check download and AI navigation policies
         run: |
           mkdir -p /tmp/zhigeng-tests
@@ -50,6 +50,8 @@ jobs:
         run: node scripts/prepare-android-posters.mjs
       - name: Prepare debug reading documents
         run: python3 scripts/make-reader-fixtures.py
+      - name: Prepare official TypeScript compiler
+        run: python3 scripts/prepare-anime-plugin-assets.py
       - name: Build native application
         working-directory: android
         run: gradle :app:testDebugUnitTest :app:assembleRelease :app:assembleDebug --no-daemon
@@ -58,14 +60,14 @@ jobs:
           mkdir -p apk-output
           cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.18-unsigned.apk
           cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
-          cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" apk-output/apksigner.jar
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.18-unsigned.apk > apk-output/package-info.txt
+          cp "$ANDROID_HOME/build-tools/36.0.0/lib/apksigner.jar" apk-output/apksigner.jar
+          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.18-unsigned.apk > apk-output/package-info.txt
           test "$(unzip -p apk-output/Zhigeng-v0.6.18-unsigned.apk classes.dex | wc -c)" -gt 10000
           ! unzip -l apk-output/Zhigeng-v0.6.18-unsigned.apk | grep -q 'lib/.*\.so'
           ! unzip -p apk-output/Zhigeng-v0.6.18-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
           ! unzip -p apk-output/Zhigeng-v0.6.18-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
           ! unzip -l apk-output/Zhigeng-v0.6.18-unsigned.apk | grep -q 'reader-fixture'
-          ! "$ANDROID_HOME/build-tools/35.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.18-unsigned.apk | grep -q 'fcc_test_ca'
+          ! "$ANDROID_HOME/build-tools/36.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.18-unsigned.apk | grep -q 'fcc_test_ca'
       - name: Start local FCC protocol fixture
         run: python3 scripts/fcc-protocol-fixture.py > /tmp/fcc-fixture.log 2>&1 &
       - name: Start local BookOrbit protocol fixture

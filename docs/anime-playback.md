@@ -30,3 +30,7 @@
 - 下载：https://developer.android.com/media/media3/exoplayer/downloading-media
 
 社区视频扩展运行时、AniList/MyAnimeList 账号授权同步仍未实现。需 Cookie/Referer/DRM 的网站流未在本模块自动解析；应使用相应平台入口。真实账号、具体视频源与不同手机硬件仍需实际验证。本轮协议与解码测试使用自行生成的视频，结果以发布记录为准。
+
+## 0.6.19 扩展与账号更新
+
+本页上文的“社区扩展及账号同步未实现”描述对应 0.6.18。0.6.19 的实现、使用条件与测试边界见 [社区扩展与追番账号](anime-community-accounts.md)。原生播放器新增带请求头与外置字幕的扩展视频源；没有预装视频源或公共登录 Client ID。

@@ -1,0 +1,88 @@
+name: Build 0.6.19 extension runtime and tracker accounts
+on:
+  push:
+    branches: [codex/anime-619]
+    paths: ['.github/workflows/android-anime-complete-619.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+      - name: Check download and AI navigation policies
+        run: |
+          mkdir -p /tmp/zhigeng-tests
+          javac -d /tmp/zhigeng-tests android/app/src/main/java/cn/zhigeng/app/DownloadPolicy.java android/tests/DownloadPolicyTest.java android/app/src/main/java/cn/zhigeng/app/DuckAiPolicy.java android/tests/DuckAiPolicyTest.java
+          java -cp /tmp/zhigeng-tests cn.zhigeng.app.DownloadPolicyTest
+          java -cp /tmp/zhigeng-tests cn.zhigeng.app.DuckAiPolicyTest
+      - name: Check browser URL handling
+        run: |
+          javac -d /tmp/zhigeng-tests android/app/src/main/java/cn/zhigeng/app/BrowserPolicy.java android/tests/BrowserPolicyTest.java
+          java -cp /tmp/zhigeng-tests cn.zhigeng.app.BrowserPolicyTest
+      - uses: actions/cache@v4
+        id: reader-font
+        with:
+          path: android/app/src/main/assets/fonts/zhigeng-serif.woff2
+          key: reader-font-${{ hashFiles('scripts/prepare-reader-font.py') }}
+      - name: Prepare offline Chinese reading font
+        if: steps.reader-font.outputs.cache-hit != 'true'
+        run: |
+          python3 -m pip install fonttools==4.59.0 brotli==1.1.0
+          python3 scripts/prepare-reader-font.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bundle verified offline posters
+        run: node scripts/prepare-android-posters.mjs
+      - name: Prepare official TypeScript compiler
+        run: python3 scripts/prepare-anime-plugin-assets.py
+      - name: Prepare debug reading documents
+        run: python3 scripts/make-reader-fixtures.py
+      - name: Build native application
+        working-directory: android
+        run: gradle :app:testDebugUnitTest :app:assembleRelease :app:assembleDebug --no-daemon
+      - name: Package unsigned APK and signing verifier
+        run: |
+          mkdir -p apk-output
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk apk-output/Zhigeng-v0.6.19-unsigned.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk apk-output/Zhigeng-debug-test.apk
+          cp "$ANDROID_HOME/build-tools/36.0.0/lib/apksigner.jar" apk-output/apksigner.jar
+          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging apk-output/Zhigeng-v0.6.19-unsigned.apk > apk-output/package-info.txt
+          test "$(unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | wc -c)" -gt 10000
+          unzip -l apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'lib/arm64-v8a/libquickjs.so'
+          ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
+          ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
+          ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'fixture-anime-619'
+          ! unzip -l apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'reader-fixture'
+          ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'AnimeVideoTestActivity'
+          ! unzip -l apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'clip.mp4'
+          ! "$ANDROID_HOME/build-tools/36.0.0/aapt" dump resources apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'fcc_test_ca'
+      - name: Preserve build and check reports when artifact storage is available
+        uses: actions/upload-artifact@v4
+        if: always()
+        continue-on-error: true
+        with:
+          name: Zhigeng-native-video-v0.6.19-build
+          path: |
+            apk-output/
+            android/app/build/test-results/testDebugUnitTest/
+          retention-days: 7
+      - name: Verify build artifact preservation
+        if: success()
+        run: test -f apk-output/Zhigeng-v0.6.19-unsigned.apk
+

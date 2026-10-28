@@ -5,3 +5,8 @@ node_modules/
 
 /video-fixture/
 /video-check/
+/android/app/src/main/assets/typescript.js
+/android/app/src/main/assets/typescript-Apache-2.0.txt
+/android/.kotlin/
+/extension-check/
+/scripts/__pycache__/

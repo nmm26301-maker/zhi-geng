@@ -10,6 +10,16 @@
         <intent><action android:name="android.intent.action.VIEW" /><category android:name="android.intent.category.BROWSABLE" /><data android:scheme="http" /></intent>
     </queries>
     <application android:allowBackup="false" android:label="${appLabel}" android:icon="@drawable/ic_launcher" android:roundIcon="@drawable/ic_launcher" android:theme="@style/AppTheme" android:usesCleartextTraffic="false" android:supportsRtl="true">
+        <activity android:name=".AnimeExtensionsActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AnimeTrackerActivity" android:exported="true" android:launchMode="singleTop" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="cn.zhigeng.app" android:host="oauth" android:path="/anilist" />
+                <data android:scheme="cn.zhigeng.app" android:host="oauth" android:path="/mal" />
+            </intent-filter>
+        </activity>
         <service android:name=".AnimeDownloadService" android:exported="false" android:foregroundServiceType="dataSync" />
         <activity android:name=".AnimeVideoLibraryActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".AnimeVideoPlayerActivity" android:exported="false" />

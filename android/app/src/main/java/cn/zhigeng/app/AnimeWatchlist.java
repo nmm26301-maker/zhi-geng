@@ -12,7 +12,7 @@ final class AnimeWatchlist {
         int total=media.optInt("episodes",0);if(total>0&&progress>total)throw new Exception("已看集数不能超过总集数");
         if(!current.has(Long.toString(id))&&current.length()>=500)throw new Exception("本地追番最多保存500部");
         JSONObject copy=new JSONObject(current.toString()),saved=new JSONObject();
-        for(String key:new String[]{"id","episodes","format","status","seasonYear"})
+        for(String key:new String[]{"id","idMal","episodes","format","status","seasonYear"})
             if(media.has(key))saved.put(key,media.get(key));
         JSONObject titles=new JSONObject(),sourceTitles=media.optJSONObject("title");
         if(sourceTitles!=null)for(String key:new String[]{"userPreferred","native","romaji","english"})
