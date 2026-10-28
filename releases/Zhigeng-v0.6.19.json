@@ -11,12 +11,13 @@
   "unitTests": 68,
   "unitFailures": 0,
   "nativeLibraries16KiBAligned": true,
-  "verificationStatus": "pending",
+  "verificationStatus": "pending-rebuild",
   "realAccountsVerified": false,
   "physicalDevicesVerified": false,
   "limitations": [
     "Real AniList/MAL login requires a registered public Client ID and the user approval on the provider website.",
     "Community providers are installed by the user; individual websites and all provider scripts are not verified.",
     "External subtitles load online; offline video does not include cached external subtitles."
-  ]
+  ],
+  "sourceRebuildPending": "d2ad1003bc0c141d633614c4eb6267b6d9383a1c"
 }
