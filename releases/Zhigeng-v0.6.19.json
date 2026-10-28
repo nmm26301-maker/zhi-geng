@@ -11,12 +11,78 @@
   "unitTests": 68,
   "unitFailures": 0,
   "nativeLibraries16KiBAligned": true,
-  "verificationStatus": "pending-final-device-check",
+  "verificationStatus": "passed",
   "realAccountsVerified": false,
   "physicalDevicesVerified": false,
   "limitations": [
     "Real AniList/MAL login requires a registered public Client ID and the user approval on the provider website.",
     "Community providers are installed by the user; individual websites and all provider scripts are not verified.",
     "External subtitles load online; offline video does not include cached external subtitles."
-  ]
+  ],
+  "upgradeChecks": {
+    "previousVersionCode": 618,
+    "versionCode": 619,
+    "api": 33,
+    "originalSignatureCoveringUpgrade": true,
+    "sameUid": true,
+    "sameFirstInstallTime": true,
+    "sameDataDir": true,
+    "shelfPreserved": true,
+    "legacyWatchlistPreserved": true,
+    "unsolicitedCallbackRejected": true,
+    "quickProgressPersisted": true,
+    "offlineRestart": true,
+    "noSecondApp": true,
+    "crashes": false,
+    "fixture": "Explicit old-schema SharedPreferences seed, shown by original 0.6.18 before covering upgrade; no real account or network"
+  },
+  "englishChecks": {
+    "versionCode": 619,
+    "api": 33,
+    "entries": [
+      {
+        "entry": "tools",
+        "url": "https://0xlei.tech/words/#/",
+        "externalBrowser": true,
+        "returnedToNative": true
+      },
+      {
+        "entry": "mine",
+        "url": "https://0xlei.tech/words/#/",
+        "externalBrowser": true,
+        "returnedToNative": true
+      }
+    ],
+    "websiteContentTested": false,
+    "exactUrlSourceAndPolicyVerified": true,
+    "intentLogRedactsPath": true,
+    "crashes": false
+  },
+  "providerAndTrackerChecks": {
+    "versionCode": 619,
+    "scope": "original local TypeScript provider and fake OAuth service; not a production login",
+    "cases": {
+      "installTypeScriptRepository": true,
+      "providerSearchResolveNativeDecodeHeadersSubtitles": true,
+      "providerOfflineCacheDecode": true,
+      "anilistCallbackEncryptedImportCancelConfirmedUpload": true,
+      "anilistDisconnectPreservesLocal": true,
+      "malCallbackEncryptedImportCancelConfirmedUpload": true,
+      "malDisconnectPreservesLocal": true,
+      "malRefreshAndNoCrashes": {
+        "aniWrites": 1,
+        "malWrites": 1,
+        "refreshes": 1,
+        "mediaWithReferer": 2
+      },
+      "completed": true
+    }
+  },
+  "originalCertificateVerified": true,
+  "verificationRun": 40641834596,
+  "delivery": "releases/Zhigeng-v0.6.19.apk",
+  "providerTrackerBaselineRun": 40639965017,
+  "providerTrackerBaselineSignedApkSha256": "39fc925bcd56203ff8ccfce6141d984413f6b1f9df36e37d3c388c072d5937a3",
+  "verificationScope": "68 unit tests on final build; provider decode/cache and fake-account sync baseline on prior compiled APK; final build changes only initial tracker spinner handling, rechecked by signed 618-to-619 upgrade and cold-start invalid callback rejection; English links checked on final signed APK.",
+  "visualReview": "Actual Android 13 screenshots reviewed for provider cache, MAL sync outcome and generated moving video decoded offline. No physical device or live account reviewed."
 }

@@ -1,0 +1,17 @@
+{
+  "previousVersionCode": 618,
+  "versionCode": 619,
+  "api": 33,
+  "originalSignatureCoveringUpgrade": true,
+  "sameUid": true,
+  "sameFirstInstallTime": true,
+  "sameDataDir": true,
+  "shelfPreserved": true,
+  "legacyWatchlistPreserved": true,
+  "unsolicitedCallbackRejected": true,
+  "quickProgressPersisted": true,
+  "offlineRestart": true,
+  "noSecondApp": true,
+  "crashes": false,
+  "fixture": "Explicit old-schema SharedPreferences seed, shown by original 0.6.18 before covering upgrade; no real account or network"
+}
