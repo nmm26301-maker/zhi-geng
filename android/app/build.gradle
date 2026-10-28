@@ -1,8 +1,8 @@
 plugins { id 'com.android.application'; id 'org.jetbrains.kotlin.android' }
 android {
     namespace 'cn.zhigeng.app'
-    compileSdk 35
-    buildToolsVersion '35.0.0'
+    compileSdk 36
+    buildToolsVersion '36.0.0'
     defaultConfig {
         applicationId 'cn.zhigeng.app'
         manifestPlaceholders = [appLabel: '知更']

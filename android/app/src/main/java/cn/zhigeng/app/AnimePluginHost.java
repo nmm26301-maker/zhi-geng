@@ -17,7 +17,7 @@ final class AnimePluginHost {
     final AnimeNet net;final boolean privateAllowed;final List<Document> docs=new ArrayList<>();final List<List<Node>> nodes=new ArrayList<>();int htmlBytes;
     volatile String result,error;volatile boolean done;long callId;
     AnimePluginHost(AnimeNet net,boolean privateAllowed){this.net=net;this.privateAllowed=privateAllowed;}
-    static byte[] bytes(JSONArray a)throws Exception {if(a.length()>4*1024*1024)throw new Exception("扩展字节数据过大");byte[] b=new byte[a.length()];for(int i=0;i<b.length;i++)b[i]=(byte)a.getInt(i);return b;}
+    static byte[] bytes(JSONArray a)throws Exception {if(a.length()>1024*1024)throw new Exception("扩展字节数据过大");byte[] b=new byte[a.length()];for(int i=0;i<b.length;i++)b[i]=(byte)a.getInt(i);return b;}
     static JSONArray array(byte[] b){JSONArray a=new JSONArray();for(byte x:b)a.put(x&255);return a;}
     String dispatch(String op,String raw)throws Exception {
         if(raw.length()>8*1024*1024)throw new Exception("扩展参数过大");JSONArray a=new JSONArray(raw);Object out;
@@ -106,6 +106,7 @@ final class AnimePluginHost {
         JSONObject r=new JSONObject(request);String method=r.optString("method","GET").toUpperCase(Locale.ROOT);if(!Arrays.asList("GET","HEAD","POST","PUT","DELETE","OPTIONS","PATCH").contains(method))throw new Exception("扩展请求方法不可用");
         JSONObject headers=new JSONObject();JSONArray pairs=r.optJSONArray("headers");if(pairs!=null)for(int i=0;i<pairs.length();i++){JSONArray pair=pairs.getJSONArray(i);headers.put(pair.getString(0),pair.getString(1));}
         AnimeNet.Reply response=net.request(r.getString("url"),method,headers,method.equals("GET")||method.equals("HEAD")?null:body,privateAllowed,r.optString("redirect","follow"));
+        if(response.bytes.length>1024*1024)throw new Exception("扩展网络响应超过1 MB");
         JSONArray responseHeaders=new JSONArray();Iterator<String> keys=response.headers.keys();while(keys.hasNext()){String k=keys.next();responseHeaders.put(new JSONArray().put(k).put(response.headers.get(k)));}
         return new JSONObject().put("meta",new JSONObject().put("status",response.status).put("url",response.url).put("headers",responseHeaders).put("redirected",!response.url.equals(r.getString("url"))).put("statusText",Integer.toString(response.status))).put("base64",Base64.getEncoder().encodeToString(response.bytes)).toString();
     }
