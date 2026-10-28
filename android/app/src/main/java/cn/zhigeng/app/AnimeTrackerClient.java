@@ -56,6 +56,11 @@ class AnimeTrackerClient {
     static String remoteState(String local,boolean mal)throws Exception {
         String[] values=mal?new String[]{"plan_to_watch","watching","completed","on_hold","dropped"}:new String[]{"PLANNING","CURRENT","COMPLETED","PAUSED","DROPPED"};for(int i=0;i<AnimeWatchlist.STATES.length;i++)if(AnimeWatchlist.STATES[i].equals(local))return values[i];throw new Exception("本地状态不可用");
     }
+    static JSONObject importEntry(JSONObject current,JSONObject remote)throws Exception {
+        JSONObject media=remote.getJSONObject("media");int count=remote.getInt("progress");
+        JSONObject updated=AnimeWatchlist.update(current,media,remote.getString("state"),count);
+        updated.getJSONObject(Long.toString(media.getLong("id"))).put("progress",count);return updated;
+    }
     JSONObject page(int page)throws Exception {
         if(page<1||page>1000)throw new Exception("页码不可用");JSONObject a=current();JSONArray rows=new JSONArray();boolean more;
         if(service.equals(AnimeTrackerAuth.ANI)){

@@ -9,7 +9,7 @@ import org.json.*;
 final class AnimeTrackerAuth {
     static final String ANI="anilist",MAL="mal";
     static String service(String value)throws Exception{if(!ANI.equals(value)&&!MAL.equals(value))throw new Exception("账号类型不可用");return value;}
-    static String callback(String service)throws Exception{return "zhigeng://oauth/"+service(service);}
+    static String callback(String service)throws Exception{return "cn.zhigeng.app://oauth/"+service(service);}
     static String random(){byte[] bytes=new byte[32];new SecureRandom().nextBytes(bytes);StringBuilder s=new StringBuilder();for(byte b:bytes)s.append(String.format(Locale.ROOT,"%02x",b&255));return s.toString();}
     static JSONObject begin(String service,String clientId,long now)throws Exception {
         service(service);if(!clientId.matches(service.equals(ANI)?"[0-9]{1,20}":"[A-Za-z0-9_-]{8,128}"))throw new Exception("请填写为知更注册的公开 Client ID");

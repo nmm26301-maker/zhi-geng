@@ -94,6 +94,7 @@ public class AnixActivity extends ReadingToolActivity {
         if(local)showLocal(query);else{term=query;load(1);}
     }
     private boolean current(int request){return request==generation&&!isFinishing()&&!isDestroyed()&&!local;}
+    @Override protected void onResume(){super.onResume();if(preferences!=null)try{watchlist=new JSONObject(preferences.getString("entries","{}"));if(local&&results!=null)showLocal(localQuery,localPage);}catch(Exception e){storageBroken=true;if(status!=null)status.setText("本地追番暂不可读，已保留原记录");}}
     private void load(int requestedPage) {
         localControls.setVisibility(View.GONE);local=false;page=requestedPage;int request=++generation;String query=term;client.cancel();
         retry.setVisibility(View.GONE);enabled(previous,false);enabled(next,false);results.removeAllViews();pageLabel.setText("");status.setText("正在读取动漫目录…");

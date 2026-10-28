@@ -16,8 +16,8 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="zhigeng" android:host="oauth" android:path="/anilist" />
-                <data android:scheme="zhigeng" android:host="oauth" android:path="/mal" />
+                <data android:scheme="cn.zhigeng.app" android:host="oauth" android:path="/anilist" />
+                <data android:scheme="cn.zhigeng.app" android:host="oauth" android:path="/mal" />
             </intent-filter>
         </activity>
         <service android:name=".AnimeDownloadService" android:exported="false" android:foregroundServiceType="dataSync" />

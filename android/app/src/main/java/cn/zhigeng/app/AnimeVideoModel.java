@@ -21,8 +21,9 @@ final class AnimeVideoModel {
     }
     static JSONObject media(JSONObject input)throws Exception {
         long id=input.optLong("id",-1);if(id<0)throw new Exception("动漫条目无效");
-        return new JSONObject().put("id",id).put("episodes",Math.max(0,input.optInt("episodes")))
+        JSONObject media=new JSONObject().put("id",id).put("episodes",Math.max(0,input.optInt("episodes")))
             .put("title",new JSONObject().put("userPreferred",AnimeCatalogClient.title(input)));
+        for(String k:new String[]{"idMal","format","seasonYear"})if(input.has(k))media.put(k,input.get(k));return media;
     }
     static String key(long anime,int episode,String uri)throws Exception {
         byte[] digest=MessageDigest.getInstance("SHA-256").digest(uri.getBytes(StandardCharsets.UTF_8));
@@ -55,7 +56,7 @@ final class AnimeVideoModel {
             if(value.length()>4096||value.indexOf('\r')>=0||value.indexOf('\n')>=0)throw new Exception("视频请求头无效");headers.put(canonical,value);
         }}
         JSONArray subtitles=new JSONArray(),givenSubs=options.optJSONArray("subtitles");if(givenSubs!=null){if(givenSubs.length()>30)throw new Exception("外置字幕过多");for(int i=0;i<givenSubs.length();i++){JSONObject row=givenSubs.getJSONObject(i);String url=source(row.getString("url"));if(!url.startsWith("https://"))throw new Exception("字幕需要 HTTPS 地址");String format=row.optString("format").toLowerCase(Locale.ROOT);if(format.isEmpty()){String path=new URI(url).getPath().toLowerCase(Locale.ROOT);format=path.endsWith(".srt")?"srt":path.endsWith(".ass")||path.endsWith(".ssa")?"ass":"vtt";}
-            if(!Arrays.asList("srt","vtt","ass","ssa").contains(format))throw new Exception("字幕格式暂不支持");subtitles.put(new JSONObject().put("url",url).put("format",format).put("language",row.optString("language",row.optString("lang","und"))).put("label",row.optString("label",row.optString("language","字幕"))));}}
+            if(!Arrays.asList("srt","vtt","ass","ssa").contains(format))throw new Exception("字幕格式暂不支持");String language=row.optString("language",row.optString("lang","und")),label=row.optString("label",row.optString("language","字幕"));if(language.length()>40||label.length()>100)throw new Exception("字幕名称过长");subtitles.put(new JSONObject().put("url",url).put("format",format).put("language",language).put("label",label));}}
         StringBuilder material=new StringBuilder(entry.getString("uri")).append('\n').append(entry.getString("format"));for(String k:new String[]{"User-Agent","Referer","Origin"})material.append('\n').append(headers.optString(k));material.append(subtitles.toString());
         String id=key(entry.getJSONObject("media").getLong("id"),number,material.toString());entry.put("id",id).put("cacheScope",id).put("headers",headers).put("subtitles",subtitles);return copy;
     }
