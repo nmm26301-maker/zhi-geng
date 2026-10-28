@@ -71,6 +71,7 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
           script: |
+            # Recheck using the plain unsolicited callback URI; no shell metacharacters.
             python3 scripts/android-upgrade-phone-619.py
             python3 scripts/android-english-smoke.py
       - name: Preserve exact upgrade and routing evidence

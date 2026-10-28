@@ -55,7 +55,7 @@ tap('看完一集 +1');wait('已看 4 集');screen('05-new-progress')
 launch();anime();tap('更新追番');wait('4');tap('取消');screen('06-offline-restart')
 launch();tap('更多工具');tap('视频与离线缓存');wait('还没有关联剧集');screen('07-native-video-entry')
 # The exported OAuth entry rejects unsolicited callbacks after upgrading the real release.
-adb('shell','am','start','-W','-a','android.intent.action.VIEW','-d','cn.zhigeng.app://oauth/anilist#access_token=invalid-original-test&state=invalid', '-p', APP)
+adb('shell','am','start','-W','-a','android.intent.action.VIEW','-d','cn.zhigeng.app://oauth/anilist', '-p', APP)
 wait('没有待完成的授权');screen('08-unsolicited-callback-rejected')
 assert adb('shell','pm','list','packages',APP).strip()=='package:'+APP
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
