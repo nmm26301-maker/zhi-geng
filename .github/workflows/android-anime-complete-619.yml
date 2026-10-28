@@ -67,6 +67,7 @@ jobs:
           unzip -l apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'lib/arm64-v8a/libquickjs.so'
           ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'fixture-token-not-a-secret'
           ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'phone-copy-test'
+          ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'fixture-anime-619'
           ! unzip -l apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'reader-fixture'
           ! unzip -p apk-output/Zhigeng-v0.6.19-unsigned.apk classes.dex | grep -a -q 'AnimeVideoTestActivity'
           ! unzip -l apk-output/Zhigeng-v0.6.19-unsigned.apk | grep -q 'clip.mp4'
@@ -85,35 +86,3 @@ jobs:
         if: success()
         run: test -f apk-output/Zhigeng-v0.6.19-unsigned.apk
 
-      - name: Prepare original HTTPS and video fixtures
-        run: |
-          python3 -m pip install pillow
-          python3 scripts/prepare-video-fixture.py
-          python3 scripts/anime-extension-fixture.py > /tmp/extension-fixture.log 2>&1 &
-      - name: Enable KVM
-        run: sudo chmod 666 /dev/kvm
-      - uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 33
-          target: default
-          arch: x86_64
-          profile: pixel_2
-          emulator-boot-timeout: 300
-          disable-animations: true
-          emulator-options: -no-window -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none -no-snapshot -memory 2048
-          script: |
-            adb install apk-output/Zhigeng-debug-test.apk
-            python3 scripts/android-extension-smoke.py
-      - name: Preserve extension and tracker runtime evidence
-        if: always()
-        run: |
-          mkdir -p releases/checks-0.6.19
-          cp -R extension-check/. releases/checks-0.6.19/ || true
-          cp /tmp/extension-fixture.log releases/checks-0.6.19/fixture.log || true
-          rm -f releases/checks-0.6.19/fixture.pid
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add releases/checks-0.6.19
-          git diff --cached --quiet || git commit -m 'test: preserve original provider and tracker Android evidence [skip ci]'
-          git pull --rebase origin codex/anime-619
-          git push origin HEAD:codex/anime-619
