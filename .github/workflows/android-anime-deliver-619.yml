@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/zhigeng619signed" apk-output
           curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12703079241/zip -o build618.zip
-          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12783772325/zip -o build619.zip
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/nmm26301-maker/zhi-geng/actions/artifacts/12796086931/zip -o build619.zip
           python3 - <<'PY'
           import hashlib,json,os,pathlib,zipfile
           for version in ('618','619'):
@@ -93,6 +93,11 @@ jobs:
           assert m['upgradeChecks']['originalSignatureCoveringUpgrade'] and m['upgradeChecks']['shelfPreserved'] and m['upgradeChecks']['legacyWatchlistPreserved']
           assert len(m['englishChecks']['entries'])==2
           m.update(verificationStatus='passed',originalCertificateVerified=True,verificationRun=int(os.environ['GITHUB_RUN_ID']),delivery='releases/Zhigeng-v0.6.19.apk')
+          m['providerTrackerBaselineRun']=40639965017
+          m['providerTrackerBaselineSignedApkSha256']='39fc925bcd56203ff8ccfce6141d984413f6b1f9df36e37d3c388c072d5937a3'
+          m['verificationScope']='68 unit tests on final build; provider decode/cache and fake-account sync baseline on prior compiled APK; final build changes only initial tracker spinner handling, rechecked by signed 618-to-619 upgrade and cold-start invalid callback rejection; English links checked on final signed APK.'
+          m['visualReview']='Actual Android 13 screenshots reviewed for provider cache, MAL sync outcome and generated moving video decoded offline. No physical device or live account reviewed.'
+          m.pop('sourceRebuildPending',None)
           p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
           pathlib.Path('releases/Zhigeng-v0.6.19.apk').write_bytes(source.read_bytes())
           PYRELEASE
@@ -109,7 +114,11 @@ jobs:
           git commit -m 'release: verified original-signed 0.6.19 provider runtime and tracker sync [skip ci]'
           git stash --include-untracked
           git pull --rebase origin codex/anime-619
+          compiled_source_sha="$(python3 -c 'import json; print(json.load(open("releases/Zhigeng-v0.6.19.json"))["buildCommit"])')"
+          git fetch origin "$compiled_source_sha" --depth=1
+          git diff --exit-code "$compiled_source_sha" HEAD -- android/app/src/main android/app/build.gradle android/build.gradle android/gradle.properties
           git push origin HEAD:codex/anime-619
           git fetch origin main
           git merge --no-edit origin/main
+          git diff --exit-code "$compiled_source_sha" HEAD -- android/app/src/main android/app/build.gradle android/build.gradle android/gradle.properties
           git push origin HEAD:main

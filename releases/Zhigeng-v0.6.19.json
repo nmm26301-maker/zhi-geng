@@ -2,22 +2,21 @@
   "version": "0.6.19",
   "versionCode": 619,
   "applicationId": "cn.zhigeng.app",
-  "sha256": "39fc925bcd56203ff8ccfce6141d984413f6b1f9df36e37d3c388c072d5937a3",
-  "unsignedApkSha256": "e3d931b098e4f6e9adee55320f39e77a740b45e4ac8b531577f80e733b8c2c73",
+  "sha256": "8e905720f95b3fcae725f7da879603aeb026dd3a123dc692dedd076b38cd3112",
+  "unsignedApkSha256": "97866e7d283e24b16b7cb75b546fe6633d2f980d3e5b3c34969fb35f5b99d747",
   "certificateSha256": "39a940822ad8e3a59935a7c62507a8601f869ef1924bd1abd3981459181bc45c",
-  "buildRun": 40612162095,
-  "buildCommit": "6eb7d1cd5e0e2427f49bbed7ced63ce3a0eec4fc",
-  "buildArtifact": 12783772325,
+  "buildRun": 40641137007,
+  "buildCommit": "d2ad1003bc0c141d633614c4eb6267b6d9383a1c",
+  "buildArtifact": 12796086931,
   "unitTests": 68,
   "unitFailures": 0,
   "nativeLibraries16KiBAligned": true,
-  "verificationStatus": "pending-rebuild",
+  "verificationStatus": "pending-final-device-check",
   "realAccountsVerified": false,
   "physicalDevicesVerified": false,
   "limitations": [
     "Real AniList/MAL login requires a registered public Client ID and the user approval on the provider website.",
     "Community providers are installed by the user; individual websites and all provider scripts are not verified.",
     "External subtitles load online; offline video does not include cached external subtitles."
-  ],
-  "sourceRebuildPending": "d2ad1003bc0c141d633614c4eb6267b6d9383a1c"
+  ]
 }
