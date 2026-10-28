@@ -31,10 +31,17 @@ def locate(label):
  raise AssertionError('Missing '+label+'; '+str([(n.get('text'),n.get('content-desc')) for n in tree().iter('node')]))
 def tap(label):click(locate(label))
 def wait(predicate,timeout=35):
- end=time.monotonic()+timeout
+ end=time.monotonic()+timeout;previous=None;down=True
  while time.monotonic()<end:
   t=tree()
   if predicate(t):return t
+  signature=E.tostring(t)
+  if signature==previous:down=not down
+  previous=signature
+  scroll=[n for n in t.iter('node') if n.get('scrollable')=='true' and n.get('class')=='android.widget.ScrollView']
+  if scroll:
+   a,b,c,d=bounds(scroll[-1]);x=(a+c)//2;lo=b+(d-b)//3;hi=b+2*(d-b)//3
+   adb('shell','input','swipe',x,hi if down else lo,x,lo if down else hi,400)
   time.sleep(.4)
  raise AssertionError('UI wait timed out: '+str([n.get('text') for n in tree().iter('node')]))
 def has(label,t):return bool(nodes(label,t))
