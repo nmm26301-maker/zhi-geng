@@ -54,10 +54,13 @@ launch();anime();tap('动漫详情');wait('暂无离线简介');tap('关闭');wa
 tap('看完一集 +1');wait('已看 4 集');screen('05-new-progress')
 launch();anime();tap('更新追番');wait('4');tap('取消');screen('06-offline-restart')
 launch();tap('更多工具');tap('视频与离线缓存');wait('还没有关联剧集');screen('07-native-video-entry')
+# The exported OAuth entry rejects unsolicited callbacks after upgrading the real release.
+adb('shell','am','start','-W','-a','android.intent.action.VIEW','-d','cn.zhigeng.app://oauth/anilist#access_token=invalid-original-test&state=invalid', '-p', APP)
+wait('没有待完成的授权');screen('08-unsolicited-callback-rejected')
 assert adb('shell','pm','list','packages',APP).strip()=='package:'+APP
 logs=adb('logcat','-d','-s','AndroidRuntime:E');(OUT/'runtime.txt').write_text(logs);assert 'FATAL EXCEPTION' not in logs,logs
 result=dict(previousVersionCode=618,versionCode=619,api=33,originalSignatureCoveringUpgrade=True,sameUid=True,
     sameFirstInstallTime=True,sameDataDir=True,shelfPreserved=True,legacyWatchlistPreserved=True,
-    quickProgressPersisted=True,offlineRestart=True,noSecondApp=True,crashes=False,
+    unsolicitedCallbackRejected=True,quickProgressPersisted=True,offlineRestart=True,noSecondApp=True,crashes=False,
     fixture='Explicit old-schema SharedPreferences seed, shown by original 0.6.18 before covering upgrade; no real account or network')
 (OUT/'result.json').write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True)

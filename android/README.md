@@ -23,7 +23,7 @@
 
 ## 构建
 
-JDK 17 / Gradle 9.3.1 / Android SDK 36 / AGP 9.1.0 / Kotlin 2.4.0：
+JDK 17 / Gradle 9.3.1 / Android SDK 36 / AGP 9.1.0 / Kotlin 2.4.10：
 
 ```bash
 python3 -m pip install fonttools==4.59.0 brotli==1.1.0
