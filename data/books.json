@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T02:09:36.355Z",
+  "updatedAt": "2026-10-28T02:23:18.466Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 363,
@@ -63,6 +63,25 @@
       "editionCount": 2
     },
     {
+      "id": "book:/works/OL44870937W",
+      "title": "My Husband's Wife",
+      "author": "Alice Feeney",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15248921-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL44870937W",
+      "score": 4,
+      "votes": 3,
+      "interest": 40,
+      "language": [],
+      "subjects": [
+        "romance",
+        "Fiction, thrillers, general"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
       "id": "book:/works/OL44800712W",
       "title": "Dear Debbie",
       "author": "Freida McFadden",
@@ -83,25 +102,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 2
-    },
-    {
-      "id": "book:/works/OL44870937W",
-      "title": "My Husband's Wife",
-      "author": "Alice Feeney",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15248921-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL44870937W",
-      "score": 4,
-      "votes": 3,
-      "interest": 29,
-      "language": [],
-      "subjects": [
-        "romance",
-        "Fiction, thrillers, general"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 1
     },
     {
       "id": "book:/works/OL44063672W",
@@ -684,12 +684,12 @@
       "title": "Seporsi mie ayam sebelum mati",
       "author": "Brian Khrisna",
       "year": 2025,
-      "image": "https://covers.openlibrary.org/b/id/15252018-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/15268683-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42830484W",
       "score": 4.030303,
       "votes": 33,
-      "interest": 964,
+      "interest": 986,
       "language": [
         "ind"
       ],
@@ -1600,27 +1600,6 @@
       "editionCount": 2
     },
     {
-      "id": "book:/works/OL37873918W",
-      "title": "Pretty Rings and Broken Things",
-      "author": "Kat Singleton",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14848020-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37873918W",
-      "score": 3,
-      "votes": 2,
-      "interest": 152,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Fiction, romance, general",
-        "Fiction, general"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 3
-    },
-    {
       "id": "book:/works/OL34780775W",
       "title": "House of Flame and Shadow",
       "author": "Sarah J. Maas",
@@ -1628,9 +1607,9 @@
       "image": "https://covers.openlibrary.org/b/id/13525139-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL34780775W",
-      "score": 4.571429,
-      "votes": 7,
-      "interest": 141,
+      "score": 4.5,
+      "votes": 8,
+      "interest": 155,
       "language": [
         "spa",
         "eng"
@@ -1653,6 +1632,27 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
+    },
+    {
+      "id": "book:/works/OL37873918W",
+      "title": "Pretty Rings and Broken Things",
+      "author": "Kat Singleton",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/14848020-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37873918W",
+      "score": 3,
+      "votes": 2,
+      "interest": 152,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, romance, general",
+        "Fiction, general"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
     },
     {
       "id": "book:/works/OL37588041W",
@@ -2985,6 +2985,40 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL29232835W",
+      "title": "God of Wrath",
+      "author": "Rina Kent",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/12989788-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL29232835W",
+      "score": 4.3157897,
+      "votes": 19,
+      "interest": 662,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "enemies to lovers",
+        "dark romance",
+        "alpha male",
+        "virgin heroine",
+        "contemporary",
+        "new adult",
+        "college",
+        "possessive hero",
+        "rich hero",
+        "mafia",
+        "anal sex",
+        "bdsm",
+        "bully",
+        "grumpy hero"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 8
+    },
+    {
       "id": "book:/works/OL27524355W",
       "title": "If You Could See the Sun",
       "author": "Ann Liang",
@@ -3011,40 +3045,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL29232835W",
-      "title": "God of Wrath",
-      "author": "Rina Kent",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/12989788-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL29232835W",
-      "score": 4.2777777,
-      "votes": 18,
-      "interest": 636,
-      "language": [
-        "eng",
-        "spa"
-      ],
-      "subjects": [
-        "enemies to lovers",
-        "dark romance",
-        "alpha male",
-        "virgin heroine",
-        "contemporary",
-        "new adult",
-        "college",
-        "possessive hero",
-        "rich hero",
-        "mafia",
-        "anal sex",
-        "bdsm",
-        "bully",
-        "grumpy hero"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 8
     },
     {
       "id": "book:/works/OL29189552W",
@@ -3325,13 +3325,13 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.790164,
-      "votes": 305,
-      "interest": 15069,
+      "score": 3.7941177,
+      "votes": 306,
+      "interest": 15090,
       "language": [
+        "fre",
         "spa",
-        "eng",
-        "fre"
+        "eng"
       ],
       "subjects": [
         "Fiction, romance, multicultural & interracial",
@@ -4480,9 +4480,9 @@
       "image": "https://covers.openlibrary.org/b/id/10226290-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20893680W",
-      "score": 4.3333335,
-      "votes": 63,
-      "interest": 496,
+      "score": 4.3382354,
+      "votes": 68,
+      "interest": 525,
       "language": [
         "ita",
         "spa",
@@ -5692,17 +5692,17 @@
       "image": "https://covers.openlibrary.org/b/id/8747160-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20068530W",
-      "score": 3.8837209,
-      "votes": 129,
-      "interest": 5412,
+      "score": 3.8923078,
+      "votes": 130,
+      "interest": 5428,
       "language": [
         "spa",
-        "heb",
-        "pol",
+        "eng",
         "chi",
+        "pol",
         "por",
         "tur",
-        "eng",
+        "heb",
         "ger"
       ],
       "subjects": [
@@ -6788,13 +6788,13 @@
       "image": "https://covers.openlibrary.org/b/id/10092261-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20796936W",
-      "score": 4.0338984,
-      "votes": 59,
-      "interest": 928,
+      "score": 4.046875,
+      "votes": 64,
+      "interest": 952,
       "language": [
-        "eng",
-        "ger",
         "por",
+        "ger",
+        "eng",
         "dut"
       ],
       "subjects": [
@@ -8189,18 +8189,18 @@
       "image": "https://covers.openlibrary.org/b/id/12059372-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL82560W",
-      "score": 4.2486186,
-      "votes": 362,
-      "interest": 5001,
+      "score": 4.2493153,
+      "votes": 365,
+      "interest": 5016,
       "language": [
-        "urd",
-        "chi",
-        "rus",
-        "por",
-        "kor",
-        "alb",
-        "cze",
-        "dan"
+        "fre",
+        "rum",
+        "eng",
+        "afr",
+        "mar",
+        "tha",
+        "ben",
+        "alb"
       ],
       "subjects": [
         "orphans",
@@ -8556,6 +8556,41 @@
       "editionCount": 17
     },
     {
+      "id": "book:/works/OL8464993W",
+      "title": "The Viscount Who Loved Me",
+      "author": "Julia Quinn",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/492893-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL8464993W",
+      "score": 4.4130435,
+      "votes": 46,
+      "interest": 1044,
+      "language": [
+        "chi",
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, Romance, Historical, Regency",
+        "Social life and customs, fiction",
+        "Manners and customs, fiction",
+        "Sisters, fiction",
+        "Londres (Inglaterra)",
+        "Novela",
+        "Hermanas",
+        "nyt:trade-fiction-paperback=2021-05-16",
+        "New York Times bestseller",
+        "Marriage, fiction",
+        "nyt:mass-market-monthly=2022-05-08",
+        "Man-woman relationsips,, fiction",
+        "Fiction, romance, historical, regency & georgian",
+        "England, fiction"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 27
+    },
+    {
       "id": "book:/works/OL5720022W",
       "title": "Breaking Dawn",
       "author": "Stephenie Meyer",
@@ -8594,41 +8629,6 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 90
-    },
-    {
-      "id": "book:/works/OL8464993W",
-      "title": "The Viscount Who Loved Me",
-      "author": "Julia Quinn",
-      "year": 2000,
-      "image": "https://covers.openlibrary.org/b/id/492893-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL8464993W",
-      "score": 4.422222,
-      "votes": 45,
-      "interest": 1010,
-      "language": [
-        "spa",
-        "eng",
-        "chi"
-      ],
-      "subjects": [
-        "Fiction, Romance, Historical, Regency",
-        "Social life and customs, fiction",
-        "Manners and customs, fiction",
-        "Sisters, fiction",
-        "Londres (Inglaterra)",
-        "Novela",
-        "Hermanas",
-        "nyt:trade-fiction-paperback=2021-05-16",
-        "New York Times bestseller",
-        "Marriage, fiction",
-        "nyt:mass-market-monthly=2022-05-08",
-        "Man-woman relationsips,, fiction",
-        "Fiction, romance, historical, regency & georgian",
-        "England, fiction"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 27
     },
     {
       "id": "book:/works/OL784051W",
