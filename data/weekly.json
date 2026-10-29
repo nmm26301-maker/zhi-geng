@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T02:23:08.598Z",
+  "updatedAt": "2026-10-29T02:30:26.724Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -56,18 +56,6 @@
       "description": "The second season of <i>Tensei Shitara Ken Deshita</i>.<br><br>\n<i>Note: Each episode was streamed one week in advance of the TV broadcast starting on October 1, 2026 on Abema. Regular broadcasting began on October 8, 2026.</i>"
     },
     {
-      "id": "anilist:189123",
-      "title": "Blue Box Season 2",
-      "url": "https://anilist.co/anime/189123",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx189123-0secXELIhkIW.jpg",
-      "year": 2026,
-      "score": 8.1,
-      "source": "AniList",
-      "description": "The second season of <i>Ao no Hako</i>.\n"
-    },
-    {
       "id": "anilist:212888",
       "title": "Overgeared",
       "url": "https://anilist.co/anime/212888",
@@ -78,6 +66,18 @@
       "score": 7.6,
       "source": "AniList",
       "description": "Sin Yeong-U (a.k.a. Grid), an unlucky man in life and a low-level player in the popular VR game “Satisfy,” finds a powerful item that earns him a rare legendary class title: “Pagma’s Successor.” He’s now a skilled blacksmith who can forge unique weapons and equip the game’s most powerful gear. Grid resolves to use his new abilities to achieve fame and fortune, but as his very existence begins to stir up trouble in Satisfy, he realizes that life as a legend may be more than he bargained for….<br><br>\n\n(Source: Tapas, edited)<br><br>\n\n<i>Note: Tempal: Item no Chikara is streaming a week in advance of the TV broadcast on Prime Video and Crunchyroll beginning September 27th, 2026. Regular broadcasting began on October 2nd, 2026.</i>"
+    },
+    {
+      "id": "anilist:189123",
+      "title": "Blue Box Season 2",
+      "url": "https://anilist.co/anime/189123",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx189123-0secXELIhkIW.jpg",
+      "year": 2026,
+      "score": 8.1,
+      "source": "AniList",
+      "description": "The second season of <i>Ao no Hako</i>.\n"
     },
     {
       "id": "anilist:210482",
@@ -104,18 +104,6 @@
       "description": "On the surface, Satoko has it all—she’s beautiful, the daughter of a nobleman, and at a prime age for marriage. Unfortunately, she is also quite ill and only has a short time left to live. Before she can secure a marriage that will redeem her worth in her family’s eyes, she finds herself the target of the mysterious assassin Shinpei, and her plans are put in jeopardy. In order to save herself, she makes a desperate proposal—of marriage! When it comes to love, however, Shinpei takes “until death do we part” seriously.<br>\n<br>\n(Source: VIZ Media)"
     },
     {
-      "id": "anilist:160275",
-      "title": "Made in Abyss: Mezameru Shinpi",
-      "url": "https://anilist.co/anime/160275",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx160275-cBOWJpcCGeMq.jpg",
-      "year": 2026,
-      "score": 8,
-      "source": "AniList",
-      "description": "Sequel to <i>Made in Abyss: Retsujitsu no Ougonkyou.</i><br><br>\n"
-    },
-    {
       "id": "anilist:191656",
       "title": "Even the Student Council Has Its Holes!",
       "url": "https://anilist.co/anime/191656",
@@ -126,6 +114,18 @@
       "score": 7.3,
       "source": "AniList",
       "description": "This is Fujinasu Academy, a private high school with top-achieving students located on the outskirts of town.\n<br><br>\nHigh School 1st-Year Ume Mizunoe has excellent grades in Japanese language class and has received multiple literary awards.\nHowever, his terrible grades in the sciences are affecting his ability to move up a grade. To avoid repeating a year, he becomes a member of the student council to improve his academic standing.\n<br><br>\nHowever, in the student council, he meets the charismatic yet sullen student council president Kotobuki Hisako, and the scary yet kind and refined treasurer, Arisu Terui. Other members include a cheeky and cute boy, Tan Otori, and Komaro Michinoku, the admin who's like a small abandoned cat. This is the start of a slapstick, heartful, rom-com about a busy student council full of cute, mismatched, and quirky students!\n<br><br>\n(Source: Even the Student Council Has Its Holes! Official Site)"
+    },
+    {
+      "id": "anilist:160275",
+      "title": "Made in Abyss: Mezameru Shinpi",
+      "url": "https://anilist.co/anime/160275",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx160275-cBOWJpcCGeMq.jpg",
+      "year": 2026,
+      "score": 8,
+      "source": "AniList",
+      "description": "Sequel to <i>Made in Abyss: Retsujitsu no Ougonkyou.</i><br><br>\n"
     },
     {
       "id": "anilist:143103",
@@ -183,7 +183,7 @@
       "type": "anime",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx199340-YQlmzvmcJzyt.jpg",
       "year": 2026,
-      "score": 8.3,
+      "score": 8.4,
       "source": "AniList",
       "description": "<i>\"Actually, I’m Touko Kirishima.\"</i>\n<br><br>\nThe audience erupted in excitement upon learning that the true identity of the mysterious, wildly popular internet singer was none other than the nation’s favorite actress, Mai Sakurajima. The scene was exactly the same as the dream Sakuta Azusagawa had seen on Christmas Eve.\n<br><br>\nStarting with Mai’s shocking confession on April 1, the impossible events that everyone once dreamed of keep happening one after another.\n\nThe social media hashtag \"#Yumemiru,\" where dreams come true, has vanished, and as Sakuta struggles with the disconnect between the reality before him and his own perception, he receives a message from a version of himself in an alternate reality.\n<br><br>\n<b>―Stop Touko Kirishima,\n<br>\n―Before reality is rewritten.</b>\n<br><br>\nTo restore the world to its original state, Sakuta sets out to find Touko Kirishima. This is a story about overcoming the \"Adolescent Syndrome\".<br><br>\n\n(Source: Crunchyroll News, edited)"
     },
@@ -344,6 +344,18 @@
       "description": "Heather Fawcett"
     },
     {
+      "id": "ol:/works/OL45346558W",
+      "title": "Kin",
+      "url": "https://openlibrary.org/works/OL45346558W",
+      "category": "书籍",
+      "type": "book",
+      "image": "https://covers.openlibrary.org/b/id/15220747-M.jpg",
+      "year": 2026,
+      "score": 0,
+      "source": "Open Library",
+      "description": "Tayari Jones"
+    },
+    {
       "id": "ol:/works/OL45732307W",
       "title": "The Calamity Club",
       "url": "https://openlibrary.org/works/OL45732307W",
@@ -378,18 +390,6 @@
       "score": 4,
       "source": "Open Library",
       "description": "T. J. Klune"
-    },
-    {
-      "id": "ol:/works/OL45607440W",
-      "title": "The Wild Zone",
-      "url": "https://openlibrary.org/works/OL45607440W",
-      "category": "书籍",
-      "type": "book",
-      "image": "https://covers.openlibrary.org/b/id/15261949-M.jpg",
-      "year": 2026,
-      "score": 0,
-      "source": "Open Library",
-      "description": "Rick Riordan、Annabelle Oh"
     }
   ]
 }

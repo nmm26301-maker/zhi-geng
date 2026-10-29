@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-28T02:23:18.466Z",
+  "updatedAt": "2026-10-29T02:30:41.528Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 363,
+  "count": 364,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -324,6 +324,33 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 4
+    },
+    {
+      "id": "book:/works/OL45346558W",
+      "title": "Kin",
+      "author": "Tayari Jones",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15220747-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45346558W",
+      "score": 0,
+      "votes": 0,
+      "interest": 6,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction",
+        "Historical Fiction",
+        "Literary Fiction",
+        "Historical",
+        "African American",
+        "Friendship",
+        "Contemporary",
+        "Family"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
     },
     {
       "id": "book:/works/OL45732307W",
@@ -811,14 +838,14 @@
       "image": "https://covers.openlibrary.org/b/id/15137810-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42543873W",
-      "score": 3.1666667,
-      "votes": 6,
-      "interest": 262,
+      "score": 3.625,
+      "votes": 8,
+      "interest": 278,
       "language": [
         "fre",
         "spa",
-        "dut",
-        "eng"
+        "eng",
+        "dut"
       ],
       "subjects": [
         "Fantasy",
@@ -2805,12 +2832,12 @@
       "url": "https://openlibrary.org/works/OL34224558W",
       "score": 3.3333333,
       "votes": 21,
-      "interest": 1390,
+      "interest": 1395,
       "language": [
         "por",
-        "ger",
+        "fre",
         "eng",
-        "fre"
+        "ger"
       ],
       "subjects": [
         "Thriller",
@@ -3108,6 +3135,40 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL27090610W",
+      "title": "The Ballad of Never After",
+      "author": "Stephanie Garber",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/12945180-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL27090610W",
+      "score": 4.5789475,
+      "votes": 19,
+      "interest": 539,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "young-adult",
+        "New York Times bestseller",
+        "Love",
+        "Blessing and Cursing",
+        "Magic",
+        "Fantasy fiction",
+        "Young adult fiction, fantasy, dark fantasy",
+        "Young adult fiction, fairy tales & folklore, general",
+        "Young adult fiction, fantasy, romance",
+        "Serie:Once_Upon_a_Broken_Heart",
+        "Fantasy",
+        "Fantasy Romance",
+        "Fiction",
+        "Romance"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 11
+    },
+    {
       "id": "book:/works/OL29215706W",
       "title": "Painted Scars",
       "author": "Neva Altaj",
@@ -3160,40 +3221,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL27090610W",
-      "title": "The Ballad of Never After",
-      "author": "Stephanie Garber",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/12945180-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL27090610W",
-      "score": 4.5555553,
-      "votes": 18,
-      "interest": 518,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "young-adult",
-        "New York Times bestseller",
-        "Love",
-        "Blessing and Cursing",
-        "Magic",
-        "Fantasy fiction",
-        "Young adult fiction, fantasy, dark fantasy",
-        "Young adult fiction, fairy tales & folklore, general",
-        "Young adult fiction, fantasy, romance",
-        "Serie:Once_Upon_a_Broken_Heart",
-        "Fantasy",
-        "Fantasy Romance",
-        "Fiction",
-        "Romance"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 11
     },
     {
       "id": "book:/works/OL25960185W",
@@ -3397,12 +3424,12 @@
       "url": "https://openlibrary.org/works/OL24178205W",
       "score": 4.1274133,
       "votes": 259,
-      "interest": 9450,
+      "interest": 9501,
       "language": [
-        "ita",
         "spa",
-        "por",
         "eng",
+        "ita",
+        "por",
         "dut"
       ],
       "subjects": [
@@ -3434,7 +3461,7 @@
       "url": "https://openlibrary.org/works/OL25515697W",
       "score": 4.048,
       "votes": 125,
-      "interest": 5828,
+      "interest": 5855,
       "language": [
         "spa",
         "eng"
@@ -4056,15 +4083,15 @@
       "url": "https://openlibrary.org/works/OL20965973W",
       "score": 4.011494,
       "votes": 87,
-      "interest": 2361,
+      "interest": 2378,
       "language": [
+        "fre",
+        "rum",
+        "eng",
+        "swe",
         "gre",
         "por",
         "tur",
-        "rum",
-        "swe",
-        "eng",
-        "fre",
         "ger"
       ],
       "subjects": [
@@ -4842,12 +4869,12 @@
       "url": "https://openlibrary.org/works/OL20090688W",
       "score": 4.181818,
       "votes": 198,
-      "interest": 5057,
+      "interest": 5059,
       "language": [
-        "por",
-        "spa",
         "ger",
-        "eng"
+        "spa",
+        "eng",
+        "por"
       ],
       "subjects": [
         "Fiction, gay",
@@ -5621,13 +5648,13 @@
       "url": "https://openlibrary.org/works/OL19096402W",
       "score": 4.0516434,
       "votes": 213,
-      "interest": 5917,
+      "interest": 5947,
       "language": [
-        "est",
         "cat",
-        "por",
-        "tur",
         "eng",
+        "est",
+        "tur",
+        "por",
         "ger"
       ],
       "subjects": [
@@ -6599,15 +6626,15 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.142857,
       "votes": 84,
-      "interest": 1928,
+      "interest": 1950,
       "language": [
-        "spa",
-        "pol",
-        "chi",
-        "por",
-        "tur",
-        "eng",
         "fre",
+        "spa",
+        "eng",
+        "pol",
+        "tur",
+        "por",
+        "chi",
         "ger"
       ],
       "subjects": [
@@ -8149,18 +8176,18 @@
       "image": "https://covers.openlibrary.org/b/id/12648183-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL16336633W",
-      "score": 3.9292307,
-      "votes": 325,
-      "interest": 7015,
+      "score": 3.9237804,
+      "votes": 328,
+      "interest": 7064,
       "language": [
-        "heb",
-        "por",
-        "tur",
+        "cat",
+        "hin",
         "fre",
+        "spa",
         "eng",
-        "jpn",
+        "vie",
         "rus",
-        "ger"
+        "dut"
       ],
       "subjects": [
         "Man-woman relationships, fiction",
