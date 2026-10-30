@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T02:30:41.528Z",
+  "updatedAt": "2026-10-30T02:41:05.308Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 364,
@@ -681,14 +681,14 @@
       "image": "https://covers.openlibrary.org/b/id/14826089-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL41943074W",
-      "score": 4.361111,
-      "votes": 36,
-      "interest": 1058,
+      "score": 4.3783784,
+      "votes": 37,
+      "interest": 1068,
       "language": [
-        "spa",
+        "dut",
         "ger",
-        "eng",
-        "dut"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "American literature",
@@ -1444,10 +1444,10 @@
       "url": "https://openlibrary.org/works/OL37889158W",
       "score": 4.1666665,
       "votes": 6,
-      "interest": 315,
+      "interest": 326,
       "language": [
-        "ger",
-        "eng"
+        "eng",
+        "ger"
       ],
       "subjects": [
         "American literature",
@@ -2832,12 +2832,12 @@
       "url": "https://openlibrary.org/works/OL34224558W",
       "score": 3.3333333,
       "votes": 21,
-      "interest": 1395,
+      "interest": 1403,
       "language": [
-        "por",
         "fre",
-        "eng",
-        "ger"
+        "por",
+        "ger",
+        "eng"
       ],
       "subjects": [
         "Thriller",
@@ -4287,7 +4287,7 @@
       "url": "https://openlibrary.org/works/OL28708075W",
       "score": 3.7,
       "votes": 20,
-      "interest": 855,
+      "interest": 868,
       "language": [
         "eng"
       ],
@@ -4976,12 +4976,12 @@
       "image": "https://covers.openlibrary.org/b/id/15226452-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL25434351W",
-      "score": 3.9047618,
-      "votes": 21,
-      "interest": 1045,
+      "score": 3.9545455,
+      "votes": 22,
+      "interest": 1097,
       "language": [
-        "eng",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Series:Game-Changers",
@@ -5792,18 +5792,18 @@
       "image": "https://covers.openlibrary.org/b/id/8362947-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL18766691W",
-      "score": 4.3137255,
-      "votes": 102,
-      "interest": 2841,
+      "score": 4.298077,
+      "votes": 104,
+      "interest": 2855,
       "language": [
-        "fre",
-        "spa",
-        "tur",
-        "dut",
         "cat",
         "ger",
-        "vie",
-        "gre"
+        "chi",
+        "spa",
+        "fre",
+        "dut",
+        "tur",
+        "vie"
       ],
       "subjects": [
         "Solitude",
@@ -5834,14 +5834,14 @@
       "url": "https://openlibrary.org/works/OL20150260W",
       "score": 4.0238094,
       "votes": 84,
-      "interest": 1952,
+      "interest": 1962,
       "language": [
-        "ita",
         "spa",
-        "baq",
-        "pol",
-        "heb",
         "eng",
+        "pol",
+        "ita",
+        "heb",
+        "baq",
         "ger"
       ],
       "subjects": [
@@ -5871,13 +5871,13 @@
       "image": "https://covers.openlibrary.org/b/id/10317914-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19747970W",
-      "score": 3.7857144,
-      "votes": 42,
-      "interest": 1495,
+      "score": 3.8139534,
+      "votes": 43,
+      "interest": 1512,
       "language": [
-        "pol",
-        "ger",
         "por",
+        "ger",
+        "pol",
         "eng"
       ],
       "subjects": [
@@ -6268,13 +6268,13 @@
       "image": "https://covers.openlibrary.org/b/id/8802446-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20157354W",
-      "score": 4.428571,
-      "votes": 14,
-      "interest": 364,
+      "score": 4.4,
+      "votes": 15,
+      "interest": 368,
       "language": [
+        "fre",
         "spa",
-        "eng",
-        "fre"
+        "eng"
       ],
       "subjects": [
         "Assassins",
