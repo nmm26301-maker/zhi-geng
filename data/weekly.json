@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T02:40:53.602Z",
+  "updatedAt": "2026-10-31T02:29:54.856Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -15,7 +15,7 @@
       "type": "anime",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx195539-4LdfmKIHzuxr.png",
       "year": 2026,
-      "score": 8.4,
+      "score": 8.3,
       "source": "AniList",
       "description": "<i>Cyberpunk: Edgerunners 2</i> pulls you back into Night City, where lives become entangled to the extreme. Weak, a washed-up cyberpunk legend, is now forced to live without chrome as he searches for a sense of purpose in a world that’s passed him by. Meanwhile, the deadly nomad D sets out on a path to revenge that brings him close to corpo secrets never meant to be found. Across this ten-episode standalone series, uncover a story of family, obsession, legacy — and how your lens reflects the stories of the people around you..<br><br>\n\nWhen the world is blinded by spectacle, what extremes do you have to go to make your story matter?<br><br>\n(Source: Cyberpunk: Edgerunners 2 Official Site, Official Twitter)"
     },
@@ -152,18 +152,6 @@
       "description": "Rein, an enchanter, is suddenly expelled from his guild one day. But instead of despairing, he declares, “Now I can do anything!” and begins reclaiming the massive number of enhancement points he once poured into his guildmates’ gear, setting off on a brand-new path as an adventurer.<br><br>\nGathering around him are people carrying wounds that don’t fade easily: a genius adventurer who shut her heart after her party was slaughtered, a warrior who lost her family, and an assassin raised from childhood to kill. Yet Rein never rejects their pasts or their scars—he accepts them all with bright, straightforward warmth.<br><br>\nThe stage is a unique fantasy world where Uzis, slingshots, and even yakuza exist side by side. But in this world, the more people rely on convenient technology, the more their magic weakens, and adventurers grow fragile.<br><br>\nIntelligent, vicious monsters roam freely, while in the underworld, outlaws bare their greed and ambition as schemes and betrayals intertwine. In a world where ideals and justice are easily crushed, adventurers fight on with nothing but their magic and their convictions.<br><br>\nThis is the story of those who have lost their place in the world finding a new way to live. Rein and his companions’ wild, free-spirited second life begins now!\n<br><br>(Source: The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life Site)"
     },
     {
-      "id": "anilist:178083",
-      "title": "Tokyo Revengers: War of the Three Titans Arc",
-      "url": "https://anilist.co/anime/178083",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx178083-bg7pg6TCHwtG.jpg",
-      "year": 2026,
-      "score": 7.6,
-      "source": "AniList",
-      "description": "Sequel to <i>Tokyo Revengers: Tenjiku-hen</i>."
-    },
-    {
       "id": "anilist:213805",
       "title": "The Ramparts of Ice Season 2",
       "url": "https://anilist.co/anime/213805",
@@ -174,6 +162,18 @@
       "score": 8.1,
       "source": "AniList",
       "description": "Koyuki, the isolated girl; Miki, the former school idol; Minato, the guy with no concept of personal space; and Youta, the gentle basketball player. Clumsy, frustrating, yet deeply endearing — this coming-of-age ensemble drama of crisscrossing hearts marches on.\n<br><br>\nAs they grow closer, Koyuki and Minato begin to develop feelings for each other that go beyond mere friendship. Meanwhile, Youta finally confesses to Miki the feelings he's harbored for years. Some speak their hearts while others keep their emotions hidden, causing their paths — and their feelings for one another — to continuously cross and pass by… \n<br><br>\n(Source: Netflix)"
+    },
+    {
+      "id": "anilist:178083",
+      "title": "Tokyo Revengers: War of the Three Titans Arc",
+      "url": "https://anilist.co/anime/178083",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx178083-bg7pg6TCHwtG.jpg",
+      "year": 2026,
+      "score": 7.6,
+      "source": "AniList",
+      "description": "Sequel to <i>Tokyo Revengers: Tenjiku-hen</i>."
     },
     {
       "id": "anilist:199340",

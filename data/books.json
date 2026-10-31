@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T02:41:05.308Z",
+  "updatedAt": "2026-10-31T02:30:12.296Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 364,
@@ -2702,12 +2702,12 @@
       "image": "https://covers.openlibrary.org/b/id/12928487-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27245843W",
-      "score": 3.8,
-      "votes": 105,
-      "interest": 4447,
+      "score": 3.82243,
+      "votes": 107,
+      "interest": 4534,
       "language": [
-        "eng",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Romance",
@@ -3387,12 +3387,12 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.6079028,
-      "votes": 329,
-      "interest": 12476,
+      "score": 3.6,
+      "votes": 330,
+      "interest": 12527,
       "language": [
-        "spa",
         "ger",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -5873,7 +5873,7 @@
       "url": "https://openlibrary.org/works/OL19747970W",
       "score": 3.8139534,
       "votes": 43,
-      "interest": 1512,
+      "interest": 1514,
       "language": [
         "por",
         "ger",
@@ -6664,15 +6664,15 @@
       "image": "https://covers.openlibrary.org/b/id/8169547-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17864836W",
-      "score": 3.825,
-      "votes": 40,
-      "interest": 1515,
+      "score": 3.840909,
+      "votes": 44,
+      "interest": 1549,
       "language": [
-        "dut",
         "ita",
+        "spa",
+        "dut",
         "tur",
-        "eng",
-        "spa"
+        "eng"
       ],
       "subjects": [
         "Romance literature",
@@ -7049,7 +7049,7 @@
       "url": "https://openlibrary.org/works/OL17615537W",
       "score": 3.96,
       "votes": 25,
-      "interest": 620,
+      "interest": 624,
       "language": [
         "eng"
       ],
@@ -8405,16 +8405,16 @@
       "url": "https://openlibrary.org/works/OL5819895W",
       "score": 3.775862,
       "votes": 232,
-      "interest": 1593,
+      "interest": 1600,
       "language": [
         "ita",
-        "spa",
-        "pol",
+        "ger",
         "chi",
-        "por",
-        "eng",
+        "spa",
         "fre",
-        "ger"
+        "por",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Fantasy",
