@@ -40,6 +40,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/prepare-android-posters.mjs
+      - run: python3 scripts/prepare-anime-plugin-assets.py
       - run: python3 scripts/make-reader-fixtures.py
       - name: Run Android unit tests and assemble APKs
         working-directory: android
