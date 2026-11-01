@@ -1,5 +1,7 @@
 # 知更 · Android App
 
+> **2026-11-01 · Android 0.6.20：内置安读 Anx Reader 多格式阅读**。将 Anx Reader 的 foliate-js 阅读内核以本地离线 WebView 模块接入知更，书架新增 MOBI、AZW3、FB2 导入；这三类格式在知更内直接阅读，EPUB、TXT、PDF 继续沿用现有 Readium/PdfRenderer。包名 `cn.zhigeng.app`、原签名和书架数据目录保持不变，版本码 620，可覆盖 0.6.19。Anx Reader 与 foliate-js 的 MIT 许可已随包保留。
+
 > **2026-10-28 · Android 0.6.19：社区扩展与追番同步**。支持安装 JS / TS 视频源扩展并接到原生播放和离线缓存；支持 AniList / MyAnimeList 授权与逐条导入上传。68 项单元测试、Android 13 原创扩展/模拟账号协议、离线解码、原签名 618 → 619 数据保留升级和两个英语入口通过。**真实账号登录仍需有效 Client ID 与用户官网授权**，未预装社区源；实体手机尚未验证。**[下载安装包](releases/Zhigeng-v0.6.19.apk?raw=true)** · [核验记录](releases/Zhigeng-v0.6.19.json) · [使用说明](docs/anime-community-accounts.md)。
 
 > **2026-10-27 · Android 0.6.18：原生视频播放与离线缓存**。本地视频与 HTTPS MP4/HLS/DASH 直链接入原生 Media3 播放器，支持续播、上下集、倍速、横竖屏、暂停续传及普通视频导出；播放结束可更新本地追番，保留英语学习入口。51 项单元测试、Android 13 实际画面与进度、断网 MP4/HLS/本地播放、导出字节一致性和原签名 617 → 618 数据保留升级通过。图标与包名不变。社区视频扩展与账号同步仍未实现。**[下载安装包](releases/Zhigeng-v0.6.18.apk?raw=true)** · [核验记录](releases/Zhigeng-v0.6.18.json) · [使用说明](docs/anime-playback.md)。
