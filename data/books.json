@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-31T02:30:12.296Z",
+  "updatedAt": "2026-11-01T02:19:47.922Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 364,
+  "count": 365,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -716,7 +716,7 @@
       "url": "https://openlibrary.org/works/OL42830484W",
       "score": 4.030303,
       "votes": 33,
-      "interest": 986,
+      "interest": 997,
       "language": [
         "ind"
       ],
@@ -1324,9 +1324,9 @@
       "image": "https://covers.openlibrary.org/b/id/14641117-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL38128674W",
-      "score": 4.282051,
-      "votes": 39,
-      "interest": 1517,
+      "score": 4.1860466,
+      "votes": 43,
+      "interest": 1579,
       "language": [
         "por",
         "spa",
@@ -2632,30 +2632,30 @@
       "image": "https://covers.openlibrary.org/b/id/12749873-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27733867W",
-      "score": 4.0119333,
-      "votes": 419,
-      "interest": 19572,
+      "score": 4.0142856,
+      "votes": 420,
+      "interest": 19608,
       "language": [
-        "eng",
+        "fre",
         "por",
         "spa",
-        "fre"
+        "eng"
       ],
       "subjects": [
+        "Chick Lit",
         "Contemporary",
         "Romance",
         "Friendship",
         "Fiction",
         "Young Adult Fiction",
+        "Contemporary Romance",
+        "Adult",
         "collectionid:nyt2020s",
         "American literature",
-        "contemporary romance",
         "new adult",
         "domestic violence",
         "second chance romance",
-        "forbidden love",
-        "family",
-        "forgiveness"
+        "forbidden love"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 26
@@ -2918,7 +2918,7 @@
       "url": "https://openlibrary.org/works/OL28181491W",
       "score": 3.8181818,
       "votes": 22,
-      "interest": 924,
+      "interest": 945,
       "language": [
         "spa",
         "eng"
@@ -3021,7 +3021,7 @@
       "url": "https://openlibrary.org/works/OL29232835W",
       "score": 4.3157897,
       "votes": 19,
-      "interest": 662,
+      "interest": 664,
       "language": [
         "spa",
         "eng"
@@ -3352,9 +3352,9 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.7941177,
-      "votes": 306,
-      "interest": 15090,
+      "score": 3.7987013,
+      "votes": 308,
+      "interest": 15133,
       "language": [
         "fre",
         "spa",
@@ -3387,9 +3387,9 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.6,
-      "votes": 330,
-      "interest": 12527,
+      "score": 3.6042297,
+      "votes": 331,
+      "interest": 12536,
       "language": [
         "ger",
         "spa",
@@ -5646,16 +5646,16 @@
       "image": "https://covers.openlibrary.org/b/id/9407338-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19096402W",
-      "score": 4.0516434,
-      "votes": 213,
-      "interest": 5947,
+      "score": 4.0511627,
+      "votes": 215,
+      "interest": 5976,
       "language": [
         "cat",
-        "eng",
+        "ger",
         "est",
-        "tur",
         "por",
-        "ger"
+        "tur",
+        "eng"
       ],
       "subjects": [
         "Fiction, psychological",
@@ -6848,9 +6848,9 @@
       "image": "https://covers.openlibrary.org/b/id/10409469-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21833211W",
-      "score": 4.3157897,
-      "votes": 19,
-      "interest": 852,
+      "score": 4.3,
+      "votes": 20,
+      "interest": 879,
       "language": [
         "eng"
       ],
@@ -7633,18 +7633,18 @@
       "image": "https://covers.openlibrary.org/b/id/11272966-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15183119W",
-      "score": 4.2156863,
-      "votes": 51,
-      "interest": 718,
+      "score": 4.226415,
+      "votes": 53,
+      "interest": 739,
       "language": [
-        "vie",
-        "pol",
         "cat",
-        "por",
-        "eng",
+        "ita",
         "ger",
-        "swe",
-        "fre"
+        "chi",
+        "heb",
+        "spa",
+        "baq",
+        "por"
       ],
       "subjects": [
         "Serie:The_Kane_Chronicles",
@@ -8140,14 +8140,14 @@
       "url": "https://openlibrary.org/works/OL20234863W",
       "score": 4.2011175,
       "votes": 179,
-      "interest": 7179,
+      "interest": 7236,
       "language": [
         "ger",
+        "spa",
+        "fre",
         "por",
         "tur",
-        "fre",
-        "eng",
-        "spa"
+        "eng"
       ],
       "subjects": [
         "Children's fiction",
@@ -8776,9 +8776,9 @@
       "image": "https://covers.openlibrary.org/b/id/8197844-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17886378W",
-      "score": 4.0285716,
-      "votes": 35,
-      "interest": 712,
+      "score": 4.0789475,
+      "votes": 38,
+      "interest": 730,
       "language": [
         "rus",
         "pol",
@@ -9878,6 +9878,46 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 13
+    },
+    {
+      "id": "book:/works/OL45885W",
+      "title": "The BFG",
+      "author": "Roald Dahl",
+      "year": 1980,
+      "image": "https://covers.openlibrary.org/b/id/9176033-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45885W",
+      "score": 4.1164384,
+      "votes": 146,
+      "interest": 1667,
+      "language": [
+        "ita",
+        "urd",
+        "ger",
+        "chi",
+        "heb",
+        "spa",
+        "kor",
+        "wel"
+      ],
+      "subjects": [
+        "Open Library Staff Picks",
+        "Roald Dahl",
+        "Tweens",
+        "Teens",
+        "Teenagers",
+        "YA",
+        "Young adult",
+        "Juvenile",
+        "Fiction",
+        "Fantasy",
+        "Make-believe",
+        "Literature",
+        "Chapters",
+        "Chapter Book"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 155
     },
     {
       "id": "book:/works/OL8996439W",
