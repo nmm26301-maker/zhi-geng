@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T02:19:47.922Z",
+  "updatedAt": "2026-11-02T02:36:05.094Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 365,
@@ -2704,7 +2704,7 @@
       "url": "https://openlibrary.org/works/OL27245843W",
       "score": 3.82243,
       "votes": 107,
-      "interest": 4534,
+      "interest": 4544,
       "language": [
         "spa",
         "eng"
@@ -2918,7 +2918,7 @@
       "url": "https://openlibrary.org/works/OL28181491W",
       "score": 3.8181818,
       "votes": 22,
-      "interest": 945,
+      "interest": 947,
       "language": [
         "spa",
         "eng"
@@ -3422,15 +3422,15 @@
       "image": "https://covers.openlibrary.org/b/id/10601402-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24178205W",
-      "score": 4.1274133,
-      "votes": 259,
-      "interest": 9501,
+      "score": 4.126923,
+      "votes": 260,
+      "interest": 9511,
       "language": [
-        "spa",
-        "eng",
         "ita",
+        "spa",
+        "dut",
         "por",
-        "dut"
+        "eng"
       ],
       "subjects": [
         "American literature",
@@ -3459,9 +3459,9 @@
       "image": "https://covers.openlibrary.org/b/id/12821465-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL25515697W",
-      "score": 4.048,
-      "votes": 125,
-      "interest": 5855,
+      "score": 4.0555553,
+      "votes": 126,
+      "interest": 5871,
       "language": [
         "spa",
         "eng"
@@ -3527,9 +3527,9 @@
       "image": "https://covers.openlibrary.org/b/id/11182600-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24542623W",
-      "score": 3.75,
-      "votes": 76,
-      "interest": 3454,
+      "score": 3.7532468,
+      "votes": 77,
+      "interest": 3476,
       "language": [
         "eng"
       ],
@@ -3595,13 +3595,13 @@
       "url": "https://openlibrary.org/works/OL24457490W",
       "score": 4.02439,
       "votes": 82,
-      "interest": 1934,
+      "interest": 1950,
       "language": [
-        "eng",
         "ger",
         "bul",
         "fin",
-        "dut"
+        "dut",
+        "eng"
       ],
       "subjects": [
         "Children's fiction",
@@ -3789,6 +3789,27 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL25957469W",
+      "title": "Heaven Official's Blessing -- Tian Guan Ci Fu Vol. 1",
+      "author": "Mo Xiang Tong Xiu",
+      "year": 2021,
+      "image": "https://covers.openlibrary.org/b/id/15127291-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL25957469W",
+      "score": 4.0689654,
+      "votes": 29,
+      "interest": 639,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "nyt:trade-fiction-paperback=2022-03-06",
+        "New York Times bestseller"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 4
+    },
+    {
       "id": "book:/works/OL25555522W",
       "title": "Hooked",
       "author": "Emily McIntire",
@@ -3811,27 +3832,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL25957469W",
-      "title": "Heaven Official's Blessing -- Tian Guan Ci Fu Vol. 1",
-      "author": "Mo Xiang Tong Xiu",
-      "year": 2021,
-      "image": "https://covers.openlibrary.org/b/id/15127291-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL25957469W",
-      "score": 4.0689654,
-      "votes": 29,
-      "interest": 611,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "nyt:trade-fiction-paperback=2022-03-06",
-        "New York Times bestseller"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 4
     },
     {
       "id": "book:/works/OL28954802W",
@@ -3919,12 +3919,13 @@
       "image": "https://covers.openlibrary.org/b/id/13273878-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL28959223W",
-      "score": 3.8888888,
-      "votes": 18,
-      "interest": 541,
+      "score": 3.8947368,
+      "votes": 19,
+      "interest": 546,
       "language": [
         "dut",
         "pol",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -3933,7 +3934,7 @@
         "Children's fiction"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 10
+      "editionCount": 11
     },
     {
       "id": "book:/works/OL22017172W",
@@ -4123,14 +4124,14 @@
       "url": "https://openlibrary.org/works/OL21084352W",
       "score": 4.1486487,
       "votes": 74,
-      "interest": 2154,
+      "interest": 2186,
       "language": [
-        "spa",
+        "rum",
         "ita",
-        "pol",
-        "eng",
         "ger",
-        "rum"
+        "spa",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Young adult fiction",
@@ -4155,13 +4156,13 @@
       "url": "https://openlibrary.org/works/OL21692056W",
       "score": 4.246377,
       "votes": 69,
-      "interest": 1618,
+      "interest": 1637,
       "language": [
-        "dut",
         "ger",
+        "dut",
         "por",
-        "eng",
-        "pol"
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Children's fiction",
@@ -4936,18 +4937,18 @@
       "image": "https://covers.openlibrary.org/b/id/9020890-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20354499W",
-      "score": 4.2166667,
-      "votes": 60,
-      "interest": 1117,
+      "score": 4.1904764,
+      "votes": 63,
+      "interest": 1135,
       "language": [
-        "srp",
-        "wel",
         "cat",
-        "pol",
         "rus",
-        "eng",
+        "ger",
         "spa",
-        "dut"
+        "dut",
+        "wel",
+        "srp",
+        "pol"
       ],
       "subjects": [
         "High schools",
@@ -4966,7 +4967,7 @@
         "YOUNG ADULT FICTION / Comics & Graphic Novels / Romance"
       ],
       "ebookAccess": "printdisabled",
-      "editionCount": 12
+      "editionCount": 13
     },
     {
       "id": "book:/works/OL25434351W",
@@ -5209,9 +5210,9 @@
       "image": "https://covers.openlibrary.org/b/id/8791330-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20145719W",
-      "score": 4.75,
-      "votes": 16,
-      "interest": 541,
+      "score": 4.7222223,
+      "votes": 18,
+      "interest": 553,
       "language": [
         "eng"
       ],
@@ -5498,6 +5499,32 @@
       "editionCount": 28
     },
     {
+      "id": "book:/works/OL20149092W",
+      "title": "How to Make Friends with the Dark",
+      "author": "Kathleen Glasgow",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/8793300-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20149092W",
+      "score": 2.5,
+      "votes": 6,
+      "interest": 424,
+      "language": [
+        "pol",
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "Death, fiction",
+        "Grief, fiction",
+        "Orphans, fiction",
+        "Single-parent families, fiction",
+        "Mothers and daughters, fiction"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 10
+    },
+    {
       "id": "book:/works/OL20883297W",
       "title": "Klara and the Sun",
       "author": "Kazuo Ishiguro",
@@ -5613,32 +5640,6 @@
       "editionCount": 18
     },
     {
-      "id": "book:/works/OL20149092W",
-      "title": "How to Make Friends with the Dark",
-      "author": "Kathleen Glasgow",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/8793300-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20149092W",
-      "score": 2.6,
-      "votes": 5,
-      "interest": 410,
-      "language": [
-        "eng",
-        "pol"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "Death, fiction",
-        "Grief, fiction",
-        "Orphans, fiction",
-        "Single-parent families, fiction",
-        "Mothers and daughters, fiction"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 10
-    },
-    {
       "id": "book:/works/OL19096402W",
       "title": "The Silent Patient",
       "author": "Alex Michaelides",
@@ -5648,7 +5649,7 @@
       "url": "https://openlibrary.org/works/OL19096402W",
       "score": 4.0511627,
       "votes": 215,
-      "interest": 5976,
+      "interest": 5983,
       "language": [
         "cat",
         "ger",
@@ -5684,13 +5685,13 @@
       "image": "https://covers.openlibrary.org/b/id/8361789-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17850410W",
-      "score": 4.005814,
-      "votes": 172,
-      "interest": 5814,
+      "score": 4.00578,
+      "votes": 173,
+      "interest": 5840,
       "language": [
-        "eng",
         "heb",
-        "dut"
+        "dut",
+        "eng"
       ],
       "subjects": [
         "Fairies--Fiction.",
@@ -6787,9 +6788,9 @@
       "image": "https://covers.openlibrary.org/b/id/10226443-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20893778W",
-      "score": 4.121212,
-      "votes": 33,
-      "interest": 1054,
+      "score": 4.0833335,
+      "votes": 36,
+      "interest": 1160,
       "language": [
         "spa",
         "eng"
@@ -8482,13 +8483,13 @@
       "url": "https://openlibrary.org/works/OL468658W",
       "score": 4.2178216,
       "votes": 101,
-      "interest": 1253,
+      "interest": 1256,
       "language": [
         "ita",
-        "spa",
+        "ger",
         "chi",
-        "eng",
-        "ger"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Freundschaft",
@@ -8667,11 +8668,11 @@
       "url": "https://openlibrary.org/works/OL784051W",
       "score": 3.9302325,
       "votes": 43,
-      "interest": 1000,
+      "interest": 1004,
       "language": [
+        "fre",
         "spa",
-        "eng",
-        "fre"
+        "eng"
       ],
       "subjects": [
         "Agricultural laborers",
@@ -10126,16 +10127,16 @@
       "url": "https://openlibrary.org/works/OL2163655W",
       "score": 4.195122,
       "votes": 41,
-      "interest": 414,
+      "interest": 426,
       "language": [
-        "pol",
-        "por",
         "ger",
-        "eng",
-        "fre",
-        "tur",
+        "chi",
         "spa",
-        "chi"
+        "fre",
+        "por",
+        "tur",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Fiction",
