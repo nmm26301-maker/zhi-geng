@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T02:36:05.094Z",
+  "updatedAt": "2026-11-03T03:57:21.608Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 365,
@@ -716,7 +716,7 @@
       "url": "https://openlibrary.org/works/OL42830484W",
       "score": 4.030303,
       "votes": 33,
-      "interest": 997,
+      "interest": 998,
       "language": [
         "ind"
       ],
@@ -1813,6 +1813,29 @@
       "editionCount": 8
     },
     {
+      "id": "book:/works/OL38392615W",
+      "title": "King of Wrath / King of Pride / King of Greed / King of Sloth",
+      "author": "Ana Huang",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/15228779-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL38392615W",
+      "score": 2.6666667,
+      "votes": 6,
+      "interest": 112,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, romance, general",
+        "book_set",
+        "anthology",
+        "Anthologie"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
+    },
+    {
       "id": "book:/works/OL37613492W",
       "title": "Don't Let the Forest In",
       "author": "C. G. Drews",
@@ -1862,29 +1885,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
-    },
-    {
-      "id": "book:/works/OL38392615W",
-      "title": "King of Wrath / King of Pride / King of Greed / King of Sloth",
-      "author": "Ana Huang",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/15228779-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL38392615W",
-      "score": 2.6666667,
-      "votes": 6,
-      "interest": 102,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Fiction, romance, general",
-        "book_set",
-        "anthology",
-        "Anthologie"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 3
     },
     {
       "id": "book:/works/OL37567597W",
@@ -10985,6 +10985,44 @@
       "editionCount": 49
     },
     {
+      "id": "book:/works/OL2656058W",
+      "title": "Love Story",
+      "author": "Erich Segal",
+      "year": 1970,
+      "image": "https://covers.openlibrary.org/b/id/5004689-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL2656058W",
+      "score": 2.7692308,
+      "votes": 13,
+      "interest": 338,
+      "language": [
+        "mul",
+        "ita",
+        "spa",
+        "fre",
+        "vie",
+        "eng"
+      ],
+      "subjects": [
+        "College students",
+        "Difference (Psychology)",
+        "Fathers and sons",
+        "Fiction",
+        "Fiction in English",
+        "Harvard University",
+        "Radcliffe College",
+        "Social classes",
+        "Terminally ill",
+        "Death",
+        "Romance",
+        "Marriage",
+        "Fiction, romance, general",
+        "Students"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 30
+    },
+    {
       "id": "book:/works/OL272388W",
       "title": "Архипелаг ГУЛАГ",
       "author": "Александр Солженицын",
@@ -11023,44 +11061,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 88
-    },
-    {
-      "id": "book:/works/OL2656058W",
-      "title": "Love Story",
-      "author": "Erich Segal",
-      "year": 1970,
-      "image": "https://covers.openlibrary.org/b/id/5004689-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL2656058W",
-      "score": 2.9166667,
-      "votes": 12,
-      "interest": 326,
-      "language": [
-        "ita",
-        "fre",
-        "mul",
-        "vie",
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "College students",
-        "Difference (Psychology)",
-        "Fathers and sons",
-        "Fiction",
-        "Fiction in English",
-        "Harvard University",
-        "Radcliffe College",
-        "Social classes",
-        "Terminally ill",
-        "Death",
-        "Romance",
-        "Marriage",
-        "Fiction, romance, general",
-        "Students"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 30
     },
     {
       "id": "book:/works/OL52982W",
