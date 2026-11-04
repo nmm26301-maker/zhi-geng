@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T03:57:21.608Z",
+  "updatedAt": "2026-11-04T03:02:46.980Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 365,
@@ -663,7 +663,7 @@
       "url": "https://openlibrary.org/works/OL43113687W",
       "score": 3.531915,
       "votes": 94,
-      "interest": 4473,
+      "interest": 4500,
       "language": [
         "eng"
       ],
@@ -794,7 +794,7 @@
       "url": "https://openlibrary.org/works/OL42539351W",
       "score": 4.2173915,
       "votes": 23,
-      "interest": 710,
+      "interest": 715,
       "language": [
         "eng"
       ],
@@ -1949,9 +1949,9 @@
       "image": "https://covers.openlibrary.org/b/id/14407898-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL29226517W",
-      "score": 4.2429905,
-      "votes": 107,
-      "interest": 3357,
+      "score": 4.2654867,
+      "votes": 113,
+      "interest": 3484,
       "language": [
         "gre",
         "ger",
@@ -1984,12 +1984,12 @@
       "image": "https://covers.openlibrary.org/b/id/14567864-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL34774028W",
-      "score": 3.985294,
-      "votes": 68,
-      "interest": 2990,
+      "score": 3.9855072,
+      "votes": 69,
+      "interest": 3037,
       "language": [
-        "spa",
         "por",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -2634,7 +2634,7 @@
       "url": "https://openlibrary.org/works/OL27733867W",
       "score": 4.0142856,
       "votes": 420,
-      "interest": 19608,
+      "interest": 19614,
       "language": [
         "fre",
         "por",
@@ -3135,6 +3135,34 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL29215706W",
+      "title": "Painted Scars",
+      "author": "Neva Altaj",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/14630721-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL29215706W",
+      "score": 3.4666667,
+      "votes": 15,
+      "interest": 546,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Romance",
+        "Dark",
+        "Contemporary Romance",
+        "Adult",
+        "Disability",
+        "Crime",
+        "Fiction",
+        "New Adult",
+        "Marriage"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
+    },
+    {
       "id": "book:/works/OL27090610W",
       "title": "The Ballad of Never After",
       "author": "Stephanie Garber",
@@ -3167,34 +3195,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 11
-    },
-    {
-      "id": "book:/works/OL29215706W",
-      "title": "Painted Scars",
-      "author": "Neva Altaj",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/14630721-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL29215706W",
-      "score": 3.4666667,
-      "votes": 15,
-      "interest": 522,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Romance",
-        "Dark",
-        "Contemporary Romance",
-        "Adult",
-        "Disability",
-        "Crime",
-        "Fiction",
-        "New Adult",
-        "Marriage"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 3
     },
     {
       "id": "book:/works/OL26348345W",
@@ -3354,7 +3354,7 @@
       "url": "https://openlibrary.org/works/OL24390422W",
       "score": 3.7987013,
       "votes": 308,
-      "interest": 15133,
+      "interest": 15173,
       "language": [
         "fre",
         "spa",
@@ -5037,15 +5037,15 @@
       "image": "https://covers.openlibrary.org/b/id/8581190-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL36090166W",
-      "score": 4.1666665,
-      "votes": 18,
-      "interest": 966,
+      "score": 4.2105265,
+      "votes": 19,
+      "interest": 975,
       "language": [
-        "dut",
-        "eng",
         "heb",
         "spa",
-        "pol"
+        "dut",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "American literature",
@@ -5330,6 +5330,37 @@
       "editionCount": 20
     },
     {
+      "id": "book:/works/OL19859295W",
+      "title": "This is How You Lose the Time War",
+      "author": "Amal El-Mohtar · Max Gladstone",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/8665647-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL19859295W",
+      "score": 4.1,
+      "votes": 30,
+      "interest": 495,
+      "language": [
+        "por",
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "science fiction",
+        "time-traveling",
+        "epistolary",
+        "LGBT",
+        "English literature",
+        "Fiction, science fiction, general",
+        "nyt:trade-fiction-paperback=2023-05-28",
+        "New York Times bestseller",
+        "Time travel",
+        "Fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 14
+    },
+    {
       "id": "book:/works/OL20128158W",
       "title": "Gideon the Ninth",
       "author": "Tamsyn Muir",
@@ -5395,37 +5426,6 @@
         "Souvenir"
       ],
       "ebookAccess": "printdisabled",
-      "editionCount": 14
-    },
-    {
-      "id": "book:/works/OL19859295W",
-      "title": "This is How You Lose the Time War",
-      "author": "Amal El-Mohtar · Max Gladstone",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/8665647-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL19859295W",
-      "score": 4.0689654,
-      "votes": 29,
-      "interest": 482,
-      "language": [
-        "ger",
-        "eng",
-        "por"
-      ],
-      "subjects": [
-        "science fiction",
-        "time-traveling",
-        "epistolary",
-        "LGBT",
-        "English literature",
-        "Fiction, science fiction, general",
-        "nyt:trade-fiction-paperback=2023-05-28",
-        "New York Times bestseller",
-        "Time travel",
-        "Fiction"
-      ],
-      "ebookAccess": "no_ebook",
       "editionCount": 14
     },
     {
@@ -5720,18 +5720,18 @@
       "image": "https://covers.openlibrary.org/b/id/8747160-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20068530W",
-      "score": 3.8923078,
-      "votes": 130,
-      "interest": 5428,
+      "score": 3.9015152,
+      "votes": 132,
+      "interest": 5483,
       "language": [
-        "spa",
-        "eng",
+        "ger",
         "chi",
-        "pol",
+        "heb",
+        "spa",
         "por",
         "tur",
-        "heb",
-        "ger"
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Fiction, romance, contemporary, suspense",
@@ -5874,7 +5874,7 @@
       "url": "https://openlibrary.org/works/OL19747970W",
       "score": 3.8139534,
       "votes": 43,
-      "interest": 1514,
+      "interest": 1516,
       "language": [
         "por",
         "ger",
@@ -5945,9 +5945,9 @@
       "image": "https://covers.openlibrary.org/b/id/8797404-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19737574W",
-      "score": 4.0833335,
-      "votes": 24,
-      "interest": 810,
+      "score": 4.1153846,
+      "votes": 26,
+      "interest": 828,
       "language": [
         "eng"
       ],
@@ -6481,13 +6481,13 @@
       "image": "https://covers.openlibrary.org/b/id/9219001-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20018811W",
-      "score": 4.072289,
-      "votes": 83,
-      "interest": 3413,
+      "score": 4.0833335,
+      "votes": 84,
+      "interest": 3422,
       "language": [
+        "dut",
         "ger",
-        "eng",
-        "dut"
+        "eng"
       ],
       "subjects": [
         "Long-distance relationships",
@@ -7385,18 +7385,18 @@
       "image": "https://covers.openlibrary.org/b/id/12646459-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL14908941W",
-      "score": 3.8085105,
-      "votes": 282,
-      "interest": 1542,
+      "score": 3.8175437,
+      "votes": 285,
+      "interest": 1562,
       "language": [
         "ita",
-        "spa",
-        "pol",
-        "heb",
-        "gre",
+        "rus",
+        "ger",
         "chi",
-        "vie",
-        "rus"
+        "heb",
+        "spa",
+        "fre",
+        "por"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -7427,11 +7427,11 @@
       "url": "https://openlibrary.org/works/OL15914981W",
       "score": 3.8333333,
       "votes": 42,
-      "interest": 1380,
+      "interest": 1395,
       "language": [
         "guj",
-        "eng",
-        "hin"
+        "hin",
+        "eng"
       ],
       "subjects": [
         "Indic Mythology",
@@ -8257,16 +8257,16 @@
       "image": "https://covers.openlibrary.org/b/id/8783502-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5819962W",
-      "score": 4.270073,
-      "votes": 137,
-      "interest": 4657,
+      "score": 4.273381,
+      "votes": 139,
+      "interest": 4681,
       "language": [
         "cat",
-        "heb",
         "rus",
+        "heb",
+        "spa",
         "por",
-        "eng",
-        "spa"
+        "eng"
       ],
       "subjects": [
         "Beaches",
@@ -8483,7 +8483,7 @@
       "url": "https://openlibrary.org/works/OL468658W",
       "score": 4.2178216,
       "votes": 101,
-      "interest": 1256,
+      "interest": 1257,
       "language": [
         "ita",
         "ger",
@@ -8518,18 +8518,18 @@
       "image": "https://covers.openlibrary.org/b/id/12840573-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL2827199W",
-      "score": 3.948052,
-      "votes": 154,
-      "interest": 1143,
+      "score": 3.9419355,
+      "votes": 155,
+      "interest": 1163,
       "language": [
+        "rus",
+        "ger",
+        "chi",
         "heb",
         "nor",
-        "tur",
-        "eng",
-        "fre",
-        "ger",
-        "dan",
-        "kor"
+        "hin",
+        "spa",
+        "fre"
       ],
       "subjects": [
         "Teenage boys",
@@ -9178,13 +9178,13 @@
       "image": "https://covers.openlibrary.org/b/id/11026591-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL86707W",
-      "score": 4.473054,
-      "votes": 167,
-      "interest": 909,
+      "score": 4.4698796,
+      "votes": 166,
+      "interest": 914,
       "language": [
         "heb",
-        "spa",
         "chi",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -9417,14 +9417,14 @@
       "image": "https://covers.openlibrary.org/b/id/1005941-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL516681W",
-      "score": 4.388889,
-      "votes": 54,
-      "interest": 418,
+      "score": 4.327586,
+      "votes": 58,
+      "interest": 451,
       "language": [
-        "spa",
         "fre",
-        "eng",
-        "ger"
+        "ger",
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Fiction",
@@ -9453,13 +9453,13 @@
       "image": "https://covers.openlibrary.org/b/id/12639079-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL2919959W",
-      "score": 4.3333335,
-      "votes": 42,
-      "interest": 393,
+      "score": 4.3488374,
+      "votes": 43,
+      "interest": 408,
       "language": [
-        "spa",
-        "jpn",
         "fre",
+        "jpn",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -11111,16 +11111,16 @@
       "url": "https://openlibrary.org/works/OL472594W",
       "score": 4.090909,
       "votes": 11,
-      "interest": 218,
+      "interest": 224,
       "language": [
-        "dut",
         "ita",
-        "chi",
         "ger",
-        "fre",
+        "chi",
+        "spa",
         "und",
-        "vie",
-        "spa"
+        "dut",
+        "fre",
+        "vie"
       ],
       "subjects": [
         "Fiction",
