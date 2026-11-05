@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T03:02:46.980Z",
+  "updatedAt": "2026-11-05T03:33:16.019Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 365,
@@ -1324,9 +1324,9 @@
       "image": "https://covers.openlibrary.org/b/id/14641117-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL38128674W",
-      "score": 4.1860466,
-      "votes": 43,
-      "interest": 1579,
+      "score": 4.2045455,
+      "votes": 44,
+      "interest": 1601,
       "language": [
         "por",
         "spa",
@@ -3197,6 +3197,30 @@
       "editionCount": 11
     },
     {
+      "id": "book:/works/OL25960185W",
+      "title": "Every Summer After",
+      "author": "Carley Fortune",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/15105890-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL25960185W",
+      "score": 4.25,
+      "votes": 8,
+      "interest": 529,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "nyt:trade-fiction-paperback=2022-06-19",
+        "New York Times bestseller",
+        "Fiction, women",
+        "Fiction, romance, contemporary"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 9
+    },
+    {
       "id": "book:/works/OL26348345W",
       "title": "Stellarlune",
       "author": "Shannon Messenger",
@@ -3221,30 +3245,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL25960185W",
-      "title": "Every Summer After",
-      "author": "Carley Fortune",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/15105890-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL25960185W",
-      "score": 4.25,
-      "votes": 8,
-      "interest": 518,
-      "language": [
-        "eng",
-        "spa"
-      ],
-      "subjects": [
-        "nyt:trade-fiction-paperback=2022-06-19",
-        "New York Times bestseller",
-        "Fiction, women",
-        "Fiction, romance, contemporary"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 9
     },
     {
       "id": "book:/works/OL26443093W",
@@ -4441,9 +4441,9 @@
       "image": "https://covers.openlibrary.org/b/id/14654015-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27965945W",
-      "score": 4.75,
-      "votes": 4,
-      "interest": 568,
+      "score": 4.1666665,
+      "votes": 6,
+      "interest": 607,
       "language": [
         "spa",
         "eng"
@@ -6627,16 +6627,16 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.142857,
       "votes": 84,
-      "interest": 1950,
+      "interest": 1974,
       "language": [
-        "fre",
-        "spa",
-        "eng",
-        "pol",
-        "tur",
-        "por",
+        "ger",
         "chi",
-        "ger"
+        "spa",
+        "fre",
+        "por",
+        "tur",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Love & Romance",
@@ -8737,18 +8737,18 @@
       "image": "https://covers.openlibrary.org/b/id/6413803-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5962664W",
-      "score": 3.3703704,
-      "votes": 81,
-      "interest": 763,
+      "score": 3.3658535,
+      "votes": 82,
+      "interest": 767,
       "language": [
         "ita",
-        "dut",
-        "spa",
-        "heb",
-        "pol",
+        "rus",
+        "ger",
         "chi",
-        "vie",
-        "rus"
+        "heb",
+        "spa",
+        "per",
+        "jpn"
       ],
       "subjects": [
         "Murder",
@@ -8767,7 +8767,7 @@
         "Delitos contra"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 88
+      "editionCount": 89
     },
     {
       "id": "book:/works/OL17886378W",
