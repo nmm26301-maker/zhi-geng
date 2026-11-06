@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T03:33:16.019Z",
+  "updatedAt": "2026-11-06T03:29:11.737Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 365,
@@ -163,6 +163,33 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 2
+    },
+    {
+      "id": "book:/works/OL45607440W",
+      "title": "The Wild Zone",
+      "author": "Rick Riordan · Annabelle Oh",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15261949-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45607440W",
+      "score": 0,
+      "votes": 0,
+      "interest": 13,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fantasy fiction",
+        "Adventure and adventurers, fiction",
+        "Fantasy",
+        "Mythology",
+        "Middle Grade",
+        "Young Adult",
+        "Greek Mythology",
+        "Urban Fantasy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
     },
     {
       "id": "book:/works/OL45101987W",
@@ -427,33 +454,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
-    },
-    {
-      "id": "book:/works/OL45607440W",
-      "title": "The Wild Zone",
-      "author": "Rick Riordan · Annabelle Oh",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15261949-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45607440W",
-      "score": 0,
-      "votes": 0,
-      "interest": 5,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Fantasy fiction",
-        "Adventure and adventurers, fiction",
-        "Fantasy",
-        "Mythology",
-        "Middle Grade",
-        "Young Adult",
-        "Greek Mythology",
-        "Urban Fantasy"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 3
     },
     {
       "id": "book:/works/OL44802278W",
@@ -1470,14 +1470,14 @@
       "image": "https://covers.openlibrary.org/b/id/14570911-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL37534151W",
-      "score": 3.5714285,
-      "votes": 7,
-      "interest": 239,
+      "score": 3.5,
+      "votes": 8,
+      "interest": 296,
       "language": [
-        "eng",
-        "ger",
+        "dut",
         "por",
-        "dut"
+        "ger",
+        "eng"
       ],
       "subjects": [
         "American literature",
@@ -1951,11 +1951,11 @@
       "url": "https://openlibrary.org/works/OL29226517W",
       "score": 4.2654867,
       "votes": 113,
-      "interest": 3484,
+      "interest": 3496,
       "language": [
-        "gre",
-        "ger",
         "spa",
+        "ger",
+        "gre",
         "eng"
       ],
       "subjects": [
@@ -2218,14 +2218,14 @@
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL34025404W",
       "score": 4.6666665,
-      "votes": 9,
-      "interest": 539,
+      "votes": 12,
+      "interest": 564,
       "language": [
-        "pol",
-        "por",
-        "eng",
         "ger",
-        "spa"
+        "pol",
+        "spa",
+        "por",
+        "eng"
       ],
       "subjects": [
         "Series:Percy_Jackson_and_the_Olympians",
@@ -2668,9 +2668,9 @@
       "image": "https://covers.openlibrary.org/b/id/14425197-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27818823W",
-      "score": 4.097701,
-      "votes": 174,
-      "interest": 5879,
+      "score": 4.0971427,
+      "votes": 175,
+      "interest": 5907,
       "language": [
         "spa",
         "eng"
@@ -2704,7 +2704,7 @@
       "url": "https://openlibrary.org/works/OL27245843W",
       "score": 3.82243,
       "votes": 107,
-      "interest": 4544,
+      "interest": 4555,
       "language": [
         "spa",
         "eng"
@@ -2738,7 +2738,7 @@
       "url": "https://openlibrary.org/works/OL28744393W",
       "score": 4.257576,
       "votes": 66,
-      "interest": 3713,
+      "interest": 3730,
       "language": [
         "spa",
         "eng"
@@ -3422,14 +3422,14 @@
       "image": "https://covers.openlibrary.org/b/id/10601402-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24178205W",
-      "score": 4.126923,
-      "votes": 260,
-      "interest": 9511,
+      "score": 4.1297708,
+      "votes": 262,
+      "interest": 9542,
       "language": [
-        "ita",
         "spa",
-        "dut",
         "por",
+        "ita",
+        "dut",
         "eng"
       ],
       "subjects": [
@@ -3459,9 +3459,9 @@
       "image": "https://covers.openlibrary.org/b/id/12821465-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL25515697W",
-      "score": 4.0555553,
-      "votes": 126,
-      "interest": 5871,
+      "score": 4.062992,
+      "votes": 127,
+      "interest": 5886,
       "language": [
         "spa",
         "eng"
@@ -3730,6 +3730,27 @@
       "editionCount": 19
     },
     {
+      "id": "book:/works/OL26864096W",
+      "title": "Ikigai",
+      "author": "Chiemi Souen · Flor Kaneshiro",
+      "year": 2021,
+      "image": "https://covers.openlibrary.org/b/id/13110612-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL26864096W",
+      "score": 4.090909,
+      "votes": 11,
+      "interest": 670,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "Biography"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
+    },
+    {
       "id": "book:/works/OL21703979W",
       "title": "A Court of Silver Flames",
       "author": "Sarah J. Maas",
@@ -3766,27 +3787,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 19
-    },
-    {
-      "id": "book:/works/OL26864096W",
-      "title": "Ikigai",
-      "author": "Chiemi Souen · Flor Kaneshiro",
-      "year": 2021,
-      "image": "https://covers.openlibrary.org/b/id/13110612-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL26864096W",
-      "score": 4.090909,
-      "votes": 11,
-      "interest": 665,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "Biography"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 3
     },
     {
       "id": "book:/works/OL25957469W",
@@ -4288,7 +4288,7 @@
       "url": "https://openlibrary.org/works/OL28708075W",
       "score": 3.7,
       "votes": 20,
-      "interest": 868,
+      "interest": 869,
       "language": [
         "eng"
       ],
@@ -5235,7 +5235,7 @@
       "url": "https://openlibrary.org/works/OL20485895W",
       "score": 4.3,
       "votes": 10,
-      "interest": 531,
+      "interest": 545,
       "language": [
         "dut",
         "eng"
@@ -5361,6 +5361,40 @@
       "editionCount": 14
     },
     {
+      "id": "book:/works/OL20454252W",
+      "title": "Find Me",
+      "author": "André Aciman",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/9120218-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20454252W",
+      "score": 4.1538463,
+      "votes": 13,
+      "interest": 495,
+      "language": [
+        "fre",
+        "eng"
+      ],
+      "subjects": [
+        "nyt:combined-print-and-e-book-fiction=2019-11-17",
+        "New York Times bestseller",
+        "New York Times reviewed",
+        "Fiction, gay",
+        "Gay men, fiction",
+        "Musicians, fiction",
+        "Gay men",
+        "Fiction",
+        "FICTION / Literary",
+        "FICTION / LGBT / Gay",
+        "Homosexuels masculins",
+        "Romans, nouvelles",
+        "Homosexualité masculine",
+        "Souvenir"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 14
+    },
+    {
       "id": "book:/works/OL20128158W",
       "title": "Gideon the Ninth",
       "author": "Tamsyn Muir",
@@ -5393,40 +5427,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL20454252W",
-      "title": "Find Me",
-      "author": "André Aciman",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/9120218-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20454252W",
-      "score": 4.3333335,
-      "votes": 12,
-      "interest": 486,
-      "language": [
-        "fre",
-        "eng"
-      ],
-      "subjects": [
-        "nyt:combined-print-and-e-book-fiction=2019-11-17",
-        "New York Times bestseller",
-        "New York Times reviewed",
-        "Fiction, gay",
-        "Gay men, fiction",
-        "Musicians, fiction",
-        "Gay men",
-        "Fiction",
-        "FICTION / Literary",
-        "FICTION / LGBT / Gay",
-        "Homosexuels masculins",
-        "Romans, nouvelles",
-        "Homosexualité masculine",
-        "Souvenir"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 14
     },
     {
       "id": "book:/works/OL21370801W",
@@ -5499,6 +5499,44 @@
       "editionCount": 28
     },
     {
+      "id": "book:/works/OL20129837W",
+      "title": "The Testaments",
+      "author": "Margaret Atwood",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/12366815-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20129837W",
+      "score": 4.25,
+      "votes": 12,
+      "interest": 426,
+      "language": [
+        "spa",
+        "fre",
+        "por",
+        "ita",
+        "cat",
+        "eng"
+      ],
+      "subjects": [
+        "Science Fiction",
+        "Young adult fiction",
+        "Dystopian Fiction",
+        "Fiction, dystopian",
+        "Fiction, fantasy, general",
+        "Canadian fiction (fictional works by one author)",
+        "nyt:combined-print-and-e-book-fiction=2019-09-29",
+        "New York Times bestseller",
+        "collectionID:ConroeChallenge",
+        "Surrogate mothers",
+        "Fiction",
+        "Man-woman relationships",
+        "Misogyny",
+        "Women"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 23
+    },
+    {
       "id": "book:/works/OL20149092W",
       "title": "How to Make Friends with the Dark",
       "author": "Kathleen Glasgow",
@@ -5561,44 +5599,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 31
-    },
-    {
-      "id": "book:/works/OL20129837W",
-      "title": "The Testaments",
-      "author": "Margaret Atwood",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/12366815-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20129837W",
-      "score": 4.25,
-      "votes": 12,
-      "interest": 420,
-      "language": [
-        "cat",
-        "ita",
-        "por",
-        "fre",
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Science Fiction",
-        "Young adult fiction",
-        "Dystopian Fiction",
-        "Fiction, dystopian",
-        "Fiction, fantasy, general",
-        "Canadian fiction (fictional works by one author)",
-        "nyt:combined-print-and-e-book-fiction=2019-09-29",
-        "New York Times bestseller",
-        "collectionID:ConroeChallenge",
-        "Surrogate mothers",
-        "Fiction",
-        "Man-woman relationships",
-        "Misogyny",
-        "Women"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 23
     },
     {
       "id": "book:/works/OL20140593W",
@@ -8779,11 +8779,11 @@
       "url": "https://openlibrary.org/works/OL17886378W",
       "score": 4.0789475,
       "votes": 38,
-      "interest": 730,
+      "interest": 735,
       "language": [
-        "rus",
         "pol",
-        "eng"
+        "eng",
+        "rus"
       ],
       "subjects": [
         "Love & Romance",
@@ -11269,6 +11269,32 @@
       "editionCount": 15
     },
     {
+      "id": "book:/works/OL1960472W",
+      "title": "The Science Fiction Hall of Fame -- Volume One",
+      "author": "Robert Silverberg · Robert A. Heinlein",
+      "year": 1970,
+      "image": "https://covers.openlibrary.org/b/id/6941459-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL1960472W",
+      "score": 4.5,
+      "votes": 6,
+      "interest": 156,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Science fiction",
+        "American Science fiction",
+        "English Science fiction",
+        "Science fiction, american",
+        "Science fiction, english",
+        "Fiction, science fiction, collections & anthologies",
+        "Long Now Manual for Civilization"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 31
+    },
+    {
       "id": "book:/works/OL3771180W",
       "title": "Sweet Revenge",
       "author": "Anne Mather",
@@ -11358,32 +11384,6 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 37
-    },
-    {
-      "id": "book:/works/OL1960472W",
-      "title": "The Science Fiction Hall of Fame -- Volume One",
-      "author": "Robert Silverberg · Robert A. Heinlein",
-      "year": 1970,
-      "image": "https://covers.openlibrary.org/b/id/6941459-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL1960472W",
-      "score": 4.5,
-      "votes": 6,
-      "interest": 142,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Science fiction",
-        "American Science fiction",
-        "English Science fiction",
-        "Science fiction, american",
-        "Science fiction, english",
-        "Fiction, science fiction, collections & anthologies",
-        "Long Now Manual for Civilization"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 31
     },
     {
       "id": "book:/works/OL2634157W",

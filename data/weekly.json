@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T03:33:05.895Z",
+  "updatedAt": "2026-11-06T03:29:01.648Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -272,6 +272,18 @@
       "description": "Navessa Allen"
     },
     {
+      "id": "ol:/works/OL45607440W",
+      "title": "The Wild Zone",
+      "url": "https://openlibrary.org/works/OL45607440W",
+      "category": "书籍",
+      "type": "book",
+      "image": "https://covers.openlibrary.org/b/id/15261949-M.jpg",
+      "year": 2026,
+      "score": 0,
+      "source": "Open Library",
+      "description": "Rick Riordan、Annabelle Oh"
+    },
+    {
       "id": "ol:/works/OL45101987W",
       "title": "Rites of the Starling",
       "url": "https://openlibrary.org/works/OL45101987W",
@@ -378,18 +390,6 @@
       "score": 4.5,
       "source": "Open Library",
       "description": "Saratoga Schaefer"
-    },
-    {
-      "id": "ol:/works/OL44249988W",
-      "title": "We Burned So Bright",
-      "url": "https://openlibrary.org/works/OL44249988W",
-      "category": "书籍",
-      "type": "book",
-      "image": "https://covers.openlibrary.org/b/id/15132877-M.jpg",
-      "year": 2026,
-      "score": 4,
-      "source": "Open Library",
-      "description": "T. J. Klune"
     }
   ]
 }
