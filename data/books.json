@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T02:54:25.155Z",
+  "updatedAt": "2026-11-08T02:33:28.830Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 366,
@@ -2028,9 +2028,9 @@
       "image": "https://covers.openlibrary.org/b/id/13244526-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL29330646W",
-      "score": 4.285714,
-      "votes": 14,
-      "interest": 1113,
+      "score": 4.25,
+      "votes": 16,
+      "interest": 1148,
       "language": [
         "spa",
         "eng"
@@ -2116,11 +2116,11 @@
       "url": "https://openlibrary.org/works/OL34113490W",
       "score": 3.9166667,
       "votes": 12,
-      "interest": 865,
+      "interest": 904,
       "language": [
+        "dut",
         "ger",
-        "eng",
-        "dut"
+        "eng"
       ],
       "subjects": [
         "Fiction, thrillers, psychological",
@@ -2150,7 +2150,7 @@
       "url": "https://openlibrary.org/works/OL34265902W",
       "score": 3.1333334,
       "votes": 15,
-      "interest": 782,
+      "interest": 791,
       "language": [
         "eng"
       ],
@@ -2365,6 +2365,32 @@
       "editionCount": 14
     },
     {
+      "id": "book:/works/OL34490931W",
+      "title": "No Brainer",
+      "author": "Jeff Kinney",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/13442265-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL34490931W",
+      "score": 4.2272725,
+      "votes": 22,
+      "interest": 419,
+      "language": [
+        "spa",
+        "pol",
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "Enjoying",
+        "funny",
+        "Silly",
+        "Juvenile fiction"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 18
+    },
+    {
       "id": "book:/works/OL34811234W",
       "title": "Things We Left Behind",
       "author": "Lucy Score",
@@ -2431,32 +2457,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 9
-    },
-    {
-      "id": "book:/works/OL34490931W",
-      "title": "No Brainer",
-      "author": "Jeff Kinney",
-      "year": 2023,
-      "image": "https://covers.openlibrary.org/b/id/13442265-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL34490931W",
-      "score": 4.1904764,
-      "votes": 21,
-      "interest": 364,
-      "language": [
-        "spa",
-        "pol",
-        "eng"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "Enjoying",
-        "funny",
-        "Silly",
-        "Juvenile fiction"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 18
     },
     {
       "id": "book:/works/OL35857113W",
@@ -2652,13 +2652,13 @@
       "image": "https://covers.openlibrary.org/b/id/12749873-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27733867W",
-      "score": 4.0142856,
-      "votes": 420,
-      "interest": 19614,
+      "score": 4.0142517,
+      "votes": 421,
+      "interest": 19623,
       "language": [
+        "spa",
         "fre",
         "por",
-        "spa",
         "eng"
       ],
       "subjects": [
@@ -3374,7 +3374,7 @@
       "url": "https://openlibrary.org/works/OL24390422W",
       "score": 3.802589,
       "votes": 309,
-      "interest": 15195,
+      "interest": 15200,
       "language": [
         "spa",
         "fre",
@@ -3444,7 +3444,7 @@
       "url": "https://openlibrary.org/works/OL24178205W",
       "score": 4.1297708,
       "votes": 262,
-      "interest": 9542,
+      "interest": 9565,
       "language": [
         "spa",
         "por",
@@ -3513,12 +3513,12 @@
       "image": "https://covers.openlibrary.org/b/id/14614757-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27297240W",
-      "score": 3.8650794,
-      "votes": 126,
-      "interest": 4182,
+      "score": 3.8461537,
+      "votes": 130,
+      "interest": 4332,
       "language": [
-        "eng",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Fiction",
@@ -4105,7 +4105,7 @@
       "url": "https://openlibrary.org/works/OL20965973W",
       "score": 4.0113635,
       "votes": 88,
-      "interest": 2401,
+      "interest": 2405,
       "language": [
         "ger",
         "rum",
@@ -4394,13 +4394,13 @@
       "image": "https://covers.openlibrary.org/b/id/9426296-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20734329W",
-      "score": 3.7096775,
-      "votes": 31,
-      "interest": 679,
+      "score": 3.6764705,
+      "votes": 34,
+      "interest": 692,
       "language": [
-        "eng",
         "spa",
-        "pol"
+        "pol",
+        "eng"
       ],
       "subjects": [
         "American literature",
@@ -4849,9 +4849,9 @@
       "image": "https://covers.openlibrary.org/b/id/13156188-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20646061W",
-      "score": 4.037838,
-      "votes": 185,
-      "interest": 6624,
+      "score": 4.0430107,
+      "votes": 186,
+      "interest": 6632,
       "language": [
         "ger",
         "pol",
@@ -4889,14 +4889,14 @@
       "image": "https://covers.openlibrary.org/b/id/9171544-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20090688W",
-      "score": 4.181818,
-      "votes": 198,
-      "interest": 5059,
+      "score": 4.18593,
+      "votes": 199,
+      "interest": 5068,
       "language": [
-        "ger",
         "spa",
-        "eng",
-        "por"
+        "ger",
+        "por",
+        "eng"
       ],
       "subjects": [
         "Fiction, gay",
@@ -5000,7 +5000,7 @@
       "url": "https://openlibrary.org/works/OL25434351W",
       "score": 3.9545455,
       "votes": 22,
-      "interest": 1097,
+      "interest": 1115,
       "language": [
         "spa",
         "eng"
@@ -5708,10 +5708,10 @@
       "url": "https://openlibrary.org/works/OL17850410W",
       "score": 4.00578,
       "votes": 173,
-      "interest": 5840,
+      "interest": 5869,
       "language": [
-        "heb",
         "dut",
+        "heb",
         "eng"
       ],
       "subjects": [
@@ -5816,16 +5816,16 @@
       "url": "https://openlibrary.org/works/OL18766691W",
       "score": 4.298077,
       "votes": 104,
-      "interest": 2855,
+      "interest": 2857,
       "language": [
-        "cat",
         "ger",
         "chi",
         "spa",
+        "gre",
+        "tur",
         "fre",
         "dut",
-        "tur",
-        "vie"
+        "cat"
       ],
       "subjects": [
         "Solitude",
@@ -6388,6 +6388,41 @@
       "editionCount": 10
     },
     {
+      "id": "book:/works/OL19748577W",
+      "title": "Legendary",
+      "author": "Stephanie Garber",
+      "year": 2018,
+      "image": "https://covers.openlibrary.org/b/id/9242465-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL19748577W",
+      "score": 4.181818,
+      "votes": 22,
+      "interest": 345,
+      "language": [
+        "spa",
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "Serie:Caraval",
+        "Performing arts",
+        "Criminals",
+        "Fantasy",
+        "Arranged marriage",
+        "Juvenile fiction",
+        "Fiction",
+        "Ion",
+        "Young adult fiction",
+        "Games",
+        "Sisters",
+        "Children's fiction",
+        "Sisters, fiction",
+        "Magic, fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 21
+    },
+    {
       "id": "book:/works/OL18130476W",
       "title": "Tales from a Not-So-Happy Birthday",
       "author": "Rachel Renée Russell",
@@ -6458,41 +6493,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 15
-    },
-    {
-      "id": "book:/works/OL19748577W",
-      "title": "Legendary",
-      "author": "Stephanie Garber",
-      "year": 2018,
-      "image": "https://covers.openlibrary.org/b/id/9242465-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL19748577W",
-      "score": 4.3333335,
-      "votes": 21,
-      "interest": 329,
-      "language": [
-        "eng",
-        "ger",
-        "spa"
-      ],
-      "subjects": [
-        "Serie:Caraval",
-        "Performing arts",
-        "Criminals",
-        "Fantasy",
-        "Arranged marriage",
-        "Juvenile fiction",
-        "Fiction",
-        "Ion",
-        "Young adult fiction",
-        "Games",
-        "Sisters",
-        "Children's fiction",
-        "Sisters, fiction",
-        "Magic, fiction"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 21
     },
     {
       "id": "book:/works/OL20018811W",
@@ -6568,18 +6568,18 @@
       "image": "https://covers.openlibrary.org/b/id/9334159-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20019347W",
-      "score": 3.7014925,
-      "votes": 67,
-      "interest": 2279,
+      "score": 3.7183099,
+      "votes": 71,
+      "interest": 2360,
       "language": [
-        "pol",
-        "eng",
         "ger",
-        "fre",
-        "tur",
+        "pol",
         "spa",
+        "tur",
+        "jpn",
+        "fre",
         "ita",
-        "jpn"
+        "eng"
       ],
       "subjects": [
         "Japanese fiction",
@@ -6688,12 +6688,12 @@
       "url": "https://openlibrary.org/works/OL17864836W",
       "score": 3.840909,
       "votes": 44,
-      "interest": 1549,
+      "interest": 1574,
       "language": [
-        "ita",
         "spa",
-        "dut",
         "tur",
+        "ita",
+        "dut",
         "eng"
       ],
       "subjects": [
@@ -6708,7 +6708,7 @@
         "Thriller",
         "Cannibalism"
       ],
-      "ebookAccess": "printdisabled",
+      "ebookAccess": "unclassified",
       "editionCount": 12
     },
     {
@@ -6719,9 +6719,9 @@
       "image": "https://covers.openlibrary.org/b/id/14418402-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19998163W",
-      "score": 4.233333,
-      "votes": 60,
-      "interest": 1402,
+      "score": 4.180328,
+      "votes": 61,
+      "interest": 1435,
       "language": [
         "tur",
         "spa",
@@ -7156,6 +7156,41 @@
       "editionCount": 25
     },
     {
+      "id": "book:/works/OL17310882W",
+      "title": "Tales From A Not-So-Perfect Pet Sitter",
+      "author": "Rachel Renée Russell",
+      "year": 2015,
+      "image": "https://covers.openlibrary.org/b/id/7389911-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL17310882W",
+      "score": 4.418605,
+      "votes": 43,
+      "interest": 495,
+      "language": [
+        "spa",
+        "por",
+        "eng"
+      ],
+      "subjects": [
+        "Schools",
+        "Fiction",
+        "Middle schools",
+        "Pets",
+        "Diaries",
+        "Children's fiction",
+        "Pets, fiction",
+        "Diaries, fiction",
+        "Schools, fiction",
+        "Humorous stories",
+        "Mascotas",
+        "Pet sitting",
+        "Juvenile fiction",
+        "Ficción juvenil"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 18
+    },
+    {
       "id": "book:/works/OL17373843W",
       "title": "Children of Time",
       "author": "Adrian Tchaikovsky",
@@ -7242,41 +7277,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 9
-    },
-    {
-      "id": "book:/works/OL17310882W",
-      "title": "Tales From A Not-So-Perfect Pet Sitter",
-      "author": "Rachel Renée Russell",
-      "year": 2015,
-      "image": "https://covers.openlibrary.org/b/id/7389911-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL17310882W",
-      "score": 4.5,
-      "votes": 42,
-      "interest": 482,
-      "language": [
-        "eng",
-        "spa",
-        "por"
-      ],
-      "subjects": [
-        "Schools",
-        "Fiction",
-        "Middle schools",
-        "Pets",
-        "Diaries",
-        "Children's fiction",
-        "Pets, fiction",
-        "Diaries, fiction",
-        "Schools, fiction",
-        "Humorous stories",
-        "Mascotas",
-        "Pet sitting",
-        "Juvenile fiction",
-        "Ficción juvenil"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 18
     },
     {
       "id": "book:/works/OL16444438W",
@@ -7622,9 +7622,9 @@
       "image": "https://covers.openlibrary.org/b/id/9078986-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20411060W",
-      "score": 3.642857,
-      "votes": 14,
-      "interest": 739,
+      "score": 3.7333333,
+      "votes": 15,
+      "interest": 759,
       "language": [
         "eng"
       ],
@@ -8090,9 +8090,9 @@
       "image": "https://covers.openlibrary.org/b/id/6606615-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL13775226W",
-      "score": 3.8666666,
-      "votes": 30,
-      "interest": 324,
+      "score": 3.903226,
+      "votes": 31,
+      "interest": 339,
       "language": [
         "eng"
       ],
@@ -8427,15 +8427,15 @@
       "url": "https://openlibrary.org/works/OL5819895W",
       "score": 3.775862,
       "votes": 232,
-      "interest": 1600,
+      "interest": 1609,
       "language": [
-        "ita",
         "ger",
+        "pol",
         "chi",
         "spa",
         "fre",
         "por",
-        "pol",
+        "ita",
         "eng"
       ],
       "subjects": [
@@ -9201,7 +9201,7 @@
       "url": "https://openlibrary.org/works/OL86707W",
       "score": 4.4698796,
       "votes": 166,
-      "interest": 915,
+      "interest": 919,
       "language": [
         "spa",
         "chi",
