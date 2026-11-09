@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T02:33:20.612Z",
+  "updatedAt": "2026-11-09T02:44:15.947Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -68,18 +68,6 @@
       "description": "The second season of <i>Tensei Shitara Ken Deshita</i>.<br><br>\n<i>Note: Each episode was streamed one week in advance of the TV broadcast starting on October 1, 2026 on Abema. Regular broadcasting began on October 8, 2026.</i>"
     },
     {
-      "id": "anilist:189123",
-      "title": "Blue Box Season 2",
-      "url": "https://anilist.co/anime/189123",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx189123-0secXELIhkIW.jpg",
-      "year": 2026,
-      "score": 8.1,
-      "source": "AniList",
-      "description": "The second season of <i>Ao no Hako</i>.<br><br>\n\nAs Taiki and Chinatsu navigate their evolving feelings, a fractured friendship from the past and fierce competition cloud the road to nationals.<br><br>\n\n(Source: Netflix, edited)"
-    },
-    {
       "id": "anilist:205909",
       "title": "Firefly Wedding",
       "url": "https://anilist.co/anime/205909",
@@ -90,6 +78,18 @@
       "score": 7.5,
       "source": "AniList",
       "description": "On the surface, Satoko has it all—she’s beautiful, the daughter of a nobleman, and at a prime age for marriage. Unfortunately, she is also quite ill and only has a short time left to live. Before she can secure a marriage that will redeem her worth in her family’s eyes, she finds herself the target of the mysterious assassin Shinpei, and her plans are put in jeopardy. In order to save herself, she makes a desperate proposal—of marriage! When it comes to love, however, Shinpei takes “until death do we part” seriously.<br>\n<br>\n(Source: VIZ Media)"
+    },
+    {
+      "id": "anilist:189123",
+      "title": "Blue Box Season 2",
+      "url": "https://anilist.co/anime/189123",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx189123-0secXELIhkIW.jpg",
+      "year": 2026,
+      "score": 8.1,
+      "source": "AniList",
+      "description": "The second season of <i>Ao no Hako</i>.<br><br>\n\nAs Taiki and Chinatsu navigate their evolving feelings, a fractured friendship from the past and fierce competition cloud the road to nationals.<br><br>\n\n(Source: Netflix, edited)"
     },
     {
       "id": "anilist:210482",

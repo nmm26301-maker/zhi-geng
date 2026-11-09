@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T02:33:28.830Z",
+  "updatedAt": "2026-11-09T02:44:24.533Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 366,
@@ -2006,7 +2006,7 @@
       "url": "https://openlibrary.org/works/OL34774028W",
       "score": 3.9855072,
       "votes": 69,
-      "interest": 3042,
+      "interest": 3045,
       "language": [
         "spa",
         "por",
@@ -3549,7 +3549,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3476,
+      "interest": 3523,
       "language": [
         "eng"
       ],
@@ -5060,12 +5060,12 @@
       "url": "https://openlibrary.org/works/OL36090166W",
       "score": 4.2105265,
       "votes": 19,
-      "interest": 975,
+      "interest": 981,
       "language": [
-        "heb",
-        "spa",
-        "dut",
         "pol",
+        "spa",
+        "heb",
+        "dut",
         "eng"
       ],
       "subjects": [
@@ -5127,14 +5127,14 @@
       "image": "https://covers.openlibrary.org/b/id/8742674-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19922194W",
-      "score": 3.8888888,
-      "votes": 45,
-      "interest": 712,
+      "score": 3.8723404,
+      "votes": 47,
+      "interest": 719,
       "language": [
-        "eng",
-        "fre",
         "spa",
-        "dut"
+        "dut",
+        "fre",
+        "eng"
       ],
       "subjects": [
         "Musicians, fiction",
@@ -5741,17 +5741,17 @@
       "image": "https://covers.openlibrary.org/b/id/8747160-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20068530W",
-      "score": 3.9015152,
-      "votes": 132,
-      "interest": 5483,
+      "score": 3.9097745,
+      "votes": 133,
+      "interest": 5516,
       "language": [
         "ger",
-        "chi",
-        "heb",
-        "spa",
-        "por",
-        "tur",
         "pol",
+        "chi",
+        "spa",
+        "heb",
+        "tur",
+        "por",
         "eng"
       ],
       "subjects": [
@@ -5778,7 +5778,7 @@
       "url": "https://openlibrary.org/works/OL20354498W",
       "score": 4.353261,
       "votes": 184,
-      "interest": 3543,
+      "interest": 3547,
       "language": [
         "pol",
         "gle",
@@ -5801,7 +5801,9 @@
         "Mental illness",
         "nyt:graphic-books-and-manga=2022-05-08",
         "New York Times bestseller",
-        "High school students"
+        "High school students",
+        "LGBTQ graphic novels",
+        "LGBTQ young adult"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 24
@@ -6872,7 +6874,7 @@
       "url": "https://openlibrary.org/works/OL21833211W",
       "score": 4.3,
       "votes": 20,
-      "interest": 879,
+      "interest": 881,
       "language": [
         "eng"
       ],
@@ -6999,14 +7001,14 @@
       "image": "https://covers.openlibrary.org/b/id/12303551-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17357353W",
-      "score": 4.2115383,
-      "votes": 52,
-      "interest": 653,
+      "score": 4.240741,
+      "votes": 54,
+      "interest": 671,
       "language": [
-        "srp",
         "por",
-        "eng",
-        "heb"
+        "heb",
+        "srp",
+        "eng"
       ],
       "subjects": [
         "LGBT",
@@ -9159,18 +9161,18 @@
       "image": "https://covers.openlibrary.org/b/id/10482258-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL453936W",
-      "score": 4.422222,
-      "votes": 90,
-      "interest": 1323,
+      "score": 4.428571,
+      "votes": 91,
+      "interest": 1340,
       "language": [
-        "cat",
-        "pol",
-        "por",
-        "rus",
         "ger",
-        "eng",
-        "swe",
-        "fre"
+        "pol",
+        "srp",
+        "chi",
+        "rus",
+        "spa",
+        "tur",
+        "cze"
       ],
       "subjects": [
         "End of the world",
@@ -9402,7 +9404,7 @@
       "url": "https://openlibrary.org/works/OL81600W",
       "score": 4.32,
       "votes": 25,
-      "interest": 476,
+      "interest": 478,
       "language": [
         "ger",
         "chi",
