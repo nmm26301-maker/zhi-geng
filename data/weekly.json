@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T02:44:15.947Z",
+  "updatedAt": "2026-11-10T04:40:22.083Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -212,6 +212,18 @@
       "description": "Ana Huang"
     },
     {
+      "id": "ol:/works/OL45346035W",
+      "title": "The Keeper",
+      "url": "https://openlibrary.org/works/OL45346035W",
+      "category": "书籍",
+      "type": "book",
+      "image": "https://covers.openlibrary.org/b/id/15248365-M.jpg",
+      "year": 2026,
+      "score": 3.3333333,
+      "source": "Open Library",
+      "description": "Ana Huang"
+    },
+    {
       "id": "ol:/works/OL45084051W",
       "title": "Starside",
       "url": "https://openlibrary.org/works/OL45084051W",
@@ -378,18 +390,6 @@
       "score": 0,
       "source": "Open Library",
       "description": "Kathryn Stockett"
-    },
-    {
-      "id": "ol:/works/OL45075265W",
-      "title": "Trad Wife",
-      "url": "https://openlibrary.org/works/OL45075265W",
-      "category": "书籍",
-      "type": "book",
-      "image": "https://covers.openlibrary.org/b/id/15204055-M.jpg",
-      "year": 2026,
-      "score": 4.5,
-      "source": "Open Library",
-      "description": "Saratoga Schaefer"
     }
   ]
 }

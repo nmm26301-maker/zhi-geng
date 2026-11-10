@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-09T02:44:24.533Z",
+  "updatedAt": "2026-11-10T04:40:30.522Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 366,
+  "count": 368,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -30,6 +30,34 @@
         "Enemies To Lovers",
         "Fiction",
         "Smut"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL45346035W",
+      "title": "The Keeper",
+      "author": "Ana Huang",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15248365-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45346035W",
+      "score": 3.3333333,
+      "votes": 3,
+      "interest": 48,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Romance",
+        "Sports Romance",
+        "Sports",
+        "Contemporary Romance",
+        "Spicy",
+        "Contemporary",
+        "Soccer",
+        "Fiction",
+        "Adult"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
@@ -835,10 +863,11 @@
       "image": "https://covers.openlibrary.org/b/id/14840900-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42487406W",
-      "score": 4.5454545,
-      "votes": 11,
-      "interest": 489,
+      "score": 3.9285715,
+      "votes": 14,
+      "interest": 534,
       "language": [
+        "por",
         "eng"
       ],
       "subjects": [
@@ -848,7 +877,7 @@
         "Young adult fiction, action & adventure, survival stories"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 4
+      "editionCount": 6
     },
     {
       "id": "book:/works/OL42406707W",
@@ -1086,6 +1115,34 @@
       "editionCount": 4
     },
     {
+      "id": "book:/works/OL42417175W",
+      "title": "The Crash",
+      "author": "Freida McFadden",
+      "year": 2025,
+      "image": "https://covers.openlibrary.org/b/id/15273875-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL42417175W",
+      "score": 4,
+      "votes": 1,
+      "interest": 87,
+      "language": [
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "American literature",
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Psychological Thriller",
+        "Crime"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
+    },
+    {
       "id": "book:/works/OL44071772W",
       "title": "The Court of the Dead",
       "author": "Rick Riordan · Mark Oshiro",
@@ -1172,33 +1229,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
-    },
-    {
-      "id": "book:/works/OL42417175W",
-      "title": "The Crash",
-      "author": "Freida McFadden",
-      "year": 2025,
-      "image": "https://covers.openlibrary.org/b/id/15125037-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL42417175W",
-      "score": 4,
-      "votes": 1,
-      "interest": 55,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "American literature",
-        "Thriller",
-        "Mystery",
-        "Mystery Thriller",
-        "Fiction",
-        "Suspense",
-        "Psychological Thriller",
-        "Crime"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 2
     },
     {
       "id": "book:/works/OL43548572W",
@@ -1324,9 +1354,9 @@
       "image": "https://covers.openlibrary.org/b/id/15073759-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42975424W",
-      "score": 3.5294118,
-      "votes": 85,
-      "interest": 3826,
+      "score": 3.588889,
+      "votes": 90,
+      "interest": 3935,
       "language": [
         "eng"
       ],
@@ -1344,12 +1374,12 @@
       "image": "https://covers.openlibrary.org/b/id/14641117-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL38128674W",
-      "score": 4.2045455,
-      "votes": 44,
-      "interest": 1601,
+      "score": 4.152174,
+      "votes": 46,
+      "interest": 1639,
       "language": [
-        "por",
         "spa",
+        "por",
         "eng"
       ],
       "subjects": [
@@ -2266,9 +2296,9 @@
       "image": "https://covers.openlibrary.org/b/id/13290282-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27172270W",
-      "score": 4.1666665,
-      "votes": 30,
-      "interest": 531,
+      "score": 4.193548,
+      "votes": 31,
+      "interest": 537,
       "language": [
         "eng"
       ],
@@ -2843,6 +2873,40 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL26955716W",
+      "title": "Things We Never Got Over",
+      "author": "Lucy Score",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/14418599-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL26955716W",
+      "score": 4.142857,
+      "votes": 28,
+      "interest": 1405,
+      "language": [
+        "dut",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, romance, general",
+        "Contemporary romance",
+        "Second chance romance",
+        "Estranged friends to lovers",
+        "Small town",
+        "Family drama",
+        "Second chance at love",
+        "Forgiveness",
+        "Self-discovery",
+        "Healing",
+        "Redemption",
+        "New York Times bestseller",
+        "Fiction, romance, contemporary",
+        "Fiction, small town & rural"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 8
+    },
+    {
       "id": "book:/works/OL34224558W",
       "title": "Never Lie",
       "author": "Freida McFadden",
@@ -2871,40 +2935,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 9
-    },
-    {
-      "id": "book:/works/OL26955716W",
-      "title": "Things We Never Got Over",
-      "author": "Lucy Score",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/14418599-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL26955716W",
-      "score": 4.111111,
-      "votes": 27,
-      "interest": 1383,
-      "language": [
-        "eng",
-        "dut"
-      ],
-      "subjects": [
-        "Fiction, romance, general",
-        "Contemporary romance",
-        "Second chance romance",
-        "Estranged friends to lovers",
-        "Small town",
-        "Family drama",
-        "Second chance at love",
-        "Forgiveness",
-        "Self-discovery",
-        "Healing",
-        "Redemption",
-        "New York Times bestseller",
-        "Fiction, romance, contemporary",
-        "Fiction, small town & rural"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 8
     },
     {
       "id": "book:/works/OL29046643W",
@@ -3407,9 +3437,9 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.6017964,
-      "votes": 334,
-      "interest": 12622,
+      "score": 3.59403,
+      "votes": 335,
+      "interest": 12650,
       "language": [
         "spa",
         "ger",
@@ -5000,7 +5030,7 @@
       "url": "https://openlibrary.org/works/OL25434351W",
       "score": 3.9545455,
       "votes": 22,
-      "interest": 1115,
+      "interest": 1117,
       "language": [
         "spa",
         "eng"
@@ -6610,16 +6640,16 @@
       "image": "https://covers.openlibrary.org/b/id/7894142-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17610986W",
-      "score": 4.430657,
-      "votes": 137,
-      "interest": 2207,
+      "score": 4.3758864,
+      "votes": 141,
+      "interest": 2292,
       "language": [
-        "pol",
-        "eng",
         "ger",
-        "fre",
+        "pol",
         "spa",
-        "dut"
+        "fre",
+        "dut",
+        "eng"
       ],
       "subjects": [
         "Juvenile fiction",
@@ -6921,17 +6951,17 @@
       "image": "https://covers.openlibrary.org/b/id/7994583-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17718538W",
-      "score": 4.6511626,
-      "votes": 43,
-      "interest": 711,
+      "score": 4.6458335,
+      "votes": 48,
+      "interest": 767,
       "language": [
         "ger",
-        "tur",
-        "por",
         "pol",
-        "eng",
         "chi",
         "spa",
+        "tur",
+        "por",
+        "dut",
         "swe"
       ],
       "subjects": [
@@ -8162,15 +8192,15 @@
       "image": "https://covers.openlibrary.org/b/id/8888850-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20234863W",
-      "score": 4.2011175,
-      "votes": 179,
-      "interest": 7236,
+      "score": 4.2055554,
+      "votes": 180,
+      "interest": 7259,
       "language": [
         "ger",
         "spa",
-        "fre",
-        "por",
         "tur",
+        "por",
+        "fre",
         "eng"
       ],
       "subjects": [
@@ -8826,6 +8856,41 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 22
+    },
+    {
+      "id": "book:/works/OL8755980W",
+      "title": "Naruto 01",
+      "author": "Masashi Kishimoto",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/1020779-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL8755980W",
+      "score": 4.140351,
+      "votes": 57,
+      "interest": 707,
+      "language": [
+        "ger",
+        "chi",
+        "spa",
+        "tur",
+        "jpn",
+        "por",
+        "fre",
+        "cat"
+      ],
+      "subjects": [
+        "Comics & graphic novels, east asian style, manga, fantasy",
+        "Ninja",
+        "Comic books, strips",
+        "Pariahs",
+        "Graphic novels",
+        "Fiction",
+        "Competition (Psychology)",
+        "Comics & graphic novels, manga, fantasy",
+        "Naruto (Fictitious character)"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 27
     },
     {
       "id": "book:/works/OL257914W",
@@ -10148,17 +10213,17 @@
       "image": "https://covers.openlibrary.org/b/id/12714921-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL2163655W",
-      "score": 4.195122,
-      "votes": 41,
-      "interest": 426,
+      "score": 4.1666665,
+      "votes": 42,
+      "interest": 427,
       "language": [
         "ger",
+        "pol",
         "chi",
         "spa",
+        "tur",
         "fre",
         "por",
-        "tur",
-        "pol",
         "eng"
       ],
       "subjects": [
