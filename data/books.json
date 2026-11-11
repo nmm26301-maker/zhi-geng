@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T04:40:30.522Z",
+  "updatedAt": "2026-11-11T02:51:31.609Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 368,
@@ -1411,7 +1411,7 @@
       "url": "https://openlibrary.org/works/OL37855093W",
       "score": 4.0434785,
       "votes": 23,
-      "interest": 986,
+      "interest": 996,
       "language": [
         "eng"
       ],
@@ -1807,6 +1807,28 @@
       "editionCount": 8
     },
     {
+      "id": "book:/works/OL37588709W",
+      "title": "Not in Love",
+      "author": "Ali Hazelwood",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/14817057-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37588709W",
+      "score": 4.3333335,
+      "votes": 3,
+      "interest": 118,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "nyt:combined-print-and-e-book-fiction=2024-06-30",
+        "New York Times bestseller",
+        "Romance fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 6
+    },
+    {
       "id": "book:/works/OL38386024W",
       "title": "King of Wrath / King of Pride / King of Greed / King of Sloth / Twisted Love / Twisted Games / Twisted Hate / Twisted Lies",
       "author": "Ana Huang",
@@ -1913,28 +1935,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
-    },
-    {
-      "id": "book:/works/OL37588709W",
-      "title": "Not in Love",
-      "author": "Ali Hazelwood",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14817057-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37588709W",
-      "score": 4.3333335,
-      "votes": 3,
-      "interest": 103,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "nyt:combined-print-and-e-book-fiction=2024-06-30",
-        "New York Times bestseller",
-        "Romance fiction"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 6
     },
     {
       "id": "book:/works/OL37567597W",
@@ -3247,6 +3247,41 @@
       "editionCount": 11
     },
     {
+      "id": "book:/works/OL26443093W",
+      "title": "Babel",
+      "author": "R. F. Kuang · Michel Pagel",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/12468631-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL26443093W",
+      "score": 4.029412,
+      "votes": 34,
+      "interest": 533,
+      "language": [
+        "dut",
+        "por",
+        "eng"
+      ],
+      "subjects": [
+        "nyt:combined-print-and-e-book-fiction=2022-09-11",
+        "New York Times bestseller",
+        "Translators",
+        "Fiction",
+        "Chinese",
+        "Imperialism",
+        "Magic",
+        "History",
+        "University of Oxford",
+        "Fiction, fantasy, historical",
+        "Fiction, alternative history",
+        "Fiction, fantasy, dark fantasy",
+        "Fiction, fantasy, epic",
+        "award:nebula_award=novel"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 15
+    },
+    {
       "id": "book:/works/OL25960185W",
       "title": "Every Summer After",
       "author": "Carley Fortune",
@@ -3295,41 +3330,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL26443093W",
-      "title": "Babel",
-      "author": "R. F. Kuang · Michel Pagel",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/12468631-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL26443093W",
-      "score": 4.034483,
-      "votes": 29,
-      "interest": 505,
-      "language": [
-        "dut",
-        "eng",
-        "por"
-      ],
-      "subjects": [
-        "nyt:combined-print-and-e-book-fiction=2022-09-11",
-        "New York Times bestseller",
-        "Translators",
-        "Fiction",
-        "Chinese",
-        "Imperialism",
-        "Magic",
-        "History",
-        "University of Oxford",
-        "Fiction, fantasy, historical",
-        "Fiction, alternative history",
-        "Fiction, fantasy, dark fantasy",
-        "Fiction, fantasy, epic",
-        "award:nebula_award=novel"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 15
     },
     {
       "id": "book:/works/OL31191485W",
@@ -3402,9 +3402,9 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.802589,
-      "votes": 309,
-      "interest": 15200,
+      "score": 3.7935483,
+      "votes": 310,
+      "interest": 15232,
       "language": [
         "spa",
         "fre",
@@ -3439,7 +3439,7 @@
       "url": "https://openlibrary.org/works/OL27310398W",
       "score": 3.59403,
       "votes": 335,
-      "interest": 12650,
+      "interest": 12666,
       "language": [
         "spa",
         "ger",
@@ -4609,6 +4609,46 @@
       "editionCount": 21
     },
     {
+      "id": "book:/works/OL20878311W",
+      "title": "The Thursday Murder Club",
+      "author": "Richard Osman",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/10201431-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20878311W",
+      "score": 3.65,
+      "votes": 20,
+      "interest": 438,
+      "language": [
+        "ger",
+        "pol",
+        "spa",
+        "gre",
+        "heb",
+        "fre",
+        "ita",
+        "dut"
+      ],
+      "subjects": [
+        "Series:Thursday-Murder-Club",
+        "Mystery",
+        "Fiction",
+        "Crime",
+        "Mystery Thriller",
+        "Thriller",
+        "Contemporary",
+        "Murder Mystery",
+        "Cozy Mystery",
+        "English literature",
+        "nyt:trade-fiction-paperback=2021-08-22",
+        "New York Times bestseller",
+        "Older people",
+        "Murder"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 27
+    },
+    {
       "id": "book:/works/OL20742637W",
       "title": "Guest List",
       "author": "Lucy Foley · Victoria Horrillo Ledesma",
@@ -4641,46 +4681,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 18
-    },
-    {
-      "id": "book:/works/OL20878311W",
-      "title": "The Thursday Murder Club",
-      "author": "Richard Osman",
-      "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/10201431-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20878311W",
-      "score": 3.65,
-      "votes": 20,
-      "interest": 407,
-      "language": [
-        "spa",
-        "fre",
-        "ita",
-        "dut",
-        "pol",
-        "heb",
-        "eng",
-        "gre"
-      ],
-      "subjects": [
-        "Series:Thursday-Murder-Club",
-        "Mystery",
-        "Fiction",
-        "Crime",
-        "Mystery Thriller",
-        "Thriller",
-        "Contemporary",
-        "Murder Mystery",
-        "Cozy Mystery",
-        "English literature",
-        "nyt:trade-fiction-paperback=2021-08-22",
-        "New York Times bestseller",
-        "Older people",
-        "Murder"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 27
     },
     {
       "id": "book:/works/OL20768985W",
@@ -4921,7 +4921,7 @@
       "url": "https://openlibrary.org/works/OL20090688W",
       "score": 4.18593,
       "votes": 199,
-      "interest": 5068,
+      "interest": 5077,
       "language": [
         "spa",
         "ger",
@@ -4955,13 +4955,13 @@
       "image": "https://covers.openlibrary.org/b/id/9278304-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20465177W",
-      "score": 4.0136986,
-      "votes": 73,
-      "interest": 1491,
+      "score": 4.04,
+      "votes": 75,
+      "interest": 1591,
       "language": [
+        "spa",
         "pol",
         "chi",
-        "spa",
         "eng"
       ],
       "subjects": [
@@ -5227,9 +5227,9 @@
       "image": "https://covers.openlibrary.org/b/id/9351865-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20657486W",
-      "score": 3.8333333,
-      "votes": 24,
-      "interest": 627,
+      "score": 3.84,
+      "votes": 25,
+      "interest": 651,
       "language": [
         "spa",
         "eng"
@@ -5698,15 +5698,15 @@
       "image": "https://covers.openlibrary.org/b/id/9407338-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19096402W",
-      "score": 4.0511627,
-      "votes": 215,
-      "interest": 5983,
+      "score": 4.0555553,
+      "votes": 216,
+      "interest": 6050,
       "language": [
-        "cat",
         "ger",
-        "est",
-        "por",
         "tur",
+        "por",
+        "est",
+        "cat",
         "eng"
       ],
       "subjects": [
@@ -8497,15 +8497,15 @@
       "image": "https://covers.openlibrary.org/b/id/7990753-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17715454W",
-      "score": 3.7894738,
-      "votes": 57,
-      "interest": 1350,
+      "score": 3.7457628,
+      "votes": 59,
+      "interest": 1375,
       "language": [
+        "ger",
         "pol",
         "fre",
-        "eng",
         "dut",
-        "ger"
+        "eng"
       ],
       "subjects": [
         "Serie:Caraval",
@@ -10895,17 +10895,17 @@
       "image": "https://covers.openlibrary.org/b/id/15152696-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL50565W",
-      "score": 4.193548,
-      "votes": 31,
-      "interest": 877,
+      "score": 4.030303,
+      "votes": 33,
+      "interest": 911,
       "language": [
-        "eng",
-        "heb",
-        "fre",
-        "spa",
-        "por",
         "ger",
-        "tur"
+        "spa",
+        "heb",
+        "tur",
+        "por",
+        "fre",
+        "eng"
       ],
       "subjects": [
         "foster care",
