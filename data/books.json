@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T02:51:31.609Z",
+  "updatedAt": "2026-11-12T03:54:00.481Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 368,
@@ -1552,9 +1552,9 @@
       "image": "https://covers.openlibrary.org/b/id/14839466-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL37859241W",
-      "score": 3.7777777,
-      "votes": 9,
-      "interest": 231,
+      "score": 3.9,
+      "votes": 10,
+      "interest": 242,
       "language": [
         "eng"
       ],
@@ -1754,6 +1754,31 @@
       "editionCount": 5
     },
     {
+      "id": "book:/works/OL37949460W",
+      "title": "Intermezzo",
+      "author": "Sally Rooney",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/15248784-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37949460W",
+      "score": 3.3333333,
+      "votes": 12,
+      "interest": 128,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction",
+        "Literary Fiction",
+        "Grief",
+        "Brotherhood",
+        "Fiction, family life, siblings"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 8
+    },
+    {
       "id": "book:/works/OL37575890W",
       "title": "Funny Story",
       "author": "Emily Henry",
@@ -1780,31 +1805,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL37949460W",
-      "title": "Intermezzo",
-      "author": "Sally Rooney",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/15248784-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37949460W",
-      "score": 3.1111112,
-      "votes": 9,
-      "interest": 120,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Fiction",
-        "Literary Fiction",
-        "Grief",
-        "Brotherhood",
-        "Fiction, family life, siblings"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 8
     },
     {
       "id": "book:/works/OL37588709W",
@@ -2060,7 +2060,7 @@
       "url": "https://openlibrary.org/works/OL29330646W",
       "score": 4.25,
       "votes": 16,
-      "interest": 1148,
+      "interest": 1149,
       "language": [
         "spa",
         "eng"
@@ -2348,7 +2348,7 @@
       "url": "https://openlibrary.org/works/OL38035515W",
       "score": 4,
       "votes": 2,
-      "interest": 431,
+      "interest": 438,
       "language": [
         "eng"
       ],
@@ -3133,7 +3133,7 @@
       "url": "https://openlibrary.org/works/OL29189552W",
       "score": 4.5,
       "votes": 10,
-      "interest": 576,
+      "interest": 580,
       "language": [
         "eng"
       ],
@@ -3165,6 +3165,34 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL29215706W",
+      "title": "Painted Scars",
+      "author": "Neva Altaj",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/14630721-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL29215706W",
+      "score": 3.4666667,
+      "votes": 15,
+      "interest": 552,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Romance",
+        "Dark",
+        "Contemporary Romance",
+        "Adult",
+        "Disability",
+        "Crime",
+        "Fiction",
+        "New Adult",
+        "Marriage"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
+    },
+    {
       "id": "book:/works/OL27678542W",
       "title": "Terms and Conditions",
       "author": "Lauren Asher",
@@ -3180,34 +3208,6 @@
       ],
       "subjects": [
         "Fiction, romance, general"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL29215706W",
-      "title": "Painted Scars",
-      "author": "Neva Altaj",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/14630721-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL29215706W",
-      "score": 3.4666667,
-      "votes": 15,
-      "interest": 546,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Romance",
-        "Dark",
-        "Contemporary Romance",
-        "Adult",
-        "Disability",
-        "Crime",
-        "Fiction",
-        "New Adult",
-        "Marriage"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
@@ -3437,9 +3437,9 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.59403,
-      "votes": 335,
-      "interest": 12666,
+      "score": 3.5863094,
+      "votes": 336,
+      "interest": 12684,
       "language": [
         "spa",
         "ger",
@@ -3472,9 +3472,9 @@
       "image": "https://covers.openlibrary.org/b/id/10601402-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24178205W",
-      "score": 4.1297708,
-      "votes": 262,
-      "interest": 9565,
+      "score": 4.1292777,
+      "votes": 263,
+      "interest": 9590,
       "language": [
         "spa",
         "por",
@@ -3545,7 +3545,7 @@
       "url": "https://openlibrary.org/works/OL27297240W",
       "score": 3.8461537,
       "votes": 130,
-      "interest": 4332,
+      "interest": 4339,
       "language": [
         "spa",
         "eng"
@@ -3579,7 +3579,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3523,
+      "interest": 3527,
       "language": [
         "eng"
       ],
@@ -3645,11 +3645,11 @@
       "url": "https://openlibrary.org/works/OL24457490W",
       "score": 4.02439,
       "votes": 82,
-      "interest": 1950,
+      "interest": 1959,
       "language": [
         "ger",
-        "bul",
         "fin",
+        "bul",
         "dut",
         "eng"
       ],
@@ -5263,7 +5263,7 @@
       "url": "https://openlibrary.org/works/OL20145719W",
       "score": 4.7222223,
       "votes": 18,
-      "interest": 553,
+      "interest": 555,
       "language": [
         "eng"
       ],
@@ -8270,18 +8270,18 @@
       "image": "https://covers.openlibrary.org/b/id/12059372-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL82560W",
-      "score": 4.2493153,
-      "votes": 365,
-      "interest": 5016,
+      "score": 4.256757,
+      "votes": 370,
+      "interest": 5060,
       "language": [
-        "fre",
-        "rum",
-        "eng",
-        "afr",
-        "mar",
-        "tha",
+        "ger",
+        "pol",
+        "rus",
         "ben",
-        "alb"
+        "afr",
+        "cze",
+        "fre",
+        "dan"
       ],
       "subjects": [
         "orphans",
