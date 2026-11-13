@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-12T03:54:00.481Z",
+  "updatedAt": "2026-11-13T03:27:34.181Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 368,
+  "count": 369,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -1356,7 +1356,7 @@
       "url": "https://openlibrary.org/works/OL42975424W",
       "score": 3.588889,
       "votes": 90,
-      "interest": 3935,
+      "interest": 3950,
       "language": [
         "eng"
       ],
@@ -2120,9 +2120,9 @@
       "image": "https://covers.openlibrary.org/b/id/15230385-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL35718442W",
-      "score": 4,
-      "votes": 17,
-      "interest": 1026,
+      "score": 3.8,
+      "votes": 20,
+      "interest": 1056,
       "language": [
         "eng"
       ],
@@ -2310,6 +2310,26 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL28703803W",
+      "title": "Final Offer",
+      "author": "Lauren Asher",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/13258475-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL28703803W",
+      "score": 3.7727273,
+      "votes": 22,
+      "interest": 523,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, romance, general"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 2
     },
     {
       "id": "book:/works/OL28880495W",
@@ -2720,7 +2740,7 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5909,
+      "interest": 5918,
       "language": [
         "spa",
         "eng"
@@ -2754,7 +2774,7 @@
       "url": "https://openlibrary.org/works/OL27245843W",
       "score": 3.82243,
       "votes": 107,
-      "interest": 4556,
+      "interest": 4573,
       "language": [
         "spa",
         "eng"
@@ -2873,6 +2893,36 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL34224558W",
+      "title": "Never Lie",
+      "author": "Freida McFadden",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/13198561-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL34224558W",
+      "score": 3.3333333,
+      "votes": 21,
+      "interest": 1455,
+      "language": [
+        "ger",
+        "fre",
+        "por",
+        "eng"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Crime",
+        "Psychological Thriller",
+        "Contemporary"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 9
+    },
+    {
       "id": "book:/works/OL26955716W",
       "title": "Things We Never Got Over",
       "author": "Lucy Score",
@@ -2905,36 +2955,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
-    },
-    {
-      "id": "book:/works/OL34224558W",
-      "title": "Never Lie",
-      "author": "Freida McFadden",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/13198561-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL34224558W",
-      "score": 3.3333333,
-      "votes": 21,
-      "interest": 1403,
-      "language": [
-        "fre",
-        "por",
-        "ger",
-        "eng"
-      ],
-      "subjects": [
-        "Thriller",
-        "Mystery",
-        "Mystery Thriller",
-        "Fiction",
-        "Suspense",
-        "Crime",
-        "Psychological Thriller",
-        "Contemporary"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 9
     },
     {
       "id": "book:/works/OL29046643W",
@@ -3404,7 +3424,7 @@
       "url": "https://openlibrary.org/works/OL24390422W",
       "score": 3.7935483,
       "votes": 310,
-      "interest": 15232,
+      "interest": 15254,
       "language": [
         "spa",
         "fre",
@@ -3439,7 +3459,7 @@
       "url": "https://openlibrary.org/works/OL27310398W",
       "score": 3.5863094,
       "votes": 336,
-      "interest": 12684,
+      "interest": 12686,
       "language": [
         "spa",
         "ger",
@@ -3579,7 +3599,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3527,
+      "interest": 3538,
       "language": [
         "eng"
       ],
@@ -4957,7 +4977,7 @@
       "url": "https://openlibrary.org/works/OL20465177W",
       "score": 4.04,
       "votes": 75,
-      "interest": 1591,
+      "interest": 1593,
       "language": [
         "spa",
         "pol",
@@ -4988,18 +5008,18 @@
       "image": "https://covers.openlibrary.org/b/id/9020890-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20354499W",
-      "score": 4.1904764,
-      "votes": 63,
-      "interest": 1135,
+      "score": 4.203125,
+      "votes": 64,
+      "interest": 1139,
       "language": [
         "cat",
-        "rus",
-        "ger",
         "spa",
-        "dut",
         "wel",
-        "srp",
-        "pol"
+        "pol",
+        "dut",
+        "ger",
+        "eng",
+        "rus"
       ],
       "subjects": [
         "High schools",
@@ -5049,6 +5069,40 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
+    },
+    {
+      "id": "book:/works/OL18543708W",
+      "title": "The Wicked King",
+      "author": "Holly Black",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/8361788-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL18543708W",
+      "score": 4.2083335,
+      "votes": 24,
+      "interest": 1002,
+      "language": [
+        "dut",
+        "eng"
+      ],
+      "subjects": [
+        "Kings, queens, rulers, etc.--Fiction.",
+        "Power (Philosophy)--Fiction.",
+        "Courts and courtiers--Fiction.",
+        "Fairies--Fiction.",
+        "Sisters--Fiction.",
+        "Fantasy.",
+        "Children's fiction",
+        "Kings, queens, rulers, etc., fiction",
+        "Courts and courtiers, fiction",
+        "Fairies, fiction",
+        "Sisters, fiction",
+        "Fantasy fiction",
+        "nyt:young-adult-hardcover=2019-01-27",
+        "New York Times bestseller"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 20
     },
     {
       "id": "book:/works/OL24153842W",
@@ -5114,40 +5168,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 10
-    },
-    {
-      "id": "book:/works/OL18543708W",
-      "title": "The Wicked King",
-      "author": "Holly Black",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/8361788-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL18543708W",
-      "score": 4.2173915,
-      "votes": 23,
-      "interest": 961,
-      "language": [
-        "dut",
-        "eng"
-      ],
-      "subjects": [
-        "Kings, queens, rulers, etc.--Fiction.",
-        "Power (Philosophy)--Fiction.",
-        "Courts and courtiers--Fiction.",
-        "Fairies--Fiction.",
-        "Sisters--Fiction.",
-        "Fantasy.",
-        "Children's fiction",
-        "Kings, queens, rulers, etc., fiction",
-        "Courts and courtiers, fiction",
-        "Fairies, fiction",
-        "Sisters, fiction",
-        "Fantasy fiction",
-        "nyt:young-adult-hardcover=2019-01-27",
-        "New York Times bestseller"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 20
     },
     {
       "id": "book:/works/OL19922194W",
@@ -5700,7 +5720,7 @@
       "url": "https://openlibrary.org/works/OL19096402W",
       "score": 4.0555553,
       "votes": 216,
-      "interest": 6050,
+      "interest": 6064,
       "language": [
         "ger",
         "tur",
@@ -5927,11 +5947,11 @@
       "url": "https://openlibrary.org/works/OL19747970W",
       "score": 3.8139534,
       "votes": 43,
-      "interest": 1516,
+      "interest": 1520,
       "language": [
-        "por",
-        "ger",
         "pol",
+        "ger",
+        "por",
         "eng"
       ],
       "subjects": [
@@ -6166,9 +6186,9 @@
       "image": "https://covers.openlibrary.org/b/id/9637345-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20764592W",
-      "score": 4.5833335,
-      "votes": 12,
-      "interest": 547,
+      "score": 4.6153846,
+      "votes": 13,
+      "interest": 572,
       "language": [
         "guj",
         "eng"
@@ -8230,18 +8250,18 @@
       "image": "https://covers.openlibrary.org/b/id/12648183-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL16336633W",
-      "score": 3.9237804,
-      "votes": 328,
-      "interest": 7064,
+      "score": 3.9123867,
+      "votes": 331,
+      "interest": 7096,
       "language": [
-        "cat",
-        "hin",
         "fre",
-        "spa",
-        "eng",
+        "cat",
+        "tur",
         "vie",
+        "spa",
         "rus",
-        "dut"
+        "ita",
+        "pol"
       ],
       "subjects": [
         "Man-woman relationships, fiction",
@@ -8310,16 +8330,16 @@
       "image": "https://covers.openlibrary.org/b/id/8783502-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5819962W",
-      "score": 4.273381,
-      "votes": 139,
-      "interest": 4681,
+      "score": 4.2695036,
+      "votes": 141,
+      "interest": 4693,
       "language": [
         "cat",
-        "rus",
-        "heb",
         "spa",
+        "rus",
         "por",
-        "eng"
+        "eng",
+        "heb"
       ],
       "subjects": [
         "Beaches",
@@ -8573,32 +8593,32 @@
       "url": "https://openlibrary.org/works/OL2827199W",
       "score": 3.9419355,
       "votes": 155,
-      "interest": 1163,
+      "interest": 1167,
       "language": [
-        "rus",
-        "ger",
-        "chi",
-        "heb",
-        "nor",
-        "hin",
+        "fre",
+        "tur",
+        "vie",
         "spa",
-        "fre"
+        "rus",
+        "dan",
+        "nor",
+        "pol"
       ],
       "subjects": [
-        "Teenage boys",
-        "Zoo animals",
-        "Fiction",
-        "Literature",
+        "Shipwrecks",
+        "Castaways",
+        "Survival at Sea",
+        "Lifeboats",
+        "Pacific Ocean",
+        "Ocean Travel",
+        "India",
+        "Zoos",
         "Tigers",
-        "Translations into Korean",
-        "Tiger",
-        "award:man_booker_prize=2002",
-        "Man Booker Prize Winner",
-        "Open Library Staff Picks",
-        "Orphans",
-        "Survival after airplane accidents, shipwrecks",
-        "Storytelling",
-        "Ocean travel"
+        "Bengal tiger",
+        "Zoo animals",
+        "Human-animal relationships",
+        "Teenage boys",
+        "Orphans"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 115
@@ -9978,16 +9998,16 @@
       "url": "https://openlibrary.org/works/OL45885W",
       "score": 4.1164384,
       "votes": 146,
-      "interest": 1667,
+      "interest": 1680,
       "language": [
-        "ita",
-        "urd",
-        "ger",
-        "chi",
-        "heb",
+        "fre",
+        "swe",
         "spa",
-        "kor",
-        "wel"
+        "urd",
+        "ita",
+        "wel",
+        "pol",
+        "ukr"
       ],
       "subjects": [
         "Open Library Staff Picks",
@@ -10783,18 +10803,18 @@
       "image": "https://covers.openlibrary.org/b/id/6498519-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL45804W",
-      "score": 3.9504132,
-      "votes": 121,
-      "interest": 1500,
+      "score": 3.9590163,
+      "votes": 122,
+      "interest": 1534,
       "language": [
-        "jpn",
-        "sco",
+        "fre",
+        "baq",
+        "spa",
+        "rus",
+        "dan",
         "ita",
-        "eng",
         "wel",
-        "heb",
-        "ast",
-        "rus"
+        "pol"
       ],
       "subjects": [
         "Animals",
@@ -11044,14 +11064,14 @@
       "image": "https://covers.openlibrary.org/b/id/8999878-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL510405W",
-      "score": 3.83,
-      "votes": 100,
-      "interest": 428,
+      "score": 3.8415842,
+      "votes": 101,
+      "interest": 434,
       "language": [
-        "eng",
-        "ger",
         "fre",
-        "spa"
+        "spa",
+        "ger",
+        "eng"
       ],
       "subjects": [
         "Hugo Award Winner",
