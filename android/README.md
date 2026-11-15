@@ -1,4 +1,9 @@
-# 知更 Android 0.6.19
+# 知更 Android 0.6.20
+
+## 0.6.20 · 内置安读 Anx Reader 多格式阅读
+
+将 Anx Reader 的 foliate-js 阅读内核作为本地离线 WebView 模块接入知更。导入 MOBI、AZW3、FB2 后可在知更内直接阅读，支持目录、翻页、夜间模式、字号排版和阅读位置恢复；EPUB、TXT、PDF 继续使用原有 Readium/PdfRenderer。包名 `cn.zhigeng.app`、原签名、书架和阅读数据目录不变，版本码 620，可覆盖 0.6.19。集成说明见 [安读集成说明](../docs/anx-reader.md)。
+
 
 独立原生安卓应用（Java + Android SDK），不是 WebView 网页壳，不依赖前一版知更网站或 ChatGPT 网页登录。
 

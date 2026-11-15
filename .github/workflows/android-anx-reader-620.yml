@@ -1,0 +1,55 @@
+name: Build Anx Reader integration 0.6.20
+on:
+  push:
+    branches: [codex/anx-reader-integration-620]
+    paths:
+      - 'android/**'
+      - 'docs/anx-reader.md'
+      - '.github/workflows/android-anx-reader-620.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+      - uses: actions/cache@v4
+        id: reader-font
+        with:
+          path: android/app/src/main/assets/fonts/zhigeng-serif.woff2
+          key: anx-reader-font-${{ hashFiles('scripts/prepare-reader-font.py') }}
+      - name: Prepare offline reader assets
+        if: steps.reader-font.outputs.cache-hit != 'true'
+        run: |
+          python3 -m pip install fonttools==4.59.0 brotli==1.1.0
+          python3 scripts/prepare-reader-font.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/prepare-android-posters.mjs
+      - run: python3 scripts/prepare-anime-plugin-assets.py
+      - run: python3 scripts/make-reader-fixtures.py
+      - name: Run Android unit tests and assemble APKs
+        working-directory: android
+        run: gradle :app:testDebugUnitTest :app:assembleRelease :app:assembleDebug --no-daemon
+      - name: Upload unsigned APKs and test reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Zhigeng-v0.6.20-anx-reader-build
+          path: |
+            android/app/build/outputs/apk/**/*.apk
+            android/app/build/test-results/testDebugUnitTest/
