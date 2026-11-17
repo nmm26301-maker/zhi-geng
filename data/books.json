@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-16T02:50:49.900Z",
+  "updatedAt": "2026-11-17T05:07:33.409Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 370,
+  "count": 373,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -758,9 +758,9 @@
       "image": "https://covers.openlibrary.org/b/id/14826089-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL41943074W",
-      "score": 4.3783784,
-      "votes": 37,
-      "interest": 1095,
+      "score": 4.394737,
+      "votes": 38,
+      "interest": 1100,
       "language": [
         "spa",
         "dut",
@@ -793,7 +793,7 @@
       "url": "https://openlibrary.org/works/OL43426400W",
       "score": 4.571429,
       "votes": 35,
-      "interest": 1062,
+      "interest": 1093,
       "language": [
         "spa",
         "ita",
@@ -826,7 +826,7 @@
       "url": "https://openlibrary.org/works/OL42770100W",
       "score": 4.431818,
       "votes": 44,
-      "interest": 1031,
+      "interest": 1037,
       "language": [
         "eng"
       ],
@@ -894,7 +894,7 @@
       "url": "https://openlibrary.org/works/OL42487406W",
       "score": 3.9285715,
       "votes": 14,
-      "interest": 534,
+      "interest": 538,
       "language": [
         "por",
         "eng"
@@ -916,9 +916,9 @@
       "image": "https://covers.openlibrary.org/b/id/15125127-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42406707W",
-      "score": 3.7142856,
-      "votes": 7,
-      "interest": 388,
+      "score": 3.625,
+      "votes": 8,
+      "interest": 396,
       "language": [
         "eng"
       ],
@@ -1385,7 +1385,7 @@
       "url": "https://openlibrary.org/works/OL42975424W",
       "score": 3.588889,
       "votes": 90,
-      "interest": 3950,
+      "interest": 3972,
       "language": [
         "eng"
       ],
@@ -1405,10 +1405,10 @@
       "url": "https://openlibrary.org/works/OL38128674W",
       "score": 4.152174,
       "votes": 46,
-      "interest": 1639,
+      "interest": 1673,
       "language": [
-        "spa",
         "por",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -1462,7 +1462,7 @@
       "url": "https://openlibrary.org/works/OL37572814W",
       "score": 3.642857,
       "votes": 14,
-      "interest": 792,
+      "interest": 796,
       "language": [
         "dut",
         "eng"
@@ -1486,13 +1486,13 @@
       "url": "https://openlibrary.org/works/OL37576476W",
       "score": 3.7,
       "votes": 10,
-      "interest": 409,
+      "interest": 448,
       "language": [
         "spa",
         "por",
-        "eng",
         "dut",
-        "ger"
+        "ger",
+        "eng"
       ],
       "subjects": [
         "nyt:combined-print-and-e-book-fiction=2024-06-30",
@@ -1644,6 +1644,40 @@
       "editionCount": 5
     },
     {
+      "id": "book:/works/OL34780775W",
+      "title": "House of Flame and Shadow",
+      "author": "Sarah J. Maas",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/13525139-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL34780775W",
+      "score": 4.5,
+      "votes": 8,
+      "interest": 164,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fantasy",
+        "Romance",
+        "Fantasy Romance",
+        "Adult",
+        "Fiction",
+        "Fae",
+        "Urban Fantasy",
+        "New Adult",
+        "High Fantasy",
+        "Paranormal",
+        "American literature",
+        "nyt:combined-print-and-e-book-fiction=2024-02-18",
+        "New York Times bestseller",
+        "series:crescent_city"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 6
+    },
+    {
       "id": "book:/works/OL37572598W",
       "title": "The Reappearance of Rachel Price",
       "author": "Holly Jackson",
@@ -1706,40 +1740,6 @@
       "editionCount": 2
     },
     {
-      "id": "book:/works/OL34780775W",
-      "title": "House of Flame and Shadow",
-      "author": "Sarah J. Maas",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/13525139-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL34780775W",
-      "score": 4.5,
-      "votes": 8,
-      "interest": 155,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Fantasy",
-        "Romance",
-        "Fantasy Romance",
-        "Adult",
-        "Fiction",
-        "Fae",
-        "Urban Fantasy",
-        "New Adult",
-        "High Fantasy",
-        "Paranormal",
-        "American literature",
-        "nyt:combined-print-and-e-book-fiction=2024-02-18",
-        "New York Times bestseller",
-        "series:crescent_city"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 6
-    },
-    {
       "id": "book:/works/OL37873918W",
       "title": "Pretty Rings and Broken Things",
       "author": "Kat Singleton",
@@ -1761,6 +1761,28 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL37588041W",
+      "title": "Bride",
+      "author": "Ali Hazelwood",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/14591818-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37588041W",
+      "score": 4.4,
+      "votes": 5,
+      "interest": 151,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "American literature",
+        "nyt:combined-print-and-e-book-fiction=2024-02-25",
+        "New York Times bestseller"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL37575890W",
       "title": "Funny Story",
       "author": "Emily Henry",
@@ -1770,7 +1792,7 @@
       "url": "https://openlibrary.org/works/OL37575890W",
       "score": 4.125,
       "votes": 8,
-      "interest": 143,
+      "interest": 144,
       "language": [
         "eng"
       ],
@@ -1789,26 +1811,37 @@
       "editionCount": 7
     },
     {
-      "id": "book:/works/OL37588041W",
-      "title": "Bride",
-      "author": "Ali Hazelwood",
+      "id": "book:/works/OL36506504W",
+      "title": "James",
+      "author": "Percival L. Everett",
       "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14591818-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/15094964-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37588041W",
-      "score": 4.3333335,
-      "votes": 3,
-      "interest": 140,
+      "url": "https://openlibrary.org/works/OL36506504W",
+      "score": 4.076923,
+      "votes": 13,
+      "interest": 134,
       "language": [
         "eng"
       ],
       "subjects": [
         "American literature",
-        "nyt:combined-print-and-e-book-fiction=2024-02-25",
-        "New York Times bestseller"
+        "nyt:combined-print-and-e-book-fiction=2024-04-07",
+        "New York Times bestseller",
+        "Finn, huckleberry (fictitious character), fiction",
+        "Enslaved persons, fiction",
+        "Friendship, fiction",
+        "Missouri, fiction",
+        "Fiction, humorous, general",
+        "Fiction, action & adventure",
+        "fiction",
+        "Fugitive slaves",
+        "Race relations",
+        "Male friendship",
+        "Runaway children"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 5
+      "editionCount": 8
     },
     {
       "id": "book:/works/OL37949460W",
@@ -1881,37 +1914,38 @@
       "editionCount": 1
     },
     {
-      "id": "book:/works/OL36506504W",
-      "title": "James",
-      "author": "Percival L. Everett",
+      "id": "book:/works/OL37247638W",
+      "title": "The Women",
+      "author": "Kristin Hannah",
       "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/15094964-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/14631595-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL36506504W",
-      "score": 4.1,
-      "votes": 10,
-      "interest": 114,
+      "url": "https://openlibrary.org/works/OL37247638W",
+      "score": 4,
+      "votes": 5,
+      "interest": 116,
       "language": [
+        "spa",
+        "dut",
         "eng"
       ],
       "subjects": [
         "American literature",
-        "nyt:combined-print-and-e-book-fiction=2024-04-07",
+        "nyt:combined-print-and-e-book-fiction=2024-02-25",
         "New York Times bestseller",
-        "Finn, huckleberry (fictitious character), fiction",
-        "Enslaved persons, fiction",
-        "Friendship, fiction",
-        "Missouri, fiction",
-        "Fiction, humorous, general",
-        "Fiction, action & adventure",
+        "Historical fiction",
+        "nurses",
+        "psychic trauma",
+        "Psychological fiction",
+        "war",
         "fiction",
-        "Fugitive slaves",
-        "Race relations",
-        "Male friendship",
-        "Runaway children"
+        "United States Armed Forces",
+        "veterans",
+        "Vietnam War",
+        "Young women"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 8
+      "editionCount": 11
     },
     {
       "id": "book:/works/OL38392615W",
@@ -1966,6 +2000,36 @@
       "editionCount": 5
     },
     {
+      "id": "book:/works/OL37583785W",
+      "title": "Play Along",
+      "author": "Liz Tomforde",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/15148767-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37583785W",
+      "score": 5,
+      "votes": 1,
+      "interest": 104,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Romance",
+        "Sports Romance",
+        "Sports",
+        "Fake Dating",
+        "Contemporary",
+        "Contemporary Romance",
+        "Baseball players",
+        "Baseball",
+        "Serie:Windy_City",
+        "Fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 4
+    },
+    {
       "id": "book:/works/OL37567597W",
       "title": "Blue Sisters",
       "author": "Coco Mellors",
@@ -1987,40 +2051,6 @@
       "editionCount": 8
     },
     {
-      "id": "book:/works/OL37247638W",
-      "title": "The Women",
-      "author": "Kristin Hannah",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14631595-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37247638W",
-      "score": 4,
-      "votes": 5,
-      "interest": 90,
-      "language": [
-        "spa",
-        "dut",
-        "eng"
-      ],
-      "subjects": [
-        "American literature",
-        "nyt:combined-print-and-e-book-fiction=2024-02-25",
-        "New York Times bestseller",
-        "Historical fiction",
-        "nurses",
-        "psychic trauma",
-        "Psychological fiction",
-        "war",
-        "fiction",
-        "United States Armed Forces",
-        "veterans",
-        "Vietnam War",
-        "Young women"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 11
-    },
-    {
       "id": "book:/works/OL29226517W",
       "title": "Fourth Wing",
       "author": "Rebecca Yarros",
@@ -2028,9 +2058,9 @@
       "image": "https://covers.openlibrary.org/b/id/14407898-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL29226517W",
-      "score": 4.2782607,
-      "votes": 115,
-      "interest": 3544,
+      "score": 4.284483,
+      "votes": 116,
+      "interest": 3558,
       "language": [
         "gre",
         "spa",
@@ -2065,10 +2095,10 @@
       "url": "https://openlibrary.org/works/OL34774028W",
       "score": 3.9855072,
       "votes": 69,
-      "interest": 3045,
+      "interest": 3058,
       "language": [
-        "spa",
         "por",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -2087,9 +2117,9 @@
       "image": "https://covers.openlibrary.org/b/id/14405746-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL34028551W",
-      "score": 4.25,
-      "votes": 44,
-      "interest": 1158,
+      "score": 4.266667,
+      "votes": 45,
+      "interest": 1163,
       "language": [
         "fre",
         "spa",
@@ -2117,7 +2147,7 @@
       "url": "https://openlibrary.org/works/OL29330646W",
       "score": 4.25,
       "votes": 16,
-      "interest": 1149,
+      "interest": 1154,
       "language": [
         "spa",
         "eng"
@@ -2151,7 +2181,7 @@
       "url": "https://openlibrary.org/works/OL35718442W",
       "score": 3.8,
       "votes": 20,
-      "interest": 1056,
+      "interest": 1059,
       "language": [
         "eng"
       ],
@@ -2175,10 +2205,10 @@
       "url": "https://openlibrary.org/works/OL34113490W",
       "score": 3.9166667,
       "votes": 12,
-      "interest": 904,
+      "interest": 927,
       "language": [
-        "dut",
         "ger",
+        "dut",
         "eng"
       ],
       "subjects": [
@@ -2241,7 +2271,7 @@
       "url": "https://openlibrary.org/works/OL28803485W",
       "score": 3.9473684,
       "votes": 19,
-      "interest": 719,
+      "interest": 721,
       "language": [
         "dut",
         "eng"
@@ -2298,12 +2328,12 @@
       "url": "https://openlibrary.org/works/OL34025404W",
       "score": 4.6666665,
       "votes": 12,
-      "interest": 564,
+      "interest": 570,
       "language": [
-        "ger",
-        "pol",
         "spa",
+        "pol",
         "por",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -2479,7 +2509,7 @@
       "url": "https://openlibrary.org/works/OL34811234W",
       "score": 4.4,
       "votes": 5,
-      "interest": 406,
+      "interest": 408,
       "language": [
         "spa",
         "dut",
@@ -2505,7 +2535,7 @@
       "url": "https://openlibrary.org/works/OL28607665W",
       "score": 3.7058823,
       "votes": 17,
-      "interest": 391,
+      "interest": 393,
       "language": [
         "eng"
       ],
@@ -2565,9 +2595,9 @@
       "image": "https://covers.openlibrary.org/b/id/13298100-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL29327873W",
-      "score": 4.6,
-      "votes": 5,
-      "interest": 242,
+      "score": 4,
+      "votes": 7,
+      "interest": 263,
       "language": [
         "spa",
         "eng"
@@ -2581,28 +2611,6 @@
       "editionCount": 11
     },
     {
-      "id": "book:/works/OL36775731W",
-      "title": "Butcher & Blackbird",
-      "author": "Brynne Weaver",
-      "year": 2023,
-      "image": "https://covers.openlibrary.org/b/id/15256803-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL36775731W",
-      "score": 3.5,
-      "votes": 12,
-      "interest": 222,
-      "language": [
-        "eng",
-        "dut"
-      ],
-      "subjects": [
-        "nyt:trade-fiction-paperback=2024-03-17",
-        "New York Times bestseller"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 9
-    },
-    {
       "id": "book:/works/OL36043513W",
       "title": "Right Move",
       "author": "Liz Tomforde",
@@ -2610,9 +2618,9 @@
       "image": "https://covers.openlibrary.org/b/id/14646468-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL36043513W",
-      "score": 4.5,
-      "votes": 2,
-      "interest": 209,
+      "score": 4.6666665,
+      "votes": 3,
+      "interest": 228,
       "language": [
         "spa",
         "eng"
@@ -2635,6 +2643,57 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
+    },
+    {
+      "id": "book:/works/OL33364737W",
+      "title": "A Curse for True Love",
+      "author": "Stephanie Garber",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/13124827-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL33364737W",
+      "score": 4.090909,
+      "votes": 11,
+      "interest": 223,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Serie:Once_Upon_a_Broken_Heart",
+        "Fantasy",
+        "Fantasy fiction",
+        "Fantasy Romance",
+        "Fiction",
+        "Magic",
+        "Romance",
+        "Romantasy",
+        "Young Adult",
+        "Young Adult Fantasy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 9
+    },
+    {
+      "id": "book:/works/OL36775731W",
+      "title": "Butcher & Blackbird",
+      "author": "Brynne Weaver",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/15256803-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL36775731W",
+      "score": 3.5,
+      "votes": 12,
+      "interest": 222,
+      "language": [
+        "eng",
+        "dut"
+      ],
+      "subjects": [
+        "nyt:trade-fiction-paperback=2024-03-17",
+        "New York Times bestseller"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 9
     },
     {
       "id": "book:/works/OL28095854W",
@@ -2695,35 +2754,6 @@
       "editionCount": 5
     },
     {
-      "id": "book:/works/OL33364737W",
-      "title": "A Curse for True Love",
-      "author": "Stephanie Garber",
-      "year": 2023,
-      "image": "https://covers.openlibrary.org/b/id/13124827-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL33364737W",
-      "score": 3.8888888,
-      "votes": 9,
-      "interest": 197,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Serie:Once_Upon_a_Broken_Heart",
-        "Fantasy",
-        "Fantasy fiction",
-        "Fantasy Romance",
-        "Fiction",
-        "Magic",
-        "Romance",
-        "Romantasy",
-        "Young Adult",
-        "Young Adult Fantasy"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 9
-    },
-    {
       "id": "book:/works/OL27733867W",
       "title": "It Starts with Us",
       "author": "Colleen Hoover",
@@ -2733,7 +2763,7 @@
       "url": "https://openlibrary.org/works/OL27733867W",
       "score": 4.0142517,
       "votes": 421,
-      "interest": 19649,
+      "interest": 19657,
       "language": [
         "fre",
         "por",
@@ -2769,7 +2799,7 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5918,
+      "interest": 5926,
       "language": [
         "spa",
         "eng"
@@ -2803,7 +2833,7 @@
       "url": "https://openlibrary.org/works/OL27245843W",
       "score": 3.82243,
       "votes": 107,
-      "interest": 4573,
+      "interest": 4583,
       "language": [
         "spa",
         "eng"
@@ -2860,15 +2890,15 @@
       "image": "https://covers.openlibrary.org/b/id/15105883-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27729743W",
-      "score": 3.5769231,
-      "votes": 26,
-      "interest": 2352,
+      "score": 3.7096775,
+      "votes": 31,
+      "interest": 2419,
       "language": [
-        "ger",
-        "pol",
         "spa",
+        "pol",
         "por",
         "dut",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -2931,11 +2961,11 @@
       "url": "https://openlibrary.org/works/OL34224558W",
       "score": 3.3333333,
       "votes": 21,
-      "interest": 1455,
+      "interest": 1473,
       "language": [
-        "ger",
         "fre",
         "por",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -2961,7 +2991,7 @@
       "url": "https://openlibrary.org/works/OL26955716W",
       "score": 4.142857,
       "votes": 28,
-      "interest": 1405,
+      "interest": 1407,
       "language": [
         "dut",
         "eng"
@@ -3017,7 +3047,7 @@
       "url": "https://openlibrary.org/works/OL28181491W",
       "score": 3.7826087,
       "votes": 23,
-      "interest": 979,
+      "interest": 987,
       "language": [
         "spa",
         "eng"
@@ -3120,7 +3150,7 @@
       "url": "https://openlibrary.org/works/OL29232835W",
       "score": 4.3157897,
       "votes": 19,
-      "interest": 670,
+      "interest": 683,
       "language": [
         "spa",
         "eng"
@@ -3262,6 +3292,40 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL27090610W",
+      "title": "The Ballad of Never After",
+      "author": "Stephanie Garber",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/12945180-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL27090610W",
+      "score": 4.6190476,
+      "votes": 21,
+      "interest": 555,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "young-adult",
+        "New York Times bestseller",
+        "Love",
+        "Blessing and Cursing",
+        "Magic",
+        "Fantasy fiction",
+        "Young adult fiction, fantasy, dark fantasy",
+        "Young adult fiction, fairy tales & folklore, general",
+        "Young adult fiction, fantasy, romance",
+        "Serie:Once_Upon_a_Broken_Heart",
+        "Fantasy",
+        "Fantasy Romance",
+        "Fiction",
+        "Romance"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 11
+    },
+    {
       "id": "book:/works/OL26348345W",
       "title": "Stellarlune",
       "author": "Shannon Messenger",
@@ -3288,40 +3352,6 @@
       "editionCount": 7
     },
     {
-      "id": "book:/works/OL27090610W",
-      "title": "The Ballad of Never After",
-      "author": "Stephanie Garber",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/12945180-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL27090610W",
-      "score": 4.5789475,
-      "votes": 19,
-      "interest": 539,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "young-adult",
-        "New York Times bestseller",
-        "Love",
-        "Blessing and Cursing",
-        "Magic",
-        "Fantasy fiction",
-        "Young adult fiction, fantasy, dark fantasy",
-        "Young adult fiction, fairy tales & folklore, general",
-        "Young adult fiction, fantasy, romance",
-        "Serie:Once_Upon_a_Broken_Heart",
-        "Fantasy",
-        "Fantasy Romance",
-        "Fiction",
-        "Romance"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 11
-    },
-    {
       "id": "book:/works/OL26443093W",
       "title": "Babel",
       "author": "R. F. Kuang · Michel Pagel",
@@ -3329,12 +3359,12 @@
       "image": "https://covers.openlibrary.org/b/id/12468631-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL26443093W",
-      "score": 4.029412,
-      "votes": 34,
-      "interest": 533,
+      "score": 4,
+      "votes": 35,
+      "interest": 537,
       "language": [
-        "dut",
         "por",
+        "dut",
         "eng"
       ],
       "subjects": [
@@ -3408,6 +3438,32 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL28020413W",
+      "title": "Five Survive",
+      "author": "Holly Jackson",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/13187233-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL28020413W",
+      "score": 3.8666666,
+      "votes": 15,
+      "interest": 477,
+      "language": [
+        "spa",
+        "ita",
+        "pol",
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "YOUNG ADULT FICTION / Thrillers & Suspense",
+        "nyt:young-adult-paperback-monthly=2024-06-30",
+        "New York Times bestseller"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 16
+    },
+    {
       "id": "book:/works/OL25344431W",
       "title": "Lessons in Chemistry",
       "author": "Bonnie Garmus",
@@ -3453,7 +3509,7 @@
       "url": "https://openlibrary.org/works/OL24390422W",
       "score": 3.7974277,
       "votes": 311,
-      "interest": 15276,
+      "interest": 15285,
       "language": [
         "fre",
         "spa",
@@ -3488,7 +3544,7 @@
       "url": "https://openlibrary.org/works/OL27310398W",
       "score": 3.59882,
       "votes": 339,
-      "interest": 12752,
+      "interest": 12763,
       "language": [
         "spa",
         "ger",
@@ -3523,7 +3579,7 @@
       "url": "https://openlibrary.org/works/OL24178205W",
       "score": 4.1292777,
       "votes": 263,
-      "interest": 9609,
+      "interest": 9613,
       "language": [
         "spa",
         "ita",
@@ -3560,7 +3616,7 @@
       "url": "https://openlibrary.org/works/OL25515697W",
       "score": 4.0625,
       "votes": 128,
-      "interest": 5932,
+      "interest": 5934,
       "language": [
         "spa",
         "eng"
@@ -3594,7 +3650,7 @@
       "url": "https://openlibrary.org/works/OL27297240W",
       "score": 3.8549619,
       "votes": 131,
-      "interest": 4358,
+      "interest": 4362,
       "language": [
         "spa",
         "eng"
@@ -3628,7 +3684,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3538,
+      "interest": 3563,
       "language": [
         "eng"
       ],
@@ -3728,9 +3784,9 @@
       "image": "https://covers.openlibrary.org/b/id/11200092-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21745884W",
-      "score": 4.535,
-      "votes": 200,
-      "interest": 1543,
+      "score": 4.5373135,
+      "votes": 201,
+      "interest": 1549,
       "language": [
         "fre",
         "tur",
@@ -3759,6 +3815,41 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 32
+    },
+    {
+      "id": "book:/works/OL24706481W",
+      "title": "Once Upon a Broken Heart",
+      "author": "Stephanie Garber",
+      "year": 2021,
+      "image": "https://covers.openlibrary.org/b/id/11427092-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL24706481W",
+      "score": 3.9272728,
+      "votes": 55,
+      "interest": 1353,
+      "language": [
+        "spa",
+        "dut",
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "nyt:young-adult-hardcover=2021-10-17",
+        "New York Times bestseller",
+        "American literature",
+        "Series:Once_Upon_a_Broken_Heart",
+        "Fantasy",
+        "Fantasy fiction",
+        "Fantasy Romance",
+        "Fiction",
+        "Magic",
+        "Romance",
+        "Romantasy",
+        "Serie:Once_Upon_a_Broken_Heart",
+        "Young Adult"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 17
     },
     {
       "id": "book:/works/OL24236112W",
@@ -3794,39 +3885,42 @@
       "editionCount": 19
     },
     {
-      "id": "book:/works/OL24706481W",
-      "title": "Once Upon a Broken Heart",
-      "author": "Stephanie Garber",
+      "id": "book:/works/OL21703979W",
+      "title": "A Court of Silver Flames",
+      "author": "Sarah J. Maas",
       "year": 2021,
-      "image": "https://covers.openlibrary.org/b/id/11427092-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/10643508-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL24706481W",
-      "score": 3.9074075,
-      "votes": 54,
-      "interest": 1347,
+      "url": "https://openlibrary.org/works/OL21703979W",
+      "score": 4.318182,
+      "votes": 44,
+      "interest": 716,
       "language": [
+        "fre",
+        "tur",
         "spa",
-        "dut",
+        "cze",
+        "ger",
         "eng"
       ],
       "subjects": [
-        "Children's fiction",
-        "nyt:young-adult-hardcover=2021-10-17",
+        "Fiction, romance, fantasy",
+        "Fiction, fantasy, epic",
+        "Fiction, fantasy, romance",
+        "nyt:combined-print-and-e-book-fiction=2021-03-07",
         "New York Times bestseller",
-        "American literature",
-        "Series:Once_Upon_a_Broken_Heart",
-        "Fantasy",
-        "Fantasy fiction",
-        "Fantasy Romance",
+        "collectionID:EanesChallenge",
+        "collectionID:AlpineChallenge",
+        "nyt:trade-fiction-paperback=2022-09-25",
+        "series:A_Court_of_Thorns_and_Roses",
+        "Imaginary wars and battles",
         "Fiction",
-        "Magic",
-        "Romance",
-        "Romantasy",
-        "Serie:Once_Upon_a_Broken_Heart",
-        "Young Adult"
+        "Women spies",
+        "Fairies",
+        "Magic"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 17
+      "editionCount": 19
     },
     {
       "id": "book:/works/OL26864096W",
@@ -3848,44 +3942,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL21703979W",
-      "title": "A Court of Silver Flames",
-      "author": "Sarah J. Maas",
-      "year": 2021,
-      "image": "https://covers.openlibrary.org/b/id/10643508-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL21703979W",
-      "score": 4.375,
-      "votes": 40,
-      "interest": 669,
-      "language": [
-        "ger",
-        "tur",
-        "fre",
-        "eng",
-        "cze",
-        "spa"
-      ],
-      "subjects": [
-        "Fiction, romance, fantasy",
-        "Fiction, fantasy, epic",
-        "Fiction, fantasy, romance",
-        "nyt:combined-print-and-e-book-fiction=2021-03-07",
-        "New York Times bestseller",
-        "collectionID:EanesChallenge",
-        "collectionID:AlpineChallenge",
-        "nyt:trade-fiction-paperback=2022-09-25",
-        "series:A_Court_of_Thorns_and_Roses",
-        "Imaginary wars and battles",
-        "Fiction",
-        "Women spies",
-        "Fairies",
-        "Magic"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 19
     },
     {
       "id": "book:/works/OL25555522W",
@@ -3943,7 +3999,7 @@
       "url": "https://openlibrary.org/works/OL22563730W",
       "score": 3.4666667,
       "votes": 30,
-      "interest": 611,
+      "interest": 612,
       "language": [
         "eng"
       ],
@@ -4021,7 +4077,7 @@
       "url": "https://openlibrary.org/works/OL28959223W",
       "score": 3.8947368,
       "votes": 19,
-      "interest": 552,
+      "interest": 554,
       "language": [
         "pol",
         "dut",
@@ -4182,17 +4238,17 @@
       "image": "https://covers.openlibrary.org/b/id/10313767-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20965973W",
-      "score": 4.0113635,
-      "votes": 88,
-      "interest": 2405,
+      "score": 4.0108695,
+      "votes": 92,
+      "interest": 2432,
       "language": [
-        "ger",
-        "rum",
-        "gre",
-        "tur",
-        "por",
         "fre",
+        "tur",
+        "gre",
+        "rum",
         "swe",
+        "por",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -4224,7 +4280,7 @@
       "url": "https://openlibrary.org/works/OL21084352W",
       "score": 4.16,
       "votes": 75,
-      "interest": 2210,
+      "interest": 2211,
       "language": [
         "rum",
         "spa",
@@ -4254,14 +4310,14 @@
       "image": "https://covers.openlibrary.org/b/id/10472357-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21692056W",
-      "score": 4.246377,
-      "votes": 69,
-      "interest": 1637,
+      "score": 4.257143,
+      "votes": 70,
+      "interest": 1651,
       "language": [
+        "pol",
+        "por",
         "ger",
         "dut",
-        "por",
-        "pol",
         "eng"
       ],
       "subjects": [
@@ -4286,7 +4342,7 @@
       "url": "https://openlibrary.org/works/OL20716197W",
       "score": 4.2244897,
       "votes": 49,
-      "interest": 1614,
+      "interest": 1617,
       "language": [
         "cat",
         "tur",
@@ -4326,7 +4382,7 @@
       "url": "https://openlibrary.org/works/OL24633409W",
       "score": 4.25,
       "votes": 24,
-      "interest": 1574,
+      "interest": 1578,
       "language": [
         "dut",
         "eng"
@@ -4358,9 +4414,9 @@
       "image": "https://covers.openlibrary.org/b/id/14851422-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42611094W",
-      "score": 3.3636363,
-      "votes": 33,
-      "interest": 903,
+      "score": 3.2941177,
+      "votes": 34,
+      "interest": 914,
       "language": [
         "hin"
       ],
@@ -4377,6 +4433,39 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL20781257W",
+      "title": "Midnight Sun",
+      "author": "Stephenie Meyer",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/9946539-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20781257W",
+      "score": 4.15625,
+      "votes": 32,
+      "interest": 876,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Young adult fiction, vampires",
+        "Young adult fiction, paranormal, occult & supernatural",
+        "Young adult fiction, fantasy, contemporary",
+        "Young adult fiction, social themes, dating & sex",
+        "Young adult fiction, romance, paranormal",
+        "New York Times reviewed",
+        "Fantasy",
+        "Romance",
+        "Young Adult",
+        "Vampires",
+        "Fiction",
+        "Paranormal",
+        "Paranormal Romance",
+        "Supernatural"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 11
     },
     {
       "id": "book:/works/OL28708075W",
@@ -4433,37 +4522,38 @@
       "editionCount": 13
     },
     {
-      "id": "book:/works/OL20781257W",
-      "title": "Midnight Sun",
-      "author": "Stephenie Meyer",
+      "id": "book:/works/OL20639427W",
+      "title": "One of us is next",
+      "author": "Karen M. McManus · Yaʻel Akhmon",
       "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/9946539-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/9255512-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20781257W",
-      "score": 4.3103447,
-      "votes": 29,
-      "interest": 820,
+      "url": "https://openlibrary.org/works/OL20639427W",
+      "score": 4.1923075,
+      "votes": 26,
+      "interest": 700,
       "language": [
-        "eng"
+        "fre",
+        "spa",
+        "pol",
+        "eng",
+        "heb"
       ],
       "subjects": [
-        "Young adult fiction, vampires",
-        "Young adult fiction, paranormal, occult & supernatural",
-        "Young adult fiction, fantasy, contemporary",
-        "Young adult fiction, social themes, dating & sex",
-        "Young adult fiction, romance, paranormal",
-        "New York Times reviewed",
-        "Fantasy",
-        "Romance",
-        "Young Adult",
-        "Vampires",
+        "Young adult fiction, mysteries & detective stories",
+        "Young adult fiction, school & education, general",
+        "Young adult fiction, thrillers & suspense",
+        "Young adult fiction, social themes, friendship",
+        "Children's fiction",
+        "nyt:young-adult-hardcover=2020-01-26",
+        "New York Times bestseller",
+        "Young adult fiction, thrillers & suspense, general",
+        "High school students",
         "Fiction",
-        "Paranormal",
-        "Paranormal Romance",
-        "Supernatural"
+        "High schools"
       ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 11
+      "ebookAccess": "no_ebook",
+      "editionCount": 14
     },
     {
       "id": "book:/works/OL20734329W",
@@ -4473,12 +4563,12 @@
       "image": "https://covers.openlibrary.org/b/id/9426296-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20734329W",
-      "score": 3.6764705,
-      "votes": 34,
-      "interest": 692,
+      "score": 3.6857142,
+      "votes": 35,
+      "interest": 696,
       "language": [
-        "spa",
         "pol",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -4500,40 +4590,6 @@
       "editionCount": 12
     },
     {
-      "id": "book:/works/OL20639427W",
-      "title": "One of us is next",
-      "author": "Karen M. McManus · Yaʻel Akhmon",
-      "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/9255512-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20639427W",
-      "score": 4.130435,
-      "votes": 23,
-      "interest": 668,
-      "language": [
-        "eng",
-        "heb",
-        "spa",
-        "pol",
-        "fre"
-      ],
-      "subjects": [
-        "Young adult fiction, mysteries & detective stories",
-        "Young adult fiction, school & education, general",
-        "Young adult fiction, thrillers & suspense",
-        "Young adult fiction, social themes, friendship",
-        "Children's fiction",
-        "nyt:young-adult-hardcover=2020-01-26",
-        "New York Times bestseller",
-        "Young adult fiction, thrillers & suspense, general",
-        "High school students",
-        "Fiction",
-        "High schools"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 14
-    },
-    {
       "id": "book:/works/OL27965945W",
       "title": "Keeping 13",
       "author": "Chloe Walsh",
@@ -4543,7 +4599,7 @@
       "url": "https://openlibrary.org/works/OL27965945W",
       "score": 4.1666665,
       "votes": 6,
-      "interest": 619,
+      "interest": 622,
       "language": [
         "spa",
         "eng"
@@ -4567,11 +4623,11 @@
       "url": "https://openlibrary.org/works/OL29328354W",
       "score": 3.142857,
       "votes": 7,
-      "interest": 566,
+      "interest": 569,
       "language": [
+        "fre",
         "tur",
-        "eng",
-        "fre"
+        "eng"
       ],
       "subjects": [
         "nyt:combined-print-and-e-book-fiction=2023-02-19",
@@ -4588,9 +4644,9 @@
       "image": "https://covers.openlibrary.org/b/id/14105538-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27838518W",
-      "score": 4.090909,
-      "votes": 22,
-      "interest": 548,
+      "score": 4.1923075,
+      "votes": 26,
+      "interest": 567,
       "language": [
         "eng"
       ],
@@ -4608,9 +4664,9 @@
       "image": "https://covers.openlibrary.org/b/id/10226290-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20893680W",
-      "score": 4.3382354,
-      "votes": 68,
-      "interest": 525,
+      "score": 4.347826,
+      "votes": 69,
+      "interest": 541,
       "language": [
         "ita",
         "spa",
@@ -4639,14 +4695,14 @@
       "image": "https://covers.openlibrary.org/b/id/9945247-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20780974W",
-      "score": 4.64,
-      "votes": 25,
-      "interest": 444,
+      "score": 4.6538463,
+      "votes": 26,
+      "interest": 451,
       "language": [
+        "por",
         "tur",
-        "eng",
         "pol",
-        "por"
+        "eng"
       ],
       "subjects": [
         "Serie:The_Trials_of_Apollo",
@@ -4667,16 +4723,16 @@
       "url": "https://openlibrary.org/works/OL20878311W",
       "score": 3.65,
       "votes": 20,
-      "interest": 438,
+      "interest": 441,
       "language": [
-        "ger",
-        "pol",
-        "spa",
-        "gre",
-        "heb",
+        "cat",
         "fre",
+        "gre",
+        "spa",
         "ita",
-        "dut"
+        "pol",
+        "dut",
+        "ger"
       ],
       "subjects": [
         "Series:Thursday-Murder-Club",
@@ -4705,12 +4761,12 @@
       "image": "https://covers.openlibrary.org/b/id/10096112-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20742637W",
-      "score": 4.769231,
-      "votes": 13,
-      "interest": 407,
+      "score": 4.642857,
+      "votes": 14,
+      "interest": 418,
       "language": [
-        "eng",
-        "por"
+        "por",
+        "eng"
       ],
       "subjects": [
         "English literature",
@@ -4739,9 +4795,9 @@
       "image": "https://covers.openlibrary.org/b/id/10533096-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20768985W",
-      "score": 3.25,
-      "votes": 4,
-      "interest": 384,
+      "score": 3.5,
+      "votes": 6,
+      "interest": 406,
       "language": [
         "eng"
       ],
@@ -4769,13 +4825,13 @@
       "url": "https://openlibrary.org/works/OL22670634W",
       "score": 4.6875,
       "votes": 16,
-      "interest": 384,
+      "interest": 390,
       "language": [
-        "ger",
-        "por",
         "fre",
-        "eng",
-        "spa"
+        "spa",
+        "por",
+        "ger",
+        "eng"
       ],
       "subjects": [
         "Young Adults",
@@ -4791,6 +4847,41 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 15
+    },
+    {
+      "id": "book:/works/OL20793817W",
+      "title": "Anxious People",
+      "author": "Fredrik Backman",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/10087939-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20793817W",
+      "score": 4.3333335,
+      "votes": 24,
+      "interest": 386,
+      "language": [
+        "spa",
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "nyt:combined-print-and-e-book-fiction=2020-09-27",
+        "New York Times bestseller",
+        "Fiction, humorous",
+        "Sweden, fiction",
+        "Fiction, humorous, general",
+        "nyt:trade-fiction-paperback=2021-07-25",
+        "Germanic literature",
+        "Hostages",
+        "Fiction",
+        "Married people",
+        "Real estate agents",
+        "Otages",
+        "Romans, nouvelles",
+        "Couples mariés"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 16
     },
     {
       "id": "book:/works/OL20652090W",
@@ -4826,41 +4917,6 @@
       "editionCount": 11
     },
     {
-      "id": "book:/works/OL20793817W",
-      "title": "Anxious People",
-      "author": "Fredrik Backman",
-      "year": 2020,
-      "image": "https://covers.openlibrary.org/b/id/10087939-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20793817W",
-      "score": 4.347826,
-      "votes": 23,
-      "interest": 372,
-      "language": [
-        "spa",
-        "ger",
-        "eng"
-      ],
-      "subjects": [
-        "nyt:combined-print-and-e-book-fiction=2020-09-27",
-        "New York Times bestseller",
-        "Fiction, humorous",
-        "Sweden, fiction",
-        "Fiction, humorous, general",
-        "nyt:trade-fiction-paperback=2021-07-25",
-        "Germanic literature",
-        "Hostages",
-        "Fiction",
-        "Married people",
-        "Real estate agents",
-        "Otages",
-        "Romans, nouvelles",
-        "Couples mariés"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 16
-    },
-    {
       "id": "book:/works/OL21676651W",
       "title": "Kingdom of the Wicked",
       "author": "Kerri Maniscalco",
@@ -4893,12 +4949,12 @@
       "image": "https://covers.openlibrary.org/b/id/10239163-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20759125W",
-      "score": 4,
-      "votes": 27,
-      "interest": 343,
+      "score": 3.9655173,
+      "votes": 29,
+      "interest": 362,
       "language": [
-        "ger",
         "spa",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -4930,7 +4986,7 @@
       "url": "https://openlibrary.org/works/OL20646061W",
       "score": 4.0578947,
       "votes": 190,
-      "interest": 6693,
+      "interest": 6705,
       "language": [
         "spa",
         "ang",
@@ -4968,9 +5024,9 @@
       "image": "https://covers.openlibrary.org/b/id/9171544-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20090688W",
-      "score": 4.18593,
-      "votes": 199,
-      "interest": 5083,
+      "score": 4.18,
+      "votes": 200,
+      "interest": 5089,
       "language": [
         "por",
         "spa",
@@ -5004,12 +5060,12 @@
       "image": "https://covers.openlibrary.org/b/id/9278304-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20465177W",
-      "score": 4.04,
-      "votes": 75,
-      "interest": 1593,
+      "score": 4.064935,
+      "votes": 77,
+      "interest": 1606,
       "language": [
-        "spa",
         "pol",
+        "spa",
         "chi",
         "eng"
       ],
@@ -5039,7 +5095,7 @@
       "url": "https://openlibrary.org/works/OL20354499W",
       "score": 4.203125,
       "votes": 64,
-      "interest": 1139,
+      "interest": 1140,
       "language": [
         "cat",
         "spa",
@@ -5079,7 +5135,7 @@
       "url": "https://openlibrary.org/works/OL25434351W",
       "score": 3.826087,
       "votes": 23,
-      "interest": 1129,
+      "interest": 1134,
       "language": [
         "spa",
         "eng"
@@ -5109,7 +5165,7 @@
       "url": "https://openlibrary.org/works/OL18543708W",
       "score": 4.2083335,
       "votes": 24,
-      "interest": 1002,
+      "interest": 1007,
       "language": [
         "dut",
         "eng"
@@ -5173,13 +5229,13 @@
       "url": "https://openlibrary.org/works/OL36090166W",
       "score": 4.2105265,
       "votes": 19,
-      "interest": 981,
+      "interest": 984,
       "language": [
-        "pol",
         "spa",
-        "heb",
+        "pol",
         "dut",
-        "eng"
+        "eng",
+        "heb"
       ],
       "subjects": [
         "American literature",
@@ -5199,42 +5255,6 @@
       "editionCount": 10
     },
     {
-      "id": "book:/works/OL19922194W",
-      "title": "Daisy Jones & The Six",
-      "author": "Taylor Jenkins Reid",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/8742674-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL19922194W",
-      "score": 3.8723404,
-      "votes": 47,
-      "interest": 719,
-      "language": [
-        "spa",
-        "dut",
-        "fre",
-        "eng"
-      ],
-      "subjects": [
-        "Musicians, fiction",
-        "Fiction, women",
-        "Los angeles (calif.), fiction",
-        "Man-woman relationships, fiction",
-        "Fiction, historical",
-        "nyt:combined-print-and-e-book-fiction=2019-03-24",
-        "New York Times bestseller",
-        "New York Times reviewed",
-        "Women rock musicians",
-        "Fiction",
-        "FICTION / Contemporary Women",
-        "FICTION / Literary",
-        "FICTION / Sagas",
-        "Nineteen seventies"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 19
-    },
-    {
       "id": "book:/works/OL20140528W",
       "title": "Guts",
       "author": "Raina Telgemeier",
@@ -5242,9 +5262,9 @@
       "image": "https://covers.openlibrary.org/b/id/8788696-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20140528W",
-      "score": 4.382979,
-      "votes": 47,
-      "interest": 711,
+      "score": 4.408163,
+      "votes": 49,
+      "interest": 730,
       "language": [
         "spa",
         "eng"
@@ -5267,6 +5287,42 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 10
+    },
+    {
+      "id": "book:/works/OL19922194W",
+      "title": "Daisy Jones & The Six",
+      "author": "Taylor Jenkins Reid",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/8742674-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL19922194W",
+      "score": 3.8723404,
+      "votes": 47,
+      "interest": 721,
+      "language": [
+        "fre",
+        "spa",
+        "dut",
+        "eng"
+      ],
+      "subjects": [
+        "Musicians, fiction",
+        "Fiction, women",
+        "Los angeles (calif.), fiction",
+        "Man-woman relationships, fiction",
+        "Fiction, historical",
+        "nyt:combined-print-and-e-book-fiction=2019-03-24",
+        "New York Times bestseller",
+        "New York Times reviewed",
+        "Women rock musicians",
+        "Fiction",
+        "FICTION / Contemporary Women",
+        "FICTION / Literary",
+        "FICTION / Sagas",
+        "Nineteen seventies"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 19
     },
     {
       "id": "book:/works/OL20657486W",
@@ -5312,7 +5368,7 @@
       "url": "https://openlibrary.org/works/OL20145719W",
       "score": 4.7222223,
       "votes": 18,
-      "interest": 555,
+      "interest": 558,
       "language": [
         "eng"
       ],
@@ -5335,7 +5391,7 @@
       "url": "https://openlibrary.org/works/OL20485895W",
       "score": 4.3,
       "votes": 10,
-      "interest": 545,
+      "interest": 550,
       "language": [
         "dut",
         "eng"
@@ -5400,15 +5456,15 @@
       "image": "https://covers.openlibrary.org/b/id/9289603-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20650912W",
-      "score": 4.321429,
-      "votes": 28,
-      "interest": 504,
+      "score": 4.3103447,
+      "votes": 29,
+      "interest": 545,
       "language": [
         "spa",
         "pol",
-        "tur",
         "hun",
-        "eng"
+        "eng",
+        "tur"
       ],
       "subjects": [
         "American literature",
@@ -5428,6 +5484,40 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 20
+    },
+    {
+      "id": "book:/works/OL20128158W",
+      "title": "Gideon the Ninth",
+      "author": "Tamsyn Muir",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/10139515-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20128158W",
+      "score": 4.191781,
+      "votes": 73,
+      "interest": 504,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, science fiction, action & adventure",
+        "Fiction, fantasy, epic",
+        "Fiction, fantasy, dark fantasy",
+        "paranormal",
+        "necromancy",
+        "LGBTQ science fiction & fantasy",
+        "Women authors",
+        "Lesbians",
+        "Butch Lesbians",
+        "horror",
+        "Mystery",
+        "Swordplay",
+        "Fiction",
+        "Magic"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 7
     },
     {
       "id": "book:/works/OL19859295W",
@@ -5495,38 +5585,40 @@
       "editionCount": 14
     },
     {
-      "id": "book:/works/OL20128158W",
-      "title": "Gideon the Ninth",
-      "author": "Tamsyn Muir",
+      "id": "book:/works/OL20126932W",
+      "title": "The Institute",
+      "author": "Stephen King",
       "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/10139515-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/10712767-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20128158W",
-      "score": 4.1944447,
-      "votes": 72,
-      "interest": 493,
+      "url": "https://openlibrary.org/works/OL20126932W",
+      "score": 3.875,
+      "votes": 16,
+      "interest": 469,
       "language": [
+        "fre",
         "spa",
+        "dut",
         "eng"
       ],
       "subjects": [
-        "Fiction, science fiction, action & adventure",
-        "Fiction, fantasy, epic",
-        "Fiction, fantasy, dark fantasy",
-        "paranormal",
-        "necromancy",
-        "LGBTQ science fiction & fantasy",
-        "Women authors",
-        "Lesbians",
-        "Butch Lesbians",
+        "fiction",
+        "thrillers",
+        "supernatural",
+        "suspense",
         "horror",
-        "Mystery",
-        "Swordplay",
-        "Fiction",
-        "Magic"
+        "missing children",
+        "psychic ability",
+        "child abuse",
+        "kidnapping",
+        "kidnapping victims",
+        "parapsychology",
+        "Fiction, horror",
+        "Missing persons, fiction",
+        "South carolina, fiction"
       ],
       "ebookAccess": "printdisabled",
-      "editionCount": 7
+      "editionCount": 28
     },
     {
       "id": "book:/works/OL21370801W",
@@ -5572,7 +5664,7 @@
       "url": "https://openlibrary.org/works/OL20883297W",
       "score": 3.7755103,
       "votes": 49,
-      "interest": 452,
+      "interest": 454,
       "language": [
         "cat",
         "fre",
@@ -5599,42 +5691,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 31
-    },
-    {
-      "id": "book:/works/OL20126932W",
-      "title": "The Institute",
-      "author": "Stephen King",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/10712767-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20126932W",
-      "score": 3.875,
-      "votes": 16,
-      "interest": 447,
-      "language": [
-        "fre",
-        "spa",
-        "eng",
-        "dut"
-      ],
-      "subjects": [
-        "fiction",
-        "thrillers",
-        "supernatural",
-        "suspense",
-        "horror",
-        "missing children",
-        "psychic ability",
-        "child abuse",
-        "kidnapping",
-        "kidnapping victims",
-        "parapsychology",
-        "Fiction, horror",
-        "Missing persons, fiction",
-        "South carolina, fiction"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 28
     },
     {
       "id": "book:/works/OL20129837W",
@@ -5708,17 +5764,17 @@
       "image": "https://covers.openlibrary.org/b/id/8788784-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20140593W",
-      "score": 4.4210525,
-      "votes": 19,
-      "interest": 414,
+      "score": 4.45,
+      "votes": 20,
+      "interest": 422,
       "language": [
         "cat",
+        "spa",
         "pol",
         "por",
         "eng",
-        "tur",
-        "spa",
-        "dut"
+        "dut",
+        "tur"
       ],
       "subjects": [
         "Serie:The_Trials_of_Apollo",
@@ -5749,7 +5805,7 @@
       "url": "https://openlibrary.org/works/OL19096402W",
       "score": 4.0555553,
       "votes": 216,
-      "interest": 6091,
+      "interest": 6099,
       "language": [
         "cat",
         "por",
@@ -5787,7 +5843,7 @@
       "url": "https://openlibrary.org/works/OL17850410W",
       "score": 4.011494,
       "votes": 174,
-      "interest": 5897,
+      "interest": 5913,
       "language": [
         "heb",
         "dut",
@@ -5822,7 +5878,7 @@
       "url": "https://openlibrary.org/works/OL20068530W",
       "score": 3.9097745,
       "votes": 133,
-      "interest": 5540,
+      "interest": 5569,
       "language": [
         "tur",
         "spa",
@@ -5845,7 +5901,7 @@
         "Man-woman relationships"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 25
+      "editionCount": 26
     },
     {
       "id": "book:/works/OL20354498W",
@@ -5855,9 +5911,9 @@
       "image": "https://covers.openlibrary.org/b/id/9020805-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20354498W",
-      "score": 4.353261,
-      "votes": 184,
-      "interest": 3553,
+      "score": 4.3567567,
+      "votes": 185,
+      "interest": 3555,
       "language": [
         "cat",
         "fre",
@@ -5937,7 +5993,7 @@
       "url": "https://openlibrary.org/works/OL20150260W",
       "score": 4.0116277,
       "votes": 86,
-      "interest": 1979,
+      "interest": 1985,
       "language": [
         "baq",
         "spa",
@@ -6010,9 +6066,9 @@
       "image": "https://covers.openlibrary.org/b/id/8739376-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL18012166W",
-      "score": 4.1578946,
-      "votes": 114,
-      "interest": 1170,
+      "score": 4.1652174,
+      "votes": 115,
+      "interest": 1173,
       "language": [
         "pol",
         "por",
@@ -6049,7 +6105,7 @@
       "url": "https://openlibrary.org/works/OL19737574W",
       "score": 4.1153846,
       "votes": 26,
-      "interest": 828,
+      "interest": 832,
       "language": [
         "eng"
       ],
@@ -6146,12 +6202,12 @@
       "image": "https://covers.openlibrary.org/b/id/14635918-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL19744698W",
-      "score": 3.9,
-      "votes": 10,
-      "interest": 642,
+      "score": 4,
+      "votes": 11,
+      "interest": 652,
       "language": [
-        "eng",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Asperger's syndrome",
@@ -6182,7 +6238,7 @@
       "url": "https://openlibrary.org/works/OL19351054W",
       "score": 3.8035715,
       "votes": 56,
-      "interest": 633,
+      "interest": 634,
       "language": [
         "ita",
         "por",
@@ -6234,6 +6290,46 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL19655889W",
+      "title": "A Court of Frost and Starlight",
+      "author": "Sarah J. Maas",
+      "year": 2018,
+      "image": "https://covers.openlibrary.org/b/id/8569939-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL19655889W",
+      "score": 3.3421052,
+      "votes": 38,
+      "interest": 524,
+      "language": [
+        "fre",
+        "tur",
+        "spa",
+        "pol",
+        "ukr",
+        "por",
+        "dut",
+        "ger"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "Fantasy fiction",
+        "Courts and courtiers",
+        "Fiction",
+        "Imaginary wars and battles",
+        "Winter solstice",
+        "Fairies",
+        "Love, fiction",
+        "Fairies, fiction",
+        "Magic",
+        "Fantasy & Magic",
+        "Fantasy",
+        "Young adult literature",
+        "collectionID:EanesChallenge"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 27
+    },
+    {
       "id": "book:/works/OL25197303W",
       "title": "Love and Other Words",
       "author": "Christina Lauren",
@@ -6261,16 +6357,16 @@
       "image": "https://covers.openlibrary.org/b/id/8174272-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17868260W",
-      "score": 4.357143,
-      "votes": 14,
-      "interest": 510,
+      "score": 4.4,
+      "votes": 15,
+      "interest": 517,
       "language": [
-        "pol",
         "cat",
-        "por",
-        "eng",
         "tur",
         "spa",
+        "pol",
+        "por",
+        "eng",
         "heb"
       ],
       "subjects": [
@@ -6289,46 +6385,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 23
-    },
-    {
-      "id": "book:/works/OL19655889W",
-      "title": "A Court of Frost and Starlight",
-      "author": "Sarah J. Maas",
-      "year": 2018,
-      "image": "https://covers.openlibrary.org/b/id/8569939-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL19655889W",
-      "score": 3.3529413,
-      "votes": 34,
-      "interest": 500,
-      "language": [
-        "ukr",
-        "por",
-        "eng",
-        "fre",
-        "ger",
-        "spa",
-        "dut",
-        "tur"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "Fantasy fiction",
-        "Courts and courtiers",
-        "Fiction",
-        "Imaginary wars and battles",
-        "Winter solstice",
-        "Fairies",
-        "Love, fiction",
-        "Fairies, fiction",
-        "Magic",
-        "Fantasy & Magic",
-        "Fantasy",
-        "Young adult literature",
-        "collectionID:EanesChallenge"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 27
     },
     {
       "id": "book:/works/OL19742314W",
@@ -6373,7 +6429,7 @@
       "url": "https://openlibrary.org/works/OL20157354W",
       "score": 4.4,
       "votes": 15,
-      "interest": 368,
+      "interest": 371,
       "language": [
         "fre",
         "spa",
@@ -6443,7 +6499,7 @@
       "url": "https://openlibrary.org/works/OL19748577W",
       "score": 4.181818,
       "votes": 22,
-      "interest": 351,
+      "interest": 352,
       "language": [
         "spa",
         "ger",
@@ -6502,6 +6558,44 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 10
+    },
+    {
+      "id": "book:/works/OL19352982W",
+      "title": "Kingdom of Ash",
+      "author": "Sarah J. Maas",
+      "year": 2018,
+      "image": "https://covers.openlibrary.org/b/id/8465438-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL19352982W",
+      "score": 4.652174,
+      "votes": 23,
+      "interest": 348,
+      "language": [
+        "spa",
+        "cze",
+        "eng",
+        "dut",
+        "ger",
+        "tur"
+      ],
+      "subjects": [
+        "Imaginary places",
+        "Assassins",
+        "Magic",
+        "Imaginary wars and battles",
+        "Queens",
+        "Fiction",
+        "Fiction, fantasy, epic",
+        "Female assassins in fiction",
+        "Young adult fiction, fantasy, dark fantasy",
+        "[series:Throne_of_Glass]",
+        "Reines",
+        "Romans, nouvelles",
+        "Lieux imaginaires",
+        "Guerres et batailles imaginaires"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 19
     },
     {
       "id": "book:/works/OL18130476W",
@@ -6585,7 +6679,7 @@
       "url": "https://openlibrary.org/works/OL20018811W",
       "score": 4.0833335,
       "votes": 84,
-      "interest": 3428,
+      "interest": 3429,
       "language": [
         "dut",
         "ger",
@@ -6612,7 +6706,7 @@
       "url": "https://openlibrary.org/works/OL17332479W",
       "score": 4.536842,
       "votes": 95,
-      "interest": 2550,
+      "interest": 2554,
       "language": [
         "fre",
         "tur",
@@ -6729,7 +6823,7 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.1363635,
       "votes": 88,
-      "interest": 2013,
+      "interest": 2020,
       "language": [
         "fre",
         "spa",
@@ -6767,12 +6861,12 @@
       "image": "https://covers.openlibrary.org/b/id/8169547-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17864836W",
-      "score": 3.840909,
-      "votes": 44,
-      "interest": 1574,
+      "score": 3.8913043,
+      "votes": 46,
+      "interest": 1615,
       "language": [
-        "spa",
         "tur",
+        "spa",
         "ita",
         "dut",
         "eng"
@@ -6789,7 +6883,7 @@
         "Thriller",
         "Cannibalism"
       ],
-      "ebookAccess": "unclassified",
+      "ebookAccess": "printdisabled",
       "editionCount": 12
     },
     {
@@ -6802,7 +6896,7 @@
       "url": "https://openlibrary.org/works/OL19998163W",
       "score": 4.180328,
       "votes": 61,
-      "interest": 1437,
+      "interest": 1438,
       "language": [
         "tur",
         "spa",
@@ -6892,7 +6986,7 @@
       "url": "https://openlibrary.org/works/OL20893778W",
       "score": 4.0833335,
       "votes": 36,
-      "interest": 1160,
+      "interest": 1198,
       "language": [
         "spa",
         "eng"
@@ -6920,7 +7014,7 @@
       "url": "https://openlibrary.org/works/OL20796936W",
       "score": 4.046875,
       "votes": 64,
-      "interest": 955,
+      "interest": 956,
       "language": [
         "por",
         "ger",
@@ -7002,16 +7096,16 @@
       "url": "https://openlibrary.org/works/OL17718538W",
       "score": 4.6458335,
       "votes": 48,
-      "interest": 767,
+      "interest": 771,
       "language": [
-        "ger",
-        "pol",
-        "chi",
-        "spa",
         "tur",
+        "swe",
+        "spa",
+        "pol",
         "por",
         "dut",
-        "swe"
+        "ger",
+        "eng"
       ],
       "subjects": [
         "Magic",
@@ -7080,12 +7174,12 @@
       "image": "https://covers.openlibrary.org/b/id/12303551-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17357353W",
-      "score": 4.240741,
-      "votes": 54,
-      "interest": 671,
+      "score": 4.2363634,
+      "votes": 55,
+      "interest": 673,
       "language": [
-        "por",
         "heb",
+        "por",
         "srp",
         "eng"
       ],
@@ -7107,6 +7201,33 @@
       ],
       "ebookAccess": "unclassified",
       "editionCount": 25
+    },
+    {
+      "id": "book:/works/OL34965326W",
+      "title": "Cantik Itu Luka",
+      "author": "Eka Kurniawan · Marc Rubió Rodon",
+      "year": 2015,
+      "image": "https://covers.openlibrary.org/b/id/13903116-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL34965326W",
+      "score": 3.8636363,
+      "votes": 22,
+      "interest": 637,
+      "language": [
+        "ind",
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "General Fiction",
+        "Fiction and Literature",
+        "Fiction, family life",
+        "Indonesia, fiction",
+        "Mothers and daughters, fiction",
+        "Fiction, general"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 7
     },
     {
       "id": "book:/works/OL17823750W",
@@ -7173,33 +7294,6 @@
         "Fiction"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 7
-    },
-    {
-      "id": "book:/works/OL34965326W",
-      "title": "Cantik Itu Luka",
-      "author": "Eka Kurniawan · Marc Rubió Rodon",
-      "year": 2015,
-      "image": "https://covers.openlibrary.org/b/id/13903116-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL34965326W",
-      "score": 3.8636363,
-      "votes": 22,
-      "interest": 597,
-      "language": [
-        "ind",
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "General Fiction",
-        "Fiction and Literature",
-        "Fiction, family life",
-        "Indonesia, fiction",
-        "Mothers and daughters, fiction",
-        "Fiction, general"
-      ],
-      "ebookAccess": "borrowable",
       "editionCount": 7
     },
     {
@@ -7369,7 +7463,7 @@
       "url": "https://openlibrary.org/works/OL16444438W",
       "score": 4.178261,
       "votes": 230,
-      "interest": 4672,
+      "interest": 4678,
       "language": [
         "fre",
         "cat",
@@ -7409,7 +7503,7 @@
       "url": "https://openlibrary.org/works/OL15401200W",
       "score": 4.430939,
       "votes": 181,
-      "interest": 2533,
+      "interest": 2539,
       "language": [
         "cat",
         "fre",
@@ -7487,18 +7581,18 @@
       "image": "https://covers.openlibrary.org/b/id/12646459-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL14908941W",
-      "score": 3.8175437,
-      "votes": 285,
-      "interest": 1562,
+      "score": 3.825784,
+      "votes": 287,
+      "interest": 1590,
       "language": [
-        "ita",
-        "rus",
-        "ger",
-        "chi",
-        "heb",
-        "spa",
         "fre",
-        "por"
+        "tur",
+        "gre",
+        "vie",
+        "spa",
+        "ita",
+        "heb",
+        "pol"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -7559,7 +7653,7 @@
       "url": "https://openlibrary.org/works/OL8756330W",
       "score": 4.423077,
       "votes": 104,
-      "interest": 1248,
+      "interest": 1250,
       "language": [
         "eng"
       ],
@@ -7592,7 +7686,7 @@
       "url": "https://openlibrary.org/works/OL15358691W",
       "score": 4.514793,
       "votes": 169,
-      "interest": 1206,
+      "interest": 1207,
       "language": [
         "spa",
         "pol",
@@ -7628,9 +7722,9 @@
       "image": "https://covers.openlibrary.org/b/id/14428232-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15640090W",
-      "score": 4.121212,
-      "votes": 33,
-      "interest": 1039,
+      "score": 4.138889,
+      "votes": 36,
+      "interest": 1064,
       "language": [
         "fre",
         "spa",
@@ -7663,18 +7757,18 @@
       "image": "https://covers.openlibrary.org/b/id/7396124-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15192743W",
-      "score": 4.252747,
-      "votes": 91,
-      "interest": 1021,
+      "score": 4.2473116,
+      "votes": 93,
+      "interest": 1045,
       "language": [
-        "dut",
-        "spa",
-        "pol",
-        "chi",
+        "fre",
         "cat",
         "bul",
+        "spa",
+        "wel",
+        "pol",
         "jpn",
-        "kor"
+        "dut"
       ],
       "subjects": [
         "nyt:series_books=2009-01-10",
@@ -7736,18 +7830,18 @@
       "image": "https://covers.openlibrary.org/b/id/11272966-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15183119W",
-      "score": 4.226415,
-      "votes": 53,
-      "interest": 739,
+      "score": 4.240741,
+      "votes": 54,
+      "interest": 745,
       "language": [
         "cat",
-        "ita",
-        "ger",
-        "chi",
-        "heb",
-        "spa",
+        "fre",
         "baq",
-        "por"
+        "tur",
+        "spa",
+        "swe",
+        "vie",
+        "ita"
       ],
       "subjects": [
         "Serie:The_Kane_Chronicles",
@@ -7816,9 +7910,9 @@
       "image": "https://covers.openlibrary.org/b/id/8803535-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL12489W",
-      "score": 4.4545455,
-      "votes": 33,
-      "interest": 541,
+      "score": 4.4857144,
+      "votes": 35,
+      "interest": 556,
       "language": [
         "eng"
       ],
@@ -7882,9 +7976,9 @@
       "image": "https://covers.openlibrary.org/b/id/6636110-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15414803W",
-      "score": 3.7118645,
-      "votes": 59,
-      "interest": 496,
+      "score": 3.737705,
+      "votes": 61,
+      "interest": 514,
       "language": [
         "chi",
         "eng"
@@ -7916,16 +8010,16 @@
       "image": "https://covers.openlibrary.org/b/id/12878880-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15518787W",
-      "score": 4.4736843,
-      "votes": 19,
-      "interest": 452,
+      "score": 4.4761906,
+      "votes": 21,
+      "interest": 477,
       "language": [
         "cat",
-        "ger",
+        "spa",
         "ita",
-        "eng",
         "pol",
-        "spa"
+        "ger",
+        "eng"
       ],
       "subjects": [
         "Romance",
@@ -8061,7 +8155,7 @@
       "url": "https://openlibrary.org/works/OL15370343W",
       "score": 4.09375,
       "votes": 32,
-      "interest": 381,
+      "interest": 382,
       "language": [
         "vie",
         "eng"
@@ -8204,15 +8298,15 @@
       "image": "https://covers.openlibrary.org/b/id/7893958-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17610507W",
-      "score": 4.336364,
-      "votes": 110,
-      "interest": 316,
+      "score": 4.348214,
+      "votes": 112,
+      "interest": 320,
       "language": [
-        "spa",
-        "chi",
-        "eng",
         "fre",
-        "ger"
+        "spa",
+        "ger",
+        "eng",
+        "chi"
       ],
       "subjects": [
         "Fiction",
@@ -8241,9 +8335,9 @@
       "image": "https://covers.openlibrary.org/b/id/8888850-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20234863W",
-      "score": 4.2055554,
-      "votes": 180,
-      "interest": 7276,
+      "score": 4.187845,
+      "votes": 181,
+      "interest": 7288,
       "language": [
         "fre",
         "spa",
@@ -8281,7 +8375,7 @@
       "url": "https://openlibrary.org/works/OL16336633W",
       "score": 3.9123867,
       "votes": 331,
-      "interest": 7096,
+      "interest": 7111,
       "language": [
         "fre",
         "cat",
@@ -8321,7 +8415,7 @@
       "url": "https://openlibrary.org/works/OL82560W",
       "score": 4.256757,
       "votes": 370,
-      "interest": 5068,
+      "interest": 5073,
       "language": [
         "rum",
         "nor",
@@ -8361,7 +8455,7 @@
       "url": "https://openlibrary.org/works/OL5819962W",
       "score": 4.2695036,
       "votes": 141,
-      "interest": 4693,
+      "interest": 4694,
       "language": [
         "cat",
         "spa",
@@ -8388,6 +8482,46 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 30
+    },
+    {
+      "id": "book:/works/OL76833W",
+      "title": "Angels & Demons",
+      "author": "Dan Brown",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/11408459-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL76833W",
+      "score": 3.6512456,
+      "votes": 281,
+      "interest": 1943,
+      "language": [
+        "lit",
+        "vie",
+        "swe",
+        "spa",
+        "ice",
+        "jpn",
+        "tur",
+        "glg"
+      ],
+      "subjects": [
+        "heparin",
+        "ambigrams",
+        "antimatter",
+        "Freemasons",
+        "Swiss Guard",
+        "Murder",
+        "Investigation",
+        "Women scientists",
+        "College teachers",
+        "Terrorism",
+        "Catholic Church",
+        "Fiction",
+        "Action and adventure fiction",
+        "papacy"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 171
     },
     {
       "id": "book:/works/OL42430111W",
@@ -8429,46 +8563,6 @@
       "editionCount": 15
     },
     {
-      "id": "book:/works/OL76833W",
-      "title": "Angels & Demons",
-      "author": "Dan Brown",
-      "year": 2000,
-      "image": "https://covers.openlibrary.org/b/id/11408459-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL76833W",
-      "score": 3.6346862,
-      "votes": 271,
-      "interest": 1910,
-      "language": [
-        "cmn",
-        "chi",
-        "rus",
-        "por",
-        "ice",
-        "cze",
-        "dan",
-        "spa"
-      ],
-      "subjects": [
-        "heparin",
-        "ambigrams",
-        "antimatter",
-        "Freemasons",
-        "Swiss Guard",
-        "Murder",
-        "Investigation",
-        "Women scientists",
-        "College teachers",
-        "Terrorism",
-        "Catholic Church",
-        "Fiction",
-        "Action and adventure fiction",
-        "papacy"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 171
-    },
-    {
       "id": "book:/works/OL554620W",
       "title": "The Duke and I",
       "author": "Julia Quinn",
@@ -8506,18 +8600,18 @@
       "image": "https://covers.openlibrary.org/b/id/13921600-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5819895W",
-      "score": 3.775862,
-      "votes": 232,
-      "interest": 1609,
+      "score": 3.7735043,
+      "votes": 234,
+      "interest": 1618,
       "language": [
-        "ger",
-        "pol",
-        "chi",
-        "spa",
         "fre",
-        "por",
+        "spa",
         "ita",
-        "eng"
+        "pol",
+        "por",
+        "ger",
+        "eng",
+        "chi"
       ],
       "subjects": [
         "Fantasy",
@@ -8548,7 +8642,7 @@
       "url": "https://openlibrary.org/works/OL17715454W",
       "score": 3.7457628,
       "votes": 59,
-      "interest": 1387,
+      "interest": 1390,
       "language": [
         "fre",
         "pol",
@@ -8583,15 +8677,15 @@
       "image": "https://covers.openlibrary.org/b/id/2241356-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL468658W",
-      "score": 4.2178216,
-      "votes": 101,
-      "interest": 1257,
+      "score": 4.22549,
+      "votes": 102,
+      "interest": 1269,
       "language": [
+        "spa",
         "ita",
         "ger",
-        "chi",
-        "spa",
-        "eng"
+        "eng",
+        "chi"
       ],
       "subjects": [
         "Freundschaft",
@@ -8660,9 +8754,9 @@
       "image": "https://covers.openlibrary.org/b/id/7434792-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17356811W",
-      "score": 4.034483,
-      "votes": 58,
-      "interest": 1092,
+      "score": 4,
+      "votes": 61,
+      "interest": 1107,
       "language": [
         "eng"
       ],
@@ -8695,7 +8789,7 @@
       "url": "https://openlibrary.org/works/OL5720022W",
       "score": 3.442623,
       "votes": 122,
-      "interest": 1053,
+      "interest": 1055,
       "language": [
         "fre",
         "tur",
@@ -8735,10 +8829,10 @@
       "url": "https://openlibrary.org/works/OL8464993W",
       "score": 4.4130435,
       "votes": 46,
-      "interest": 1044,
+      "interest": 1054,
       "language": [
-        "chi",
         "spa",
+        "chi",
         "eng"
       ],
       "subjects": [
@@ -8770,7 +8864,7 @@
       "url": "https://openlibrary.org/works/OL784051W",
       "score": 3.9302325,
       "votes": 43,
-      "interest": 1004,
+      "interest": 1009,
       "language": [
         "fre",
         "spa",
@@ -8803,9 +8897,9 @@
       "image": "https://covers.openlibrary.org/b/id/8314147-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17116910W",
-      "score": 4.6363635,
-      "votes": 44,
-      "interest": 936,
+      "score": 4.630435,
+      "votes": 46,
+      "interest": 981,
       "language": [
         "pol",
         "spa",
@@ -8909,14 +9003,14 @@
     {
       "id": "book:/works/OL8755980W",
       "title": "Naruto 01",
-      "author": "Masashi Kishimoto",
+      "author": "岸本斉史",
       "year": 2000,
       "image": "https://covers.openlibrary.org/b/id/1020779-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL8755980W",
       "score": 4.140351,
       "votes": 57,
-      "interest": 707,
+      "interest": 709,
       "language": [
         "cat",
         "tur",
@@ -8949,18 +9043,18 @@
       "image": "https://covers.openlibrary.org/b/id/15124196-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL257914W",
-      "score": 4.4444447,
-      "votes": 108,
-      "interest": 621,
+      "score": 4.4504504,
+      "votes": 111,
+      "interest": 642,
       "language": [
         "cat",
-        "por",
-        "spa",
-        "rus",
         "fre",
+        "vie",
+        "spa",
+        "por",
         "eng",
-        "chi",
-        "vie"
+        "rus",
+        "chi"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -9237,7 +9331,7 @@
       "url": "https://openlibrary.org/works/OL46881W",
       "score": 4.1877933,
       "votes": 213,
-      "interest": 1817,
+      "interest": 1822,
       "language": [
         "fre",
         "gre",
@@ -9277,7 +9371,7 @@
       "url": "https://openlibrary.org/works/OL453936W",
       "score": 4.4347825,
       "votes": 92,
-      "interest": 1341,
+      "interest": 1343,
       "language": [
         "cat",
         "tur",
@@ -9405,6 +9499,46 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL81606W",
+      "title": "Four Past Midnight",
+      "author": "Stephen King",
+      "year": 1990,
+      "image": "https://covers.openlibrary.org/b/id/8413143-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL81606W",
+      "score": 4,
+      "votes": 23,
+      "interest": 517,
+      "language": [
+        "fre",
+        "spa",
+        "ita",
+        "und",
+        "pol",
+        "por",
+        "dut",
+        "eng"
+      ],
+      "subjects": [
+        "paranormal",
+        "nightmares",
+        "cuckoo clocks",
+        "word processors",
+        "Polaroid cameras",
+        "speechwriting",
+        "Dissociative identity disorder",
+        "ambush",
+        "sanity",
+        "caretakers",
+        "plagiarism",
+        "housemaids",
+        "short stories",
+        "diction"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 65
+    },
+    {
       "id": "book:/works/OL5762086W",
       "title": "The 3 Mistakes of My Life",
       "author": "Chetan Bhagat",
@@ -9431,46 +9565,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 10
-    },
-    {
-      "id": "book:/works/OL81606W",
-      "title": "Four Past Midnight",
-      "author": "Stephen King",
-      "year": 1990,
-      "image": "https://covers.openlibrary.org/b/id/8413143-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL81606W",
-      "score": 3.9545455,
-      "votes": 22,
-      "interest": 513,
-      "language": [
-        "ita",
-        "dut",
-        "spa",
-        "pol",
-        "rus",
-        "por",
-        "und",
-        "eng"
-      ],
-      "subjects": [
-        "paranormal",
-        "nightmares",
-        "cuckoo clocks",
-        "word processors",
-        "Polaroid cameras",
-        "speechwriting",
-        "Dissociative identity disorder",
-        "ambush",
-        "sanity",
-        "caretakers",
-        "plagiarism",
-        "housemaids",
-        "short stories",
-        "diction"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 65
     },
     {
       "id": "book:/works/OL7924135W",
@@ -9518,7 +9612,7 @@
       "url": "https://openlibrary.org/works/OL81600W",
       "score": 4.3076925,
       "votes": 26,
-      "interest": 481,
+      "interest": 484,
       "language": [
         "spa",
         "ita",
@@ -9628,13 +9722,13 @@
       "url": "https://openlibrary.org/works/OL261196W",
       "score": 4.0819674,
       "votes": 61,
-      "interest": 350,
+      "interest": 356,
       "language": [
-        "eng",
         "spa",
-        "heb",
+        "ice",
         "lat",
-        "ice"
+        "eng",
+        "heb"
       ],
       "subjects": [
         "Stories in rhyme",
@@ -9665,11 +9759,11 @@
       "url": "https://openlibrary.org/works/OL77104W",
       "score": 4.125,
       "votes": 40,
-      "interest": 327,
+      "interest": 332,
       "language": [
         "ita",
-        "ger",
         "por",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -10027,7 +10121,7 @@
       "url": "https://openlibrary.org/works/OL45885W",
       "score": 4.1164384,
       "votes": 146,
-      "interest": 1687,
+      "interest": 1686,
       "language": [
         "fre",
         "swe",
@@ -10067,7 +10161,7 @@
       "url": "https://openlibrary.org/works/OL8996439W",
       "score": 4.152,
       "votes": 125,
-      "interest": 822,
+      "interest": 823,
       "language": [
         "fre",
         "cat",
@@ -10381,16 +10475,16 @@
       "url": "https://openlibrary.org/works/OL46913W",
       "score": 3.326087,
       "votes": 46,
-      "interest": 243,
+      "interest": 245,
       "language": [
-        "pol",
-        "por",
-        "eng",
         "fre",
         "spa",
         "ita",
-        "chi",
-        "dut"
+        "pol",
+        "por",
+        "dut",
+        "eng",
+        "chi"
       ],
       "subjects": [
         "kakundakari",
@@ -10421,16 +10515,16 @@
       "url": "https://openlibrary.org/works/OL46917W",
       "score": 4.1875,
       "votes": 16,
-      "interest": 231,
+      "interest": 235,
       "language": [
-        "pol",
-        "por",
-        "ger",
-        "eng",
-        "gre",
         "fre",
         "tur",
-        "spa"
+        "gre",
+        "spa",
+        "pol",
+        "jpn",
+        "por",
+        "dut"
       ],
       "subjects": [
         "space ships",
@@ -10874,7 +10968,7 @@
       "url": "https://openlibrary.org/works/OL70988W",
       "score": 4.1847825,
       "votes": 92,
-      "interest": 964,
+      "interest": 968,
       "language": [
         "rus",
         "pol",
@@ -10910,12 +11004,12 @@
       "url": "https://openlibrary.org/works/OL268217W",
       "score": 4.179487,
       "votes": 39,
-      "interest": 945,
+      "interest": 950,
       "language": [
-        "dan",
+        "fre",
         "spa",
-        "eng",
-        "fre"
+        "dan",
+        "eng"
       ],
       "subjects": [
         "Children's Middle Grade Books",
@@ -10946,15 +11040,15 @@
       "url": "https://openlibrary.org/works/OL50565W",
       "score": 4.030303,
       "votes": 33,
-      "interest": 911,
+      "interest": 916,
       "language": [
-        "ger",
-        "spa",
-        "heb",
-        "tur",
-        "por",
         "fre",
-        "eng"
+        "spa",
+        "por",
+        "eng",
+        "ger",
+        "tur",
+        "heb"
       ],
       "subjects": [
         "foster care",
@@ -11023,12 +11117,12 @@
       "image": "https://covers.openlibrary.org/b/id/7762286-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5092623W",
-      "score": 4.12766,
-      "votes": 47,
-      "interest": 484,
+      "score": 4.142857,
+      "votes": 49,
+      "interest": 491,
       "language": [
-        "spa",
         "und",
+        "spa",
         "eng"
       ],
       "subjects": [
