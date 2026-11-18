@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T05:07:33.409Z",
+  "updatedAt": "2026-11-18T04:32:06.565Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 373,
@@ -1623,6 +1623,34 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL37572598W",
+      "title": "The Reappearance of Rachel Price",
+      "author": "Holly Jackson",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/14605870-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37572598W",
+      "score": 4.25,
+      "votes": 4,
+      "interest": 178,
+      "language": [
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "nyt:young-adult-hardcover=2024-04-21",
+        "New York Times bestseller",
+        "Suspense",
+        "Thriller",
+        "Young Adult Fiction",
+        "Young Adult",
+        "audience:Young Adult"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 18
+    },
+    {
       "id": "book:/works/OL37577731W",
       "title": "Powerful",
       "author": "Lauren Roberts",
@@ -1676,34 +1704,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
-    },
-    {
-      "id": "book:/works/OL37572598W",
-      "title": "The Reappearance of Rachel Price",
-      "author": "Holly Jackson",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14605870-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37572598W",
-      "score": 4.25,
-      "votes": 4,
-      "interest": 157,
-      "language": [
-        "ger",
-        "eng"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "nyt:young-adult-hardcover=2024-04-21",
-        "New York Times bestseller",
-        "Suspense",
-        "Thriller",
-        "Young Adult Fiction",
-        "Young Adult",
-        "audience:Young Adult"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 18
     },
     {
       "id": "book:/works/OL42487395W",
@@ -2176,12 +2176,12 @@
       "title": "King of Greed",
       "author": "Ana Huang",
       "year": 2023,
-      "image": "https://covers.openlibrary.org/b/id/15230385-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/15277622-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL35718442W",
       "score": 3.8,
       "votes": 20,
-      "interest": 1059,
+      "interest": 1060,
       "language": [
         "eng"
       ],
@@ -2892,7 +2892,7 @@
       "url": "https://openlibrary.org/works/OL27729743W",
       "score": 3.7096775,
       "votes": 31,
-      "interest": 2419,
+      "interest": 2431,
       "language": [
         "spa",
         "pol",
@@ -3544,7 +3544,7 @@
       "url": "https://openlibrary.org/works/OL27310398W",
       "score": 3.59882,
       "votes": 339,
-      "interest": 12763,
+      "interest": 12772,
       "language": [
         "spa",
         "ger",
@@ -4280,7 +4280,7 @@
       "url": "https://openlibrary.org/works/OL21084352W",
       "score": 4.16,
       "votes": 75,
-      "interest": 2211,
+      "interest": 2213,
       "language": [
         "rum",
         "spa",
@@ -4723,7 +4723,7 @@
       "url": "https://openlibrary.org/works/OL20878311W",
       "score": 3.65,
       "votes": 20,
-      "interest": 441,
+      "interest": 442,
       "language": [
         "cat",
         "fre",
@@ -4924,9 +4924,9 @@
       "image": "https://covers.openlibrary.org/b/id/10526129-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21676651W",
-      "score": 3.8235295,
-      "votes": 17,
-      "interest": 367,
+      "score": 3.7777777,
+      "votes": 18,
+      "interest": 372,
       "language": [
         "spa",
         "eng"
@@ -5805,7 +5805,7 @@
       "url": "https://openlibrary.org/works/OL19096402W",
       "score": 4.0555553,
       "votes": 216,
-      "interest": 6099,
+      "interest": 6103,
       "language": [
         "cat",
         "por",
@@ -5876,9 +5876,9 @@
       "image": "https://covers.openlibrary.org/b/id/8747160-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20068530W",
-      "score": 3.9097745,
-      "votes": 133,
-      "interest": 5569,
+      "score": 3.9179103,
+      "votes": 134,
+      "interest": 5572,
       "language": [
         "tur",
         "spa",
@@ -6168,7 +6168,7 @@
       "url": "https://openlibrary.org/works/OL17889978W",
       "score": 3.9210527,
       "votes": 38,
-      "interest": 682,
+      "interest": 685,
       "language": [
         "ita",
         "por",
@@ -7068,13 +7068,13 @@
       "url": "https://openlibrary.org/works/OL22057778W",
       "score": 3.75,
       "votes": 16,
-      "interest": 834,
+      "interest": 859,
       "language": [
-        "ger",
         "tur",
-        "por",
         "ita",
+        "por",
         "dut",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -8493,7 +8493,7 @@
       "url": "https://openlibrary.org/works/OL76833W",
       "score": 3.6512456,
       "votes": 281,
-      "interest": 1943,
+      "interest": 1944,
       "language": [
         "lit",
         "vie",
@@ -8780,6 +8780,41 @@
       "editionCount": 17
     },
     {
+      "id": "book:/works/OL8464993W",
+      "title": "The Viscount Who Loved Me",
+      "author": "Julia Quinn",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/492893-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL8464993W",
+      "score": 4.4130435,
+      "votes": 46,
+      "interest": 1056,
+      "language": [
+        "spa",
+        "chi",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, Romance, Historical, Regency",
+        "Social life and customs, fiction",
+        "Manners and customs, fiction",
+        "Sisters, fiction",
+        "Londres (Inglaterra)",
+        "Novela",
+        "Hermanas",
+        "nyt:trade-fiction-paperback=2021-05-16",
+        "New York Times bestseller",
+        "Marriage, fiction",
+        "nyt:mass-market-monthly=2022-05-08",
+        "Man-woman relationsips,, fiction",
+        "Fiction, romance, historical, regency & georgian",
+        "England, fiction"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 27
+    },
+    {
       "id": "book:/works/OL5720022W",
       "title": "Breaking Dawn",
       "author": "Stephenie Meyer",
@@ -8818,41 +8853,6 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 90
-    },
-    {
-      "id": "book:/works/OL8464993W",
-      "title": "The Viscount Who Loved Me",
-      "author": "Julia Quinn",
-      "year": 2000,
-      "image": "https://covers.openlibrary.org/b/id/492893-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL8464993W",
-      "score": 4.4130435,
-      "votes": 46,
-      "interest": 1054,
-      "language": [
-        "spa",
-        "chi",
-        "eng"
-      ],
-      "subjects": [
-        "Fiction, Romance, Historical, Regency",
-        "Social life and customs, fiction",
-        "Manners and customs, fiction",
-        "Sisters, fiction",
-        "Londres (Inglaterra)",
-        "Novela",
-        "Hermanas",
-        "nyt:trade-fiction-paperback=2021-05-16",
-        "New York Times bestseller",
-        "Marriage, fiction",
-        "nyt:mass-market-monthly=2022-05-08",
-        "Man-woman relationsips,, fiction",
-        "Fiction, romance, historical, regency & georgian",
-        "England, fiction"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 27
     },
     {
       "id": "book:/works/OL784051W",
@@ -9329,9 +9329,9 @@
       "image": "https://covers.openlibrary.org/b/id/12882940-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL46881W",
-      "score": 4.1877933,
-      "votes": 213,
-      "interest": 1822,
+      "score": 4.182243,
+      "votes": 214,
+      "interest": 1823,
       "language": [
         "fre",
         "gre",
@@ -9650,11 +9650,11 @@
       "url": "https://openlibrary.org/works/OL516681W",
       "score": 4.327586,
       "votes": 58,
-      "interest": 451,
+      "interest": 453,
       "language": [
         "fre",
-        "ger",
         "spa",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -9956,9 +9956,9 @@
         "ita",
         "jpn",
         "por",
+        "fin",
         "ger",
-        "dut",
-        "eng"
+        "dut"
       ],
       "subjects": [
         "Fiction",
@@ -9977,7 +9977,7 @@
         "Fiction, mystery & detective, women sleuths"
       ],
       "ebookAccess": "borrowable",
-      "editionCount": 82
+      "editionCount": 84
     },
     {
       "id": "book:/works/OL12388W",
@@ -10321,13 +10321,13 @@
       "url": "https://openlibrary.org/works/OL3501723W",
       "score": 3.784091,
       "votes": 88,
-      "interest": 446,
+      "interest": 449,
       "language": [
-        "eng",
-        "per",
         "fre",
         "spa",
-        "ger"
+        "per",
+        "ger",
+        "eng"
       ],
       "subjects": [
         "mothers",
@@ -10736,10 +10736,10 @@
       "url": "https://openlibrary.org/works/OL3845148W",
       "score": 4,
       "votes": 29,
-      "interest": 177,
+      "interest": 180,
       "language": [
-        "eng",
-        "spa"
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Fiction, Romance, Contemporary"
