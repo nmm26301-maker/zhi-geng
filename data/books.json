@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T04:32:06.565Z",
+  "updatedAt": "2026-11-19T04:15:33.051Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 373,
@@ -1385,7 +1385,7 @@
       "url": "https://openlibrary.org/works/OL42975424W",
       "score": 3.588889,
       "votes": 90,
-      "interest": 3972,
+      "interest": 3977,
       "language": [
         "eng"
       ],
@@ -1551,11 +1551,11 @@
       "url": "https://openlibrary.org/works/OL37534151W",
       "score": 3.6666667,
       "votes": 9,
-      "interest": 303,
+      "interest": 306,
       "language": [
         "por",
-        "ger",
         "dut",
+        "ger",
         "eng"
       ],
       "subjects": [
@@ -1749,7 +1749,7 @@
       "url": "https://openlibrary.org/works/OL37873918W",
       "score": 3,
       "votes": 2,
-      "interest": 152,
+      "interest": 154,
       "language": [
         "eng"
       ],
@@ -1770,11 +1770,22 @@
       "url": "https://openlibrary.org/works/OL37588041W",
       "score": 4.4,
       "votes": 5,
-      "interest": 151,
+      "interest": 152,
       "language": [
         "eng"
       ],
       "subjects": [
+        "Romance",
+        "Fantasy",
+        "Paranormal",
+        "Romantasy",
+        "Vampires",
+        "Paranormal Romance",
+        "Enemies To Lovers",
+        "Fiction",
+        "Dark",
+        "Dark Romance",
+        "Adult",
         "American literature",
         "nyt:combined-print-and-e-book-fiction=2024-02-25",
         "New York Times bestseller"
@@ -2058,9 +2069,9 @@
       "image": "https://covers.openlibrary.org/b/id/14407898-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL29226517W",
-      "score": 4.284483,
-      "votes": 116,
-      "interest": 3558,
+      "score": 4.2966104,
+      "votes": 118,
+      "interest": 3565,
       "language": [
         "gre",
         "spa",
@@ -2095,7 +2106,7 @@
       "url": "https://openlibrary.org/works/OL34774028W",
       "score": 3.9855072,
       "votes": 69,
-      "interest": 3058,
+      "interest": 3062,
       "language": [
         "por",
         "spa",
@@ -2147,7 +2158,7 @@
       "url": "https://openlibrary.org/works/OL29330646W",
       "score": 4.25,
       "votes": 16,
-      "interest": 1154,
+      "interest": 1156,
       "language": [
         "spa",
         "eng"
@@ -2763,7 +2774,7 @@
       "url": "https://openlibrary.org/works/OL27733867W",
       "score": 4.0142517,
       "votes": 421,
-      "interest": 19657,
+      "interest": 19665,
       "language": [
         "fre",
         "por",
@@ -2892,13 +2903,13 @@
       "url": "https://openlibrary.org/works/OL27729743W",
       "score": 3.7096775,
       "votes": 31,
-      "interest": 2431,
+      "interest": 2439,
       "language": [
-        "spa",
         "pol",
         "por",
-        "dut",
         "ger",
+        "dut",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -3150,7 +3161,7 @@
       "url": "https://openlibrary.org/works/OL29232835W",
       "score": 4.3157897,
       "votes": 19,
-      "interest": 683,
+      "interest": 684,
       "language": [
         "spa",
         "eng"
@@ -3616,7 +3627,7 @@
       "url": "https://openlibrary.org/works/OL25515697W",
       "score": 4.0625,
       "votes": 128,
-      "interest": 5934,
+      "interest": 5945,
       "language": [
         "spa",
         "eng"
@@ -3684,7 +3695,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3563,
+      "interest": 3573,
       "language": [
         "eng"
       ],
@@ -3944,6 +3955,34 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL28954802W",
+      "title": "The Locked Door",
+      "author": "Freida McFadden",
+      "year": 2021,
+      "image": "https://covers.openlibrary.org/b/id/13156268-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL28954802W",
+      "score": 3.7272727,
+      "votes": 22,
+      "interest": 668,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Crime",
+        "Psychological Thriller",
+        "Horror"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 6
+    },
+    {
       "id": "book:/works/OL25555522W",
       "title": "Hooked",
       "author": "Emily McIntire",
@@ -3990,6 +4029,32 @@
       "editionCount": 4
     },
     {
+      "id": "book:/works/OL24398747W",
+      "title": "You'd Be Home Now",
+      "author": "Kathleen Glasgow",
+      "year": 2021,
+      "image": "https://covers.openlibrary.org/b/id/10937648-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL24398747W",
+      "score": 4.142857,
+      "votes": 14,
+      "interest": 624,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "Drug addiction & substance abuse",
+        "Drug abuse, juvenile literature",
+        "Opioid abuse",
+        "Fiction, family life, general",
+        "nyt:young-adult-paperback-monthly=2023-03-12",
+        "New York Times bestseller"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL22563730W",
       "title": "People We Meet On Vacation",
       "author": "Emily Henry",
@@ -4012,60 +4077,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 9
-    },
-    {
-      "id": "book:/works/OL28954802W",
-      "title": "The Locked Door",
-      "author": "Freida McFadden",
-      "year": 2021,
-      "image": "https://covers.openlibrary.org/b/id/13156268-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL28954802W",
-      "score": 3.631579,
-      "votes": 19,
-      "interest": 602,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Thriller",
-        "Mystery",
-        "Mystery Thriller",
-        "Fiction",
-        "Suspense",
-        "Crime",
-        "Psychological Thriller",
-        "Horror"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 6
-    },
-    {
-      "id": "book:/works/OL24398747W",
-      "title": "You'd Be Home Now",
-      "author": "Kathleen Glasgow",
-      "year": 2021,
-      "image": "https://covers.openlibrary.org/b/id/10937648-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL24398747W",
-      "score": 4.1666665,
-      "votes": 12,
-      "interest": 596,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "Drug addiction & substance abuse",
-        "Drug abuse, juvenile literature",
-        "Opioid abuse",
-        "Fiction, family life, general",
-        "nyt:young-adult-paperback-monthly=2023-03-12",
-        "New York Times bestseller"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 5
     },
     {
       "id": "book:/works/OL28959223W",
@@ -5229,7 +5240,7 @@
       "url": "https://openlibrary.org/works/OL36090166W",
       "score": 4.2105265,
       "votes": 19,
-      "interest": 984,
+      "interest": 985,
       "language": [
         "spa",
         "pol",
@@ -5262,9 +5273,9 @@
       "image": "https://covers.openlibrary.org/b/id/8788696-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20140528W",
-      "score": 4.408163,
-      "votes": 49,
-      "interest": 730,
+      "score": 4.42,
+      "votes": 50,
+      "interest": 732,
       "language": [
         "spa",
         "eng"
@@ -5913,7 +5924,7 @@
       "url": "https://openlibrary.org/works/OL20354498W",
       "score": 4.3567567,
       "votes": 185,
-      "interest": 3555,
+      "interest": 3556,
       "language": [
         "cat",
         "fre",
@@ -6455,6 +6466,79 @@
       "editionCount": 10
     },
     {
+      "id": "book:/works/OL19743864W",
+      "title": "Front Desk",
+      "author": "Kelly Yang",
+      "year": 2018,
+      "image": "https://covers.openlibrary.org/b/id/8803949-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL19743864W",
+      "score": 4.4761906,
+      "votes": 21,
+      "interest": 358,
+      "language": [
+        "pol",
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "juvenile fiction",
+        "juvenile literature",
+        "Self-confidence",
+        "Chinese",
+        "Immigrants",
+        "Exploitation",
+        "Immigrant families",
+        "Motels",
+        "Friendship",
+        "Children's fiction",
+        "Immigrants, fiction",
+        "Family, fiction",
+        "California, fiction",
+        "Chinese, united states, fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 10
+    },
+    {
+      "id": "book:/works/OL17852712W",
+      "title": "Thunderhead",
+      "author": "Neal Shusterman",
+      "year": 2018,
+      "image": "https://covers.openlibrary.org/b/id/11048447-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL17852712W",
+      "score": 4.366667,
+      "votes": 30,
+      "interest": 357,
+      "language": [
+        "bul",
+        "spa",
+        "por",
+        "ger",
+        "eng",
+        "chi"
+      ],
+      "subjects": [
+        "Death--Fiction.",
+        "Murder--Fiction.",
+        "Science fiction.",
+        "YOUNG ADULT FICTION / Science Fiction",
+        "Science fiction",
+        "Death",
+        "YOUNG ADULT FICTION / Social Themes / Death & Dying",
+        "YOUNG ADULT FICTION / Thrillers & Suspense",
+        "Murder",
+        "Fiction",
+        "Children's fiction",
+        "Death, fiction",
+        "Murder, fiction",
+        "nyt:young-adult-hardcover=2018-01-28"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 15
+    },
+    {
       "id": "book:/works/OL19661009W",
       "title": "The Tattooist of Auschwitz",
       "author": "Heather Morris · Heather Morris",
@@ -6523,41 +6607,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 21
-    },
-    {
-      "id": "book:/works/OL19743864W",
-      "title": "Front Desk",
-      "author": "Kelly Yang",
-      "year": 2018,
-      "image": "https://covers.openlibrary.org/b/id/8803949-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL19743864W",
-      "score": 4.4761906,
-      "votes": 21,
-      "interest": 348,
-      "language": [
-        "eng",
-        "spa",
-        "pol"
-      ],
-      "subjects": [
-        "juvenile fiction",
-        "juvenile literature",
-        "Self-confidence",
-        "Chinese",
-        "Immigrants",
-        "Exploitation",
-        "Immigrant families",
-        "Motels",
-        "Friendship",
-        "Children's fiction",
-        "Immigrants, fiction",
-        "Family, fiction",
-        "California, fiction",
-        "Chinese, united states, fiction"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 10
     },
     {
       "id": "book:/works/OL19352982W",
@@ -6630,44 +6679,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 14
-    },
-    {
-      "id": "book:/works/OL17852712W",
-      "title": "Thunderhead",
-      "author": "Neal Shusterman",
-      "year": 2018,
-      "image": "https://covers.openlibrary.org/b/id/11048447-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL17852712W",
-      "score": 4.3703704,
-      "votes": 27,
-      "interest": 330,
-      "language": [
-        "bul",
-        "chi",
-        "por",
-        "ger",
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Death--Fiction.",
-        "Murder--Fiction.",
-        "Science fiction.",
-        "YOUNG ADULT FICTION / Science Fiction",
-        "Science fiction",
-        "Death",
-        "YOUNG ADULT FICTION / Social Themes / Death & Dying",
-        "YOUNG ADULT FICTION / Thrillers & Suspense",
-        "Murder",
-        "Fiction",
-        "Children's fiction",
-        "Death, fiction",
-        "Murder, fiction",
-        "nyt:young-adult-hardcover=2018-01-28"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 15
     },
     {
       "id": "book:/works/OL20018811W",
@@ -7136,15 +7147,15 @@
       "url": "https://openlibrary.org/works/OL17181541W",
       "score": 4.327869,
       "votes": 61,
-      "interest": 688,
+      "interest": 705,
       "language": [
-        "dut",
-        "spa",
-        "heb",
-        "pol",
-        "por",
         "cat",
         "tur",
+        "fre",
+        "spa",
+        "pol",
+        "por",
+        "dut",
         "eng"
       ],
       "subjects": [
@@ -7169,19 +7180,19 @@
     {
       "id": "book:/works/OL17357353W",
       "title": "Simon vs. the Homo Sapiens Agenda",
-      "author": "Becky Albertalli · Victoria Simó Perales",
+      "author": "Becky Albertalli",
       "year": 2015,
       "image": "https://covers.openlibrary.org/b/id/12303551-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17357353W",
-      "score": 4.2363634,
-      "votes": 55,
-      "interest": 673,
+      "score": 4.232143,
+      "votes": 56,
+      "interest": 675,
       "language": [
-        "heb",
         "por",
         "srp",
-        "eng"
+        "eng",
+        "heb"
       ],
       "subjects": [
         "LGBT",
@@ -7358,9 +7369,9 @@
       "image": "https://covers.openlibrary.org/b/id/8140499-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17843967W",
-      "score": 4.1621623,
-      "votes": 37,
-      "interest": 503,
+      "score": 4.125,
+      "votes": 40,
+      "interest": 512,
       "language": [
         "pol",
         "eng"
@@ -7461,16 +7472,16 @@
       "image": "https://covers.openlibrary.org/b/id/7418786-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL16444438W",
-      "score": 4.178261,
-      "votes": 230,
-      "interest": 4678,
+      "score": 4.181818,
+      "votes": 231,
+      "interest": 4684,
       "language": [
+        "rus",
         "fre",
-        "cat",
+        "chi",
         "may",
-        "spa",
         "pol",
-        "jpn",
+        "kor",
         "por",
         "ger"
       ],
@@ -7724,7 +7735,7 @@
       "url": "https://openlibrary.org/works/OL15640090W",
       "score": 4.138889,
       "votes": 36,
-      "interest": 1064,
+      "interest": 1066,
       "language": [
         "fre",
         "spa",
@@ -7799,7 +7810,7 @@
       "url": "https://openlibrary.org/works/OL20411060W",
       "score": 3.7333333,
       "votes": 15,
-      "interest": 759,
+      "interest": 780,
       "language": [
         "eng"
       ],
@@ -8337,7 +8348,7 @@
       "url": "https://openlibrary.org/works/OL20234863W",
       "score": 4.187845,
       "votes": 181,
-      "interest": 7288,
+      "interest": 7299,
       "language": [
         "fre",
         "spa",
@@ -11191,9 +11202,9 @@
       "votes": 101,
       "interest": 434,
       "language": [
+        "ger",
         "fre",
         "spa",
-        "ger",
         "eng"
       ],
       "subjects": [
