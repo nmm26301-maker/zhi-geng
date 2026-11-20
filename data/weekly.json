@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T04:15:23.173Z",
+  "updatedAt": "2026-11-20T04:02:12.976Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -159,7 +159,7 @@
       "type": "anime",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx213805-Nokui3uWlIlw.png",
       "year": 2026,
-      "score": 8.2,
+      "score": 8.1,
       "source": "AniList",
       "description": "Koyuki, the isolated girl; Miki, the former school idol; Minato, the guy with no concept of personal space; and Youta, the gentle basketball player. Clumsy, frustrating, yet deeply endearing — this coming-of-age ensemble drama of crisscrossing hearts marches on.\n<br><br>\nAs they grow closer, Koyuki and Minato begin to develop feelings for each other that go beyond mere friendship. Meanwhile, Youta finally confesses to Miki the feelings he's harbored for years. Some speak their hearts while others keep their emotions hidden, causing their paths — and their feelings for one another — to continuously cross and pass by… \n<br><br>\n(Source: Netflix)"
     },
@@ -176,18 +176,6 @@
       "description": "Sequel to <i>Tokyo Revengers: Tenjiku-hen</i>."
     },
     {
-      "id": "anilist:199340",
-      "title": "Rascal Does Not Dream of a Dear Friend",
-      "url": "https://anilist.co/anime/199340",
-      "category": "动漫",
-      "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx199340-YQlmzvmcJzyt.jpg",
-      "year": 2026,
-      "score": 8.4,
-      "source": "AniList",
-      "description": "<i>\"Actually, I’m Touko Kirishima.\"</i>\n<br><br>\nThe audience erupted in excitement upon learning that the true identity of the mysterious, wildly popular internet singer was none other than the nation’s favorite actress, Mai Sakurajima. The scene was exactly the same as the dream Sakuta Azusagawa had seen on Christmas Eve.\n<br><br>\nStarting with Mai’s shocking confession on April 1, the impossible events that everyone once dreamed of keep happening one after another.\n\nThe social media hashtag \"#Yumemiru,\" where dreams come true, has vanished, and as Sakuta struggles with the disconnect between the reality before him and his own perception, he receives a message from a version of himself in an alternate reality.\n<br><br>\n<b>―Stop Touko Kirishima,\n<br>\n―Before reality is rewritten.</b>\n<br><br>\nTo restore the world to its original state, Sakuta sets out to find Touko Kirishima. This is a story about overcoming the \"Adolescent Syndrome\".<br><br>\n\n(Source: Crunchyroll News, edited)"
-    },
-    {
       "id": "anilist:172192",
       "title": "A Returner's Magic Should be Special Season 2",
       "url": "https://anilist.co/anime/172192",
@@ -200,6 +188,18 @@
       "description": "In a land dominated by the formidable Shadow Worlds, most of humanity has been destroyed. To rescue their planet from impending doom, six brave heroes fight a perilous battle…and fail. But there’s a glimpse of hope when Desir, one of the last mages, is suddenly sent back in time 13 years! Now armed with knowledge of the grim future, can he alter the course of history and save the world?\n<br><br>\n(Source: Crunchyroll)"
     },
     {
+      "id": "anilist:199340",
+      "title": "Rascal Does Not Dream of a Dear Friend",
+      "url": "https://anilist.co/anime/199340",
+      "category": "动漫",
+      "type": "anime",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx199340-YQlmzvmcJzyt.jpg",
+      "year": 2026,
+      "score": 8.4,
+      "source": "AniList",
+      "description": "<i>\"Actually, I’m Touko Kirishima.\"</i>\n<br><br>\nThe audience erupted in excitement upon learning that the true identity of the mysterious, wildly popular internet singer was none other than the nation’s favorite actress, Mai Sakurajima. The scene was exactly the same as the dream Sakuta Azusagawa had seen on Christmas Eve.\n<br><br>\nStarting with Mai’s shocking confession on April 1, the impossible events that everyone once dreamed of keep happening one after another.\n\nThe social media hashtag \"#Yumemiru,\" where dreams come true, has vanished, and as Sakuta struggles with the disconnect between the reality before him and his own perception, he receives a message from a version of himself in an alternate reality.\n<br><br>\n<b>―Stop Touko Kirishima,\n<br>\n―Before reality is rewritten.</b>\n<br><br>\nTo restore the world to its original state, Sakuta sets out to find Touko Kirishima. This is a story about overcoming the \"Adolescent Syndrome\".<br><br>\n\n(Source: Crunchyroll News, edited)"
+    },
+    {
       "id": "ol:/works/OL45106188W",
       "title": "King of Gluttony",
       "url": "https://openlibrary.org/works/OL45106188W",
@@ -210,6 +210,18 @@
       "score": 4,
       "source": "Open Library",
       "description": "Ana Huang"
+    },
+    {
+      "id": "ol:/works/OL45732307W",
+      "title": "The Calamity Club",
+      "url": "https://openlibrary.org/works/OL45732307W",
+      "category": "书籍",
+      "type": "book",
+      "image": "https://covers.openlibrary.org/b/id/15236189-M.jpg",
+      "year": 2026,
+      "score": 2.5,
+      "source": "Open Library",
+      "description": "Kathryn Stockett"
     },
     {
       "id": "ol:/works/OL45346035W",
@@ -378,18 +390,6 @@
       "score": 4,
       "source": "Open Library",
       "description": "Heather Fawcett"
-    },
-    {
-      "id": "ol:/works/OL45346558W",
-      "title": "Kin",
-      "url": "https://openlibrary.org/works/OL45346558W",
-      "category": "书籍",
-      "type": "book",
-      "image": "https://covers.openlibrary.org/b/id/15220747-M.jpg",
-      "year": 2026,
-      "score": 0,
-      "source": "Open Library",
-      "description": "Tayari Jones"
     }
   ]
 }

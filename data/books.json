@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T04:15:33.051Z",
+  "updatedAt": "2026-11-20T04:02:23.670Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 373,
@@ -30,6 +30,34 @@
         "Enemies To Lovers",
         "Fiction",
         "Smut"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL45732307W",
+      "title": "The Calamity Club",
+      "author": "Kathryn Stockett",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15236189-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45732307W",
+      "score": 2.5,
+      "votes": 2,
+      "interest": 75,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Women—Fiction",
+        "Abandoned children—Fiction",
+        "Depressions--1929--United States—Fiction",
+        "Friendship—Fiction",
+        "Sisters—Fiction",
+        "Women--Social conditions—Fiction",
+        "Orphans—Fiction",
+        "Oxford (Miss.)--History--20th century—Fiction",
+        "United States--History--1933-1945--Fiction"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
@@ -432,34 +460,6 @@
         "Friendship",
         "Contemporary",
         "Family"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 1
-    },
-    {
-      "id": "book:/works/OL45732307W",
-      "title": "The Calamity Club",
-      "author": "Kathryn Stockett",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15236189-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45732307W",
-      "score": 0,
-      "votes": 0,
-      "interest": 5,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Women—Fiction",
-        "Abandoned children—Fiction",
-        "Depressions--1929--United States—Fiction",
-        "Friendship—Fiction",
-        "Sisters—Fiction",
-        "Women--Social conditions—Fiction",
-        "Orphans—Fiction",
-        "Oxford (Miss.)--History--20th century—Fiction",
-        "United States--History--1933-1945--Fiction"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
@@ -1403,9 +1403,9 @@
       "image": "https://covers.openlibrary.org/b/id/14641117-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL38128674W",
-      "score": 4.152174,
-      "votes": 46,
-      "interest": 1673,
+      "score": 4.1702127,
+      "votes": 47,
+      "interest": 1696,
       "language": [
         "por",
         "spa",
@@ -1632,7 +1632,7 @@
       "url": "https://openlibrary.org/works/OL37572598W",
       "score": 4.25,
       "votes": 4,
-      "interest": 178,
+      "interest": 179,
       "language": [
         "ger",
         "eng"
@@ -2810,7 +2810,7 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5926,
+      "interest": 5942,
       "language": [
         "spa",
         "eng"
@@ -3553,12 +3553,12 @@
       "image": "https://covers.openlibrary.org/b/id/12992962-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27310398W",
-      "score": 3.59882,
-      "votes": 339,
-      "interest": 12772,
+      "score": 3.5911765,
+      "votes": 340,
+      "interest": 12805,
       "language": [
-        "spa",
         "ger",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -3627,7 +3627,7 @@
       "url": "https://openlibrary.org/works/OL25515697W",
       "score": 4.0625,
       "votes": 128,
-      "interest": 5945,
+      "interest": 5961,
       "language": [
         "spa",
         "eng"
@@ -3695,7 +3695,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3573,
+      "interest": 3583,
       "language": [
         "eng"
       ],
@@ -7735,7 +7735,7 @@
       "url": "https://openlibrary.org/works/OL15640090W",
       "score": 4.138889,
       "votes": 36,
-      "interest": 1066,
+      "interest": 1067,
       "language": [
         "fre",
         "spa",
@@ -10444,18 +10444,18 @@
       "image": "https://covers.openlibrary.org/b/id/14338907-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL4672081W",
-      "score": 3.7272727,
-      "votes": 22,
-      "interest": 274,
+      "score": 3.68,
+      "votes": 25,
+      "interest": 316,
       "language": [
-        "wol",
-        "spa",
         "swa",
-        "ita",
         "fre",
-        "tur",
+        "ger",
+        "spa",
         "eng",
-        "ger"
+        "wol",
+        "tur",
+        "ita"
       ],
       "subjects": [
         "Fiction (fictional works by one author)",
