@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-20T04:02:23.670Z",
+  "updatedAt": "2026-11-21T04:02:16.635Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 373,
+  "count": 376,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -35,6 +35,36 @@
       "editionCount": 1
     },
     {
+      "id": "book:/works/OL44800712W",
+      "title": "Dear Debbie",
+      "author": "Freida McFadden",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15171146-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL44800712W",
+      "score": 4.5,
+      "votes": 6,
+      "interest": 94,
+      "language": [
+        "por",
+        "eng"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Fiction",
+        "Mystery Thriller",
+        "Suspense",
+        "Psychological Thriller",
+        "Crime",
+        "Adult",
+        "Policial",
+        "FICTION / Thrillers / General"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 2
+    },
+    {
       "id": "book:/works/OL45732307W",
       "title": "The Calamity Club",
       "author": "Kathryn Stockett",
@@ -58,6 +88,35 @@
         "Orphans—Fiction",
         "Oxford (Miss.)--History--20th century—Fiction",
         "United States--History--1933-1945--Fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL44870937W",
+      "title": "My Husband's Wife",
+      "author": "Alice Feeney",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15248921-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL44870937W",
+      "score": 4.25,
+      "votes": 4,
+      "interest": 57,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Psychological Thriller",
+        "Adult",
+        "Contemporary",
+        "Romance",
+        "Fiction, thrillers, general"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
@@ -114,47 +173,6 @@
         "Adult",
         "Fiction",
         "Spicy"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 2
-    },
-    {
-      "id": "book:/works/OL44870937W",
-      "title": "My Husband's Wife",
-      "author": "Alice Feeney",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15248921-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL44870937W",
-      "score": 4,
-      "votes": 3,
-      "interest": 40,
-      "language": [],
-      "subjects": [
-        "romance",
-        "Fiction, thrillers, general"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 1
-    },
-    {
-      "id": "book:/works/OL44800712W",
-      "title": "Dear Debbie",
-      "author": "Freida McFadden",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15163694-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL44800712W",
-      "score": 4.5,
-      "votes": 2,
-      "interest": 33,
-      "language": [
-        "por",
-        "eng"
-      ],
-      "subjects": [
-        "Policial",
-        "FICTION / Thrillers / General"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 2
@@ -357,6 +375,65 @@
       "editionCount": 1
     },
     {
+      "id": "book:/works/OL45075265W",
+      "title": "Trad Wife",
+      "author": "Saratoga Schaefer",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15204055-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45075265W",
+      "score": 4.5,
+      "votes": 2,
+      "interest": 9,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Horror",
+        "Fiction",
+        "Thriller",
+        "Adult",
+        "Contemporary",
+        "Feminism",
+        "Horror Thriller",
+        "Paranormal",
+        "Mystery",
+        "Demonology, fiction",
+        "Horror fiction",
+        "Housewives -- Fiction",
+        "Internet personalities -- Fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
+    },
+    {
+      "id": "book:/works/OL45023302W",
+      "title": "Anatomy of an Alibi",
+      "author": "Ashley Elston",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15279037-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45023302W",
+      "score": 4,
+      "votes": 2,
+      "interest": 9,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Thriller",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Suspense",
+        "Adult",
+        "Crime",
+        "Psychological Thriller"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
       "id": "book:/works/OL44983777W",
       "title": "It's Not Her",
       "author": "Mary Kubica",
@@ -465,27 +542,58 @@
       "editionCount": 1
     },
     {
-      "id": "book:/works/OL45075265W",
-      "title": "Trad Wife",
-      "author": "Saratoga Schaefer",
+      "id": "book:/works/OL45927528W",
+      "title": "The Unknown",
+      "author": "Riley Sager",
       "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15204055-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/15248356-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45075265W",
-      "score": 4.5,
-      "votes": 2,
-      "interest": 5,
+      "url": "https://openlibrary.org/works/OL45927528W",
+      "score": 0,
+      "votes": 0,
+      "interest": 6,
       "language": [
         "eng"
       ],
       "subjects": [
-        "Demonology, fiction",
-        "Horror fiction",
-        "Housewives -- Fiction",
-        "Internet personalities -- Fiction"
+        "Thriller",
+        "Horror",
+        "Mystery",
+        "Mystery Thriller",
+        "Fiction",
+        "Paranormal",
+        "Adult",
+        "Suspense"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 3
+      "editionCount": 1
+    },
+    {
+      "id": "book:/works/OL46091896W",
+      "title": "The French Illusion",
+      "author": "John Grisham",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15268904-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL46091896W",
+      "score": 0,
+      "votes": 0,
+      "interest": 6,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Kidnapping",
+        "Espionage",
+        "Thriller",
+        "Fiction",
+        "Mystery",
+        "Mystery Thriller",
+        "Suspense",
+        "Crime"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
     },
     {
       "id": "book:/works/OL44249988W",
@@ -2303,12 +2411,12 @@
       "image": "https://covers.openlibrary.org/b/id/13820942-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL34955908W",
-      "score": 3.857143,
-      "votes": 21,
-      "interest": 608,
+      "score": 3.8695652,
+      "votes": 23,
+      "interest": 631,
       "language": [
-        "eng",
-        "dut"
+        "dut",
+        "eng"
       ],
       "subjects": [
         "Fiction",
@@ -2546,7 +2654,7 @@
       "url": "https://openlibrary.org/works/OL28607665W",
       "score": 3.7058823,
       "votes": 17,
-      "interest": 393,
+      "interest": 394,
       "language": [
         "eng"
       ],
@@ -2772,14 +2880,14 @@
       "image": "https://covers.openlibrary.org/b/id/12749873-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27733867W",
-      "score": 4.0142517,
-      "votes": 421,
-      "interest": 19665,
+      "score": 4.0141845,
+      "votes": 423,
+      "interest": 19676,
       "language": [
-        "fre",
         "por",
+        "eng",
         "spa",
-        "eng"
+        "fre"
       ],
       "subjects": [
         "Chick Lit",
@@ -3661,7 +3769,7 @@
       "url": "https://openlibrary.org/works/OL27297240W",
       "score": 3.8549619,
       "votes": 131,
-      "interest": 4362,
+      "interest": 4383,
       "language": [
         "spa",
         "eng"
@@ -3903,16 +4011,16 @@
       "image": "https://covers.openlibrary.org/b/id/10643508-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21703979W",
-      "score": 4.318182,
-      "votes": 44,
-      "interest": 716,
+      "score": 4.288889,
+      "votes": 45,
+      "interest": 722,
       "language": [
         "fre",
-        "tur",
-        "spa",
-        "cze",
         "ger",
-        "eng"
+        "cze",
+        "spa",
+        "eng",
+        "tur"
       ],
       "subjects": [
         "Fiction, romance, fantasy",
@@ -4321,9 +4429,9 @@
       "image": "https://covers.openlibrary.org/b/id/10472357-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21692056W",
-      "score": 4.257143,
-      "votes": 70,
-      "interest": 1651,
+      "score": 4.2222223,
+      "votes": 72,
+      "interest": 1662,
       "language": [
         "pol",
         "por",
@@ -5097,6 +5205,36 @@
       "editionCount": 50
     },
     {
+      "id": "book:/works/OL25434351W",
+      "title": "Heated Rivalry",
+      "author": "Rachel Reid",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/15226452-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL25434351W",
+      "score": 3.826087,
+      "votes": 23,
+      "interest": 1142,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Series:Game-Changers",
+        "LGTBI",
+        "Fiction, romance, contemporary",
+        "Romance",
+        "Sports Romance",
+        "Hockey",
+        "M M Romance",
+        "Enemies To Lovers",
+        "Contemporary",
+        "Queer"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 7
+    },
+    {
       "id": "book:/works/OL20354499W",
       "title": "Heartstopper, Volume 2",
       "author": "Alice Oseman",
@@ -5135,36 +5273,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 13
-    },
-    {
-      "id": "book:/works/OL25434351W",
-      "title": "Heated Rivalry",
-      "author": "Rachel Reid",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/15226452-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL25434351W",
-      "score": 3.826087,
-      "votes": 23,
-      "interest": 1134,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Series:Game-Changers",
-        "LGTBI",
-        "Fiction, romance, contemporary",
-        "Romance",
-        "Sports Romance",
-        "Hockey",
-        "M M Romance",
-        "Enemies To Lovers",
-        "Contemporary",
-        "Queer"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 7
     },
     {
       "id": "book:/works/OL18543708W",
@@ -5675,14 +5783,14 @@
       "url": "https://openlibrary.org/works/OL20883297W",
       "score": 3.7755103,
       "votes": 49,
-      "interest": 454,
+      "interest": 458,
       "language": [
-        "cat",
         "fre",
-        "tur",
-        "spa",
         "por",
-        "eng"
+        "cat",
+        "spa",
+        "eng",
+        "tur"
       ],
       "subjects": [
         "Fiction, science fiction, general",
@@ -5962,18 +6070,18 @@
       "image": "https://covers.openlibrary.org/b/id/8362947-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL18766691W",
-      "score": 4.298077,
-      "votes": 104,
-      "interest": 2860,
+      "score": 4.285714,
+      "votes": 105,
+      "interest": 2863,
       "language": [
-        "cat",
         "fre",
-        "gre",
-        "tur",
-        "spa",
+        "chi",
         "vie",
+        "ger",
         "dut",
-        "ger"
+        "cat",
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Solitude",
@@ -6146,7 +6254,7 @@
       "url": "https://openlibrary.org/works/OL18199566W",
       "score": 4.25641,
       "votes": 39,
-      "interest": 802,
+      "interest": 805,
       "language": [
         "eng"
       ],
@@ -6350,7 +6458,7 @@
       "url": "https://openlibrary.org/works/OL25197303W",
       "score": 4.75,
       "votes": 4,
-      "interest": 517,
+      "interest": 518,
       "language": [
         "eng"
       ],
@@ -6466,6 +6574,44 @@
       "editionCount": 10
     },
     {
+      "id": "book:/works/OL17852712W",
+      "title": "Thunderhead",
+      "author": "Neal Shusterman",
+      "year": 2018,
+      "image": "https://covers.openlibrary.org/b/id/11048447-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL17852712W",
+      "score": 4.366667,
+      "votes": 30,
+      "interest": 360,
+      "language": [
+        "bul",
+        "chi",
+        "ger",
+        "por",
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Death--Fiction.",
+        "Murder--Fiction.",
+        "Science fiction.",
+        "YOUNG ADULT FICTION / Science Fiction",
+        "Science fiction",
+        "Death",
+        "YOUNG ADULT FICTION / Social Themes / Death & Dying",
+        "YOUNG ADULT FICTION / Thrillers & Suspense",
+        "Murder",
+        "Fiction",
+        "Children's fiction",
+        "Death, fiction",
+        "Murder, fiction",
+        "nyt:young-adult-hardcover=2018-01-28"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 15
+    },
+    {
       "id": "book:/works/OL19743864W",
       "title": "Front Desk",
       "author": "Kelly Yang",
@@ -6499,44 +6645,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 10
-    },
-    {
-      "id": "book:/works/OL17852712W",
-      "title": "Thunderhead",
-      "author": "Neal Shusterman",
-      "year": 2018,
-      "image": "https://covers.openlibrary.org/b/id/11048447-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL17852712W",
-      "score": 4.366667,
-      "votes": 30,
-      "interest": 357,
-      "language": [
-        "bul",
-        "spa",
-        "por",
-        "ger",
-        "eng",
-        "chi"
-      ],
-      "subjects": [
-        "Death--Fiction.",
-        "Murder--Fiction.",
-        "Science fiction.",
-        "YOUNG ADULT FICTION / Science Fiction",
-        "Science fiction",
-        "Death",
-        "YOUNG ADULT FICTION / Social Themes / Death & Dying",
-        "YOUNG ADULT FICTION / Thrillers & Suspense",
-        "Murder",
-        "Fiction",
-        "Children's fiction",
-        "Death, fiction",
-        "Murder, fiction",
-        "nyt:young-adult-hardcover=2018-01-28"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 15
     },
     {
       "id": "book:/works/OL19661009W",
@@ -6997,7 +7105,7 @@
       "url": "https://openlibrary.org/works/OL20893778W",
       "score": 4.0833335,
       "votes": 36,
-      "interest": 1198,
+      "interest": 1207,
       "language": [
         "spa",
         "eng"
@@ -7438,9 +7546,9 @@
       "image": "https://covers.openlibrary.org/b/id/8861320-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20002259W",
-      "score": 4.285714,
-      "votes": 14,
-      "interest": 483,
+      "score": 4.266667,
+      "votes": 15,
+      "interest": 491,
       "language": [
         "spa",
         "eng"
@@ -7697,14 +7805,15 @@
       "url": "https://openlibrary.org/works/OL15358691W",
       "score": 4.514793,
       "votes": 169,
-      "interest": 1207,
+      "interest": 1210,
       "language": [
-        "spa",
         "pol",
         "por",
         "ger",
+        "spa",
         "eng",
-        "heb"
+        "heb",
+        "tur"
       ],
       "subjects": [
         "New York Times Bestseller",
@@ -8276,9 +8385,9 @@
       "image": "https://covers.openlibrary.org/b/id/6606615-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL13775226W",
-      "score": 3.903226,
-      "votes": 31,
-      "interest": 339,
+      "score": 3.90625,
+      "votes": 32,
+      "interest": 342,
       "language": [
         "eng"
       ],
@@ -9021,16 +9130,16 @@
       "url": "https://openlibrary.org/works/OL8755980W",
       "score": 4.140351,
       "votes": 57,
-      "interest": 709,
+      "interest": 711,
       "language": [
-        "cat",
-        "tur",
         "fre",
-        "spa",
-        "jpn",
+        "chi",
         "por",
         "ger",
-        "eng"
+        "cat",
+        "spa",
+        "eng",
+        "tur"
       ],
       "subjects": [
         "Comics & graphic novels, east asian style, manga, fantasy",
@@ -11314,15 +11423,15 @@
       "url": "https://openlibrary.org/works/OL52982W",
       "score": 4.3636365,
       "votes": 11,
-      "interest": 261,
+      "interest": 272,
       "language": [
-        "spa",
-        "jpn",
+        "fre",
         "chi",
-        "gre",
-        "eng",
         "ger",
-        "fre"
+        "spa",
+        "eng",
+        "gre",
+        "jpn"
       ],
       "subjects": [
         "Juvenile literature",
