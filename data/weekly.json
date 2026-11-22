@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T04:02:06.895Z",
+  "updatedAt": "2026-11-22T03:16:59.573Z",
   "year": 2026,
   "count": 32,
   "sources": [
@@ -63,7 +63,7 @@
       "type": "anime",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx205909-DM0fAzNQulod.jpg",
       "year": 2026,
-      "score": 7.5,
+      "score": 7.6,
       "source": "AniList",
       "description": "On the surface, Satoko has it all—she’s beautiful, the daughter of a nobleman, and at a prime age for marriage. Unfortunately, she is also quite ill and only has a short time left to live. Before she can secure a marriage that will redeem her worth in her family’s eyes, she finds herself the target of the mysterious assassin Shinpei, and her plans are put in jeopardy. In order to save herself, she makes a desperate proposal—of marriage! When it comes to love, however, Shinpei takes “until death do we part” seriously.<br>\n<br>\n(Source: VIZ Media)"
     },
@@ -145,7 +145,7 @@
       "url": "https://anilist.co/anime/143103",
       "category": "动漫",
       "type": "anime",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx143103-vvsaIpZPpIuE.png",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx143103-hTYstc586JAL.jpg",
       "year": 2026,
       "score": 7.8,
       "source": "AniList",
@@ -320,6 +320,18 @@
       "description": "Navessa Allen"
     },
     {
+      "id": "ol:/works/OL45648210W",
+      "title": "The Reverse Centaur’s Guide to Life After AI",
+      "url": "https://openlibrary.org/works/OL45648210W",
+      "category": "书籍",
+      "type": "book",
+      "image": "https://covers.openlibrary.org/b/id/15232969-M.jpg",
+      "year": 2026,
+      "score": 4,
+      "source": "Open Library",
+      "description": "Cory Doctorow"
+    },
+    {
       "id": "ol:/works/OL45101987W",
       "title": "Rites of the Starling",
       "url": "https://openlibrary.org/works/OL45101987W",
@@ -378,18 +390,6 @@
       "score": 4.5,
       "source": "Open Library",
       "description": "Saratoga Schaefer"
-    },
-    {
-      "id": "ol:/works/OL44983777W",
-      "title": "It's Not Her",
-      "url": "https://openlibrary.org/works/OL44983777W",
-      "category": "书籍",
-      "type": "book",
-      "image": "https://covers.openlibrary.org/b/id/15175031-M.jpg",
-      "year": 2026,
-      "score": 5,
-      "source": "Open Library",
-      "description": "Mary Kubica"
     }
   ]
 }

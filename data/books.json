@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-21T04:02:16.635Z",
+  "updatedAt": "2026-11-22T03:17:09.271Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 376,
+  "count": 377,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -293,6 +293,27 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 2
+    },
+    {
+      "id": "book:/works/OL45648210W",
+      "title": "The Reverse Centaur’s Guide to Life After AI",
+      "author": "Cory Doctorow",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15232969-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45648210W",
+      "score": 4,
+      "votes": 1,
+      "interest": 13,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "genre:non-fiction",
+        "artificial intelligence"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 3
     },
     {
       "id": "book:/works/OL45101987W",
@@ -1053,12 +1074,12 @@
       "url": "https://openlibrary.org/works/OL42543873W",
       "score": 3.625,
       "votes": 8,
-      "interest": 278,
+      "interest": 295,
       "language": [
+        "dut",
         "fre",
         "spa",
-        "eng",
-        "dut"
+        "eng"
       ],
       "subjects": [
         "Fantasy",
@@ -1340,6 +1361,32 @@
       "editionCount": 4
     },
     {
+      "id": "book:/works/OL42407794W",
+      "title": "Mina vänner",
+      "author": "Fredrik Backman",
+      "year": 2025,
+      "image": "https://covers.openlibrary.org/b/id/15279563-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL42407794W",
+      "score": 3.75,
+      "votes": 4,
+      "interest": 58,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction",
+        "Contemporary",
+        "Literary Fiction",
+        "Adult",
+        "Coming Of Age",
+        "Friendship",
+        "Adult Fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 6
+    },
+    {
       "id": "book:/works/OL42412330W",
       "title": "Atmosphere",
       "author": "Taylor Jenkins Reid",
@@ -1394,32 +1441,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL42407794W",
-      "title": "Mina vänner",
-      "author": "Fredrik Backman",
-      "year": 2025,
-      "image": "https://covers.openlibrary.org/b/id/15094954-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL42407794W",
-      "score": 4,
-      "votes": 3,
-      "interest": 47,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Fiction",
-        "Contemporary",
-        "Literary Fiction",
-        "Adult",
-        "Coming Of Age",
-        "Friendship",
-        "Adult Fiction"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 5
     },
     {
       "id": "book:/works/OL42419161W",
@@ -3480,7 +3501,7 @@
       "url": "https://openlibrary.org/works/OL26443093W",
       "score": 4,
       "votes": 35,
-      "interest": 537,
+      "interest": 540,
       "language": [
         "por",
         "dut",
@@ -4461,16 +4482,16 @@
       "url": "https://openlibrary.org/works/OL20716197W",
       "score": 4.2244897,
       "votes": 49,
-      "interest": 1617,
+      "interest": 1632,
       "language": [
-        "cat",
-        "tur",
-        "spa",
-        "rum",
         "por",
-        "dut",
         "ger",
-        "eng"
+        "dut",
+        "cat",
+        "spa",
+        "eng",
+        "heb",
+        "rum"
       ],
       "subjects": [
         "Snow",
@@ -8720,18 +8741,18 @@
       "image": "https://covers.openlibrary.org/b/id/13921600-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL5819895W",
-      "score": 3.7735043,
-      "votes": 234,
-      "interest": 1618,
+      "score": 3.7787235,
+      "votes": 235,
+      "interest": 1622,
       "language": [
         "fre",
-        "spa",
-        "ita",
+        "chi",
         "pol",
-        "por",
         "ger",
+        "por",
+        "spa",
         "eng",
-        "chi"
+        "ita"
       ],
       "subjects": [
         "Fantasy",
@@ -9410,17 +9431,17 @@
       "image": "https://covers.openlibrary.org/b/id/980232-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL7924103W",
-      "score": 3.9156117,
-      "votes": 237,
-      "interest": 3620,
+      "score": 3.9201682,
+      "votes": 238,
+      "interest": 3626,
       "language": [
         "fre",
-        "tur",
-        "spa",
+        "chi",
         "por",
         "ger",
+        "spa",
         "eng",
-        "chi"
+        "tur"
       ],
       "subjects": [
         "series:The Wheel of Time",
@@ -9732,14 +9753,14 @@
       "url": "https://openlibrary.org/works/OL81600W",
       "score": 4.3076925,
       "votes": 26,
-      "interest": 484,
+      "interest": 485,
       "language": [
-        "spa",
-        "ita",
+        "chi",
         "por",
         "ger",
+        "spa",
         "eng",
-        "chi"
+        "ita"
       ],
       "subjects": [
         "Roland (Fictitious character : King)",
@@ -9974,6 +9995,30 @@
       "editionCount": 38
     },
     {
+      "id": "book:/works/OL72282W",
+      "title": "Haunted",
+      "author": "Robert Lawrence Stine",
+      "year": 1990,
+      "image": "https://covers.openlibrary.org/b/id/4984834-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL72282W",
+      "score": 4,
+      "votes": 8,
+      "interest": 298,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Ghost stories",
+        "Horror tales",
+        "collectionID:FearStreet",
+        "Horror stories",
+        "Children's fiction"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 7
+    },
+    {
       "id": "book:/works/OL72340W",
       "title": "The Stepsister",
       "author": "Robert Lawrence Stine",
@@ -9998,30 +10043,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 11
-    },
-    {
-      "id": "book:/works/OL72282W",
-      "title": "Haunted",
-      "author": "Robert Lawrence Stine",
-      "year": 1990,
-      "image": "https://covers.openlibrary.org/b/id/4984834-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL72282W",
-      "score": 4,
-      "votes": 8,
-      "interest": 293,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Ghost stories",
-        "Horror tales",
-        "collectionID:FearStreet",
-        "Horror stories",
-        "Children's fiction"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 7
     },
     {
       "id": "book:/works/OL134880W",
@@ -10281,16 +10302,16 @@
       "url": "https://openlibrary.org/works/OL8996439W",
       "score": 4.152,
       "votes": 125,
-      "interest": 823,
+      "interest": 826,
       "language": [
-        "fre",
-        "cat",
-        "spa",
-        "ita",
-        "pol",
-        "cze",
+        "rus",
         "hun",
-        "por"
+        "fre",
+        "pol",
+        "ger",
+        "por",
+        "dut",
+        "cat"
       ],
       "subjects": [
         "Novela de misterio",
