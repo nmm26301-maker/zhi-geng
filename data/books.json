@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T03:47:00.500Z",
+  "updatedAt": "2026-11-24T06:59:09.209Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 377,
@@ -1512,9 +1512,9 @@
       "image": "https://covers.openlibrary.org/b/id/15073759-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42975424W",
-      "score": 3.588889,
-      "votes": 90,
-      "interest": 3977,
+      "score": 3.6086957,
+      "votes": 92,
+      "interest": 4017,
       "language": [
         "eng"
       ],
@@ -4217,17 +4217,18 @@
       "url": "https://openlibrary.org/works/OL28959223W",
       "score": 3.8947368,
       "votes": 19,
-      "interest": 554,
+      "interest": 556,
       "language": [
-        "pol",
-        "dut",
         "ger",
+        "dut",
+        "pol",
         "eng"
       ],
       "subjects": [
         "nyt:graphic-books-and-manga=2024-01-07",
         "New York Times bestseller",
-        "Children's fiction"
+        "Children's fiction",
+        "LGBTQ graphic novels"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 11
@@ -4418,16 +4419,16 @@
       "image": "https://covers.openlibrary.org/b/id/11466695-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21084352W",
-      "score": 4.16,
-      "votes": 75,
-      "interest": 2213,
+      "score": 4.1710525,
+      "votes": 76,
+      "interest": 2227,
       "language": [
-        "rum",
-        "spa",
-        "ita",
         "pol",
         "ger",
-        "eng"
+        "spa",
+        "eng",
+        "rum",
+        "ita"
       ],
       "subjects": [
         "Young adult fiction",
@@ -5124,18 +5125,18 @@
       "image": "https://covers.openlibrary.org/b/id/13156188-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20646061W",
-      "score": 4.0578947,
-      "votes": 190,
-      "interest": 6705,
+      "score": 4.0518136,
+      "votes": 193,
+      "interest": 6768,
       "language": [
-        "spa",
         "ang",
-        "ita",
         "pol",
         "por",
-        "eng",
+        "ger",
         "dut",
-        "ger"
+        "spa",
+        "eng",
+        "heb"
       ],
       "subjects": [
         "Cold cases (Criminal investigation)--Fiction.",
@@ -5265,16 +5266,16 @@
       "url": "https://openlibrary.org/works/OL20354499W",
       "score": 4.203125,
       "votes": 64,
-      "interest": 1140,
+      "interest": 1141,
       "language": [
+        "rus",
+        "pol",
+        "ger",
+        "dut",
         "cat",
         "spa",
-        "wel",
-        "pol",
-        "dut",
-        "ger",
-        "eng",
-        "rus"
+        "srp",
+        "eng"
       ],
       "subjects": [
         "High schools",
