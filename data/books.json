@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-24T06:59:09.209Z",
+  "updatedAt": "2026-11-25T05:29:23.674Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 377,
+  "count": 378,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -1532,9 +1532,9 @@
       "image": "https://covers.openlibrary.org/b/id/14641117-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL38128674W",
-      "score": 4.1702127,
-      "votes": 47,
-      "interest": 1696,
+      "score": 4.1666665,
+      "votes": 48,
+      "interest": 1730,
       "language": [
         "por",
         "spa",
@@ -1542,19 +1542,19 @@
       ],
       "subjects": [
         "romance",
-        "dark",
-        "contemporary",
         "funny",
         "dual pov",
         "possessive hero",
         "praise kink",
         "bondage",
-        "mafia",
-        "suspense",
         "primal play",
         "consensual non-consent",
         "insta-love",
-        "friends to lovers"
+        "friends to lovers",
+        "good grovel",
+        "alpha male",
+        "fighting/mma/boxing",
+        "exhibitionism"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
@@ -1712,19 +1712,19 @@
       "url": "https://openlibrary.org/works/OL37859241W",
       "score": 3.9,
       "votes": 10,
-      "interest": 242,
+      "interest": 245,
       "language": [
         "eng"
       ],
       "subjects": [
-        "sports",
-        "college",
         "contemproary",
         "friends to lover",
-        "hockey",
         "funny",
         "nyt:combined-print-and-e-book-fiction=2024-09-15",
-        "New York Times bestseller"
+        "New York Times bestseller",
+        "College",
+        "Sports",
+        "Hockey"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 4
@@ -2111,6 +2111,27 @@
       "editionCount": 3
     },
     {
+      "id": "book:/works/OL37588865W",
+      "title": "続・森崎書店の日々",
+      "author": "Satoshi Yagisawa",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/15235502-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37588865W",
+      "score": 4,
+      "votes": 4,
+      "interest": 110,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction and Literature",
+        "General fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 4
+    },
+    {
       "id": "book:/works/OL37613492W",
       "title": "Don't Let the Forest In",
       "author": "C. G. Drews",
@@ -2198,19 +2219,18 @@
       "image": "https://covers.openlibrary.org/b/id/14407898-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL29226517W",
-      "score": 4.2966104,
-      "votes": 118,
-      "interest": 3565,
+      "score": 4.302521,
+      "votes": 119,
+      "interest": 3597,
       "language": [
-        "gre",
-        "spa",
         "ger",
-        "eng"
+        "gre",
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Fantasía",
         "Fantasy",
-        "ficción",
         "ficciones",
         "Fiction",
         "Romántica",
@@ -2220,7 +2240,8 @@
         "Young adult fiction",
         "nyt:combined-print-and-e-book-fiction=2023-05-21",
         "New York Times bestseller",
-        "Serie:The_Empyrean"
+        "Serie:The_Empyrean",
+        "Ficción"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 15
@@ -2287,14 +2308,13 @@
       "url": "https://openlibrary.org/works/OL29330646W",
       "score": 4.25,
       "votes": 16,
-      "interest": 1156,
+      "interest": 1161,
       "language": [
         "spa",
         "eng"
       ],
       "subjects": [
         "Romance",
-        "contemporary romance",
         "forbidden romance",
         "billionaire romance",
         "opposites attract",
@@ -2304,9 +2324,10 @@
         "strong female lead",
         "angst",
         "hurt/comfort",
-        "redemption",
         "New York Times bestseller",
-        "Fiction, romance, general"
+        "Fiction, romance, general",
+        "Serie:Kings_of_Sin",
+        "Redemption"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
@@ -2442,18 +2463,18 @@
       "subjects": [
         "Fiction",
         "romance",
-        "sports",
-        "comedy",
-        "contemporary",
         "New York Times bestseller",
         "forced proximity",
         "dual pov",
-        "college",
         "praise kink",
         "shy hero",
         "sassy heroine",
         "forbidden love",
-        "hockey"
+        "m-f romance",
+        "College",
+        "Sports",
+        "Hockey",
+        "Comedy"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
@@ -2760,7 +2781,7 @@
       "url": "https://openlibrary.org/works/OL36043513W",
       "score": 4.6666665,
       "votes": 3,
-      "interest": 228,
+      "interest": 241,
       "language": [
         "spa",
         "eng"
@@ -2772,14 +2793,14 @@
         "Romance",
         "Sports Romance",
         "Sports",
-        "Fake Dating",
         "Contemporary",
         "Contemporary Romance",
         "Basketball players",
         "Basketball",
         "Serie:Windy_City",
         "Fiction",
-        "Adult"
+        "Adult",
+        "New Adult"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
@@ -2903,28 +2924,28 @@
       "url": "https://openlibrary.org/works/OL27733867W",
       "score": 4.0141845,
       "votes": 423,
-      "interest": 19688,
+      "interest": 19695,
       "language": [
+        "spa",
         "por",
         "eng",
-        "spa",
         "fre"
       ],
       "subjects": [
-        "Chick Lit",
         "Contemporary",
         "Romance",
         "Friendship",
         "Fiction",
-        "Young Adult Fiction",
         "Contemporary Romance",
         "Adult",
         "collectionid:nyt2020s",
         "American literature",
-        "new adult",
-        "domestic violence",
         "second chance romance",
-        "forbidden love"
+        "forbidden love",
+        "self-discovery",
+        "Redemption",
+        "New Adult",
+        "Domestic Violence"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 26
@@ -2939,26 +2960,26 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5942,
+      "interest": 5960,
       "language": [
         "spa",
         "eng"
       ],
       "subjects": [
         "Romance",
-        "suspense",
-        "mystery",
-        "thriller",
         "dark romance",
         "forbidden love",
         "enemies to lovers",
         "bad boy",
         "strong heroine",
-        "college",
         "academia",
         "family drama",
         "secrets",
-        "lies"
+        "lies",
+        "American literature",
+        "Fiction, romance, general",
+        "Fiction, general",
+        "Serie:Twisted"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 10
@@ -2973,7 +2994,7 @@
       "url": "https://openlibrary.org/works/OL27245843W",
       "score": 3.8055556,
       "votes": 108,
-      "interest": 4617,
+      "interest": 4623,
       "language": [
         "spa",
         "eng"
@@ -2981,8 +3002,6 @@
       "subjects": [
         "Romance",
         "enemies to lovers",
-        "contemporary romance",
-        "new adult",
         "office romance",
         "forbidden love",
         "angst",
@@ -2992,7 +3011,9 @@
         "slow burn",
         "Fiction, romance, general",
         "Fiction, general",
-        "Serie:Twisted"
+        "Serie:Twisted",
+        "New Adult",
+        "Contemporary Romance"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
@@ -3290,7 +3311,7 @@
       "url": "https://openlibrary.org/works/OL29232835W",
       "score": 4.3157897,
       "votes": 19,
-      "interest": 684,
+      "interest": 689,
       "language": [
         "spa",
         "eng"
@@ -3300,16 +3321,16 @@
         "dark romance",
         "alpha male",
         "virgin heroine",
-        "contemporary",
-        "new adult",
-        "college",
         "possessive hero",
         "rich hero",
-        "mafia",
         "anal sex",
         "bdsm",
         "bully",
-        "grumpy hero"
+        "grumpy hero",
+        "consesual non-consent",
+        "sassy heroine",
+        "angst",
+        "forbidden love"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
@@ -3384,6 +3405,40 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL27090610W",
+      "title": "The Ballad of Never After",
+      "author": "Stephanie Garber",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/12945180-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL27090610W",
+      "score": 4.6190476,
+      "votes": 21,
+      "interest": 560,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "young-adult",
+        "New York Times bestseller",
+        "Love",
+        "Magic",
+        "Fantasy fiction",
+        "Young adult fiction, fantasy, dark fantasy",
+        "Young adult fiction, fairy tales & folklore, general",
+        "Young adult fiction, fantasy, romance",
+        "Serie:Once_Upon_a_Broken_Heart",
+        "Fantasy",
+        "Fantasy Romance",
+        "Fiction",
+        "Romance",
+        "Romantasy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 11
+    },
+    {
       "id": "book:/works/OL27678542W",
       "title": "Terms and Conditions",
       "author": "Lauren Asher",
@@ -3430,40 +3485,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL27090610W",
-      "title": "The Ballad of Never After",
-      "author": "Stephanie Garber",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/12945180-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL27090610W",
-      "score": 4.6190476,
-      "votes": 21,
-      "interest": 555,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "young-adult",
-        "New York Times bestseller",
-        "Love",
-        "Blessing and Cursing",
-        "Magic",
-        "Fantasy fiction",
-        "Young adult fiction, fantasy, dark fantasy",
-        "Young adult fiction, fairy tales & folklore, general",
-        "Young adult fiction, fantasy, romance",
-        "Serie:Once_Upon_a_Broken_Heart",
-        "Fantasy",
-        "Fantasy Romance",
-        "Fiction",
-        "Romance"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 11
     },
     {
       "id": "book:/works/OL26348345W",
@@ -3647,9 +3668,9 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.8057325,
-      "votes": 314,
-      "interest": 15365,
+      "score": 3.800633,
+      "votes": 316,
+      "interest": 15406,
       "language": [
         "fre",
         "spa",
@@ -3662,14 +3683,14 @@
         "nyt:combined-print-and-e-book-fiction=2023-07-02",
         "New York Times bestseller",
         "Romance",
-        "contemporary romance",
         "new adult romance",
         "brother's best friend",
         "forbidden love",
         "dark romance",
         "grumpy-sunshine",
         "angst",
-        "love triangle"
+        "self-discovery",
+        "Serie:Twisted"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 18
@@ -3790,7 +3811,7 @@
       "url": "https://openlibrary.org/works/OL27297240W",
       "score": 3.8549619,
       "votes": 131,
-      "interest": 4383,
+      "interest": 4409,
       "language": [
         "spa",
         "eng"
@@ -3798,18 +3819,18 @@
       "subjects": [
         "Fiction",
         "dark romance",
-        "contemporary",
         "abduction",
         "dual pov",
         "angst",
         "tortured heroine",
         "sexual abuse",
         "possessive hero",
-        "rape",
         "scars",
         "blood play",
         "alpha male",
-        "trafficking"
+        "trafficking",
+        "Romance",
+        "Dark"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
@@ -3824,25 +3845,25 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7532468,
       "votes": 77,
-      "interest": 3583,
+      "interest": 3622,
       "language": [
         "eng"
       ],
       "subjects": [
         "Children's fiction",
-        "Contemporary romance",
-        "teen fiction",
-        "young adult fiction",
         "coming-of-age",
         "first love",
-        "friendship",
-        "family",
-        "high school",
         "summer vacation",
         "movies",
-        "dreams",
         "following your heart",
-        "New York Times bestseller"
+        "New York Times bestseller",
+        "Dreams",
+        "Teen fiction",
+        "High school",
+        "Friendship",
+        "Family",
+        "Contemporary Romance",
+        "Young adult fiction"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
@@ -3857,13 +3878,12 @@
       "url": "https://openlibrary.org/works/OL26345722W",
       "score": 3.9333334,
       "votes": 60,
-      "interest": 2297,
+      "interest": 2303,
       "language": [
         "eng"
       ],
       "subjects": [
         "Romance",
-        "Fake Dating",
         "Enemies to Lovers",
         "Spicy",
         "Slow Burn",
@@ -3875,7 +3895,8 @@
         "Hate to Love",
         "Romantic Comedy",
         "Fake Relationship",
-        "Travel"
+        "Travel",
+        "Literature & Fiction"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
@@ -3924,23 +3945,22 @@
       "image": "https://covers.openlibrary.org/b/id/11200092-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL21745884W",
-      "score": 4.5373135,
-      "votes": 201,
-      "interest": 1549,
+      "score": 4.536946,
+      "votes": 203,
+      "interest": 1572,
       "language": [
         "fre",
-        "tur",
-        "spa",
+        "kor",
         "por",
-        "fin",
-        "dut",
         "ger",
-        "eng"
+        "dut",
+        "spa",
+        "eng",
+        "fin"
       ],
       "subjects": [
         "hard science-fiction",
         "science-fiction",
-        "sci-fi",
         "hard sci-fi",
         "nyt:hardcover-fiction=2021-05-23",
         "New York Times bestseller",
@@ -3951,7 +3971,8 @@
         "Fiction",
         "Astronauts",
         "Space flight",
-        "Memory disorders"
+        "Memory disorders",
+        "Survival"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 32
@@ -3999,14 +4020,14 @@
       "image": "https://covers.openlibrary.org/b/id/10716589-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24236112W",
-      "score": 4.5,
-      "votes": 40,
-      "interest": 1348,
+      "score": 4.487805,
+      "votes": 41,
+      "interest": 1360,
       "language": [
-        "ita",
         "spa",
+        "eng",
         "ger",
-        "eng"
+        "ita"
       ],
       "subjects": [
         "Children's fiction",
@@ -4014,12 +4035,12 @@
         "a good girl's guide to murder",
         "as good as dead",
         "Pip Fitz-Amobi",
-        "thriller",
-        "humor",
         "Stalking in fiction",
-        "violence",
         "swears",
-        "drugs and alcohol"
+        "drugs and alcohol",
+        "Violence",
+        "Thriller",
+        "Humor"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 19
@@ -4618,22 +4639,22 @@
       "url": "https://openlibrary.org/works/OL28708075W",
       "score": 3.7,
       "votes": 20,
-      "interest": 870,
+      "interest": 871,
       "language": [
         "eng"
       ],
       "subjects": [
         "Fantasy",
-        "young adult",
         "dark fantasy",
         "romance",
         "faeries",
         "enemies to lovers",
         "political intrigue",
-        "betrayal",
-        "redemption",
         "Fiction, romance, general",
-        "Fiction, romance, contemporary"
+        "Fiction, romance, contemporary",
+        "Redemption",
+        "Betrayal",
+        "Young Adult"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
@@ -4969,13 +4990,12 @@
       "interest": 390,
       "language": [
         "fre",
-        "spa",
         "por",
         "ger",
+        "spa",
         "eng"
       ],
       "subjects": [
-        "Young Adults",
         "Young adult fiction, social themes, dating & sex",
         "Young adult fiction, media tie-in",
         "Young adult fiction, school & education, college & university",
@@ -4984,7 +5004,8 @@
         "Asexuality (Sexual orientation)",
         "asexuality",
         "Aromantic",
-        "LGBTQ Young Adult"
+        "LGBTQ Young Adult",
+        "Young adults"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 15
@@ -5348,14 +5369,14 @@
         "Mafia romance",
         "dark romance",
         "enemies to lovers",
-        "arranged marriage",
         "forced proximity",
-        "violence",
         "trigger warnings",
-        "redemption",
-        "forgiveness",
         "Fiction, romance, general",
-        "Anthology"
+        "Anthology",
+        "Redemption",
+        "Arranged marriage",
+        "Violence",
+        "Forgiveness"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 4
@@ -5475,7 +5496,7 @@
       "url": "https://openlibrary.org/works/OL20657486W",
       "score": 3.84,
       "votes": 25,
-      "interest": 651,
+      "interest": 652,
       "language": [
         "spa",
         "eng"
@@ -5521,6 +5542,43 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 8
+    },
+    {
+      "id": "book:/works/OL20650912W",
+      "title": "House of Earth and Blood",
+      "author": "Sarah J. Maas",
+      "year": 2019,
+      "image": "https://covers.openlibrary.org/b/id/9289603-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20650912W",
+      "score": 4.3103447,
+      "votes": 29,
+      "interest": 552,
+      "language": [
+        "pol",
+        "tur",
+        "hun",
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "American literature",
+        "Fiction, fantasy, urban",
+        "Fiction, romance, paranormal",
+        "Fiction, fantasy, epic",
+        "Fiction, romance, fantasy",
+        "collectionID:EanesChallenge",
+        "Fiction, romance, paranormal, general",
+        "[series:SJM_Crescent:City]",
+        "fiction",
+        "demonology",
+        "Fairies",
+        "Angels",
+        "Fantasy fiction",
+        "Murder"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 20
     },
     {
       "id": "book:/works/OL20485895W",
@@ -5588,43 +5646,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 14
-    },
-    {
-      "id": "book:/works/OL20650912W",
-      "title": "House of Earth and Blood",
-      "author": "Sarah J. Maas",
-      "year": 2019,
-      "image": "https://covers.openlibrary.org/b/id/9289603-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL20650912W",
-      "score": 4.3103447,
-      "votes": 29,
-      "interest": 545,
-      "language": [
-        "spa",
-        "pol",
-        "hun",
-        "eng",
-        "tur"
-      ],
-      "subjects": [
-        "American literature",
-        "Fiction, fantasy, urban",
-        "Fiction, romance, paranormal",
-        "Fiction, fantasy, epic",
-        "Fiction, romance, fantasy",
-        "collectionID:EanesChallenge",
-        "Fiction, romance, paranormal, general",
-        "[series:SJM_Crescent:City]",
-        "fiction",
-        "angels",
-        "demonology",
-        "Fairies",
-        "fantasy fiction",
-        "murder"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 20
     },
     {
       "id": "book:/works/OL20128158W",
@@ -5735,28 +5756,28 @@
       "url": "https://openlibrary.org/works/OL20126932W",
       "score": 3.875,
       "votes": 16,
-      "interest": 469,
+      "interest": 472,
       "language": [
-        "fre",
         "spa",
         "dut",
-        "eng"
+        "eng",
+        "fre"
       ],
       "subjects": [
         "fiction",
-        "thrillers",
-        "supernatural",
-        "suspense",
-        "horror",
-        "missing children",
-        "psychic ability",
-        "child abuse",
-        "kidnapping",
-        "kidnapping victims",
-        "parapsychology",
         "Fiction, horror",
         "Missing persons, fiction",
-        "South carolina, fiction"
+        "South carolina, fiction",
+        "Fiction, science fiction, general",
+        "American literature",
+        "nyt:combined-print-and-e-book-fiction=2019-09-29",
+        "New York Times bestseller",
+        "New York Times reviewed",
+        "Fiction, thrillers, suspense",
+        "Fiction, thrillers, psychological",
+        "Thriller",
+        "Science Fiction",
+        "Fantasy"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 28
@@ -6643,15 +6664,14 @@
       "url": "https://openlibrary.org/works/OL19743864W",
       "score": 4.4761906,
       "votes": 21,
-      "interest": 358,
+      "interest": 359,
       "language": [
-        "pol",
         "spa",
+        "pol",
         "eng"
       ],
       "subjects": [
         "juvenile fiction",
-        "juvenile literature",
         "Self-confidence",
         "Chinese",
         "Immigrants",
@@ -6663,7 +6683,8 @@
         "Immigrants, fiction",
         "Family, fiction",
         "California, fiction",
-        "Chinese, united states, fiction"
+        "Chinese, united states, fiction",
+        "nyt:middle-grade-paperback-monthly=2019-10-13"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 10
@@ -6845,17 +6866,17 @@
       "image": "https://covers.openlibrary.org/b/id/12667417-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17332479W",
-      "score": 4.536842,
-      "votes": 95,
-      "interest": 2554,
+      "score": 4.5416665,
+      "votes": 96,
+      "interest": 2560,
       "language": [
-        "fre",
-        "tur",
         "ukr",
+        "rus",
+        "fre",
         "por",
         "ger",
         "eng",
-        "rus"
+        "tur"
       ],
       "subjects": [
         "Young adult fiction",
@@ -6867,11 +6888,11 @@
         "Juvenile fiction",
         "LGBTQ novels",
         "YA fiction",
-        "mystery",
         "heist",
-        "fantasy",
         "Brigands and robbers",
-        "Thriller"
+        "Thriller",
+        "Action & Adventure",
+        "Magic"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 37
@@ -6884,18 +6905,18 @@
       "image": "https://covers.openlibrary.org/b/id/9334159-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20019347W",
-      "score": 3.7183099,
-      "votes": 71,
-      "interest": 2360,
+      "score": 3.7222223,
+      "votes": 72,
+      "interest": 2388,
       "language": [
-        "ger",
-        "pol",
-        "spa",
-        "tur",
-        "jpn",
         "fre",
+        "pol",
+        "ger",
+        "spa",
+        "eng",
+        "tur",
         "ita",
-        "eng"
+        "jpn"
       ],
       "subjects": [
         "Japanese fiction",
@@ -6908,10 +6929,10 @@
         "Science Fiction",
         "slice-of-life",
         "romance",
-        "family",
-        "friendship",
-        "love",
-        "loss"
+        "loss",
+        "second chances",
+        "Coffeehouses",
+        "Interpersonal relations"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 24
@@ -6924,16 +6945,16 @@
       "image": "https://covers.openlibrary.org/b/id/7894142-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17610986W",
-      "score": 4.380282,
-      "votes": 142,
-      "interest": 2305,
+      "score": 4.356643,
+      "votes": 143,
+      "interest": 2332,
       "language": [
-        "fre",
-        "spa",
         "pol",
         "dut",
-        "ger",
-        "eng"
+        "fre",
+        "spa",
+        "eng",
+        "ger"
       ],
       "subjects": [
         "Juvenile fiction",
@@ -6947,9 +6968,9 @@
         "nyt:childrens-middle-grade-hardcover=2016-09-18",
         "New York Times bestseller",
         "nyt:graphic-books-and-manga=2021-09-12",
-        "comic",
         "Graphic novels",
-        "Dogs"
+        "Dogs",
+        "Fiction"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 34
@@ -6964,16 +6985,16 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.1363635,
       "votes": 88,
-      "interest": 2020,
+      "interest": 2057,
       "language": [
         "fre",
-        "spa",
+        "chi",
         "pol",
         "por",
-        "eng",
         "ger",
-        "tur",
-        "chi"
+        "spa",
+        "eng",
+        "tur"
       ],
       "subjects": [
         "Love & Romance",
@@ -7072,16 +7093,13 @@
       "url": "https://openlibrary.org/works/OL18020192W",
       "score": 4.319149,
       "votes": 94,
-      "interest": 1399,
+      "interest": 1401,
       "language": [
         "eng"
       ],
       "subjects": [
         "Women household employees",
-        "diaries",
-        "authorship",
         "farm life",
-        "young adult fiction",
         "hired help",
         "Young adult works",
         "Teen fiction",
@@ -7090,7 +7108,10 @@
         "Fiction",
         "History",
         "Juvenile works",
-        "Historical fiction, Teenage"
+        "Historical fiction, Teenage",
+        "Juvenile fiction",
+        "Juvenile audience",
+        "teenage girls"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 11
@@ -7277,16 +7298,16 @@
       "url": "https://openlibrary.org/works/OL17181541W",
       "score": 4.327869,
       "votes": 61,
-      "interest": 705,
+      "interest": 711,
       "language": [
-        "cat",
-        "tur",
         "fre",
-        "spa",
         "pol",
         "por",
         "dut",
-        "eng"
+        "cat",
+        "spa",
+        "eng",
+        "heb"
       ],
       "subjects": [
         "Serie:Magnus_Chase_and_the_Gods_of_Asgard",
@@ -7294,15 +7315,15 @@
         "Myths",
         "Novel",
         "Magic",
-        "American Literature",
         "Children's Literature",
         "Fiction",
         "Norse Mithology",
         "Fantasy",
         "Adventure",
-        "Young Adult Literature",
         "2015",
-        "Norse Mythology"
+        "Norse Mythology",
+        "Homeless children",
+        "Juvenile fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 37
@@ -7353,19 +7374,19 @@
       "url": "https://openlibrary.org/works/OL34965326W",
       "score": 3.8636363,
       "votes": 22,
-      "interest": 637,
+      "interest": 642,
       "language": [
         "ind",
         "spa",
         "eng"
       ],
       "subjects": [
-        "General Fiction",
         "Fiction and Literature",
         "Fiction, family life",
         "Indonesia, fiction",
         "Mothers and daughters, fiction",
-        "Fiction, general"
+        "Fiction, general",
+        "General fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 7
@@ -7414,7 +7435,7 @@
       "url": "https://openlibrary.org/works/OL17615537W",
       "score": 3.96,
       "votes": 25,
-      "interest": 624,
+      "interest": 629,
       "language": [
         "eng"
       ],
@@ -7423,16 +7444,16 @@
         "South African fiction",
         "family drama",
         "forbidden love",
-        "arranged marriage",
-        "love triangle",
-        "betrayal",
-        "redemption",
-        "forgiveness",
         "Zulu culture",
         "Emily Mashava",
         "South African fiction (English)",
         "Man-woman relationships",
-        "Fiction"
+        "Fiction",
+        "Romance fiction",
+        "Redemption",
+        "Arranged marriage",
+        "Love Triangle",
+        "Forgiveness"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 7
@@ -7501,7 +7522,7 @@
       "url": "https://openlibrary.org/works/OL17843967W",
       "score": 4.125,
       "votes": 40,
-      "interest": 512,
+      "interest": 514,
       "language": [
         "pol",
         "eng"
@@ -7604,19 +7625,18 @@
       "url": "https://openlibrary.org/works/OL16444438W",
       "score": 4.181818,
       "votes": 231,
-      "interest": 4684,
+      "interest": 4705,
       "language": [
-        "rus",
-        "fre",
-        "chi",
-        "may",
         "pol",
-        "kor",
+        "may",
+        "dut",
         "por",
-        "ger"
+        "fre",
+        "kor",
+        "spa",
+        "cat"
       ],
       "subjects": [
-        "Young Adult Fiction",
         "Cancer—Fiction",
         "Terminally ill—Fiction",
         "Love—Fiction",
@@ -7629,7 +7649,8 @@
         "Love, fiction",
         "Cancer in adolescence",
         "Terminally ill children",
-        "Young women"
+        "Young women",
+        "Conduct of life"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 89
@@ -7794,7 +7815,7 @@
       "url": "https://openlibrary.org/works/OL8756330W",
       "score": 4.423077,
       "votes": 104,
-      "interest": 1250,
+      "interest": 1259,
       "language": [
         "eng"
       ],
@@ -8028,18 +8049,18 @@
       "subjects": [
         "Chevrolet Suburbans",
         "1955 doubled die cents",
-        "crime",
-        "detectives",
-        "sex",
         "school shootings",
         "alter egos",
-        "insanity",
-        "sadism",
-        "mail order",
         "rare coins",
         "pornography",
         "sadomasochism",
-        "serial killers"
+        "serial killers",
+        "novellas",
+        "Suspense fiction",
+        "Horror fiction",
+        "serial murderers",
+        "secrecy",
+        "business travel"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 42
@@ -8054,7 +8075,7 @@
       "url": "https://openlibrary.org/works/OL12489W",
       "score": 4.4857144,
       "votes": 35,
-      "interest": 556,
+      "interest": 558,
       "language": [
         "eng"
       ],
@@ -8190,22 +8211,21 @@
       "image": "https://covers.openlibrary.org/b/id/8261369-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15168588W",
-      "score": 3.8837209,
-      "votes": 43,
-      "interest": 425,
+      "score": 3.8888888,
+      "votes": 45,
+      "interest": 462,
       "language": [
         "dut",
-        "ita",
-        "ger",
-        "fre",
         "heb",
+        "fre",
         "spa",
-        "eng"
+        "eng",
+        "ger",
+        "ita"
       ],
       "subjects": [
         "FICTION",
         "MODERN & CONTEMPORARY FICTION (POST C 1945)",
-        "HORROR & GHOST STORIES",
         "SCIENCE FICTION",
         "FANTASY",
         "Vampire fiction",
@@ -8216,7 +8236,8 @@
         "Thrillers",
         "Science fiction genre",
         "Epic fiction",
-        "monsters"
+        "fictional works",
+        "Human experimentation in medicine"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 47
@@ -8229,29 +8250,29 @@
       "image": "https://covers.openlibrary.org/b/id/8750145-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15572356W",
-      "score": 4.521739,
-      "votes": 23,
-      "interest": 402,
+      "score": 4.52,
+      "votes": 25,
+      "interest": 423,
       "language": [
-        "pol",
         "spa",
+        "pol",
         "eng"
       ],
       "subjects": [
         "Modern & contemporary fiction",
-        "alcoholism",
         "German Shepherds",
         "feral",
         "veterinary physicians",
         "animal control service",
         "animal euthanasia",
-        "reincarnation",
         "Golden Retrievers",
         "heat exhaustion",
         "high school seniors",
         "search-and-rescue",
         "Labrador Retrievers",
-        "family life"
+        "Fiction",
+        "Large type books",
+        "Human-animal relationships"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 21
@@ -8555,21 +8576,20 @@
       "image": "https://covers.openlibrary.org/b/id/12059372-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL82560W",
-      "score": 4.256757,
-      "votes": 370,
-      "interest": 5073,
+      "score": 4.2600536,
+      "votes": 373,
+      "interest": 5094,
       "language": [
-        "rum",
-        "nor",
-        "lit",
+        "pol",
+        "heb",
+        "hun",
+        "rus",
+        "eng",
+        "afr",
         "arm",
-        "alb",
-        "bul",
-        "vie",
-        "spa"
+        "ita"
       ],
       "subjects": [
-        "orphans",
         "foster homes",
         "Waisenkind",
         "Intrige",
@@ -8582,7 +8602,8 @@
         "Jugendbuch",
         "Mord",
         "magier",
-        "fictitious schools"
+        "fictitious schools",
+        "Fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 244
@@ -8744,15 +8765,15 @@
       "url": "https://openlibrary.org/works/OL5819895W",
       "score": 3.7787235,
       "votes": 235,
-      "interest": 1622,
+      "interest": 1625,
       "language": [
-        "fre",
-        "chi",
         "pol",
-        "ger",
         "por",
+        "fre",
         "spa",
         "eng",
+        "ger",
+        "chi",
         "ita"
       ],
       "subjects": [
@@ -8761,15 +8782,15 @@
         "Dragons",
         "Magic",
         "Fiction",
-        "violence",
         "dwarves",
         "humans",
         "fighting",
-        "adventure",
-        "war",
         "elves",
-        "young adult fiction",
-        "Action & Adventure"
+        "Action & Adventure",
+        "Fantasy fiction",
+        "American Fantasy fiction",
+        "Mythical Creatures",
+        "Animals"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 91
@@ -8821,13 +8842,13 @@
       "url": "https://openlibrary.org/works/OL468658W",
       "score": 4.22549,
       "votes": 102,
-      "interest": 1269,
+      "interest": 1277,
       "language": [
         "spa",
-        "ita",
-        "ger",
         "eng",
-        "chi"
+        "ger",
+        "chi",
+        "ita"
       ],
       "subjects": [
         "Freundschaft",
@@ -8856,25 +8877,24 @@
       "image": "https://covers.openlibrary.org/b/id/12840573-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL2827199W",
-      "score": 3.9419355,
-      "votes": 155,
-      "interest": 1168,
+      "score": 3.9358974,
+      "votes": 156,
+      "interest": 1170,
       "language": [
-        "fre",
-        "tur",
-        "vie",
-        "spa",
         "rus",
-        "dan",
-        "nor",
-        "pol"
+        "fre",
+        "chi",
+        "hin",
+        "pol",
+        "vie",
+        "kor",
+        "ger"
       ],
       "subjects": [
         "Shipwrecks",
         "Castaways",
         "Survival at Sea",
         "Lifeboats",
-        "Pacific Ocean",
         "Ocean Travel",
         "India",
         "Zoos",
@@ -8883,7 +8903,8 @@
         "Zoo animals",
         "Human-animal relationships",
         "Teenage boys",
-        "Orphans"
+        "Orphans",
+        "Zookeepers"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 115
@@ -9473,16 +9494,16 @@
       "url": "https://openlibrary.org/works/OL46881W",
       "score": 4.182243,
       "votes": 214,
-      "interest": 1823,
+      "interest": 1836,
       "language": [
-        "fre",
-        "gre",
-        "spa",
         "rus",
-        "ita",
-        "jpn",
+        "fre",
+        "chi",
         "por",
-        "dut"
+        "ger",
+        "dut",
+        "spa",
+        "eng"
       ],
       "subjects": [
         "dichogamy",
@@ -9494,11 +9515,11 @@
         "dinosaurs",
         "chaos theory",
         "Procompsognathus",
-        "paleontologists",
         "paleobotanists",
         "theme parks",
         "cloning",
-        "ancient DNA"
+        "ancient DNA",
+        "lysine"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 94
@@ -9553,15 +9574,14 @@
       "url": "https://openlibrary.org/works/OL86707W",
       "score": 4.473054,
       "votes": 167,
-      "interest": 925,
+      "interest": 926,
       "language": [
-        "heb",
-        "spa",
         "chi",
-        "eng"
+        "spa",
+        "eng",
+        "heb"
       ],
       "subjects": [
-        "owls",
         "Juvenile Fiction",
         "Aves",
         "Bats",
@@ -9574,7 +9594,8 @@
         "Specimens",
         "Toy and movable books",
         "Picture books",
-        "Friendship"
+        "Friendship",
+        "Board books"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 48
@@ -9587,18 +9608,17 @@
       "image": "https://covers.openlibrary.org/b/id/10701482-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL77817W",
-      "score": 4.3448277,
-      "votes": 29,
-      "interest": 617,
+      "score": 4.3333335,
+      "votes": 30,
+      "interest": 643,
       "language": [
-        "ger",
-        "fre",
         "rus",
+        "fre",
+        "ger",
         "spa",
         "eng"
       ],
       "subjects": [
-        "spirits",
         "psychics",
         "neurosurgeons",
         "Fiction",
@@ -9611,7 +9631,8 @@
         "Romans, nouvelles",
         "Fiction, horror",
         "Mayfair family (fictitious characters), fiction",
-        "New orleans (la.), fiction"
+        "New orleans (la.), fiction",
+        "Louisiana, fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 42
@@ -9650,32 +9671,32 @@
       "url": "https://openlibrary.org/works/OL81606W",
       "score": 4,
       "votes": 23,
-      "interest": 517,
+      "interest": 520,
       "language": [
+        "rus",
         "fre",
-        "spa",
-        "ita",
         "und",
         "pol",
         "por",
         "dut",
+        "spa",
         "eng"
       ],
       "subjects": [
-        "paranormal",
-        "nightmares",
         "cuckoo clocks",
-        "word processors",
         "Polaroid cameras",
-        "speechwriting",
-        "Dissociative identity disorder",
         "ambush",
         "sanity",
         "caretakers",
-        "plagiarism",
         "housemaids",
         "short stories",
-        "diction"
+        "Fiction",
+        "Horror",
+        "Thriller",
+        "red-eye flights",
+        "autopilot",
+        "American Horror tales",
+        "Vdobibl"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 65
@@ -9754,7 +9775,7 @@
       "url": "https://openlibrary.org/works/OL81600W",
       "score": 4.3076925,
       "votes": 26,
-      "interest": 485,
+      "interest": 486,
       "language": [
         "chi",
         "por",
@@ -9767,17 +9788,17 @@
         "Roland (Fictitious character : King)",
         "Fiction",
         "The Dark Tower",
-        "fantasy fiction",
         "Post-apocalpytic",
         "Apocalyptic literature",
-        "American fantasy fiction",
         "Science fiction, fantasy, horror",
         "Roland (fictitious character : king), fiction",
         "Fiction, fantasy, epic",
         "Dark tower (imaginary place), fiction",
         "Roland of Gilead (Fictitious character)",
         "Horror tales",
-        "Fiction, fantasy, general"
+        "Fiction, fantasy, general",
+        "Fantasy",
+        "Good and evil"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 40
@@ -9903,18 +9924,16 @@
       "votes": 40,
       "interest": 332,
       "language": [
-        "ita",
         "por",
+        "eng",
         "ger",
-        "eng"
+        "ita"
       ],
       "subjects": [
         "Fiction",
         "Juvenile works",
         "Juvenile fiction",
         "athletes",
-        "folklore",
-        "orphans",
         "Juvenile Fiction - Family - Orphans & Foster Homes",
         "Juvenile Fiction - Social Themes - Runaways",
         "Juvenile Fiction - Social Themes - Prejudice & Racism",
@@ -9922,7 +9941,9 @@
         "Newbery Medal",
         "Sports",
         "Running",
-        "Sports stories"
+        "Sports stories",
+        "Heroes",
+        "Death"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 48
@@ -10055,28 +10076,28 @@
       "url": "https://openlibrary.org/works/OL134880W",
       "score": 4,
       "votes": 8,
-      "interest": 272,
+      "interest": 281,
       "language": [
+        "dut",
         "fre",
-        "eng",
         "spa",
-        "dut"
+        "eng"
       ],
       "subjects": [
         "Kidnapping",
         "Family",
         "Fiction",
         "Series",
-        "families",
         "family problems",
-        "pregnancy",
         "Somewhere over the Rainbow",
-        "sagas",
-        "suspense",
-        "thrillers",
         "Cutler family (fictitious characters), fiction",
         "Cutler's cove (imaginary place), fiction",
-        "Virginia, fiction"
+        "Virginia, fiction",
+        "Fiction, horror",
+        "Longchamp, dawn (fictitious character), fiction",
+        "collectionid:vcacl",
+        "collection:Name",
+        "Pregnancy"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 37
@@ -10423,16 +10444,16 @@
       "url": "https://openlibrary.org/works/OL81605W",
       "score": 3.8333333,
       "votes": 114,
-      "interest": 557,
+      "interest": 561,
       "language": [
-        "rus",
-        "hun",
-        "und",
         "pol",
-        "ger",
+        "und",
+        "hun",
+        "rus",
+        "jpn",
         "eng",
-        "ita",
-        "jpn"
+        "ger",
+        "ita"
       ],
       "subjects": [
         "The Fog",
@@ -10463,29 +10484,29 @@
       "url": "https://openlibrary.org/works/OL3501723W",
       "score": 3.784091,
       "votes": 88,
-      "interest": 449,
+      "interest": 452,
       "language": [
         "fre",
-        "spa",
-        "per",
         "ger",
-        "eng"
+        "spa",
+        "eng",
+        "per"
       ],
       "subjects": [
-        "mothers",
         "travel",
-        "housing",
-        "character",
-        "sons",
         "groups",
-        "loneliness",
         "Young men",
         "Mothers and sons",
         "Fiction",
         "Long Now Manual for Civilization",
         "Reading Level-Grade 7",
         "Reading Level-Grade 9",
-        "Reading Level-Grade 8"
+        "Reading Level-Grade 8",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 10",
+        "Reading Level-Grade 12",
+        "Fiction, humorous",
+        "Mothers and sons, fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 69
@@ -10538,13 +10559,13 @@
       "image": "https://covers.openlibrary.org/b/id/9358432-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL134890W",
-      "score": 4,
-      "votes": 13,
-      "interest": 404,
+      "score": 4.071429,
+      "votes": 14,
+      "interest": 421,
       "language": [
-        "ger",
         "fre",
         "pol",
+        "ger",
         "spa",
         "eng"
       ],
@@ -10557,12 +10578,12 @@
         "Dilation and curettage",
         "Mystery fiction",
         "mothers and daughters",
-        "revenge",
-        "suspense",
         "persistent vegetative state",
         "incest",
         "doughnuts",
-        "arsenic"
+        "blackmail",
+        "psychiatric hospitals",
+        "Inheritance and succession"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 61
@@ -10619,30 +10640,30 @@
       "votes": 46,
       "interest": 245,
       "language": [
-        "fre",
-        "chi",
         "pol",
-        "por",
         "dut",
+        "por",
+        "fre",
         "spa",
         "eng",
+        "chi",
         "ita"
       ],
       "subjects": [
         "kakundakari",
         "type IIb",
-        "diamonds",
-        "thrillers",
         "science fiction",
         "adventure fiction",
-        "adventure stories",
         "Fiction",
         "Archaeology",
         "Gorilla",
         "American Science fiction",
         "Horror stories",
         "Africa, fiction",
-        "Fiction, thrillers"
+        "Fiction, thrillers",
+        "Fiction, thrillers, general",
+        "Large type books",
+        "Fiction, mystery & detective, general"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 49
@@ -11068,18 +11089,18 @@
       "image": "https://covers.openlibrary.org/b/id/6498519-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL45804W",
-      "score": 3.9590163,
-      "votes": 122,
-      "interest": 1534,
+      "score": 3.9430895,
+      "votes": 123,
+      "interest": 1546,
       "language": [
-        "fre",
-        "baq",
-        "spa",
-        "rus",
+        "pol",
         "dan",
-        "ita",
-        "wel",
-        "pol"
+        "heb",
+        "ast",
+        "sco",
+        "fre",
+        "spa",
+        "rus"
       ],
       "subjects": [
         "Animals",
@@ -11108,13 +11129,13 @@
       "image": "https://covers.openlibrary.org/b/id/9321656-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL70988W",
-      "score": 4.1847825,
-      "votes": 92,
-      "interest": 968,
+      "score": 4.193548,
+      "votes": 93,
+      "interest": 974,
       "language": [
         "rus",
-        "pol",
         "spa",
+        "pol",
         "eng"
       ],
       "subjects": [
@@ -11123,15 +11144,15 @@
         "Juvenile works",
         "Juvenile fiction",
         "Juvenile audience",
-        "good and evil",
-        "children",
-        "fantasy",
         "Action and adventure fiction",
         "Princes",
         "Fairy tales",
         "Friendship",
         "Witches",
-        "the Blitz"
+        "the Blitz",
+        "fauns",
+        "Turkish Delight",
+        "lions"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 60
@@ -11146,12 +11167,12 @@
       "url": "https://openlibrary.org/works/OL268217W",
       "score": 4.179487,
       "votes": 39,
-      "interest": 950,
+      "interest": 952,
       "language": [
-        "fre",
         "spa",
         "dan",
-        "eng"
+        "eng",
+        "fre"
       ],
       "subjects": [
         "Children's Middle Grade Books",
@@ -11160,14 +11181,14 @@
         "menarche",
         "Christians",
         "Jews",
-        "prayer",
         "sanitary napkins",
         "menstruation",
         "Seven Minutes in Heaven",
         "Religions",
         "Fiction",
         "Adolescent girls",
-        "Teenage girls"
+        "Teenage girls",
+        "Children's fiction"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 66
@@ -11735,10 +11756,10 @@
       "language": [
         "fre",
         "spa",
-        "ita",
-        "fin",
+        "eng",
         "ger",
-        "eng"
+        "ita",
+        "fin"
       ],
       "subjects": [
         "Fiction, historical, general",
