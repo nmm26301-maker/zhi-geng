@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-25T05:29:23.674Z",
+  "updatedAt": "2026-11-26T05:10:13.110Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 378,
+  "count": 379,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -93,6 +93,34 @@
       "editionCount": 1
     },
     {
+      "id": "book:/works/OL45346035W",
+      "title": "The Keeper",
+      "author": "Ana Huang",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15248365-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45346035W",
+      "score": 3.3333333,
+      "votes": 3,
+      "interest": 60,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Romance",
+        "Sports Romance",
+        "Sports",
+        "Contemporary Romance",
+        "Spicy",
+        "Contemporary",
+        "Soccer",
+        "Fiction",
+        "Adult"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 1
+    },
+    {
       "id": "book:/works/OL44870937W",
       "title": "My Husband's Wife",
       "author": "Alice Feeney",
@@ -122,34 +150,6 @@
       "editionCount": 1
     },
     {
-      "id": "book:/works/OL45346035W",
-      "title": "The Keeper",
-      "author": "Ana Huang",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15248365-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45346035W",
-      "score": 3.3333333,
-      "votes": 3,
-      "interest": 48,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Romance",
-        "Sports Romance",
-        "Sports",
-        "Contemporary Romance",
-        "Spicy",
-        "Contemporary",
-        "Soccer",
-        "Fiction",
-        "Adult"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 1
-    },
-    {
       "id": "book:/works/OL45084051W",
       "title": "Starside",
       "author": "Alex Aster",
@@ -173,6 +173,39 @@
         "Adult",
         "Fiction",
         "Spicy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 2
+    },
+    {
+      "id": "book:/works/OL45106192W",
+      "title": "Game On",
+      "author": "Navessa Allen",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15235861-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45106192W",
+      "score": 4.5,
+      "votes": 4,
+      "interest": 39,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Dark Romance",
+        "Romance",
+        "Enemies To Lovers",
+        "Spicy",
+        "Dark",
+        "Smut",
+        "Contemporary",
+        "Fiction",
+        "Enemies-to-lovers",
+        "Forced proximity",
+        "Rom-com",
+        "Morally gray MMC",
+        "Black cat FMC",
+        "Blackmail"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 2
@@ -262,37 +295,61 @@
       "editionCount": 3
     },
     {
-      "id": "book:/works/OL45106192W",
-      "title": "Game On",
-      "author": "Navessa Allen",
+      "id": "book:/works/OL44983631W",
+      "title": "Agnes Aubert's Mystical Cat Shelter",
+      "author": "Heather Fawcett",
       "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15235861-M.jpg",
+      "image": "https://covers.openlibrary.org/b/id/15174440-M.jpg",
       "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45106192W",
-      "score": 4.5,
+      "url": "https://openlibrary.org/works/OL44983631W",
+      "score": 3.5,
       "votes": 2,
+      "interest": 15,
+      "language": [
+        "dut",
+        "eng"
+      ],
+      "subjects": [
+        "romance",
+        "cozy",
+        "historical fiction",
+        "adult",
+        "Magic",
+        "Fiction",
+        "Historical",
+        "Cozy Fantasy",
+        "Fantasy"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 4
+    },
+    {
+      "id": "book:/works/OL45064293W",
+      "title": "Burn Down Master’s House",
+      "author": "Clay Cane",
+      "year": 2026,
+      "image": "https://covers.openlibrary.org/b/id/15203408-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL45064293W",
+      "score": 4,
+      "votes": 1,
       "interest": 15,
       "language": [
         "eng"
       ],
       "subjects": [
-        "Dark Romance",
-        "Romance",
-        "Enemies To Lovers",
-        "Spicy",
-        "Dark",
-        "Fake Dating",
-        "Smut",
-        "Contemporary",
+        "Historical Fiction",
         "Fiction",
-        "Enemies-to-lovers",
-        "Forced proximity",
-        "Rom-com",
-        "Morally gray MMC",
-        "Black cat FMC"
+        "Historical",
+        "Horror",
+        "Race",
+        "African American",
+        "Literary Fiction",
+        "Adult",
+        "Adult fiction"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 2
+      "editionCount": 1
     },
     {
       "id": "book:/works/OL45648210W",
@@ -505,35 +562,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL44983631W",
-      "title": "Agnes Aubert's Mystical Cat Shelter",
-      "author": "Heather Fawcett",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15174440-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL44983631W",
-      "score": 4,
-      "votes": 1,
-      "interest": 6,
-      "language": [
-        "eng",
-        "dut"
-      ],
-      "subjects": [
-        "fantasy",
-        "romance",
-        "cozy",
-        "historical fiction",
-        "cozy fantasy",
-        "adult",
-        "Magic",
-        "Fiction",
-        "Historical"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 4
     },
     {
       "id": "book:/works/OL45346558W",
@@ -761,34 +789,6 @@
       "editionCount": 1
     },
     {
-      "id": "book:/works/OL45064293W",
-      "title": "Burn Down Master’s House",
-      "author": "Clay Cane",
-      "year": 2026,
-      "image": "https://covers.openlibrary.org/b/id/15203408-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL45064293W",
-      "score": 0,
-      "votes": 0,
-      "interest": 3,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Historical Fiction",
-        "Fiction",
-        "Historical",
-        "Horror",
-        "Race",
-        "African American",
-        "Literary Fiction",
-        "Adult",
-        "Adult Fiction"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 1
-    },
-    {
       "id": "book:/works/OL44810501W",
       "title": "A Hole in the Sky",
       "author": "Peter F. Hamilton",
@@ -948,14 +948,14 @@
     {
       "id": "book:/works/OL42770100W",
       "title": "Diary of a Wimpy Kid Party Pooper",
-      "author": "Jeff Kinney",
+      "author": "Jeff Kinney · liam fay",
       "year": 2025,
       "image": "https://covers.openlibrary.org/b/id/15179458-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL42770100W",
       "score": 4.431818,
       "votes": 44,
-      "interest": 1037,
+      "interest": 1058,
       "language": [
         "eng"
       ],
@@ -964,7 +964,7 @@
         "Juvenile fiction"
       ],
       "ebookAccess": "no_ebook",
-      "editionCount": 2
+      "editionCount": 5
     },
     {
       "id": "book:/works/OL42830484W",
@@ -1361,6 +1361,34 @@
       "editionCount": 4
     },
     {
+      "id": "book:/works/OL42414694W",
+      "title": "The Correspondent",
+      "author": "Virginia Evans",
+      "year": 2025,
+      "image": "https://covers.openlibrary.org/b/id/15254278-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL42414694W",
+      "score": 4.3333335,
+      "votes": 3,
+      "interest": 70,
+      "language": [
+        "spa",
+        "eng"
+      ],
+      "subjects": [
+        "Fiction",
+        "Literary Fiction",
+        "Contemporary",
+        "Family",
+        "Books About Books",
+        "Adult",
+        "Grief",
+        "Adult fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL42407794W",
       "title": "Mina vänner",
       "author": "Fredrik Backman",
@@ -1379,9 +1407,9 @@
         "Contemporary",
         "Literary Fiction",
         "Adult",
-        "Coming Of Age",
         "Friendship",
-        "Adult Fiction"
+        "Adult fiction",
+        "Coming of age"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
@@ -2031,6 +2059,40 @@
       "editionCount": 6
     },
     {
+      "id": "book:/works/OL37247638W",
+      "title": "The Women",
+      "author": "Kristin Hannah",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/14631595-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37247638W",
+      "score": 4,
+      "votes": 5,
+      "interest": 117,
+      "language": [
+        "eng",
+        "spa",
+        "dut"
+      ],
+      "subjects": [
+        "American literature",
+        "nyt:combined-print-and-e-book-fiction=2024-02-25",
+        "New York Times bestseller",
+        "Historical fiction",
+        "nurses",
+        "psychic trauma",
+        "Psychological fiction",
+        "fiction",
+        "United States Armed Forces",
+        "veterans",
+        "Vietnam War",
+        "Young women",
+        "War"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 11
+    },
+    {
       "id": "book:/works/OL38386024W",
       "title": "King of Wrath / King of Pride / King of Greed / King of Sloth / Twisted Love / Twisted Games / Twisted Hate / Twisted Lies",
       "author": "Ana Huang",
@@ -2052,40 +2114,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 1
-    },
-    {
-      "id": "book:/works/OL37247638W",
-      "title": "The Women",
-      "author": "Kristin Hannah",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14631595-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37247638W",
-      "score": 4,
-      "votes": 5,
-      "interest": 116,
-      "language": [
-        "spa",
-        "dut",
-        "eng"
-      ],
-      "subjects": [
-        "American literature",
-        "nyt:combined-print-and-e-book-fiction=2024-02-25",
-        "New York Times bestseller",
-        "Historical fiction",
-        "nurses",
-        "psychic trauma",
-        "Psychological fiction",
-        "war",
-        "fiction",
-        "United States Armed Forces",
-        "veterans",
-        "Vietnam War",
-        "Young women"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 11
     },
     {
       "id": "book:/works/OL38392615W",
@@ -2922,13 +2950,13 @@
       "image": "https://covers.openlibrary.org/b/id/12749873-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL27733867W",
-      "score": 4.0141845,
-      "votes": 423,
-      "interest": 19695,
+      "score": 4.0165095,
+      "votes": 424,
+      "interest": 19697,
       "language": [
+        "eng",
         "spa",
         "por",
-        "eng",
         "fre"
       ],
       "subjects": [
@@ -2960,7 +2988,7 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5960,
+      "interest": 5962,
       "language": [
         "spa",
         "eng"
@@ -3091,7 +3119,7 @@
       "url": "https://openlibrary.org/works/OL28695130W",
       "score": 4.571429,
       "votes": 28,
-      "interest": 1775,
+      "interest": 1778,
       "language": [
         "eng"
       ],
@@ -3102,12 +3130,12 @@
         "Hope",
         "Faith",
         "Spirituality",
-        "Personal growth",
         "Transformation",
         "New beginnings",
         "Overcoming challenges",
         "Fiction, general",
-        "Fiction, lgbtq+, gay"
+        "Fiction, lgbtq+, gay",
+        "Personal Growth"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
@@ -3777,15 +3805,13 @@
       "url": "https://openlibrary.org/works/OL25515697W",
       "score": 4.0697675,
       "votes": 129,
-      "interest": 5978,
+      "interest": 5993,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Romance",
-        "contemporary romance",
-        "romantic suspense",
         "new adult romance",
         "forbidden love",
         "bodyguard romance",
@@ -3796,7 +3822,9 @@
         "steamy",
         "Fiction, romance, general",
         "Fiction, general",
-        "Serie:Twisted"
+        "Serie:Twisted",
+        "anthology",
+        "Anthologie"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 11
@@ -3811,7 +3839,7 @@
       "url": "https://openlibrary.org/works/OL27297240W",
       "score": 3.8549619,
       "votes": 131,
-      "interest": 4409,
+      "interest": 4410,
       "language": [
         "spa",
         "eng"
@@ -3843,9 +3871,9 @@
       "image": "https://covers.openlibrary.org/b/id/11182600-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24542623W",
-      "score": 3.7532468,
-      "votes": 77,
-      "interest": 3622,
+      "score": 3.7692308,
+      "votes": 78,
+      "interest": 3626,
       "language": [
         "eng"
       ],
@@ -3911,28 +3939,28 @@
       "url": "https://openlibrary.org/works/OL24457490W",
       "score": 4.02439,
       "votes": 82,
-      "interest": 1960,
+      "interest": 1963,
       "language": [
-        "bul",
+        "ger",
         "fin",
         "dut",
-        "ger",
-        "eng"
+        "eng",
+        "bul"
       ],
       "subjects": [
         "Children's fiction",
-        "Young adult",
-        "contemporary",
         "romance",
-        "grief",
         "loss",
         "second chances",
         "moving on",
-        "family",
-        "friendship",
-        "forgiveness",
-        "healing",
-        "New York Times bestseller"
+        "New York Times bestseller",
+        "Forgiveness",
+        "Grief",
+        "Healing",
+        "Young Adult",
+        "Contemporary",
+        "Friendship",
+        "Family"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
@@ -5555,11 +5583,11 @@
       "votes": 29,
       "interest": 552,
       "language": [
-        "pol",
-        "tur",
-        "hun",
+        "eng",
         "spa",
-        "eng"
+        "hun",
+        "pol",
+        "tur"
       ],
       "subjects": [
         "American literature",
@@ -5655,28 +5683,28 @@
       "image": "https://covers.openlibrary.org/b/id/10139515-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20128158W",
-      "score": 4.191781,
-      "votes": 73,
-      "interest": 504,
+      "score": 4.2027025,
+      "votes": 74,
+      "interest": 505,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Fiction, science fiction, action & adventure",
         "Fiction, fantasy, epic",
         "Fiction, fantasy, dark fantasy",
-        "paranormal",
         "necromancy",
         "LGBTQ science fiction & fantasy",
         "Women authors",
         "Lesbians",
         "Butch Lesbians",
-        "horror",
         "Mystery",
         "Swordplay",
         "Fiction",
-        "Magic"
+        "Magic",
+        "Swordsmen",
+        "Serie:The_Locked_Tomb"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 7
@@ -5756,7 +5784,7 @@
       "url": "https://openlibrary.org/works/OL20126932W",
       "score": 3.875,
       "votes": 16,
-      "interest": 472,
+      "interest": 473,
       "language": [
         "spa",
         "dut",
@@ -5826,18 +5854,17 @@
       "url": "https://openlibrary.org/works/OL20883297W",
       "score": 3.7755103,
       "votes": 49,
-      "interest": 458,
+      "interest": 459,
       "language": [
-        "fre",
+        "tur",
         "por",
-        "cat",
+        "fre",
         "spa",
-        "eng",
-        "tur"
+        "cat",
+        "eng"
       ],
       "subjects": [
         "Fiction, science fiction, general",
-        "speculative fiction",
         "nyt:combined-print-and-e-book-fiction=2021-03-21",
         "New York Times bestseller",
         "Fiction, dystopian",
@@ -5849,7 +5876,8 @@
         "Romance fiction",
         "Friendship",
         "Love",
-        "Paid companions (Household employees)"
+        "Paid companions (Household employees)",
+        "Intelligence artificielle"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 31
@@ -6153,33 +6181,33 @@
       "image": "https://covers.openlibrary.org/b/id/8794265-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20150260W",
-      "score": 4.0116277,
-      "votes": 86,
-      "interest": 1985,
+      "score": 4.0229883,
+      "votes": 87,
+      "interest": 2000,
       "language": [
+        "eng",
+        "ger",
+        "ita",
+        "heb",
         "baq",
         "spa",
-        "ita",
-        "pol",
-        "ger",
-        "eng",
-        "heb"
+        "pol"
       ],
       "subjects": [
-        "sex",
         "romance",
-        "contemporary",
-        "Dublin (ireland)",
         "fiction",
         "Man-woman relationships",
-        "literary fiction",
         "nyt:combined-print-and-e-book-fiction=2019-05-05",
         "New York Times bestseller",
         "New York Times reviewed",
         "Fiction, romance, contemporary",
         "Dublin (ireland), fiction",
         "Man-woman relationships, fiction",
-        "English literature"
+        "English literature",
+        "First loves",
+        "Social classes",
+        "College students",
+        "New Fiction"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 28
@@ -6907,16 +6935,16 @@
       "url": "https://openlibrary.org/works/OL20019347W",
       "score": 3.7222223,
       "votes": 72,
-      "interest": 2388,
+      "interest": 2389,
       "language": [
-        "fre",
         "pol",
-        "ger",
-        "spa",
-        "eng",
         "tur",
-        "ita",
-        "jpn"
+        "fre",
+        "spa",
+        "jpn",
+        "eng",
+        "ger",
+        "ita"
       ],
       "subjects": [
         "Japanese fiction",
@@ -6985,16 +7013,16 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.1363635,
       "votes": 88,
-      "interest": 2057,
+      "interest": 2060,
       "language": [
-        "fre",
-        "chi",
         "pol",
+        "tur",
         "por",
-        "ger",
+        "fre",
         "spa",
         "eng",
-        "tur"
+        "ger",
+        "chi"
       ],
       "subjects": [
         "Love & Romance",
@@ -7522,7 +7550,7 @@
       "url": "https://openlibrary.org/works/OL17843967W",
       "score": 4.125,
       "votes": 40,
-      "interest": 514,
+      "interest": 515,
       "language": [
         "pol",
         "eng"
@@ -8037,14 +8065,14 @@
       "votes": 47,
       "interest": 635,
       "language": [
-        "rus",
-        "fre",
-        "chi",
         "pol",
-        "ger",
         "dut",
+        "fre",
         "spa",
-        "eng"
+        "rus",
+        "eng",
+        "ger",
+        "chi"
       ],
       "subjects": [
         "Chevrolet Suburbans",
@@ -8108,12 +8136,11 @@
       "url": "https://openlibrary.org/works/OL20882185W",
       "score": 4.6153846,
       "votes": 26,
-      "interest": 530,
+      "interest": 542,
       "language": [
         "eng"
       ],
       "subjects": [
-        "girls",
         "friens",
         "pls give back",
         "Dork Diaries",
@@ -8126,7 +8153,8 @@
         "Friendship",
         "Family",
         "Misadventures",
-        "Coming of age"
+        "Coming of age",
+        "Humorous fiction"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 4
@@ -8213,7 +8241,7 @@
       "url": "https://openlibrary.org/works/OL15168588W",
       "score": 3.8888888,
       "votes": 45,
-      "interest": 462,
+      "interest": 463,
       "language": [
         "dut",
         "heb",
@@ -8252,7 +8280,7 @@
       "url": "https://openlibrary.org/works/OL15572356W",
       "score": 4.52,
       "votes": 25,
-      "interest": 423,
+      "interest": 425,
       "language": [
         "spa",
         "pol",
@@ -8536,18 +8564,18 @@
       "image": "https://covers.openlibrary.org/b/id/12648183-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL16336633W",
-      "score": 3.90991,
-      "votes": 333,
-      "interest": 7123,
+      "score": 3.9104478,
+      "votes": 335,
+      "interest": 7130,
       "language": [
-        "rus",
-        "fre",
-        "chi",
-        "hin",
-        "vie",
         "pol",
+        "tur",
+        "dut",
+        "heb",
         "por",
-        "ger"
+        "fre",
+        "cat",
+        "spa"
       ],
       "subjects": [
         "Man-woman relationships, fiction",
@@ -8654,18 +8682,18 @@
       "image": "https://covers.openlibrary.org/b/id/11408459-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL76833W",
-      "score": 3.6512456,
-      "votes": 281,
-      "interest": 1944,
+      "score": 3.6560283,
+      "votes": 282,
+      "interest": 1957,
       "language": [
+        "ita",
+        "ara",
         "lit",
-        "vie",
-        "swe",
-        "spa",
+        "cze",
+        "pol",
         "ice",
-        "jpn",
-        "tur",
-        "glg"
+        "swe",
+        "chi"
       ],
       "subjects": [
         "heparin",
@@ -8765,16 +8793,16 @@
       "url": "https://openlibrary.org/works/OL5819895W",
       "score": 3.7787235,
       "votes": 235,
-      "interest": 1625,
+      "interest": 1626,
       "language": [
-        "pol",
+        "spa",
+        "ger",
         "por",
         "fre",
-        "spa",
+        "pol",
+        "ita",
         "eng",
-        "ger",
-        "chi",
-        "ita"
+        "chi"
       ],
       "subjects": [
         "Fantasy",
@@ -9285,7 +9313,7 @@
       "url": "https://openlibrary.org/works/OL2941508W",
       "score": 3.9777777,
       "votes": 45,
-      "interest": 511,
+      "interest": 515,
       "language": [
         "spa",
         "eng"
@@ -9673,14 +9701,14 @@
       "votes": 23,
       "interest": 520,
       "language": [
-        "rus",
-        "fre",
-        "und",
-        "pol",
-        "por",
-        "dut",
         "spa",
-        "eng"
+        "por",
+        "fre",
+        "rus",
+        "pol",
+        "ita",
+        "dut",
+        "und"
       ],
       "subjects": [
         "cuckoo clocks",
@@ -9777,12 +9805,12 @@
       "votes": 26,
       "interest": 486,
       "language": [
-        "chi",
-        "por",
         "ger",
-        "spa",
+        "chi",
         "eng",
-        "ita"
+        "spa",
+        "ita",
+        "por"
       ],
       "subjects": [
         "Roland (Fictitious character : King)",
@@ -9924,10 +9952,10 @@
       "votes": 40,
       "interest": 332,
       "language": [
-        "por",
         "eng",
         "ger",
-        "ita"
+        "ita",
+        "por"
       ],
       "subjects": [
         "Fiction",
@@ -10078,10 +10106,10 @@
       "votes": 8,
       "interest": 281,
       "language": [
-        "dut",
-        "fre",
         "spa",
-        "eng"
+        "dut",
+        "eng",
+        "fre"
       ],
       "subjects": [
         "Kidnapping",
@@ -10112,16 +10140,16 @@
       "url": "https://openlibrary.org/works/OL134383W",
       "score": 3.8461537,
       "votes": 26,
-      "interest": 272,
+      "interest": 275,
       "language": [
+        "dut",
+        "por",
         "fre",
         "spa",
-        "ita",
         "jpn",
-        "por",
-        "fin",
+        "eng",
         "ger",
-        "dut"
+        "chi"
       ],
       "subjects": [
         "Fiction",
@@ -10362,18 +10390,18 @@
       "image": "https://covers.openlibrary.org/b/id/8489859-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL274574W",
-      "score": 4.0925927,
-      "votes": 54,
-      "interest": 651,
+      "score": 4.0363636,
+      "votes": 55,
+      "interest": 680,
       "language": [
-        "ita",
-        "spa",
-        "gre",
-        "rus",
-        "por",
         "tam",
+        "cze",
+        "gre",
+        "por",
         "ara",
-        "jpn"
+        "fre",
+        "spa",
+        "rus"
       ],
       "subjects": [
         "ritual",
@@ -10389,7 +10417,7 @@
         "Revenge",
         "social conditions",
         "twins",
-        "weddings"
+        "Venganza"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 100
@@ -10563,11 +10591,11 @@
       "votes": 14,
       "interest": 421,
       "language": [
-        "fre",
         "pol",
-        "ger",
+        "fre",
         "spa",
-        "eng"
+        "eng",
+        "ger"
       ],
       "subjects": [
         "series:dollanganger",
@@ -11240,18 +11268,18 @@
       "image": "https://covers.openlibrary.org/b/id/6522230-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL62073W",
-      "score": 3.8082192,
-      "votes": 73,
-      "interest": 528,
+      "score": 3.8243244,
+      "votes": 74,
+      "interest": 557,
       "language": [
         "san",
+        "kur",
         "heb",
         "ara",
         "por",
-        "eng",
+        "kor",
         "fre",
-        "jpn",
-        "kor"
+        "spa"
       ],
       "subjects": [
         "Gaviotas",
@@ -11390,14 +11418,14 @@
       "votes": 18,
       "interest": 339,
       "language": [
-        "rus",
-        "fre",
-        "swe",
-        "cmn",
-        "vie",
-        "est",
+        "spa",
         "ger",
-        "dan"
+        "vie",
+        "fre",
+        "rus",
+        "cmn",
+        "urd",
+        "cze"
       ],
       "subjects": [
         "Political prisoners",
