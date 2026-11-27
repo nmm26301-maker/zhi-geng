@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T05:10:13.110Z",
+  "updatedAt": "2026-11-27T05:08:26.794Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
   "count": 379,
@@ -1562,11 +1562,11 @@
       "url": "https://openlibrary.org/works/OL38128674W",
       "score": 4.1666665,
       "votes": 48,
-      "interest": 1730,
+      "interest": 1739,
       "language": [
-        "por",
+        "eng",
         "spa",
-        "eng"
+        "por"
       ],
       "subjects": [
         "romance",
@@ -2249,12 +2249,12 @@
       "url": "https://openlibrary.org/works/OL29226517W",
       "score": 4.302521,
       "votes": 119,
-      "interest": 3597,
+      "interest": 3611,
       "language": [
-        "ger",
-        "gre",
         "eng",
-        "spa"
+        "spa",
+        "ger",
+        "gre"
       ],
       "subjects": [
         "Fantasía",
@@ -2485,8 +2485,8 @@
       "votes": 23,
       "interest": 631,
       "language": [
-        "dut",
-        "eng"
+        "eng",
+        "dut"
       ],
       "subjects": [
         "Fiction",
@@ -2952,11 +2952,11 @@
       "url": "https://openlibrary.org/works/OL27733867W",
       "score": 4.0165095,
       "votes": 424,
-      "interest": 19697,
+      "interest": 19701,
       "language": [
         "eng",
-        "spa",
         "por",
+        "spa",
         "fre"
       ],
       "subjects": [
@@ -2988,10 +2988,10 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5962,
+      "interest": 5970,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Romance",
@@ -3341,8 +3341,8 @@
       "votes": 19,
       "interest": 689,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "enemies to lovers",
@@ -3839,10 +3839,10 @@
       "url": "https://openlibrary.org/works/OL27297240W",
       "score": 3.8549619,
       "votes": 131,
-      "interest": 4410,
+      "interest": 4416,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Fiction",
@@ -3873,7 +3873,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7692308,
       "votes": 78,
-      "interest": 3626,
+      "interest": 3635,
       "language": [
         "eng"
       ],
@@ -3941,9 +3941,9 @@
       "votes": 82,
       "interest": 1963,
       "language": [
-        "ger",
-        "fin",
         "dut",
+        "fin",
+        "ger",
         "eng",
         "bul"
       ],
@@ -4050,12 +4050,12 @@
       "url": "https://openlibrary.org/works/OL24236112W",
       "score": 4.487805,
       "votes": 41,
-      "interest": 1360,
+      "interest": 1363,
       "language": [
-        "spa",
-        "eng",
         "ger",
-        "ita"
+        "eng",
+        "ita",
+        "spa"
       ],
       "subjects": [
         "Children's fiction",
@@ -4667,7 +4667,7 @@
       "url": "https://openlibrary.org/works/OL28708075W",
       "score": 3.7,
       "votes": 20,
-      "interest": 871,
+      "interest": 873,
       "language": [
         "eng"
       ],
@@ -5784,11 +5784,11 @@
       "url": "https://openlibrary.org/works/OL20126932W",
       "score": 3.875,
       "votes": 16,
-      "interest": 473,
+      "interest": 474,
       "language": [
+        "eng",
         "spa",
         "dut",
-        "eng",
         "fre"
       ],
       "subjects": [
@@ -6183,15 +6183,15 @@
       "url": "https://openlibrary.org/works/OL20150260W",
       "score": 4.0229883,
       "votes": 87,
-      "interest": 2000,
+      "interest": 2002,
       "language": [
-        "eng",
+        "spa",
         "ger",
+        "pol",
         "ita",
         "heb",
-        "baq",
-        "spa",
-        "pol"
+        "eng",
+        "baq"
       ],
       "subjects": [
         "romance",
@@ -6935,16 +6935,16 @@
       "url": "https://openlibrary.org/works/OL20019347W",
       "score": 3.7222223,
       "votes": 72,
-      "interest": 2389,
+      "interest": 2395,
       "language": [
-        "pol",
         "tur",
-        "fre",
+        "ita",
+        "ger",
         "spa",
         "jpn",
+        "pol",
         "eng",
-        "ger",
-        "ita"
+        "fre"
       ],
       "subjects": [
         "Japanese fiction",
@@ -7013,16 +7013,16 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.1363635,
       "votes": 88,
-      "interest": 2060,
+      "interest": 2063,
       "language": [
-        "pol",
+        "chi",
         "tur",
-        "por",
-        "fre",
-        "spa",
-        "eng",
         "ger",
-        "chi"
+        "por",
+        "spa",
+        "pol",
+        "eng",
+        "fre"
       ],
       "subjects": [
         "Love & Romance",
@@ -7328,14 +7328,14 @@
       "votes": 61,
       "interest": 711,
       "language": [
+        "spa",
+        "por",
         "fre",
         "pol",
-        "por",
         "dut",
-        "cat",
-        "spa",
+        "heb",
         "eng",
-        "heb"
+        "cat"
       ],
       "subjects": [
         "Serie:Magnus_Chase_and_the_Gods_of_Asgard",
@@ -7691,34 +7691,34 @@
       "image": "https://covers.openlibrary.org/b/id/12848687-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15401200W",
-      "score": 4.430939,
-      "votes": 181,
-      "interest": 2539,
+      "score": 4.4153004,
+      "votes": 183,
+      "interest": 2562,
       "language": [
-        "cat",
-        "fre",
+        "rus",
+        "dut",
+        "chi",
         "tur",
         "vie",
-        "spa",
-        "rus",
-        "pol",
-        "por"
+        "cat",
+        "heb",
+        "ger"
       ],
       "subjects": [
         "Serie:The_Heroes_of_Olympus",
         "nyt:chapter_books=2010-11-06",
         "New York Times bestseller",
-        "fantasy",
-        "adventure",
         "kids",
         "teens",
-        "children",
         "Greek Mythology",
         "Juvenile fiction",
         "Fiction",
         "Gaia (Greek deity)",
         "Camps",
-        "Monsters"
+        "Monsters",
+        "Children's fiction",
+        "Fantasy fiction",
+        "Gods, fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 53
@@ -7733,16 +7733,16 @@
       "url": "https://openlibrary.org/works/OL15719630W",
       "score": 3.9863636,
       "votes": 220,
-      "interest": 2233,
+      "interest": 2235,
       "language": [
-        "fre",
-        "swe",
-        "pol",
-        "por",
-        "dut",
         "spa",
+        "por",
+        "fre",
+        "pol",
+        "dut",
+        "heb",
         "eng",
-        "heb"
+        "swe"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -8065,13 +8065,13 @@
       "votes": 47,
       "interest": 635,
       "language": [
+        "spa",
+        "ger",
+        "fre",
+        "rus",
         "pol",
         "dut",
-        "fre",
-        "spa",
-        "rus",
         "eng",
-        "ger",
         "chi"
       ],
       "subjects": [
@@ -8103,7 +8103,7 @@
       "url": "https://openlibrary.org/works/OL12489W",
       "score": 4.4857144,
       "votes": 35,
-      "interest": 558,
+      "interest": 559,
       "language": [
         "eng"
       ],
@@ -8280,11 +8280,11 @@
       "url": "https://openlibrary.org/works/OL15572356W",
       "score": 4.52,
       "votes": 25,
-      "interest": 425,
+      "interest": 426,
       "language": [
-        "spa",
         "pol",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Modern & contemporary fiction",
@@ -8566,16 +8566,16 @@
       "url": "https://openlibrary.org/works/OL16336633W",
       "score": 3.9104478,
       "votes": 335,
-      "interest": 7130,
+      "interest": 7134,
       "language": [
-        "pol",
-        "tur",
+        "rus",
         "dut",
-        "heb",
-        "por",
-        "fre",
+        "chi",
+        "tur",
+        "vie",
+        "ita",
         "cat",
-        "spa"
+        "heb"
       ],
       "subjects": [
         "Man-woman relationships, fiction",
@@ -8606,16 +8606,16 @@
       "url": "https://openlibrary.org/works/OL82560W",
       "score": 4.2600536,
       "votes": 373,
-      "interest": 5094,
+      "interest": 5095,
       "language": [
-        "pol",
-        "heb",
-        "hun",
-        "rus",
-        "eng",
-        "afr",
-        "arm",
-        "ita"
+        "dut",
+        "dan",
+        "tur",
+        "ben",
+        "hin",
+        "gre",
+        "fre",
+        "hun"
       ],
       "subjects": [
         "foster homes",
@@ -8971,6 +8971,46 @@
       "editionCount": 17
     },
     {
+      "id": "book:/works/OL5720022W",
+      "title": "Breaking Dawn",
+      "author": "Stephenie Meyer",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/12643419-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL5720022W",
+      "score": 3.442623,
+      "votes": 122,
+      "interest": 1070,
+      "language": [
+        "spa",
+        "kor",
+        "ger",
+        "vie",
+        "por",
+        "fre",
+        "pol",
+        "rus"
+      ],
+      "subjects": [
+        "series:Twilight",
+        "series:Luz_e_Escuridão School stories",
+        "Edward Cullen (Fictitious character)",
+        "Vampires",
+        "Bella Swan (Fictitious character)",
+        "Juvenile fiction",
+        "nyt:series_books=2008-03-15",
+        "Fiction",
+        "Werewolves",
+        "Interpersonal relations",
+        "Young adult fiction",
+        "Mystery fiction",
+        "New York Times bestseller",
+        "High schools"
+      ],
+      "ebookAccess": "borrowable",
+      "editionCount": 90
+    },
+    {
       "id": "book:/works/OL8464993W",
       "title": "The Viscount Who Loved Me",
       "author": "Julia Quinn",
@@ -9004,46 +9044,6 @@
       ],
       "ebookAccess": "borrowable",
       "editionCount": 27
-    },
-    {
-      "id": "book:/works/OL5720022W",
-      "title": "Breaking Dawn",
-      "author": "Stephenie Meyer",
-      "year": 2000,
-      "image": "https://covers.openlibrary.org/b/id/12643419-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL5720022W",
-      "score": 3.442623,
-      "votes": 122,
-      "interest": 1055,
-      "language": [
-        "fre",
-        "tur",
-        "vie",
-        "spa",
-        "pol",
-        "tha",
-        "por",
-        "dut"
-      ],
-      "subjects": [
-        "series:Twilight",
-        "series:Luz_e_Escuridão School stories",
-        "Edward Cullen (Fictitious character)",
-        "Vampires",
-        "Bella Swan (Fictitious character)",
-        "Juvenile fiction",
-        "nyt:series_books=2008-03-15",
-        "Fiction",
-        "Werewolves",
-        "Interpersonal relations",
-        "Young adult fiction",
-        "Mystery fiction",
-        "New York Times bestseller",
-        "High schools"
-      ],
-      "ebookAccess": "borrowable",
-      "editionCount": 90
     },
     {
       "id": "book:/works/OL784051W",
@@ -9338,6 +9338,41 @@
       "editionCount": 30
     },
     {
+      "id": "book:/works/OL5685119W",
+      "title": "Storm Front",
+      "author": "Jim Butcher",
+      "year": 2000,
+      "image": "https://covers.openlibrary.org/b/id/6414916-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL5685119W",
+      "score": 3.6132076,
+      "votes": 106,
+      "interest": 429,
+      "language": [
+        "eng",
+        "chi",
+        "ger"
+      ],
+      "subjects": [
+        "Mystery",
+        "Fiction",
+        "Fantasy",
+        "Wizards",
+        "Dresden, Harry (Fictitious characters)",
+        "Urban Fantasy",
+        "Wizards in fiction",
+        "science fiction",
+        "wizardry",
+        "Fiction, fantasy, contemporary",
+        "Fiction, mystery & detective, general",
+        "Private investigators, fiction",
+        "Chicago (ill.), fiction",
+        "Harry Dresden (Fictitious character)"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 22
+    },
+    {
       "id": "book:/works/OL20523543W",
       "title": "The hidden kingdom [graphic novel]",
       "author": "Barry Deutsch · Tui T. Sutherland",
@@ -9360,41 +9395,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 9
-    },
-    {
-      "id": "book:/works/OL5685119W",
-      "title": "Storm Front",
-      "author": "Jim Butcher",
-      "year": 2000,
-      "image": "https://covers.openlibrary.org/b/id/6414916-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL5685119W",
-      "score": 3.6116505,
-      "votes": 103,
-      "interest": 410,
-      "language": [
-        "ger",
-        "chi",
-        "eng"
-      ],
-      "subjects": [
-        "Mystery",
-        "Fiction",
-        "Fantasy",
-        "Wizards",
-        "Dresden, Harry (Fictitious characters)",
-        "Urban Fantasy",
-        "Wizards in fiction",
-        "science fiction",
-        "magic",
-        "wizardry",
-        "Fiction, fantasy, contemporary",
-        "Fiction, mystery & detective, general",
-        "Private investigators, fiction",
-        "Chicago (ill.), fiction"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 22
     },
     {
       "id": "book:/works/OL77100W",
@@ -9522,16 +9522,16 @@
       "url": "https://openlibrary.org/works/OL46881W",
       "score": 4.182243,
       "votes": 214,
-      "interest": 1836,
+      "interest": 1837,
       "language": [
-        "rus",
-        "fre",
-        "chi",
-        "por",
-        "ger",
-        "dut",
         "spa",
-        "eng"
+        "ger",
+        "por",
+        "fre",
+        "rus",
+        "gre",
+        "ita",
+        "dut"
       ],
       "subjects": [
         "dichogamy",
@@ -9803,14 +9803,14 @@
       "url": "https://openlibrary.org/works/OL81600W",
       "score": 4.3076925,
       "votes": 26,
-      "interest": 486,
+      "interest": 487,
       "language": [
-        "ger",
-        "chi",
-        "eng",
         "spa",
+        "ger",
+        "por",
         "ita",
-        "por"
+        "eng",
+        "chi"
       ],
       "subjects": [
         "Roland (Fictitious character : King)",
@@ -10205,6 +10205,31 @@
       "editionCount": 24
     },
     {
+      "id": "book:/works/OL84482W",
+      "title": "Chocolate Flava",
+      "author": "Zane",
+      "year": 1990,
+      "image": "https://covers.openlibrary.org/b/id/6462681-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL84482W",
+      "score": 4.6666665,
+      "votes": 3,
+      "interest": 257,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Man-woman relationships",
+        "African Americans",
+        "Fiction",
+        "Erotic stories",
+        "American Erotic stories",
+        "Love"
+      ],
+      "ebookAccess": "printdisabled",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL796480W",
       "title": "Brida",
       "author": "Paulo Coelho",
@@ -10243,31 +10268,6 @@
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 32
-    },
-    {
-      "id": "book:/works/OL84482W",
-      "title": "Chocolate Flava",
-      "author": "Zane",
-      "year": 1990,
-      "image": "https://covers.openlibrary.org/b/id/6462681-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL84482W",
-      "score": 4.6666665,
-      "votes": 3,
-      "interest": 239,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "love",
-        "Man-woman relationships",
-        "African Americans",
-        "Fiction",
-        "Erotic stories",
-        "American Erotic stories"
-      ],
-      "ebookAccess": "printdisabled",
-      "editionCount": 5
     },
     {
       "id": "book:/works/OL72359W",
@@ -10310,18 +10310,18 @@
       "image": "https://covers.openlibrary.org/b/id/9176033-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL45885W",
-      "score": 4.1164384,
-      "votes": 146,
-      "interest": 1686,
+      "score": 4.134228,
+      "votes": 149,
+      "interest": 1695,
       "language": [
-        "fre",
-        "swe",
-        "spa",
-        "urd",
-        "ita",
         "wel",
+        "spa",
+        "kor",
+        "ger",
+        "por",
+        "fre",
         "pol",
-        "ukr"
+        "urd"
       ],
       "subjects": [
         "Open Library Staff Picks",
@@ -10330,14 +10330,14 @@
         "Teens",
         "Teenagers",
         "YA",
-        "Young adult",
         "Juvenile",
         "Fiction",
         "Fantasy",
         "Make-believe",
         "Literature",
         "Chapters",
-        "Chapter Book"
+        "Chapter Book",
+        "Books"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 155
@@ -10472,16 +10472,16 @@
       "url": "https://openlibrary.org/works/OL81605W",
       "score": 3.8333333,
       "votes": 114,
-      "interest": 561,
+      "interest": 562,
       "language": [
-        "pol",
-        "und",
         "hun",
-        "rus",
-        "jpn",
-        "eng",
         "ger",
-        "ita"
+        "rus",
+        "pol",
+        "ita",
+        "und",
+        "jpn",
+        "eng"
       ],
       "subjects": [
         "The Fog",
@@ -10591,11 +10591,11 @@
       "votes": 14,
       "interest": 421,
       "language": [
-        "pol",
-        "fre",
         "spa",
-        "eng",
-        "ger"
+        "ger",
+        "fre",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "series:dollanganger",
@@ -10626,16 +10626,16 @@
       "url": "https://openlibrary.org/works/OL4672081W",
       "score": 3.68,
       "votes": 25,
-      "interest": 316,
+      "interest": 319,
       "language": [
-        "swa",
-        "fre",
+        "tur",
+        "ita",
         "ger",
+        "wol",
+        "swa",
         "spa",
         "eng",
-        "wol",
-        "tur",
-        "ita"
+        "fre"
       ],
       "subjects": [
         "Fiction (fictional works by one author)",
@@ -10668,14 +10668,14 @@
       "votes": 46,
       "interest": 245,
       "language": [
-        "pol",
-        "dut",
+        "spa",
         "por",
         "fre",
-        "spa",
+        "pol",
+        "ita",
+        "dut",
         "eng",
-        "chi",
-        "ita"
+        "chi"
       ],
       "subjects": [
         "kakundakari",
@@ -10708,14 +10708,14 @@
       "votes": 16,
       "interest": 235,
       "language": [
+        "chi",
+        "dut",
         "fre",
         "tur",
-        "gre",
-        "spa",
-        "pol",
-        "jpn",
+        "ger",
         "por",
-        "dut"
+        "jpn",
+        "spa"
       ],
       "subjects": [
         "space ships",
@@ -11161,10 +11161,10 @@
       "votes": 93,
       "interest": 974,
       "language": [
-        "rus",
-        "spa",
         "pol",
-        "eng"
+        "eng",
+        "rus",
+        "spa"
       ],
       "subjects": [
         "Fantasy fiction",
@@ -11229,17 +11229,17 @@
       "image": "https://covers.openlibrary.org/b/id/15152696-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL50565W",
-      "score": 4.030303,
-      "votes": 33,
-      "interest": 916,
+      "score": 4.09375,
+      "votes": 32,
+      "interest": 925,
       "language": [
-        "fre",
         "spa",
-        "por",
-        "eng",
         "ger",
-        "tur",
-        "heb"
+        "por",
+        "fre",
+        "heb",
+        "eng",
+        "tur"
       ],
       "subjects": [
         "foster care",
@@ -11310,11 +11310,11 @@
       "url": "https://openlibrary.org/works/OL5092623W",
       "score": 4.142857,
       "votes": 49,
-      "interest": 491,
+      "interest": 493,
       "language": [
+        "eng",
         "und",
-        "spa",
-        "eng"
+        "spa"
       ],
       "subjects": [
         "Ficción juvenil",
@@ -11345,11 +11345,11 @@
       "url": "https://openlibrary.org/works/OL151956W",
       "score": 4.3404255,
       "votes": 94,
-      "interest": 434,
+      "interest": 435,
       "language": [
+        "eng",
         "und",
-        "spa",
-        "eng"
+        "spa"
       ],
       "subjects": [
         "watchdogs",
@@ -11363,9 +11363,9 @@
         "Fiction",
         "Mice -- Fiction",
         "camps",
-        "Humorous Stories",
         "Action & Adventure",
-        "animals"
+        "Juvenile works",
+        "Children's fiction"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 60
