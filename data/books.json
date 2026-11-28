@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-27T05:08:26.794Z",
+  "updatedAt": "2026-11-28T04:46:38.796Z",
   "source": "Open Library / Project Gutenberg",
   "yearCount": 15,
-  "count": 379,
+  "count": 380,
   "items": [
     {
       "id": "book:/works/OL45106188W",
@@ -367,7 +367,7 @@
       ],
       "subjects": [
         "genre:non-fiction",
-        "artificial intelligence"
+        "Artificial intelligence"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
@@ -1398,7 +1398,7 @@
       "url": "https://openlibrary.org/works/OL42407794W",
       "score": 3.75,
       "votes": 4,
-      "interest": 58,
+      "interest": 59,
       "language": [
         "eng"
       ],
@@ -1562,11 +1562,11 @@
       "url": "https://openlibrary.org/works/OL38128674W",
       "score": 4.1666665,
       "votes": 48,
-      "interest": 1739,
+      "interest": 1741,
       "language": [
         "eng",
-        "spa",
-        "por"
+        "por",
+        "spa"
       ],
       "subjects": [
         "romance",
@@ -1758,6 +1758,34 @@
       "editionCount": 4
     },
     {
+      "id": "book:/works/OL37572598W",
+      "title": "The Reappearance of Rachel Price",
+      "author": "Holly Jackson",
+      "year": 2024,
+      "image": "https://covers.openlibrary.org/b/id/14605870-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL37572598W",
+      "score": 4.25,
+      "votes": 4,
+      "interest": 182,
+      "language": [
+        "ger",
+        "eng"
+      ],
+      "subjects": [
+        "Children's fiction",
+        "nyt:young-adult-hardcover=2024-04-21",
+        "New York Times bestseller",
+        "Suspense",
+        "Thriller",
+        "Young Adult",
+        "audience:Young Adult",
+        "Young adult fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 18
+    },
+    {
       "id": "book:/works/OL37575309W",
       "title": "Just for the Summer",
       "author": "Abby Jimenez",
@@ -1778,34 +1806,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
-    },
-    {
-      "id": "book:/works/OL37572598W",
-      "title": "The Reappearance of Rachel Price",
-      "author": "Holly Jackson",
-      "year": 2024,
-      "image": "https://covers.openlibrary.org/b/id/14605870-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL37572598W",
-      "score": 4.25,
-      "votes": 4,
-      "interest": 179,
-      "language": [
-        "ger",
-        "eng"
-      ],
-      "subjects": [
-        "Children's fiction",
-        "nyt:young-adult-hardcover=2024-04-21",
-        "New York Times bestseller",
-        "Suspense",
-        "Thriller",
-        "Young Adult Fiction",
-        "Young Adult",
-        "audience:Young Adult"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 18
     },
     {
       "id": "book:/works/OL37577731W",
@@ -1927,7 +1927,7 @@
       "url": "https://openlibrary.org/works/OL37588041W",
       "score": 4.4,
       "votes": 5,
-      "interest": 152,
+      "interest": 154,
       "language": [
         "eng"
       ],
@@ -2299,6 +2299,40 @@
       "editionCount": 13
     },
     {
+      "id": "book:/works/OL29330646W",
+      "title": "King of Pride",
+      "author": "Ana Huang",
+      "year": 2023,
+      "image": "https://covers.openlibrary.org/b/id/13244526-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL29330646W",
+      "score": 4.25,
+      "votes": 16,
+      "interest": 1165,
+      "language": [
+        "eng",
+        "spa"
+      ],
+      "subjects": [
+        "Romance",
+        "forbidden romance",
+        "billionaire romance",
+        "opposites attract",
+        "enemies to lovers",
+        "steamy romance",
+        "alpha male",
+        "strong female lead",
+        "angst",
+        "hurt/comfort",
+        "New York Times bestseller",
+        "Fiction, romance, general",
+        "Serie:Kings_of_Sin",
+        "Redemption"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 5
+    },
+    {
       "id": "book:/works/OL34028551W",
       "title": "Iron Flame",
       "author": "Rebecca Yarros",
@@ -2325,40 +2359,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 14
-    },
-    {
-      "id": "book:/works/OL29330646W",
-      "title": "King of Pride",
-      "author": "Ana Huang",
-      "year": 2023,
-      "image": "https://covers.openlibrary.org/b/id/13244526-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL29330646W",
-      "score": 4.25,
-      "votes": 16,
-      "interest": 1161,
-      "language": [
-        "spa",
-        "eng"
-      ],
-      "subjects": [
-        "Romance",
-        "forbidden romance",
-        "billionaire romance",
-        "opposites attract",
-        "enemies to lovers",
-        "steamy romance",
-        "alpha male",
-        "strong female lead",
-        "angst",
-        "hurt/comfort",
-        "New York Times bestseller",
-        "Fiction, romance, general",
-        "Serie:Kings_of_Sin",
-        "Redemption"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 5
     },
     {
       "id": "book:/works/OL35718442W",
@@ -2428,13 +2428,12 @@
       "url": "https://openlibrary.org/works/OL34265902W",
       "score": 3.1333334,
       "votes": 15,
-      "interest": 791,
+      "interest": 811,
       "language": [
         "eng"
       ],
       "subjects": [
         "Romantic comedy",
-        "contemporary romance",
         "LGBTQ+ romance",
         "m/m romance",
         "fake relationship",
@@ -2445,7 +2444,8 @@
         "funny",
         "heartwarming",
         "feel-good",
-        "Fiction, romance, general"
+        "Fiction, romance, general",
+        "Contemporary Romance"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 5
@@ -2988,7 +2988,7 @@
       "url": "https://openlibrary.org/works/OL27818823W",
       "score": 4.0971427,
       "votes": 175,
-      "interest": 5970,
+      "interest": 5971,
       "language": [
         "eng",
         "spa"
@@ -3022,10 +3022,10 @@
       "url": "https://openlibrary.org/works/OL27245843W",
       "score": 3.8055556,
       "votes": 108,
-      "interest": 4623,
+      "interest": 4632,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Romance",
@@ -3178,16 +3178,15 @@
       "image": "https://covers.openlibrary.org/b/id/14418599-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL26955716W",
-      "score": 4.142857,
-      "votes": 28,
-      "interest": 1407,
+      "score": 4.137931,
+      "votes": 29,
+      "interest": 1412,
       "language": [
         "dut",
         "eng"
       ],
       "subjects": [
         "Fiction, romance, general",
-        "Contemporary romance",
         "Second chance romance",
         "Estranged friends to lovers",
         "Small town",
@@ -3199,7 +3198,8 @@
         "Redemption",
         "New York Times bestseller",
         "Fiction, romance, contemporary",
-        "Fiction, small town & rural"
+        "Fiction, small town & rural",
+        "Fiction, romance, romantic comedy"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 8
@@ -3258,6 +3258,35 @@
       "editionCount": 9
     },
     {
+      "id": "book:/works/OL27092839W",
+      "title": "As Long As the Lemon Trees Grow",
+      "author": "Zoulfa Katouh",
+      "year": 2022,
+      "image": "https://covers.openlibrary.org/b/id/13872888-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL27092839W",
+      "score": 3.875,
+      "votes": 16,
+      "interest": 903,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Teen & Young Adult",
+        "War & Military",
+        "Fear",
+        "Fiction",
+        "Survival",
+        "Hospitals",
+        "Civil war",
+        "History",
+        "Fiction, women",
+        "Young adult fiction"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 11
+    },
+    {
       "id": "book:/works/OL25960186W",
       "title": "Set on You",
       "author": "Amy Lea",
@@ -3277,35 +3306,6 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 3
-    },
-    {
-      "id": "book:/works/OL27092839W",
-      "title": "As Long As the Lemon Trees Grow",
-      "author": "Zoulfa Katouh",
-      "year": 2022,
-      "image": "https://covers.openlibrary.org/b/id/13872888-M.jpg",
-      "source": "Open Library",
-      "url": "https://openlibrary.org/works/OL27092839W",
-      "score": 3.5833333,
-      "votes": 12,
-      "interest": 820,
-      "language": [
-        "eng"
-      ],
-      "subjects": [
-        "Teen & Young Adult",
-        "Young Adult Fiction",
-        "War & Military",
-        "Fear",
-        "Fiction",
-        "Survival",
-        "Hospitals",
-        "Civil war",
-        "History",
-        "Fiction, women"
-      ],
-      "ebookAccess": "no_ebook",
-      "editionCount": 11
     },
     {
       "id": "book:/works/OL29195444W",
@@ -3339,7 +3339,7 @@
       "url": "https://openlibrary.org/works/OL29232835W",
       "score": 4.3157897,
       "votes": 19,
-      "interest": 689,
+      "interest": 690,
       "language": [
         "eng",
         "spa"
@@ -3696,13 +3696,13 @@
       "image": "https://covers.openlibrary.org/b/id/12940491-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL24390422W",
-      "score": 3.800633,
-      "votes": 316,
-      "interest": 15406,
+      "score": 3.8018868,
+      "votes": 318,
+      "interest": 15430,
       "language": [
-        "fre",
+        "eng",
         "spa",
-        "eng"
+        "fre"
       ],
       "subjects": [
         "Fiction, romance, multicultural & interracial",
@@ -3768,12 +3768,12 @@
       "url": "https://openlibrary.org/works/OL24178205W",
       "score": 4.1292777,
       "votes": 263,
-      "interest": 9613,
+      "interest": 9667,
       "language": [
-        "spa",
+        "dut",
         "ita",
         "por",
-        "dut",
+        "spa",
         "eng"
       ],
       "subjects": [
@@ -3803,9 +3803,9 @@
       "image": "https://covers.openlibrary.org/b/id/12821465-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL25515697W",
-      "score": 4.0697675,
-      "votes": 129,
-      "interest": 5993,
+      "score": 4.076923,
+      "votes": 130,
+      "interest": 6004,
       "language": [
         "eng",
         "spa"
@@ -3873,7 +3873,7 @@
       "url": "https://openlibrary.org/works/OL24542623W",
       "score": 3.7692308,
       "votes": 78,
-      "interest": 3635,
+      "interest": 3645,
       "language": [
         "eng"
       ],
@@ -4050,7 +4050,7 @@
       "url": "https://openlibrary.org/works/OL24236112W",
       "score": 4.487805,
       "votes": 41,
-      "interest": 1363,
+      "interest": 1364,
       "language": [
         "ger",
         "eng",
@@ -4789,16 +4789,16 @@
       "url": "https://openlibrary.org/works/OL27965945W",
       "score": 4.1666665,
       "votes": 6,
-      "interest": 622,
+      "interest": 639,
       "language": [
-        "spa",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "Contemporary Romance",
-        "Young Adult Fiction",
         "Fiction, sports",
-        "Series:Boys-of-Tommen"
+        "Series:Boys-of-Tommen",
+        "Young adult fiction"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 6
@@ -4876,6 +4876,39 @@
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 23
+    },
+    {
+      "id": "book:/works/OL20758187W",
+      "title": "아몬드",
+      "author": "Won-Pyung Sohn · Won-pyung Sohn",
+      "year": 2020,
+      "image": "https://covers.openlibrary.org/b/id/11654300-M.jpg",
+      "source": "Open Library",
+      "url": "https://openlibrary.org/works/OL20758187W",
+      "score": 4.3,
+      "votes": 20,
+      "interest": 539,
+      "language": [
+        "eng"
+      ],
+      "subjects": [
+        "Fiction, coming of age",
+        "Fiction, asian american",
+        "Teenage boys",
+        "Fiction",
+        "Alexithymia",
+        "Friendship",
+        "Bullies",
+        "Life change events",
+        "Language and languages",
+        "Contemporary",
+        "Young Adult",
+        "Literary Fiction",
+        "Mental Health",
+        "Asian Literature"
+      ],
+      "ebookAccess": "no_ebook",
+      "editionCount": 8
     },
     {
       "id": "book:/works/OL20780974W",
@@ -5214,14 +5247,14 @@
       "image": "https://covers.openlibrary.org/b/id/9171544-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL20090688W",
-      "score": 4.18,
-      "votes": 200,
-      "interest": 5089,
+      "score": 4.1791043,
+      "votes": 201,
+      "interest": 5102,
       "language": [
-        "por",
-        "spa",
         "ger",
-        "eng"
+        "eng",
+        "spa",
+        "por"
       ],
       "subjects": [
         "Fiction, gay",
@@ -5232,12 +5265,12 @@
         "nyt:trade-fiction-paperback=2019-06-02",
         "New York Times bestseller",
         "fiction",
-        "humor",
         "romance",
         "LGBTQ romance",
         "Fiction, lgbtq+, gay",
         "Fiction, humorous, general",
-        "Bisexuals"
+        "Bisexuals",
+        "Bisexual men"
       ],
       "ebookAccess": "no_ebook",
       "editionCount": 23
@@ -5581,13 +5614,13 @@
       "url": "https://openlibrary.org/works/OL20650912W",
       "score": 4.3103447,
       "votes": 29,
-      "interest": 552,
+      "interest": 554,
       "language": [
-        "eng",
-        "spa",
         "hun",
+        "tur",
+        "spa",
         "pol",
-        "tur"
+        "eng"
       ],
       "subjects": [
         "American literature",
@@ -5787,8 +5820,8 @@
       "interest": 474,
       "language": [
         "eng",
-        "spa",
         "dut",
+        "spa",
         "fre"
       ],
       "subjects": [
@@ -6031,13 +6064,13 @@
       "image": "https://covers.openlibrary.org/b/id/8361789-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL17850410W",
-      "score": 4.011494,
-      "votes": 174,
-      "interest": 5913,
+      "score": 3.9943182,
+      "votes": 176,
+      "interest": 5965,
       "language": [
-        "heb",
         "dut",
-        "eng"
+        "eng",
+        "heb"
       ],
       "subjects": [
         "Fairies--Fiction.",
@@ -6183,15 +6216,15 @@
       "url": "https://openlibrary.org/works/OL20150260W",
       "score": 4.0229883,
       "votes": 87,
-      "interest": 2002,
+      "interest": 2003,
       "language": [
-        "spa",
-        "ger",
-        "pol",
         "ita",
         "heb",
-        "eng",
-        "baq"
+        "ger",
+        "baq",
+        "spa",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "romance",
@@ -6256,15 +6289,15 @@
       "image": "https://covers.openlibrary.org/b/id/8739376-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL18012166W",
-      "score": 4.1652174,
-      "votes": 115,
-      "interest": 1173,
+      "score": 4.172414,
+      "votes": 116,
+      "interest": 1183,
       "language": [
-        "pol",
-        "por",
-        "eng",
         "dut",
-        "tur"
+        "tur",
+        "por",
+        "pol",
+        "eng"
       ],
       "subjects": [
         "Fantasy",
@@ -6586,7 +6619,7 @@
       "url": "https://openlibrary.org/works/OL19742314W",
       "score": 4.5,
       "votes": 10,
-      "interest": 432,
+      "interest": 451,
       "language": [
         "eng"
       ],
@@ -6694,9 +6727,9 @@
       "votes": 21,
       "interest": 359,
       "language": [
-        "spa",
         "pol",
-        "eng"
+        "eng",
+        "spa"
       ],
       "subjects": [
         "juvenile fiction",
@@ -6896,15 +6929,15 @@
       "url": "https://openlibrary.org/works/OL17332479W",
       "score": 4.5416665,
       "votes": 96,
-      "interest": 2560,
+      "interest": 2561,
       "language": [
-        "ukr",
         "rus",
-        "fre",
-        "por",
+        "tur",
         "ger",
+        "por",
         "eng",
-        "tur"
+        "ukr",
+        "fre"
       ],
       "subjects": [
         "Young adult fiction",
@@ -7013,7 +7046,7 @@
       "url": "https://openlibrary.org/works/OL17356883W",
       "score": 4.1363635,
       "votes": 88,
-      "interest": 2063,
+      "interest": 2066,
       "language": [
         "chi",
         "tur",
@@ -7121,7 +7154,7 @@
       "url": "https://openlibrary.org/works/OL18020192W",
       "score": 4.319149,
       "votes": 94,
-      "interest": 1401,
+      "interest": 1402,
       "language": [
         "eng"
       ],
@@ -7550,7 +7583,7 @@
       "url": "https://openlibrary.org/works/OL17843967W",
       "score": 4.125,
       "votes": 40,
-      "interest": 515,
+      "interest": 516,
       "language": [
         "pol",
         "eng"
@@ -7653,16 +7686,16 @@
       "url": "https://openlibrary.org/works/OL16444438W",
       "score": 4.181818,
       "votes": 231,
-      "interest": 4705,
+      "interest": 4713,
       "language": [
-        "pol",
-        "may",
+        "rus",
+        "chi",
         "dut",
+        "may",
+        "cat",
+        "ger",
         "por",
-        "fre",
-        "kor",
-        "spa",
-        "cat"
+        "kor"
       ],
       "subjects": [
         "Cancer—Fiction",
@@ -7731,18 +7764,18 @@
       "image": "https://covers.openlibrary.org/b/id/13274634-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL15719630W",
-      "score": 3.9863636,
-      "votes": 220,
-      "interest": 2235,
+      "score": 3.99095,
+      "votes": 221,
+      "interest": 2243,
       "language": [
-        "spa",
-        "por",
-        "fre",
-        "pol",
         "dut",
+        "tur",
         "heb",
-        "eng",
-        "swe"
+        "por",
+        "spa",
+        "pol",
+        "swe",
+        "eng"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -7843,7 +7876,7 @@
       "url": "https://openlibrary.org/works/OL8756330W",
       "score": 4.423077,
       "votes": 104,
-      "interest": 1259,
+      "interest": 1260,
       "language": [
         "eng"
       ],
@@ -8065,14 +8098,14 @@
       "votes": 47,
       "interest": 635,
       "language": [
-        "spa",
-        "ger",
-        "fre",
         "rus",
-        "pol",
         "dut",
+        "chi",
+        "ger",
+        "spa",
+        "pol",
         "eng",
-        "chi"
+        "fre"
       ],
       "subjects": [
         "Chevrolet Suburbans",
@@ -8346,10 +8379,10 @@
       "url": "https://openlibrary.org/works/OL15370343W",
       "score": 4.09375,
       "votes": 32,
-      "interest": 382,
+      "interest": 383,
       "language": [
-        "vie",
-        "eng"
+        "eng",
+        "vie"
       ],
       "subjects": [
         "New York Times bestseller",
@@ -8606,7 +8639,7 @@
       "url": "https://openlibrary.org/works/OL82560W",
       "score": 4.2600536,
       "votes": 373,
-      "interest": 5095,
+      "interest": 5096,
       "language": [
         "dut",
         "dan",
@@ -8684,16 +8717,16 @@
       "url": "https://openlibrary.org/works/OL76833W",
       "score": 3.6560283,
       "votes": 282,
-      "interest": 1957,
+      "interest": 1958,
       "language": [
-        "ita",
-        "ara",
-        "lit",
-        "cze",
-        "pol",
-        "ice",
-        "swe",
-        "chi"
+        "dut",
+        "cmn",
+        "dan",
+        "tur",
+        "srp",
+        "glg",
+        "fre",
+        "ind"
       ],
       "subjects": [
         "heparin",
@@ -8793,16 +8826,16 @@
       "url": "https://openlibrary.org/works/OL5819895W",
       "score": 3.7787235,
       "votes": 235,
-      "interest": 1626,
+      "interest": 1627,
       "language": [
-        "spa",
+        "chi",
+        "ita",
         "ger",
         "por",
-        "fre",
+        "spa",
         "pol",
-        "ita",
         "eng",
-        "chi"
+        "fre"
       ],
       "subjects": [
         "Fantasy",
@@ -8870,13 +8903,13 @@
       "url": "https://openlibrary.org/works/OL468658W",
       "score": 4.22549,
       "votes": 102,
-      "interest": 1277,
+      "interest": 1278,
       "language": [
-        "spa",
-        "eng",
-        "ger",
         "chi",
-        "ita"
+        "ita",
+        "ger",
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Freundschaft",
@@ -9276,13 +9309,13 @@
       "url": "https://openlibrary.org/works/OL80763W",
       "score": 3.9189188,
       "votes": 37,
-      "interest": 534,
+      "interest": 555,
       "language": [
-        "por",
-        "eng",
         "ger",
-        "fre",
-        "spa"
+        "por",
+        "spa",
+        "eng",
+        "fre"
       ],
       "subjects": [
         "Juvenile Fiction",
@@ -9293,12 +9326,12 @@
         "Terrorism, fiction",
         "England, fiction",
         "Rider, alex (fictitious character), fiction",
-        "Young Adult Fiction",
         "Terrorism in fiction",
         "Alex Rider (Fictitious character)",
         "Spies",
         "England in fiction",
-        "Spy stories"
+        "Spy stories",
+        "Orphans in fiction"
       ],
       "ebookAccess": "printdisabled",
       "editionCount": 51
@@ -9562,15 +9595,15 @@
       "url": "https://openlibrary.org/works/OL453936W",
       "score": 4.4347825,
       "votes": 92,
-      "interest": 1343,
+      "interest": 1347,
       "language": [
-        "cat",
+        "rus",
+        "chi",
         "tur",
-        "fre",
-        "swe",
-        "spa",
         "ita",
-        "pol",
+        "cat",
+        "ger",
+        "por",
         "cze"
       ],
       "subjects": [
@@ -10016,14 +10049,14 @@
       "url": "https://openlibrary.org/works/OL16585191W",
       "score": 4.3333335,
       "votes": 24,
-      "interest": 314,
+      "interest": 317,
       "language": [
-        "fre",
+        "chi",
+        "tur",
         "spa",
         "pol",
         "eng",
-        "tur",
-        "chi"
+        "fre"
       ],
       "subjects": [
         "Fairy tales",
@@ -10106,9 +10139,9 @@
       "votes": 8,
       "interest": 281,
       "language": [
-        "spa",
-        "dut",
         "eng",
+        "dut",
+        "spa",
         "fre"
       ],
       "subjects": [
@@ -10432,20 +10465,18 @@
       "url": "https://openlibrary.org/works/OL81623W",
       "score": 3.892857,
       "votes": 28,
-      "interest": 613,
+      "interest": 612,
       "language": [
         "rus",
-        "fre",
-        "und",
-        "pol",
-        "ger",
         "dut",
+        "tur",
+        "ger",
+        "und",
         "spa",
+        "pol",
         "eng"
       ],
       "subjects": [
-        "Genetic Engineering",
-        "suspense",
         "Fiction",
         "Psychokinesis",
         "Fire",
@@ -10457,7 +10488,9 @@
         "migraines",
         "bleeding",
         "pyrokinesis",
-        "hit men"
+        "hit men",
+        "Cherokees",
+        "Vietnam veterans"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 79
@@ -10474,13 +10507,13 @@
       "votes": 114,
       "interest": 562,
       "language": [
-        "hun",
-        "ger",
         "rus",
-        "pol",
+        "hun",
         "ita",
+        "ger",
         "und",
         "jpn",
+        "pol",
         "eng"
       ],
       "subjects": [
@@ -10547,23 +10580,22 @@
       "image": "https://covers.openlibrary.org/b/id/12714921-M.jpg",
       "source": "Open Library",
       "url": "https://openlibrary.org/works/OL2163655W",
-      "score": 4.1666665,
-      "votes": 42,
-      "interest": 427,
+      "score": 4.2045455,
+      "votes": 44,
+      "interest": 433,
       "language": [
-        "ger",
-        "pol",
         "chi",
-        "spa",
         "tur",
-        "fre",
+        "ger",
         "por",
-        "eng"
+        "spa",
+        "pol",
+        "eng",
+        "fre"
       ],
       "subjects": [
         "Fiction",
         "Humorous fiction",
-        "humorous stories",
         "Interplanetary voyages",
         "Restaurants",
         "Science Fiction",
@@ -10574,7 +10606,8 @@
         "Fiction, humorous",
         "Fiction, science fiction, general",
         "English literature",
-        "English Science fiction"
+        "English Science fiction",
+        "18.05 English literature"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 92
@@ -10591,11 +10624,11 @@
       "votes": 14,
       "interest": 421,
       "language": [
-        "spa",
         "ger",
-        "fre",
+        "spa",
         "pol",
-        "eng"
+        "eng",
+        "fre"
       ],
       "subjects": [
         "series:dollanganger",
@@ -11197,9 +11230,9 @@
       "votes": 39,
       "interest": 952,
       "language": [
-        "spa",
-        "dan",
         "eng",
+        "dan",
+        "spa",
         "fre"
       ],
       "subjects": [
@@ -11884,16 +11917,16 @@
       "url": "https://openlibrary.org/works/OL472159W",
       "score": 2.4,
       "votes": 5,
-      "interest": 109,
+      "interest": 115,
       "language": [
-        "ita",
-        "tur",
         "chi",
-        "ger",
-        "fre",
-        "und",
+        "tur",
         "vie",
-        "spa"
+        "ita",
+        "ger",
+        "und",
+        "spa",
+        "eng"
       ],
       "subjects": [
         "Detective and mystery stories, English",
@@ -11909,7 +11942,7 @@
         "Detective and mystery stories",
         "Roman",
         "Roman policier",
-        "Français (langue)"
+        "Lectures et morceaux choisis"
       ],
       "ebookAccess": "borrowable",
       "editionCount": 91
